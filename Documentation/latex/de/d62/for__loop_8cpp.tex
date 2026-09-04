@@ -1,0 +1,121 @@
+\doxysection{Cracky\+OS/src/for\+\_\+loop.cpp File Reference}
+\hypertarget{for__loop_8cpp}{}\label{for__loop_8cpp}\index{CrackyOS/src/for\_loop.cpp@{CrackyOS/src/for\_loop.cpp}}
+
+
+This file contains for\+\_\+loop instruction.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+{\ttfamily \#include \"{}arithmetic.\+h\"{}}\newline
+Include dependency graph for for\+\_\+loop.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{for__loop_8cpp_af3c622ef82350bfd032d8da01ba37133}{token\+\_\+for\+\_\+loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{for__loop_8cpp_a04b3f79813699beb3e044ed41a539d0e}{nested\+Forloop}} = 0
+\item 
+unsigned char \mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nested\+Whileloop}} = 0
+\item 
+unsigned char \mbox{\hyperlink{for__loop_8cpp_a6188105921723260dbcbf61d9b6a7448}{nested\+For\+Whileloop}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains for\+\_\+loop instruction. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{for__loop_8cpp_source}{for\+\_\+loop.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{for__loop_8cpp_af3c622ef82350bfd032d8da01ba37133}\label{for__loop_8cpp_af3c622ef82350bfd032d8da01ba37133} 
+\index{for\_loop.cpp@{for\_loop.cpp}!token\_for\_loop@{token\_for\_loop}}
+\index{token\_for\_loop@{token\_for\_loop}!for\_loop.cpp@{for\_loop.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_for\_loop()}{token\_for\_loop()}}
+{\footnotesize\ttfamily int token\+\_\+for\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+For loop Syntax for this loop is as follow for (VAR1=NO, var2=?CONDITION , VAR3++/--/..etc) \{ block of code to be executed \} NOTE\+:Please notice that between each part there is a comma ..not a semicolon. 
+
+Definition at line \mbox{\hyperlink{for__loop_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{for__loop_8cpp_source}{for\+\_\+loop.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{tokens_8cpp_source_l00045}{for\+Extract}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00110}{Get\+Logical\+Operation\+Answer()}}, \mbox{\hyperlink{types_8h_source_l00675}{Global\+Variables\+::hash\+Varnme}}, \mbox{\hyperlink{for__loop_8cpp_source_l00031}{nested\+Forloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00035}{nested\+For\+Whileloop}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{for__loop_8cpp_a04b3f79813699beb3e044ed41a539d0e}\label{for__loop_8cpp_a04b3f79813699beb3e044ed41a539d0e} 
+\index{for\_loop.cpp@{for\_loop.cpp}!nestedForloop@{nestedForloop}}
+\index{nestedForloop@{nestedForloop}!for\_loop.cpp@{for\_loop.cpp}}
+\doxysubsubsection{\texorpdfstring{nestedForloop}{nestedForloop}}
+{\footnotesize\ttfamily unsigned char nested\+Forloop = 0}
+
+This variable will count the no. of for-\/loop instructions inside a block 
+
+Definition at line \mbox{\hyperlink{for__loop_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{for__loop_8cpp_source}{for\+\_\+loop.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00324}{token\+\_\+initialize\+Inter\+Active()}}.
+
+\Hypertarget{for__loop_8cpp_a6188105921723260dbcbf61d9b6a7448}\label{for__loop_8cpp_a6188105921723260dbcbf61d9b6a7448} 
+\index{for\_loop.cpp@{for\_loop.cpp}!nestedForWhileloop@{nestedForWhileloop}}
+\index{nestedForWhileloop@{nestedForWhileloop}!for\_loop.cpp@{for\_loop.cpp}}
+\doxysubsubsection{\texorpdfstring{nestedForWhileloop}{nestedForWhileloop}}
+{\footnotesize\ttfamily unsigned char nested\+For\+Whileloop = 0}
+
+This will be used when we have for \& while loops used inside each other. 
+
+Definition at line \mbox{\hyperlink{for__loop_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{for__loop_8cpp_source}{for\+\_\+loop.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}, \mbox{\hyperlink{tokens_8cpp_source_l00324}{token\+\_\+initialize\+Inter\+Active()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+\Hypertarget{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}\label{for__loop_8cpp_a2e9ded229ef478189216e4a344148515} 
+\index{for\_loop.cpp@{for\_loop.cpp}!nestedWhileloop@{nestedWhileloop}}
+\index{nestedWhileloop@{nestedWhileloop}!for\_loop.cpp@{for\_loop.cpp}}
+\doxysubsubsection{\texorpdfstring{nestedWhileloop}{nestedWhileloop}}
+{\footnotesize\ttfamily unsigned char nested\+Whileloop = 0}
+
+This variable will count the no. of while-\/loop instructions inside a block 
+
+Definition at line \mbox{\hyperlink{for__loop_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{for__loop_8cpp_source}{for\+\_\+loop.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}, \mbox{\hyperlink{tokens_8cpp_source_l00324}{token\+\_\+initialize\+Inter\+Active()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+

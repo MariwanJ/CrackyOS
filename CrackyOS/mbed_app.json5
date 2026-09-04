@@ -1,0 +1,52 @@
+{
+    "target_overrides": {
+        "*": {
+            "platform.stdio-baud-rate": 115200,
+            "platform.stdio-buffered-serial": 1,
+            "drivers.can.enable": true,
+            "drivers.can.bitrate": 500000,
+            "sd.CMD_TIMEOUT": 250,
+            "sd.CMD0_IDLE_STATE_RETRIES": 2
+        },
+        "NUCLEO_F207ZG": {
+            "target.components_add": [
+                "SD",
+                "SPI",
+                "I2C",
+                "CAN",
+                "STORAGE",
+                "InterruptIn"
+            ]
+        },
+        "NUCLEO_F767ZI": {
+            "target.components_add": [
+                "SD",
+                "SPI",
+                "I2C",
+                "CAN",
+                "STORAGE",
+                "InterruptIn"
+            ]
+        },
+        "NUCLEO_L4R5ZI": {
+            "target.components_add": [
+                "SD",
+                "SPI",
+                "I2C",
+                "CAN",
+                "STORAGE",
+                "InterruptIn"
+            ]
+        },
+        "NUCLEO_L476RG": {
+            "target.components_add": [
+                "SD",
+                "SPI",
+                "I2C",
+                "CAN",
+                "STORAGE",
+                "InterruptIn"
+            ]
+        }
+    }
+}

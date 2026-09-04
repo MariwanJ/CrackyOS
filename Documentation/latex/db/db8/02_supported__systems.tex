@@ -1,0 +1,31 @@
+\chapter{Supported Systems}
+\hypertarget{02_supported__systems}{}\label{02_supported__systems}\index{Supported Systems@{Supported Systems}}
+Any ARM Cortex-\/\+M3/\+M4 processor that is mbed-\/os enabled could run this system with modifications to some files. \doxysubsubsection*{Note\+:}
+
+Some additional requirements must be taken into consideration as follows\+:
+\begin{DoxyItemize}
+\item Flash memory size\+: This is necessary because the compiled binary requires a specific amount of flash memory.
+\item RAM size\+: This is essential to take in the account because the script program will be loaded to the memory. The size of the script program is exactly what you must have plus some more RAM for the system to run.
+\end{DoxyItemize}
+
+\doxysubsection*{Known working hardware\+:}
+
+
+\begin{DoxyItemize}
+\item NUCLEO-\/\+L476\+RG
+\item NUCLEO-\/\+F207\+ZG
+\item NUCLEO-\/\+L4\+R5\+ZI
+\item NUCLEO-\/\+F767\+ZI
+\end{DoxyItemize}
+
+\doxysubsection*{Adding support for new hardware}
+
+To support a new hardware platform, create or modify the hardware definition files for the corresponding Nucleo board\+: 
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{nucleo__l476rg__hw_8cpp}{nucleo\+\_\+l476rg\+\_\+hw.\+cpp}} and {\ttfamily \doxylink{nucleo__l476rg__hw_8h}{nucleo\+\_\+l476rg\+\_\+hw.\+h}} 
+\item {\ttfamily \doxylink{nucleo__f207zg__hw_8cpp}{nucleo\+\_\+f207zg\+\_\+hw.\+cpp}} and {\ttfamily \doxylink{nucleo__f207zg__hw_8h}{nucleo\+\_\+f207zg\+\_\+hw.\+h}} 
+\item {\ttfamily \doxylink{nucleo__f767zi__hw_8cpp_source}{nucleo\+\_\+f767zi\+\_\+hw.\+cpp}} and {\ttfamily \doxylink{nucleo__f767zi__hw_8h_source}{nucleo\+\_\+f767zi\+\_\+hw.\+h}} 
+\item {\ttfamily \doxylink{nucleo__l4r5zi__hw_8cpp_source}{nucleo\+\_\+l4r5zi\+\_\+hw.\+cpp}} and {\ttfamily \doxylink{nucleo__l4r5zi__hw_8h_source}{nucleo\+\_\+l4r5zi\+\_\+hw.\+h}} 
+\end{DoxyItemize}
+
+These files contain definitions specific to each hardware and system. For example, GPIO names and SPI, I2C, and PWM channels vary from device to device. 

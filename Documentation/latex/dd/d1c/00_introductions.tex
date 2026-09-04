@@ -1,0 +1,11 @@
+\chapter{Introductions}
+\hypertarget{00_introductions}{}\label{00_introductions}\index{Introductions@{Introductions}}
+{\bfseries{Cracky\+OS scripting}} is a script interpreter designed to make it easier to program and design test systems while providing a range of capabilities and flexibility.
+
+It supports procedural and functional programming. It accepts a script source file as input and executes the script. There is no need to recompile the script. The system runs the code in two passes\+: in the first pass, it translates the script source code into tokens; in the second pass, it runs the generated file. Precompiled files use the extension \"{}.\+dad\"{}, while source files use the extension \"{}.\+dat\"{}.
+
+Because this is an interpreter-\/based OS, scripts run more slowly than compiled code performing the same task. The aim of the system is not speed, but flexibility and rapid development.
+
+When debug logging is enabled, log messages are sent to the RS232 terminal. Each message uses a special code, which is documented in the error.\+h file. Debug logging can significantly slow down the system because of the limited speed of RS232. Use it only for the relevant parts of the code.
+
+A GUI is also provided to make programming the system easier and help reduce coding errors. 

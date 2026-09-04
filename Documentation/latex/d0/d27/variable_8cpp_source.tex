@@ -1,0 +1,618 @@
+\doxysection{variable.\+cpp}
+\hypertarget{variable_8cpp_source}{}\label{variable_8cpp_source}\index{CrackyOS/src/variable.cpp@{CrackyOS/src/variable.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hardware__used_8h}{hardware\_used.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}variable.h"{}}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00043}00043\ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00044}00044\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00045}00045\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00046}00046\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [\ \ \ \ \ \ \ =\ -\/-\/>nr\ -\/-\/>save\ value}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00047}00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00048}00048\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00049}00049\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ]\ \ \ \ \ \ \ \ nr}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00050}00050\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ \(\backslash\)\ \ \ \ \ \ \ /\ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00051}00051\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ \ \ \ \ \(\backslash\)\ \ \ \ /\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00052}00052\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \ \ ERROR\ \ \ ]\ \ \ \ \ \ =\ -\/-\/>ERROR}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00053}00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ \(\backslash\)\ \ \ \ \ \ \ \ \ \ \ NR\ OR}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00054}00054\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ \ \ \ \ \(\backslash\)\ \ \ \ \ \ \ \ \{NR,NR\}}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00055}00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ nr\ \ \ \ \ \{n2,2,2\}\ \ \ \(\backslash\)-\/-\/>\ SAVE\ VALUE}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00056}00056\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ /\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00057}00057\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ ERROR\ \ \ \ \ \ \ \ \ SAVE\ VALUE}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00058}00058\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00059}00059\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00061}\mbox{\hyperlink{common_8h_a7ed99eec28da7c75cbd5800f1ee7340b}{00061}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{common_8h_a7ed99eec28da7c75cbd5800f1ee7340b}{token\_variable}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00062}00062\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00064}00064\ \ \ \ \ STOP\_CODE\_EXECUTION\_MINUS}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}INFO\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_VARIABLE\_START);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{int}\ varPosition;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{int}\ stringLength\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordtype}{char}*\ var\_buf\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{int}\ newVariable\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00071}00071\ \ \ \ \ stringLength\ =\ (strlen(\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString));}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00073}00073\ \ \ \ \ var\_buf\ =\ (\textcolor{keywordtype}{char}*)calloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})\ *\ (stringLength\ +\ 1),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (var\_buf\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00075}00075\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_VAR\_BUF);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\textcolor{comment}{//Exit\ the\ program}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00080}00080\ \ \ \ \ strncpy(var\_buf,\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString,\ stringLength);\ \textcolor{comment}{//We\ don't\ need\ to\ add\ '\(\backslash\)0'\ as\ we\ uses\ calloc}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00082}00082\ \ \ \ \ varPosition\ =\ \mbox{\hyperlink{tokens_8cpp_af255f12c1be461e65dbaf4363419b7ef}{TestSystem\_get\_variable}}(var\_buf);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_VARIABLE);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ next\ token\ word.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (varPosition\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Variable\ not\ found\ ..\ save\ new\ variable}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ varPosition\ =\ \mbox{\hyperlink{tokens_8h_a86b46dd515cd3b3c58df1c6e21c6dbce}{TestSystem\_get\_empty\_variable\_pos}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ newVariable\ =\ 1;\ \ \textcolor{comment}{//We\ have\ new\ variable.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (varPosition\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ERROR\_SCRIPT\_VARIABLE\_OVERFLOW);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Add\ a\ new\ variable\ ..\ but\ still\ not\ totally\ defined.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6397a73edc0a383b76f2cc8223396eb2}{addNewScriptVariable}}(var\_buf,\ varPosition);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ var\_buf\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (var\_buf\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ free(var\_buf);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00099}00099\ \ \ \ \ var\_buf\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}})\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PLUSPLUS:}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_MINUSMINUS:\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ token\_plusminus(varPosition,\ newVariable);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00105}00105\ \ \ \ \ \}\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00106}00106\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_LEFT\_SQUARE\_BRACKET:\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ toke\_leftSquareBracket(varPosition,\ newVariable);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00108}00108\ \ \ \ \ \}\textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_EQUAL:\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ token\_equial(varPosition,\ newVariable);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00111}00111\ \ \ \ \ \}\textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_BAD\_INSTRUCTION\_EQUAL\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IT\ wasn't\ a\ variable,\ seems\ to\ be\ a\ bad\ instruction\ ..}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\textcolor{comment}{//\ Nothing\ to\ do\ more}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00118}00118\ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}INFO\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_VARIABLE\_START);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00122}00122\ \textcolor{keywordtype}{int}\ token\_plusminus(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ varPosition,\ \textcolor{keywordtype}{int}\&\ newVariable)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (varPosition\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ERROR\ ..\ We\ shouln't\ be\ here.\ When\ the\ variable\ is\ new\ ..\ this\ will\ happen.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_NOT\_INT\_NUMBER\_INC);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{comment}{//\ We\ have\ increment/decrement}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_FLOAT)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_PLUSPLUS)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ (*\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf)++;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ (*\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00134}00134\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_INT)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_PLUSPLUS)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ (*\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi)++;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ (*\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00142}00142\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ERROR\ ..\ We\ shouln't\ be\ here.\ When\ the\ variable\ is\ new\ ..\ this\ will\ happen.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_NOT\_INT\_NUMBER\_INC);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00146}00146\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00148}00148\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}});}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00150}00150\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00151}00151\ \textcolor{keywordtype}{int}\ toke\_leftSquareBracket(\textcolor{keywordtype}{int}\&\ varPosition,\ \textcolor{keywordtype}{int}\&\ newVariable)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00152}00152\ \ \ \ \ \textcolor{comment}{//\ We\ have\ an\ array.\ Deal\ with\ the\ array\ correctly.\ Either\ it\ is\ a\ Array[]=\{...\},\ Array[nr]=\{value\},\ \ OR\ Array[nr]=\ ...}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00153}00153\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_LEFT\_SQUARE\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00154}00154\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}})\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ Array[]=\{...\}}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ number\ should\ have\ been\ specified\ \ so\ we\ have\ only\ var[]=\{nr,nr,nr..etc\}}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_RIGHT\_SQUARE\_BRACKET:\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ toke\_leftSquareBracket\_token\_rightSquareBracket(varPosition,\ newVariable);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00160}00160\ \ \ \ \ \}\ \textcolor{comment}{//end\ case\ Array\ Square\ brackets.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00161}00161\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_NUMBER:\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ toke\_leftSquareBracket\_token\_Number(varPosition,\ newVariable);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Here\ we\ have\ an\ array,\ one/several\ value(s)\ will\ be\ updated\ .or\ a\ new\ array\ will\ be\ created.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00165}00165\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_SQUARE\_BRACKET\_MISSING);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00169}00169\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00170}00170\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00171}00171\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00172}00172\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00173}00173\ \textcolor{keywordtype}{int}\ token\_equial(\textcolor{keywordtype}{int}\&\ varPosition,\ \textcolor{keywordtype}{int}\&\ newVariable)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00174}00174\ \ \ \ \ \textcolor{keywordtype}{float}\ results\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{comment}{//\ This\ is\ wrong\ \ 2021-\/02-\/19}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00176}00176\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_EQUAL);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00177}00177\ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_VARIABLE\ \&\&\ \mbox{\hyperlink{arithmetic_8cpp_a5ee7b5ae2799b4e36fffb0404c0a3157}{CheckIfTheRightSideIsVarOfArrayString}}()\ ==\ 1)\ ||\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_STRING)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ a\ string\ equation\ ..\ Calculate\ this\ part\ separately}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arithmetic_8cpp_a091f57ad6fbc0bdd3492013aeff6e4ec}{CalculateRightSideofVariableEquation\_TEXT}}(varPosition);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00181}00181\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00182}00182\ \ \ \ \ \textcolor{comment}{//\ We\ found\ '='\ ,\ get\ the\ value\ and\ save\ the\ variable.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00183}00183\ \ \ \ \ \textcolor{comment}{//\ We\ have\ either\ two\ variable\ that\ they\ are\ equal\ or\ an\ arithmetic\ operation.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00184}00184\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00185}00185\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ code\ for\ arithmetic\ operation\ should\ be\ here.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00186}00186\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00191}00191\ \ \ \ \ results\ =\ \mbox{\hyperlink{arithmetic_8cpp_a450c1aa3eaf02a14d4f600c023ee0809}{CalculateRightSideofVariableEquation}}();\ \ \ \ \ \ \ \textcolor{comment}{//This\ is\ correct\ ONLY\ for\ numerical\ expressions.\ If\ you\ have\ a\ text\ manipulation\ ..\ this\ will\ fails.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00192}00192\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00193}00193\ \ \ \ \ \textcolor{keywordflow}{if}\ (newVariable\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ceil(results)\ ==\ results)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_INT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ (int)results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_FLOAT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00214}00214\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//Update\ the\ value.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_FLOAT)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_INT)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ceil(results)\ ==\ results)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ (int)results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Value\ has\ changed\ it's\ nature\ ..\ from\ INT\ to\ Float.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_FLOAT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\textcolor{comment}{//Exit\ the\ program}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00238}00238\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00239}00239\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00240}00240\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00247}00247\ \textcolor{keywordtype}{int}\ toke\_leftSquareBracket\_token\_rightSquareBracket(\textcolor{keywordtype}{int}\&\ varPosition,\ \textcolor{keywordtype}{int}\&\ newVariable)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00248}00248\ \ \ \ \ \textcolor{keywordtype}{int}\ NoLeftCurly\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00249}00249\ \ \ \ \ \textcolor{comment}{//float\ value\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ should\ have\ a\ list\ of\ elements\ here\ \{NR1,NR2,..ETC\ \}.\ We\ don't\ allow\ other\ syntax}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00251}00251\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_RIGHT\_SQUARE\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00252}00252\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_EQUAL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_NO\_EQUAL\_SIGN);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00255}00255\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00256}00256\ \ \ \ \ \textcolor{comment}{//We\ have\ equal\ sign\ ..\ collect\ the\ items.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00257}00257\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_EQUAL);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00258}00258\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_LEFT\_CURLY\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}Warning\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_NO\_LCURLY\_FOUND);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ NoLeftCurly\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00261}00261\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00262}00262\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00263}00263\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_LEFT\_CURLY\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ NoLeftCurly\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00266}00266\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00268}00268\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{\ \textcolor{comment}{//After\ the\ TOKEN\_LEFT\_CURLY\_BRACKET,\ no\ numbers\ found\ ..go\ out.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ERROR\_ITEM\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00271}00271\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{comment}{/*Count\ number\ of\ comma\ and\ we\ have\ to\ decide\ if\ the\ numbers\ are\ int\ or\ float??\ search\ for\ '.'\ if\ you\ can\ find\ it\ ..}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00273}00273\ \textcolor{comment}{\ \ \ \ \ \ all\ values\ will\ be\ saved\ as\ float.*/}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00274}00274\ \ \ \ \ \ \ \textcolor{comment}{//\ instr\_linkedList*\ pSaveProg\ =\ p\_prog-\/>prev;}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00276}00276\ \ \ \ \ \textcolor{keywordtype}{int}\ returnResult\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00277}00277\ \ \ \ \ \textcolor{comment}{//Count\ number\ of\ comma\ (i.e.\ items)}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{keywordflow}{if}\ (!NoLeftCurly)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ DotFound\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ countComma\ =\ countCommaInAssignment(DotFound);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Item\ of\ array\ found\ ..\ save\ it.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (countComma\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ only\ one\ item\ \ It\ in\ the\ array}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_WARNING\_ONLY\_ONE\_ITEM\_FOUND);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ know\ that\ the\ variable\ is\ not\ registered.\ Create\ a\ new\ and\ calculate\ the\ array\ size\ also\ which\ is\ one}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ returnResult\ =\ newOneNumberSquareBracket(varPosition,\ newVariable,\ DotFound);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ multiple\ numbers..\ Save\ them\ in\ the\ array.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ returnResult\ =\ newMultipleNumberSquareBracket(varPosition,\ newVariable,\ DotFound,\ countComma);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_RIGHT\_CURLY\_BRACKET)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_RIGHT\_CURLY\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00294}00294\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00295}00295\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ result2\ =\ \mbox{\hyperlink{arithmetic_8cpp_a450c1aa3eaf02a14d4f600c023ee0809}{CalculateRightSideofVariableEquation}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((\textcolor{keywordtype}{int})result2)\ ==\ result2)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ an\ integer\ value}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_INT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ (int)result2;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ a\ float\ value}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_FLOAT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ result2;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00318}00318\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00319}00319\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00320}00320\ \textcolor{comment}{\ \ \ \ if\ (current\_token\_word\ !=\ TOKEN\_RIGHT\_CURLY\_BRACKET)\ \{}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00321}00321\ \textcolor{comment}{\ \ \ \ \ \ \ \ DEBUG\_MESSAGE("{}ERROR\ \%i\(\backslash\)n"{},\ DBG\_MSG\_SYNTAX\_TOKEN\_RIGHT\_CURLY\_BRACKET\_NOTFOUND);}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00322}00322\ \textcolor{comment}{\ \ \ \ \ \ \ \ return\ quitScriptProgram(1);}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00323}00323\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00324}00324\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00325}00325\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_RIGHT\_CURLY\_BRACKET)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_RIGHT\_CURLY\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00327}00327\ \ \ \ \ \textcolor{keywordflow}{return}\ returnResult;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00328}00328\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00335}00335\ \textcolor{keywordtype}{int}\ toke\_leftSquareBracket\_token\_Number(\textcolor{keywordtype}{int}\&\ varPosition,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ newVariable)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00336}00336\ \ \ \ \ \textcolor{keywordtype}{float}\ result2;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00337}00337\ \ \ \ \ \textcolor{keywordtype}{float}\ results\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();\ \textcolor{comment}{//Number\ of\ elements}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00338}00338\ \ \ \ \ \textcolor{keywordtype}{int}\ arraySize\ =\ (int)results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00339}00339\ \ \ \ \ \textcolor{keywordflow}{if}\ (arraySize\ <=\ 0\ ||\ results\ !=\ arraySize)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00342}00342\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00343}00343\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00344}00344\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_RIGHT\_SQUARE\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_SQUARE\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00347}00347\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00348}00348\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_RIGHT\_SQUARE\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00349}00349\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_EQUAL)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00350}00350\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_EQUAL\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00353}00353\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00354}00354\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_EQUAL);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00355}00355\ \ \ \ \ \textcolor{keywordflow}{if}\ (newVariable\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_LEFT\_CURLY\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a[3]=\{1,2,3\}\ \ values\ will\ be\ assigned\ for\ each\ item.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ DotFound\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_LEFT\_CURLY\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ countComma\ =\ countCommaInAssignment(DotFound);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Save\ the\ values.\ a[3]=\{2\}\ \ \ -\/-\/\ >\ this\ should\ be\ accepted.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ newMultipleNumberSquareBracket(varPosition,\ newVariable,\ DotFound,\ countComma);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_RIGHT\_CURLY\_BRACKET)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_RIGHT\_CURLY\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ a[3]=\ 4\ -\/-\/-\/>\ all\ values\ are\ 4}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Get\ the\ value\ to\ be\ assigned\ to\ all\ elements.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ result2\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00376}00376\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Size\ of\ the\ array}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}}\ =\ arraySize;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((\textcolor{keywordtype}{int})result2)\ ==\ result2)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ an\ integer\ value}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_INT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[arraySize];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ coun\ =\ 0;\ coun\ <\ arraySize;\ coun++)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi[coun]\ =\ result2;\textcolor{comment}{//Put\ the\ same\ value\ inside\ all\ locations.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ a\ float\ value}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_FLOAT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[arraySize];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ coun\ =\ 0;\ coun\ <\ (int)results;\ coun++)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf[coun]\ =\ result2;\textcolor{comment}{//Put\ the\ same\ value\ inside\ all\ locations.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Error}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_CURLY\_BRACKET\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00408}00408\ \ \ \ \ \}\textcolor{comment}{//End\ of\ newVariable\ ==1}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00409}00409\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (newVariable\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Not\ a\ new\ variable,\ but\ an\ element\ inside\ the\ array\ will\ be\ updated.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00411}00411\ \ \ \ \ \ \ \ \ \textcolor{comment}{//If\ the\ nature\ of\ the\ variable\ changed\ (from\ single\ to\ array),\ we\ have}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \textcolor{comment}{//to\ recreate\ the\ variable.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00417}00417\ \ \ \ \ \ \ \ \ result2\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00418}00418\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (results\ <\ 0\ ||\ results\ !=\ (\textcolor{keywordtype}{int})results)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00424}00424\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].sizeOfArray\ <=\ (\textcolor{keywordtype}{int})results)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Here\ we\ have\ to\ remove\ the\ old\ array\ and\ make\ a\ new\ a\ our\ new\ array\ is\ bigger.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_FLOAT)\ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_INT)\ \ \ \ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_STRING)\ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf=NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi=NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue=NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{int}(result2)\ ==\ result2)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//New\ value\ is\ int}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_INT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[(int)results];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00438}00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ results;\ i++)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi[i]\ =\ result2;\ \textcolor{comment}{//Assign\ the\ same\ value\ to\ tall}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00440}00440\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//new\ value\ is\ float}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00443}00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_FLOAT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[(int)results];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ results;\ i++)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf[i]\ =\ result2;\ \textcolor{comment}{//Assign\ the\ same\ value\ to\ tall}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00448}00448\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}}\ =\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00449}00449\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00450}00450\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//There\ is\ only\ one\ value\ ..\ so\ just\ assigned\ to\ the\ global\ variable.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ result2\ =\ \mbox{\hyperlink{arithmetic_8cpp_a450c1aa3eaf02a14d4f600c023ee0809}{CalculateRightSideofVariableEquation}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_FLOAT)}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf[(int)results]\ =\ result2;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_INT)\ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi[(int)results]\ =\ (\textcolor{keywordtype}{int})result2;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00456}00456\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ shouldn't\ be\ here\ .\ A\ string\ variable\ cannot\ be\ updated\ with\ INT/FLOAT}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_STRING\_ARRAY\_NOT\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00460}00460\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00461}00461\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00462}00462\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00463}00463\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00464}00464\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00470}00470\ \textcolor{keywordtype}{int}\ newOneNumberSquareBracket(\textcolor{keywordtype}{int}\&\ varPosition,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ newVariable,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ DotFound)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00471}00471\ \ \ \ \ \textcolor{keywordtype}{float}\ results\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00472}00472\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00473}00473\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00474}00474\ \ \ \ \ \textcolor{keywordflow}{if}\ (newVariable\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00475}00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!DotFound)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Value\ is\ int}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_INT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00479}00479\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00480}00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00481}00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\textcolor{comment}{//Exit\ the\ program}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00483}00483\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ (int)results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00484}00484\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00485}00485\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00486}00486\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//All\ value\ will\ be\ float}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_FLOAT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00491}00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\textcolor{comment}{//Exit\ the\ program}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00494}00494\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00495}00495\ \ \ \ \ \}\textcolor{comment}{//End\ Var[]=\{OnlyOneNr\}\ and\ the\ variable\ is\ new}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00496}00496\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \textcolor{comment}{//we\ have\ an\ old\ variable\ for\ ex(\ a[]=\{5\}\ or\ a[]=\ 5\ \ \ \ -\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ need\ to\ remove\ the\ variable\ and\ re\ assign\ it}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//delete\ the\ old\ variable}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_INT)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00501}00501\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00503}00503\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00504}00504\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_FLOAT)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[](\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00508}00508\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_STRING)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00509}00509\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[](\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00511}00511\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00512}00512\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!DotFound)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Value\ is\ int}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00515}00515\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_INT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00517}00517\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00518}00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00519}00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\textcolor{comment}{//Exit\ the\ program}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00520}00520\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00521}00521\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ (int)results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00522}00522\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00523}00523\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00524}00524\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//All\ value\ will\ be\ float}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00525}00525\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_FLOAT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00526}00526\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00528}00528\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00529}00529\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\textcolor{comment}{//Exit\ the\ program}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00530}00530\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00531}00531\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00532}00532\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00533}00533\ \ \ \ \ \}\textcolor{comment}{//END\ -\/\ We\ have\ only\ one\ item\ \ It\ is\ not\ an\ array.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00534}00534\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00535}00535\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00540}00540\ \textcolor{keywordtype}{int}\ newMultipleNumberSquareBracket(\textcolor{keywordtype}{int}\&\ varPosition,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ newVariable,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ DotFound,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ countComma)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00541}00541\ \ \ \ \ \textcolor{keywordtype}{float}\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00542}00542\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}}\ =\ countComma\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00543}00543\ \ \ \ \ \textcolor{keywordflow}{if}\ (newVariable\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00544}00544\ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ need\ to\ create\ the\ variable\ \ -\/-\/Note\ :\ This\ will\ be\ equal\ to\ a[sizeOfArray]=\ number\ or\ \{number\ \}\ or\ \{n1,n2,n3\ ..etc\ \}}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00545}00545\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00546}00546\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DotFound\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00547}00547\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[countComma\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00549}00549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00550}00550\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00551}00551\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00552}00552\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_FLOAT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ countComma\ +\ 1;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sign\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//while(current\_token\_word==TOKEN\_NUMBER\ ||\ current\_token\_word==TOKEN\_MINUS)\{}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NUMBER)\ \ \ \ sign\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00557}00557\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_MINUS)\ \{\ sign\ =\ -\/1;\ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_MINUS);\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ARRAY\_ITEM\_NOT\_FOUND);\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND4);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ results\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf[i]\ =\ sign\ *\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)\ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_COMMA);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00568}00568\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00569}00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Int\ array\ ..\ get\ them\ and\ save\ them.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[countComma\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00572}00572\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00573}00573\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00574}00574\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00575}00575\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00576}00576\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_INT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00577}00577\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ countComma\ +\ 1;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00578}00578\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sign\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NUMBER)\ \ \ \ sign\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00580}00580\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_MINUS)\ \{\ sign\ =\ -\/1;\ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_MINUS);\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00581}00581\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ARRAY\_ITEM\_NOT\_FOUND);\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00582}00582\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00583}00583\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND5);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00584}00584\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00585}00585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00586}00586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ results\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00587}00587\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi[i]\ =\ (int)sign\ *\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00588}00588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00589}00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)\ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_COMMA);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00590}00590\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00591}00591\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00592}00592\ \ \ \ \ \}\textcolor{comment}{//\ END\ OF\ SAVE\ new\ array\ of\ int/float}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00593}00593\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00594}00594\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Only\ update\ the\ value\ ..\ The\ variable\ is\ found}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00595}00595\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DotFound\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00596}00596\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Float\ array}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00597}00597\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf\ !=\ NULL))\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00598}00598\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00599}00599\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00600}00600\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[countComma\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00602}00602\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00603}00603\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00604}00604\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00605}00605\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00606}00606\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_FLOAT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00607}00607\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00608}00608\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ countComma\ +\ 1;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sign\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00610}00610\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//while(current\_token\_word==TOKEN\_NUMBER\ ||\ current\_token\_word==TOKEN\_MINUS)\{}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NUMBER)\ \ \ \ sign\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00612}00612\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_MINUS)\ \{\ sign\ =\ -\/1;\ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_MINUS);\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ARRAY\_ITEM\_NOT\_FOUND);\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00615}00615\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND6);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00617}00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00618}00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ results\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00619}00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf[i]\ =\ sign\ *\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00620}00620\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00621}00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)\ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_COMMA);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00622}00622\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00623}00623\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00624}00624\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00625}00625\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Update\ variable}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00626}00626\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//INT\ array}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00627}00627\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00628}00628\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00629}00629\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00630}00630\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00631}00631\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[countComma\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00632}00632\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00633}00633\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_VAR);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00634}00634\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00635}00635\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00636}00636\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_INT;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00637}00637\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00638}00638\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ countComma\ +\ 1;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00639}00639\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sign\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00640}00640\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NUMBER)\ \ \ \ sign\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00641}00641\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_MINUS)\ \{\ sign\ =\ -\/1;\ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_MINUS);\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00642}00642\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ARRAY\_ITEM\_NOT\_FOUND);\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00643}00643\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00644}00644\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND7);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00645}00645\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00646}00646\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00647}00647\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ results\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00648}00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi[i]\ =\ (int)sign\ *\ results;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00649}00649\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00650}00650\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)\ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_COMMA);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00651}00651\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00652}00652\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//END\ UPDATE\ variable\ INT}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00653}00653\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00654}00654\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00655}00655\ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00656}00656\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00657}00657\ \textcolor{keywordtype}{int}\ countCommaInAssignment(\textcolor{keywordtype}{int}\&\ DotFound)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00658}00658\ \ \ \ \ \textcolor{comment}{/*Count\ number\ of\ comma\ and\ we\ have\ to\ decide\ if\ the\ numbers\ are\ int\ or\ float??\ search\ for\ '.'\ if\ you\ can\ find\ it\ ..}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00659}00659\ \textcolor{comment}{\ \ \ \ \ \ all\ values\ will\ be\ saved\ as\ float.*/}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00660}00660\ \ \ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}*\ pSaveProg\ =\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>prev;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00661}00661\ \ \ \ \ \textcolor{keywordtype}{int}\ \ countComma\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00662}00662\ \ \ \ \ \textcolor{keywordtype}{float}\ value;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00663}00663\ \ \ \ \ \textcolor{comment}{//Count\ number\ of\ comma\ (i.e.\ items)}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00664}00664\ }
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00665}00665\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_RIGHT\_CURLY\_BRACKET\ \&\&\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_EOF)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00666}00666\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)\ \ \ countComma++;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00667}00667\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NUMBER\ \&\&\ DotFound\ !=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00668}00668\ \ \ \ \ \ \ \ \ \ \ \ \ value\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00669}00669\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ceil(value)\ !=\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00670}00670\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DotFound\ =\ 1;\ \ \ \ \ \ \ \textcolor{comment}{//we\ have\ a\ float\ value.}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00671}00671\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00672}00672\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00673}00673\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}();}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00674}00674\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00675}00675\ \ \ \ \ \textcolor{comment}{//\ Go\ back\ to\ the\ beginning}}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00676}00676\ \ \ \ \ token\_jump\_to(pSaveProg);}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00677}00677\ \ \ \ \ \textcolor{keywordflow}{return}\ countComma;}
+\DoxyCodeLine{\Hypertarget{variable_8cpp_source_l00678}00678\ \}}
+
+\end{DoxyCode}

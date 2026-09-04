@@ -1,0 +1,23 @@
+/*!
+
+*\page 06_tutorial_and_examples Tutorial and Examples
+*<h4>Introduction:</h4>
+*<p>Writing a script program for this system is straightforward. Instruction sets can be found in the documentation. Examples show how to use each instruction.</p>
+*<p>Variables in this system are global, and only 32 are allowed. Inside functions, variables are local. To access a global variable from a function, pass it as an argument to the function.</p>
+*<p>Each instruction ends with a new line, a semicolon, or the end of the file. Commas separate arguments. A semicolon is not required at the end of a line if the line ends with a new line.</p>
+*<p>It is possible to write several instructions in one line separated by a semicolon.</p>
+*<p>Variables define themselves based on the assigned values: floating-point, integer, or string. If you no longer need a variable, it is good practice to delete it.</p>
+*<p>GPIOs are also saved in global variables. You can change the functionality of a GPIO without problems. You can create registers that hold multiple GPIOs, but a register cannot be used with analog input or output. You can also delete registers when you no longer need them.</p>
+*<p>SPI can be used to connect to peripherals. Chip Select line is multiplexed and up to 15 more devices could be connected in parallel to the SPI channel. Channel 0 of the SPI is reserved for SD-Card port.</p>
+*<p>I2C Lines have pull-up resistors.</p>
+*<p>To stop a script program, press Ctrl+C. To stop execution using a command, for example from an ICT, send the binary number 0x03 to the NUCLEO through the Tera Term serial terminal. This stops execution immediately.</p>
+
+*<p>&nbsp;Two serial ports are used in the system. One is for general communication and data exchange between the system and the outside world. The other is for debug log messages.</p>
+*<p>Debug com port will deliver no debug information if enable_debug command is not used in the beginning of the script file. It doesn't mean that enable_debug must be in the beginning of the script program. You can have it anywhere inside the script program. for ex. you can enable the debug messages for only a portion of the program.</p>
+*<p><strong> Note:</strong></p>
+*<p>To stop execution of any script program press ctrl+C in the terminal. That will stop the execution and the system will go to the interactive mode.</p>
+*<span style='color:blue'><em><H4> Example Codes: </H4></em></span>
+* \subpage function_gen
+* \subpage other_examples
+*
+*/

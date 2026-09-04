@@ -1,0 +1,25 @@
+\doxysection{Other Examples}
+\hypertarget{other_examples}{}\label{other_examples}\index{Other Examples@{Other Examples}}
+\doxysubsection*{Other Examples\+:}
+
+{\bfseries{1) Snowing led light\+:}}
+
+enable\+\_\+debug
+
+function myfunc()\{~\newline
+
+
+snow\mbox{[}\mbox{]}= \{0b11111111,0b11111110,0b11111100,0b11111000,0b11110001,0b11100011,0b1100000,0b10000000,0b0000000\};~\newline
+create\+\_\+reg myreg PA\+\_\+10,PB\+\_\+3,PB\+\_\+5,PB\+\_\+4,PB\+\_\+10,PA\+\_\+8,PA\+\_\+9,PC\+\_\+7~\newline
+
+
+~ for(i=0,i\texorpdfstring{$<$}{<}=8,i++)\{~\newline
+~~~ put myreg, snow\mbox{[}i\mbox{]};~\newline
+~~ delay 200,msec~\newline
+~ \}~\newline
+\}
+
+while(1) ~\newline
+\{~\newline
+~ call myfunc();~\newline
+\}

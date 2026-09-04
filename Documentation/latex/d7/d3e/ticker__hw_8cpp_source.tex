@@ -1,0 +1,224 @@
+\doxysection{ticker\+\_\+hw.\+cpp}
+\hypertarget{ticker__hw_8cpp_source}{}\label{ticker__hw_8cpp_source}\index{CrackyOS/src/ticker\_hw.cpp@{CrackyOS/src/ticker\_hw.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}ticker\_hw.h"{}}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00040}00040\ \textcolor{keywordtype}{void}\ FreeUp\_Tickers(\textcolor{keywordtype}{int}\ enumNumber)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{structg_t_obj}{tobj}}*\ pScanTicker\ =\ GTickerObject;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{while}\ (pScanTicker\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structg_t_obj}{tobj}}*\ next\ =\ pScanTicker-\/>next;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enumNumber\ ==\ -\/1\ ||\ (pScanTicker-\/>mToggelPin\ !=\ NULL}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ pScanTicker-\/>mToggelPin-\/>\mbox{\hyperlink{class_flipper_ac9056cfa1b3884cd6d972113016da614}{enumPINNAME}}()\ ==\ enumNumber))\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pScanTicker-\/>mToggelPin\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pScanTicker-\/>mToggelPin-\/>\mbox{\hyperlink{class_flipper_aa23204405febca6b3aba891a8c93f932}{\_\_detach}}();}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ pScanTicker-\/>mToggelPin;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pScanTicker-\/>prev\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pScanTicker-\/>prev-\/>next\ =\ pScanTicker-\/>next;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GTickerObject\ =\ pScanTicker-\/>next;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pScanTicker-\/>next\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pScanTicker-\/>next-\/>prev\ =\ pScanTicker-\/>prev;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ pScanTicker;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enumNumber\ !=\ -\/1)}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ pScanTicker\ =\ next;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (enumNumber\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ GTickerObject\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_TICKER\_OBJECT\_DELETION\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00069}\mbox{\hyperlink{class_flipper_aa9fb9819472705780ce0dc70cda225e7}{00069}}\ \mbox{\hyperlink{class_flipper_aa9fb9819472705780ce0dc70cda225e7}{Flipper::Flipper}}(\textcolor{keywordtype}{int}\ m\_en)\ :\ m\_pin(NULL),\ m\_enumPINNAME(m\_en)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00070}00070\ \ \ \ \ mInterval\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00072}\mbox{\hyperlink{class_flipper_ae498ab519584627d366565705b5655e3}{00072}}\ \mbox{\hyperlink{class_flipper_ae498ab519584627d366565705b5655e3}{Flipper::\string~Flipper}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00073}00073\ \ \ \ \ freeOneGPIOVariable(\&m\_pin);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00075}\mbox{\hyperlink{class_flipper_a1d8b7e258a2444af14dfb6d771af0abf}{00075}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_flipper_a1d8b7e258a2444af14dfb6d771af0abf}{Flipper::Toggle}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_pin\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_pin-\/>scripPin.gpio.OnePinGPIO-\/>genInOut.InOutPin\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ m\_pin-\/>scripPin.gpio.OnePinGPIO-\/>genInOut.InOutPin-\/>write(!(m\_pin-\/>scripPin.gpio.OnePinGPIO-\/>genInOut.InOutPin-\/>read()));}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00081}\mbox{\hyperlink{class_flipper_ac9056cfa1b3884cd6d972113016da614}{00081}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_flipper_ac9056cfa1b3884cd6d972113016da614}{Flipper::enumPINNAME}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_enumPINNAME;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00085}\mbox{\hyperlink{class_flipper_acc1916de697da9c3862e6f74f54d26fe}{00085}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_flipper_acc1916de697da9c3862e6f74f54d26fe}{Flipper::\_\_attach}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{class_flipper_aa4e65caa9ae353e1b6215b34e529e817}{mticker}}.attach(callback(\textcolor{keyword}{this},\ \&\mbox{\hyperlink{class_flipper_a1d8b7e258a2444af14dfb6d771af0abf}{Flipper::Toggle}}),\ chrono::microseconds(mInterval));}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00091}\mbox{\hyperlink{class_flipper_aa23204405febca6b3aba891a8c93f932}{00091}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_flipper_aa23204405febca6b3aba891a8c93f932}{Flipper::\_\_detach}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{class_flipper_aa4e65caa9ae353e1b6215b34e529e817}{mticker}}.detach();}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00093}00093\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00095}\mbox{\hyperlink{class_flipper_ae9e6f8e2286300f8f5a86a7c995d1464}{00095}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_flipper_ae9e6f8e2286300f8f5a86a7c995d1464}{Flipper::setInterval}}(uint32\_t\ g)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00096}00096\ \ \ \ \ mInterval\ =\ g;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00097}00097\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00102}00102\ \mbox{\hyperlink{structg_t_obj}{tobj}}*\ GTickerObject\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00108}00108\ \mbox{\hyperlink{structg_t_obj}{tobj}}*\ TickerObject\_find(\textcolor{keywordtype}{int}\ enumPinName)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00109}00109\ \ \ \ \ STOP\_CODE\_EXECUTION\_NULL}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structg_t_obj}{tobj}}*\ scanObj;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00111}00111\ \ \ \ \ scanObj\ =\ GTickerObject;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (scanObj\ ==\ NULL)\ \textcolor{keywordflow}{return}\ NULL;\ \textcolor{comment}{//Nothing\ there.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (scanObj-\/>next\ ==\ NULL\ \&\&\ scanObj-\/>prev\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ only\ one\ value}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enumPinName\ ==\ scanObj-\/>mToggelPin-\/>enumPINNAME())}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scanObj;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{while}\ (scanObj-\/>next\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ scanObj\ =\ scanObj-\/>next;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00124}00124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{while}\ (scanObj-\/>prev\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00127}00127\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enumPinName\ ==\ scanObj-\/>mToggelPin-\/>enumPINNAME())}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scanObj;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ scanObj\ =\ scanObj-\/>prev;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00132}00132\ \ \ \ \ \textcolor{keywordflow}{if}\ (enumPinName\ ==\ scanObj-\/>mToggelPin-\/>enumPINNAME())}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scanObj;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;\textcolor{comment}{//not\ found.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00136}00136\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00138}00138\ \textcolor{comment}{//Ticker\ object\ impl.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00143}00143\ \textcolor{comment}{}\textcolor{keywordtype}{void}\ TickerObject\_add(\textcolor{keywordtype}{int}\ enumPinName,\ uint32\_t\ uSecTime,\ \textcolor{keywordtype}{bool}\ DefaultValue)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00144}00144\ \ \ \ \ \mbox{\hyperlink{structg_t_obj}{tobj}}*\ myObj,\ *\ oldObj;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00145}00145\ \ \ \ \ myObj\ =\ GTickerObject;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00147}00147\ \ \ \ \ oldObj\ =\ TickerObject\_find(enumPinName);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00148}00148\ \ \ \ \ \textcolor{keywordflow}{if}\ (oldObj\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (myObj\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//No\ object\ defined\ ..\ create\ the\ first}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ myObj\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structg_t_obj}{tobj}};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (myObj\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_TICKER);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Reset\ the\ pointers.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ myObj-\/>next\ =\ myObj-\/>prev\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ GTickerObject\ =\ myObj;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (myObj-\/>next\ !=\ NULL)\ myObj\ =\ myObj-\/>next;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ myObj-\/>next\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structg_t_obj}{tobj}};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (myObj-\/>next\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_TICKER);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ myObj-\/>next-\/>prev\ =\ myObj;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ myObj-\/>next-\/>next\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ myObj\ =\ myObj-\/>next;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Create\ new\ digital\ out\ pin.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ myObj-\/>mToggelPin\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_flipper}{Flipper}}(enumPinName);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (myObj-\/>mToggelPin\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_TICKER\_DIGITALOUT);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ myObj-\/>mToggelPin-\/>m\_pin\ =\ \mbox{\hyperlink{digital_8cpp_ab7f21e4f05daa71811aedf2816a84d45}{addGPIOpin\_DIGITAL}}(myObj-\/>mToggelPin-\/>\mbox{\hyperlink{class_flipper_ac9056cfa1b3884cd6d972113016da614}{enumPINNAME}}(),\ GPIO\_TICKER);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (myObj-\/>mToggelPin-\/>m\_pin\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ a\ bad\ instruction.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_TICKER);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00190}00190\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ myObj\ =\ oldObj;\ \textcolor{comment}{//We\ found\ the\ old\ object.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00192}00192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00193}00193\ \ \ \ \ myObj-\/>mToggelPin-\/>\mbox{\hyperlink{class_flipper_ae9e6f8e2286300f8f5a86a7c995d1464}{setInterval}}(uSecTime);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00194}00194\ \ \ \ \ myObj-\/>mToggelPin-\/>\mbox{\hyperlink{class_flipper_aa23204405febca6b3aba891a8c93f932}{\_\_detach}}();\textcolor{comment}{//\ We\ do\ this\ always\ as\ we\ might\ need\ to\ update\ the\ interval}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00195}00195\ \ \ \ \ \textcolor{keywordflow}{if}\ (DefaultValue)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ myObj-\/>mToggelPin-\/>\mbox{\hyperlink{class_flipper_acc1916de697da9c3862e6f74f54d26fe}{\_\_attach}}();}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00197}00197\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00198}00198\ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00205}00205\ \textcolor{keywordtype}{int}\ token\_ticker()\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00206}00206\ \ \ \ \ \textcolor{keywordtype}{float}\ interval\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00207}00207\ \ \ \ \ \textcolor{keywordtype}{bool}\ start\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00208}00208\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_TICKER);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00209}00209\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_COMMA);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00211}00211\ \ \ \ \ \textcolor{comment}{//1)\ We\ should\ take\ the\ pin\ name\ here.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00213}00213\ \ \ \ \ \textcolor{keywordtype}{int}\ tempenumPin\ =\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00214}00214\ \ \ \ \ PinName\ tempPin\ =\ \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrievePinNameFromTOKEN\_NAME}}(\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}});}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00215}00215\ \ \ \ \ \textcolor{keywordflow}{if}\ (tempPin\ ==\ NC)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_TICKER\_PINNAME);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00218}00218\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00220}00220\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}});}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_COMMA);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00224}00224\ \ \ \ \ \textcolor{comment}{//2)\ Interval}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00225}00225\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ interval\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00228}00228\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00229}00229\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_VARIABLE)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ varPosition\ =\ \mbox{\hyperlink{tokens_8cpp_af255f12c1be461e65dbaf4363419b7ef}{TestSystem\_get\_variable}}(NULL);\ \textcolor{comment}{//\ we\ don't\ need\ to\ send\ the\ name\ ..\ the\ function\ will\ do\ the\ job.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_VARIABLE);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (varPosition\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_TICKER);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\ \textcolor{comment}{//Exit\ the\ program.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ !=\ T\_INT)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_TICKER);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ interval\ =\ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00241}00241\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00242}00242\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Syntax\ error.\ .only\ number\ is\ allowed}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_TICKER\_INTERVAL);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00246}00246\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00248}00248\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_COMMA);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00250}00250\ \ \ \ \ \textcolor{comment}{//3)Start/Stop}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{comment}{//This\ is\ optional.\ Default\ is\ the\ ticker\ will\ start\ immediately}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00252}00252\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NEW\_LINE\ ||}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_SEMICOLON\ ||}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_EOF)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ start\ =\ 1;\ \ \textcolor{comment}{//We\ are\ done.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00256}00256\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00257}00257\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00258}00258\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \textcolor{comment}{//4)\ Start\ or\ Stop}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Syntax\ error}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_TICKER\_START\_STOP);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ start\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00268}00268\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{comment}{//We\ have\ everything.\ Create\ the\ object\ and\ register\ the\ GPIO.}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00270}00270\ \ \ \ \ TickerObject\_add(tempenumPin,\ interval,\ start);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00271}00271\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8cpp_source_l00272}00272\ \}}
+
+\end{DoxyCode}

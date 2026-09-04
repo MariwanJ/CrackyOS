@@ -1,0 +1,23 @@
+/*!
+
+*\page while While loop
+*
+* This instruction repeatedly executes a statement or block of statements until the condition becomes false. The test takes place before each iteration.<BR>
+
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> while (logical condition) { ... block of code } </B><BR>
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+* i=0;<br>
+*<span style='color:green'> rem infinite repeat </span><br>
+* while(1){<br>
+* &nbsp; aput PA_4,  i;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send the value to Analog Output port PA_4</span><br>
+* &nbsp; i=i+0.1;<br>
+* &nbsp; if( i==1)<br>
+* &nbsp;{<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;i=0;
+*&nbsp; }
+*
+*}
+*
+*/

@@ -1,0 +1,23 @@
+/*!
+
+*\page delay Delay
+*
+*Generic wait function.
+* It provides a simple NOP-type delay or wait capability. <BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> delay VALUE,TYPE</B><BR>
+* - <b>VALUE:</b> Any Integer number representing the delay
+* - <b>TYPE:</b> Three types are available as follows:
+*	- Sec:&nbsp;&nbsp;  The delay will be in seconds.
+*	- mSec: The delay will be in milliseconds.
+*	- uSec: The delay will be in microseconds.<br>
+*
+*<span style='color:blue'><em><B>
+*Example:
+*</B> </em> </span><br>
+* put PA_1, 1;			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem put HIGH at the PA_1.</span><br>
+* delay 500,usec ;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem 500 microseconds delay between the first and second instruction.</span><br>
+* put PA_1,0;			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem put LOW at the PA_1.</span><br>
+*
+*
+*/

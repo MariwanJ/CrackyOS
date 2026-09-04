@@ -1,0 +1,22 @@
+/*!
+
+*\page get Get (Digital In)
+*
+* This instruction reads from a digital port the value available on the pin/bus. The internal definition of these GPIO will be DigitalInOut and configured as Input for this instruction.<BR>
+* Bus or Register GPIO needs to be created before you can use them using create_reg instruction.
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> get GPIO_NAME/BUS_name, VARIABLE_NAME</B><BR>
+* - <b>GPIO_NAME:</b> Any digital GPIO
+* - <b>BUS_name:</b> A combination of multiple digital GPIOs, from 2 to 16 pins. You can combine any GPIO in the bus. Use the create_reg instruction to create a register.
+* - <b>VARIABLE_NAME:</b> A variable name is required to save the read data. The results will be saved in that variable and it is float. 
+* - <b>VARIABLE_NAME:</b> A variable name is required to save the read data. The result is saved in that variable as a floating-point value.
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*	get PA_4,  myvalue;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem read the value from PA_4 </span><br>
+*	print myvalue;	    &nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send the value to terminal</span>  <br>
+* OR:<br>
+*	create_reg myreg , PA_3,PA_2,PA_10_PB3;			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem create register</span> <br>
+*	get myreg, myvalue;			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem read the Register  </span><br>
+* 	print myvalue;	    &nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send the value to terminal</span>  <br>
+*
+*/

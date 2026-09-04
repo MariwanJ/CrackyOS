@@ -1,0 +1,278 @@
+\doxysection{tokens.\+h}
+\hypertarget{tokens_8h_source}{}\label{tokens_8h_source}\index{CrackyOS/src/tokens.h@{CrackyOS/src/tokens.h}}
+\mbox{\hyperlink{tokens_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00027}00027\ \textcolor{preprocessor}{\#ifndef\ TOKENS\_H}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ TOKENS\_H}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interactive_8h}{interactive.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sourcecodeline_8h}{sourcecodeline.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00037}00037\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_ae58c552031c4f75158c36dbee5983897}{token\_initialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00042}00042\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00044}00044\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00045}00045\ \textcolor{comment}{\ *\ Goto\ a\ new\ position.\ Jumping\ the\ code\ to\ execute\ new\ place\ in\ the\ program.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00046}00046\ \textcolor{comment}{\ *\ Warning:\ Before\ calling\ this,\ make\ sure\ you\ have\ current\_token\_word=}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00047}00047\ \textcolor{comment}{\ *\ TOKEN\_BAD}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00048}00048\ \textcolor{comment}{\ *\ */}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00049}00049\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ token\_jump\_to(\mbox{\hyperlink{structnode}{instr\_linkedList}}\ *newPosition)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00050}00050\ \ \ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}\ =\ p\_prog\_next\ =\ newPosition;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00051}00051\ \ \ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}();}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00055}\mbox{\hyperlink{tokens_8h_a71f4656e82905c84b93014d26018f628}{00055}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{tokens_8h_a71f4656e82905c84b93014d26018f628}{token\_extract\_string}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00058}00058\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00061}00061\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_ad789ba8f8cc55cd767fb56f38bb9b407}{change\_program\_to\_lower\_case}}(\textcolor{keywordtype}{char}\ *prog\_pointer);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00068}00068\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a35ee40bf5579d52a873de6ddc5834e73}{TestSystem\_get\_variable}}(\textcolor{keywordtype}{char}\ *varName);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00070}\mbox{\hyperlink{tokens_8h_a86b46dd515cd3b3c58df1c6e21c6dbce}{00070}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a86b46dd515cd3b3c58df1c6e21c6dbce}{TestSystem\_get\_empty\_variable\_pos}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00071}00071\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ SCRIPT\_MAX\_VARIABLE\_NUMBERS;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[i].varname\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00073}00073\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00074}00074\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00075}00075\ \ \ \textcolor{keywordflow}{return}\ -\/1;\ \textcolor{comment}{//\ Not\ found\ Overflow}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00082}\mbox{\hyperlink{tokens_8h_a731f0f0e5d73a592ac35d8643ab6f90f}{00082}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{tokens_8h_a731f0f0e5d73a592ac35d8643ab6f90f}{isSpecialChar}}(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *tempP\_PROG)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00083}00083\ \ \ \textcolor{keywordflow}{if}\ (tempP\_PROG\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00085}00085\ \ \ \textcolor{keywordflow}{switch}\ (*tempP\_PROG)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00086}00086\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{':'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00087}00087\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{','}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00088}00088\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{';'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00089}00089\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00090}00090\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00091}00091\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'-\/'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00092}00092\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\&'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00093}00093\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\string~'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00094}00094\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\string^'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00095}00095\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'|'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00096}00096\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'/'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00097}00097\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00098}00098\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\%'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00099}00099\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'('}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00100}00100\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{')'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00101}00101\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'<'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00102}00102\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'>'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00103}00103\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'='}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00104}00104\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\{'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00105}00105\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\}'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00106}00106\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'['}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00107}00107\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{']'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00108}00108\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\#'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00109}00109\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'!'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00110}00110\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)"{}'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00111}00111\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)n'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00112}00112\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)r'}:}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00113}00113\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)t'}:\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00115}00115\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00116}00116\ \ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00118}00118\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00119}00119\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00127}00127\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_ad0b638d3a9f4e8c9290ee3cdce9a52fc}{IntializeScriptVariable}}(\textcolor{keywordtype}{char}\ *nameOfVariable);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00131}00131\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_a3cdd09d0ac08c781a9755db003212386}{free\_PWM\_Var}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00136}00136\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_a2f5f87103d4f87594877c10483aec0c0}{free\_forExtract}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00142}00142\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_ab39ba0d8fffd0d7dfcf8d10aa2e1e81f}{free\_whileExtract}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00148}00148\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_a6b5cb61736b819f5cf186b37b65dc475}{free\_globallabelVar}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00153}00153\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_ab1e70ce96b0a5f6ad0b72f65985adad9}{CleanUpMemToOriginal}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00158}00158\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_a91c8fc9a6b882774c626717e3ff85b3d}{freeUp\_ScriptVariable}}();\ \textcolor{comment}{//\ ScriptVariable.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00161}00161\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a51ffff7d3440bd862b183771b7a376a7}{token\_initializeInterActive}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00166}00166\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a0f5dad43de9c916df235470edaec525d}{free\_GlobalGPIO\_REG}}();}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00171}00171\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a058d33d7c518dfa929e8859696cc68f7}{freeUp\_gCanVariable}}();}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00175}\mbox{\hyperlink{tokens_8h_a4a9b983b2be802f29ababafbf9b10c70}{00175}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_a4a9b983b2be802f29ababafbf9b10c70}{capitalize}}(\textcolor{keywordtype}{char}\ *s);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00180}\mbox{\hyperlink{tokens_8h_a29ec0a1c249f2c7e33474a93fb758476}{00180}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{tokens_8h_a29ec0a1c249f2c7e33474a93fb758476}{extractFloat}}(\textcolor{keywordtype}{char}\ *stringToFloat)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00181}00181\ \ \ \textcolor{comment}{//\ Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00182}00182\ \ \ \textcolor{keywordtype}{float}\ Result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00183}00183\ \ \ \textcolor{keywordtype}{float}\ fact\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00184}00184\ \ \ \textcolor{keywordflow}{if}\ (*stringToFloat\ ==\ \textcolor{charliteral}{'-\/'})\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00185}00185\ \ \ \ \ stringToFloat++;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00186}00186\ \ \ \ \ fact\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00187}00187\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00188}00188\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ pointFound\ =\ 0;\ *stringToFloat;\ stringToFloat++)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00189}00189\ \ \ \ \ \textcolor{keywordflow}{if}\ (*stringToFloat\ ==\ \textcolor{charliteral}{'.'})\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00190}00190\ \ \ \ \ \ \ pointFound\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00191}00191\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00192}00192\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00193}00193\ \ \ \ \ \textcolor{keywordtype}{int}\ d\ =\ *stringToFloat\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00194}00194\ \ \ \ \ \textcolor{keywordflow}{if}\ (d\ >=\ 0\ \&\&\ d\ <=\ 9)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00195}00195\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pointFound)}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ fact\ *=\ 0.1000000000f;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00197}00197\ \ \ \ \ \ \ Result\ =\ Result\ *\ 10.0000000000f\ +\ (float)d;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00198}00198\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00199}00199\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00200}00200\ \ \ \textcolor{keywordflow}{return}\ (Result\ *\ fact);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00201}00201\ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00207}\mbox{\hyperlink{tokens_8h_a3e07d74e33118d581139a566aa18240e}{00207}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a3e07d74e33118d581139a566aa18240e}{endOfNumber}}(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *testByte)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00208}00208\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8h_a731f0f0e5d73a592ac35d8643ab6f90f}{isSpecialChar}}(testByte)\ ||\ *testByte\ ==\ \textcolor{charliteral}{'\ '})}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00209}00209\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00210}00210\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00211}00211\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00212}00212\ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00219}00219\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_a3a860209fa9dbbf9c1c5e478105e3dcb}{FixStringIssue}}(\textcolor{keywordtype}{char}\ *inStr);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00225}00225\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a490787422dbb60207446b4a884048ff5}{SavelabelPositions}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00234}00234\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{tokens_8h_afe426610e846f3b45202e44701ee73fd}{RetrieveValueInGlobalVariable}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00243}00243\ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *\mbox{\hyperlink{tokens_8h_acc8fc12e6f836eb5cb9ceda7bfe503ca}{RetrieveEndOfInstruction}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00246}00246\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_ad51378f90f48a5b0a94362e9a75ebecf}{token\_label}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00248}\mbox{\hyperlink{tokens_8h_a7e200a4f1710f7d52198bfa9b8ab8888}{00248}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{tokens_8h_a7e200a4f1710f7d52198bfa9b8ab8888}{concat}}(\textcolor{keywordtype}{int}\ count,\ ...);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00253}00253\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_aa9bb36d06c53d2cca0a3aa36d7834e2e}{InitializeDefaultScriptFileName}}();}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00261}00261\ \textcolor{comment}{//\ TODO\ Make\ sure\ that\ this\ function\ make\ Unique\ ID.2020-\/04-\/15}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00262}\mbox{\hyperlink{tokens_8h_a964f695e1128d90ccfa95f71ca39ac99}{00262}}\ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{tokens_8h_a964f695e1128d90ccfa95f71ca39ac99}{CalculateHashOfString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pText,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ length)}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00263}00263\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00264}00264\ \ \ \ \ \textcolor{keywordflow}{if}\ (length\ >\ MAX\_HASH\_STRING\_LENGTH)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00265}00265\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a1264a22868c936b388b7dfbc68e1f5f2}{StopExecution}}\ =\ 1;\ \textcolor{comment}{//\ MAX\ number\ of\ bytes\ is\ 16\ bytes.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00267}00267\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00269}00269\ \ \ \ \ \textcolor{keywordflow}{if}\ (pText\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ ERROR}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00271}00271\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00273}00273\ \ \ \ \ uint32\_t\ h\ =\ 2166136261UL;\ \textcolor{comment}{//\ FNV-\/1a\ offset\ basis}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00275}00275\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00277}00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pText[i]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ ERROR}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00279}00279\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00281}00281\ \ \ \ \ \ \ \ \ h\ \string^=\ (uint8\_t)pText[i];}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00282}00282\ \ \ \ \ \ \ \ \ h\ *=\ 16777619UL;\ \textcolor{comment}{//\ FNV-\/1a\ prime}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00283}00283\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00285}00285\ \ \ \ \ \textcolor{keywordflow}{return}\ h;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00286}00286\ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00292}00292\ \textcolor{comment}{//\ Return\ 1\ if\ the\ execution\ of\ the\ program\ is\ reached\ the\ end\ otherwise\ 0}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00293}\mbox{\hyperlink{tokens_8h_a6fdad59492f90db97f26d015ea003285}{00293}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a6fdad59492f90db97f26d015ea003285}{end\_of\_program\_token}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00294}00294\ \ \ \textcolor{comment}{//\ check\ ONLY\ p\_prog\ ...\ p\_prog\_next\ could\ reach\ the\ EOF\ before\ p\_prog.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00295}00295\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00296}00296\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00297}00297\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00298}00298\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString\ ==\ NULL)\ ||\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ 1));}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00299}00299\ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00305}\mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{00305}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00306}00306\ \ \ \textcolor{comment}{//\ Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00307}00307\ \ \ \textcolor{keywordtype}{float}\ result;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00309}00309\ \ \ \textcolor{comment}{/*Possible\ combination\ of\ text\ and\ numbers\ in\ a\ string\ (it\ should\ be\ at\ least}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00310}00310\ \textcolor{comment}{\ \ \ 3\ char\ and\ max\ 10)\ 0x00\ \ \ \ \ \ \ -\/-\/-\/>\ \ \ \ \ \ 0xFF\ 0B00000000\ -\/-\/-\/>\ \ \ \ \ \ 0B11111111}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00311}00311\ \textcolor{comment}{\ \ \ 0O00\ -\/-\/-\/>\ \ \ \ \ \ \ \ \ \ \ \ 0O56}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00312}00312\ \textcolor{comment}{\ \ \ 000\ \ \ \ \ \ \ \ -\/-\/-\/>\ \ \ \ \ \ 255}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00313}00313\ \textcolor{comment}{\ \ \ any\ thing\ else\ will\ generate\ an\ error!}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00314}00314\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00315}00315\ \ \ \textcolor{keywordflow}{switch}\ (*(\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString\ +\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00316}00316\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'x'}:\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00317}00317\ \ \ \ \ \textcolor{comment}{//\ Hex\ number}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00318}00318\ \ \ \ \ result\ =\ (float)strtol(\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString,\ NULL,}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 16);\ \textcolor{comment}{//\ Convert\ a\ hex\ number\ to\ long}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00320}00320\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00321}00321\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00322}00322\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'b'}:\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00323}00323\ \ \ \ \ \textcolor{comment}{//\ Binary\ number}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00324}00324\ \ \ \ \ result\ =\ (float)strtol((\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString\ +\ 2),\ NULL,}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2);\ \textcolor{comment}{//\ Convert\ a\ binary\ number\ to\ long..\ strtol}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cannot\ take\ 0b\ ..\ remove\ it\ from\ the\ buffer}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00327}00327\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00328}00328\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00329}00329\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'o'}:\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00330}00330\ \ \ \ \ \textcolor{comment}{//\ octal\ number}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00331}00331\ \ \ \ \ result\ =\ (float)strtol((\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString\ +\ 2),\ NULL,}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8);\ \textcolor{comment}{//\ Convert\ a\ octal\ number\ to\ long..\ strtol\ cannot}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ take\ 0o\ ..\ remove\ it\ from\ the\ buffer}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00334}00334\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00335}00335\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00337}00337\ \ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00338}00338\ \ \ \ \ result\ =}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00339}00339\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8h_a29ec0a1c249f2c7e33474a93fb758476}{extractFloat}}(\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString);\ \textcolor{comment}{//\ Convert\ the\ first\ digits\ found\ in}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ string\ to\ decimal\ numbers.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00341}00341\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00342}00342\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00343}00343\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00344}00344\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00345}00345\ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00347}\mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{00347}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00348}00348\ \ \ \textcolor{comment}{/*\ New\ way\ to\ do\ this\ job\ is\ like\ this:}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00349}00349\ \textcolor{comment}{\ \ \ 1-\/get\ the\ new\ position\ from\ p\_prog\_next}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00350}00350\ \textcolor{comment}{\ \ \ 2-\/give\ the\ next\ position\ to\ p\_prog\_next}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00351}00351\ \textcolor{comment}{\ \ \ 3-\/Check\ if\ it\ is\ TOKEN\_NEW\_LINE\ ..}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00352}00352\ \textcolor{comment}{\ \ \ 4-\/Check\ if\ the\ new\ token\ is\ enum\ of\ the\ TOKEN\_WORD}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00353}00353\ \textcolor{comment}{\ \ \ 5-\/If\ so\ -\/\ take\ the\ number\ and\ save\ it\ in\ current\_token\_word}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00354}00354\ \textcolor{comment}{\ \ \ 6-\/give\ the\ get\ the\ new\ position\ from\ p\_prog\_next\ and\ put\ it\ in\ p\_prog}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00355}00355\ \textcolor{comment}{\ \ \ 7-\/give\ the\ next\ position\ to\ p\_prog\_next}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00356}00356\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00358}00358\ \ \ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}\ =\ p\_prog\_next;\ \textcolor{comment}{//\ If\ it\ is\ not\ TOKEN\_NEW\_LINE,\ this\ will\ bring\ only\ the}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ enum\ part\ of\ the\ token.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00360}00360\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8h_a6fdad59492f90db97f26d015ea003285}{end\_of\_program\_token}}()\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00361}00361\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ =\ 1;\ \ \ \ \textcolor{comment}{//\ TOKEN\_EOF=1}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00362}00362\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}};\ \textcolor{comment}{//\ We\ return\ 0\ whenever\ we\ are\ done\ EOF}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00363}00363\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00364}00364\ \ \ \textcolor{comment}{//\ New\ .dad\ file\ shouldn't\ have\ any\ space,\ neither\ new\ line\ at\ the\ end\ of\ the}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00365}00365\ \ \ \textcolor{comment}{//\ instructions\ or\ arguments.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00366}00366\ \ \ \textcolor{keywordflow}{if}\ (*\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00367}00367\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)n\ causes\ to\ have\ two\ '\(\backslash\)n\(\backslash\)n\ ..\ since\ the\ text\ is\ equal\ to\ '\(\backslash\)n'\ Skip\ it\ so}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00368}00368\ \ \ \ \ \textcolor{comment}{//\ we\ don't\ have\ a\ problem\ later.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00369}00369\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}\ =\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>next;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00370}00370\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00371}00371\ \ \ p\_prog\_next\ =\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>next;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00372}00372\ \ \ \textcolor{comment}{//\ Now\ we\ have\ to\ check\ if\ the\ token\ is\ digits\ (numbers)\ :\ Dec,\ Hex,\ bin\ are}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00373}00373\ \ \ \textcolor{comment}{//\ supported.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00374}00374\ \ \ \textcolor{keywordflow}{if}\ (isdigit(*\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString))\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00375}00375\ \ \ \ \ \textcolor{comment}{//\ Convert\ the\ token-\/text\ to\ int}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00376}00376\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ =\ (int)\mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00378}00378\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}\ =\ p\_prog\_next;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00379}00379\ \ \ \ \ p\_prog\_next\ =}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00380}00380\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>next;\ \textcolor{comment}{//\ Since\ we\ have\ always\ 2\ records\ per\ each\ token\ ..}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00381}00381\ \ \ \ \ \textcolor{comment}{//\ we\ need\ to\ move\ the\ next\ cursor\ to\ the\ new\ position\ one\ more\ time.}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00382}00382\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}};}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00383}00383\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00384}00384\ \ \ \ \ \textcolor{comment}{//\ We\ shouldn't\ be\ here\ ..\ Each\ time\ when\ a\ token\ saves\ in\ the\ dad\ file\ ..}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00385}00385\ \ \ \ \ \textcolor{comment}{//\ first\ is\ the\ token\_enum\ then\ it\ is\ the\ real\ text}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00386}00386\ \ \ \ \ \textcolor{comment}{//\ DEBUG\_MESSAGE("{}ERROR\ \%i\(\backslash\)n"{},DBG\_MSG\_DAD\_FILE\_CORRUPTED);}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00387}00387\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00388}00388\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00389}00389\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00390}00390\ \}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00391}00391\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00400}00400\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_ad55a87307d8a411bb940bf27227fabfe}{addNewScriptVariable}}(\textcolor{keywordtype}{char}\ *name,\ \textcolor{keywordtype}{int}\ tag,\ \textcolor{keywordtype}{int}\ arraySize,\ \textcolor{keywordtype}{int}\ Position);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00408}00408\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokens_8h_ad55a87307d8a411bb940bf27227fabfe}{addNewScriptVariable}}(\textcolor{keywordtype}{char}\ *name,\ \textcolor{keywordtype}{int}\ Position);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00410}00410\ \textcolor{preprocessor}{\#define\ END\_OF\_LINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00411}00411\ \textcolor{preprocessor}{\ \ (current\_token\_word\ ==\ TOKEN\_NEW\_LINE\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00412}00412\ \textcolor{preprocessor}{\ \ \ current\_token\_word\ ==\ TOKEN\_SEMICOLON)}}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00417}00417\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokens_8h_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(\textcolor{keywordtype}{int}\ token\_word);}
+\DoxyCodeLine{\Hypertarget{tokens_8h_source_l00418}00418\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,12 @@
+/*!
+
+*\page interruptin InterruptIn
+*
+* This instruction is used to create an interrupin GPIO. Associated function must be defined before defining the interrupin. <br>
+* Keep in mind that interrupt function should not take a lot of time to execute it.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+* <strong>interrupin PINNAME, FunctionName </strong> <br>
+*    or<br>
+*<strong>interrupin PINNAME  FunctionName </strong><br>
+*/

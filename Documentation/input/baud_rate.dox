@@ -1,0 +1,15 @@
+/*!
+
+*\page baud_rate Baud Rate
+*
+* Determine the baud rate used in the system.<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> baud_rate VALUE</B><BR>
+* - <b>VALUE:</b> Any integer value from 110 to 256000 bits per second, including 110, 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, 115200, 128000, and 256000.
+*
+*<span style='color:blue'><em><B>
+*Example:
+*</B> </em> </span><br>
+* baud_rate 115200;			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem change the baud rate to 115200 bit/sec.</span><br>
+*
+*/

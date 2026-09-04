@@ -1,0 +1,167 @@
+\doxysection{Ring\+Buffer Class Reference}
+\hypertarget{class_ring_buffer}{}\label{class_ring_buffer}\index{RingBuffer@{RingBuffer}}
+
+
+{\ttfamily \#include $<$ringbuffer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ring_buffer_a129c940ddeb4208b87d691a07d4424ff}{Ring\+Buffer}} (int \+\_\+bufsize=100)
+\item 
+\mbox{\hyperlink{class_ring_buffer_a2715b2e99ea24521ef7a586c2f33e1c9}{\texorpdfstring{$\sim$}{\string~}\+Ring\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{class_ring_buffer_a04ce65fe5a65d2d8e2b074d88a5ebc56}{put}} (unsigned char c)
+\item 
+unsigned char \mbox{\hyperlink{class_ring_buffer_a471bdae38f952402f0f464be4c2ff75d}{get}} (void)
+\item 
+unsigned char \mbox{\hyperlink{class_ring_buffer_a49830e55b87fd4e51580d614e7626a0d}{check\+Empty}} (void)
+\item 
+unsigned char \mbox{\hyperlink{class_ring_buffer_a298799c6451c8a11842beecf1b50b863}{check\+Overflow}} (void)
+\item 
+unsigned int \mbox{\hyperlink{class_ring_buffer_a151421c4e2368dc4d340ed3506ae93fa}{buffersize}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_ring_buffer}{Ring\+Buffer} class
+
+\doxylink{class_ring_buffer}{Ring\+Buffer}\+: A FIFO buffer implementation. 
+
+Definition at line \mbox{\hyperlink{ringbuffer_8h_source_l00037}{37}} of file \mbox{\hyperlink{ringbuffer_8h_source}{ringbuffer.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_ring_buffer_a129c940ddeb4208b87d691a07d4424ff}\label{class_ring_buffer_a129c940ddeb4208b87d691a07d4424ff} 
+\index{RingBuffer@{RingBuffer}!RingBuffer@{RingBuffer}}
+\index{RingBuffer@{RingBuffer}!RingBuffer@{RingBuffer}}
+\doxysubsubsection{\texorpdfstring{RingBuffer()}{RingBuffer()}}
+{\footnotesize\ttfamily Ring\+Buffer\+::\+Ring\+Buffer (\begin{DoxyParamCaption}\item[{int}]{bufsize = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+Class Constructor \doxylink{class_ring_buffer}{Ring\+Buffer} 
+\begin{DoxyParams}{Parameters}
+{\em bufsize} & \+: Size of the object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ringbuffer_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{ringbuffer_8cpp_source}{ringbuffer.\+cpp}}.
+
+\Hypertarget{class_ring_buffer_a2715b2e99ea24521ef7a586c2f33e1c9}\label{class_ring_buffer_a2715b2e99ea24521ef7a586c2f33e1c9} 
+\index{RingBuffer@{RingBuffer}!````~RingBuffer@{\texorpdfstring{$\sim$}{\string~}RingBuffer}}
+\index{````~RingBuffer@{\texorpdfstring{$\sim$}{\string~}RingBuffer}!RingBuffer@{RingBuffer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RingBuffer()}{\string~RingBuffer()}}
+{\footnotesize\ttfamily Ring\+Buffer\+::\texorpdfstring{$\sim$}{\string~}\+Ring\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Class Destructor \doxylink{class_ring_buffer}{Ring\+Buffer}
+
+destructor Ring Buffer 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ring_buffer_a151421c4e2368dc4d340ed3506ae93fa}\label{class_ring_buffer_a151421c4e2368dc4d340ed3506ae93fa} 
+\index{RingBuffer@{RingBuffer}!buffersize@{buffersize}}
+\index{buffersize@{buffersize}!RingBuffer@{RingBuffer}}
+\doxysubsubsection{\texorpdfstring{buffersize()}{buffersize()}}
+{\footnotesize\ttfamily unsigned int Ring\+Buffer\+::buffersize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Local variable keeps the size of the buffer. 
+
+Definition at line \mbox{\hyperlink{ringbuffer_8h_source_l00081}{81}} of file \mbox{\hyperlink{ringbuffer_8h_source}{ringbuffer.\+h}}.
+
+\Hypertarget{class_ring_buffer_a49830e55b87fd4e51580d614e7626a0d}\label{class_ring_buffer_a49830e55b87fd4e51580d614e7626a0d} 
+\index{RingBuffer@{RingBuffer}!checkEmpty@{checkEmpty}}
+\index{checkEmpty@{checkEmpty}!RingBuffer@{RingBuffer}}
+\doxysubsubsection{\texorpdfstring{checkEmpty()}{checkEmpty()}}
+{\footnotesize\ttfamily unsigned char Ring\+Buffer\+::check\+Empty (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Check if the buffer is empty. \begin{DoxyReturn}{Returns}
+1 if empty .. 0 if not
+\end{DoxyReturn}
+Check if ringbuffer is empty 
+
+Definition at line \mbox{\hyperlink{ringbuffer_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{ringbuffer_8cpp_source}{ringbuffer.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{error_8cpp_source_l00109}{debug\+Thread\+Function()}}, \mbox{\hyperlink{sourcecodeline_8cpp_source_l00127}{freep\+Script\+Index()}}, and \mbox{\hyperlink{ringbuffer_8cpp_source_l00073}{get()}}.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\Hypertarget{class_ring_buffer_a298799c6451c8a11842beecf1b50b863}\label{class_ring_buffer_a298799c6451c8a11842beecf1b50b863} 
+\index{RingBuffer@{RingBuffer}!checkOverflow@{checkOverflow}}
+\index{checkOverflow@{checkOverflow}!RingBuffer@{RingBuffer}}
+\doxysubsubsection{\texorpdfstring{checkOverflow()}{checkOverflow()}}
+{\footnotesize\ttfamily unsigned char Ring\+Buffer\+::check\+Overflow (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Check if the buffer has got overflow. \begin{DoxyReturn}{Returns}
+1 if overflow occurred .. 0 if not
+\end{DoxyReturn}
+Check for overflow 
+
+Definition at line \mbox{\hyperlink{ringbuffer_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{ringbuffer_8cpp_source}{ringbuffer.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{ringbuffer_8cpp_source_l00056}{put()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{class_ring_buffer_a471bdae38f952402f0f464be4c2ff75d}\label{class_ring_buffer_a471bdae38f952402f0f464be4c2ff75d} 
+\index{RingBuffer@{RingBuffer}!get@{get}}
+\index{get@{get}!RingBuffer@{RingBuffer}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily unsigned char Ring\+Buffer\+::get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get a byte from the buffer and change the pointer positions. \begin{DoxyReturn}{Returns}
+retrieved value from the buffer
+\end{DoxyReturn}
+Get current indexed value 
+
+Definition at line \mbox{\hyperlink{ringbuffer_8cpp_source_l00073}{73}} of file \mbox{\hyperlink{ringbuffer_8cpp_source}{ringbuffer.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{ringbuffer_8cpp_source_l00051}{check\+Empty()}}.
+
+
+
+Referenced by \mbox{\hyperlink{error_8cpp_source_l00109}{debug\+Thread\+Function()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{class_ring_buffer_a04ce65fe5a65d2d8e2b074d88a5ebc56}\label{class_ring_buffer_a04ce65fe5a65d2d8e2b074d88a5ebc56} 
+\index{RingBuffer@{RingBuffer}!put@{put}}
+\index{put@{put}!RingBuffer@{RingBuffer}}
+\doxysubsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily void Ring\+Buffer\+::put (\begin{DoxyParamCaption}\item[{unsigned char}]{c }\end{DoxyParamCaption})}
+
+Put a value into the buffer 
+\begin{DoxyParams}{Parameters}
+{\em c} & \+: a one byte\\
+\hline
+\end{DoxyParams}
+put a new value into the ringbuffer 
+
+Definition at line \mbox{\hyperlink{ringbuffer_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{ringbuffer_8cpp_source}{ringbuffer.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{ringbuffer_8cpp_source_l00047}{check\+Overflow()}}, and \mbox{\hyperlink{error_8cpp_source_l00038}{DEBUG\+\_\+\+MESSAGE\+\_\+\+ENABLE}}.
+
+
+
+Referenced by \mbox{\hyperlink{error_8cpp_source_l00136}{DEBUG\+\_\+\+Print()}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cracky\+OS/src/\mbox{\hyperlink{ringbuffer_8h}{ringbuffer.\+h}}\item 
+Cracky\+OS/src/\mbox{\hyperlink{ringbuffer_8cpp}{ringbuffer.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,27 @@
+/*!
+
+*\page can_get	CAN Get
+*
+* This instruction reads data from a CAN device. You might need to put the instruction in a loop to make sure that data is read correctly from the CAN device.<BR>
+* - The returned result is 1 when the data is received successfully.<br>
+* - The returned result is 0 when the data is not received successfully.<br>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B>  can_get PinName1, PinName2, FREQ, CANID, VARIABLE;</B><BR>
+* - <b>PinName1:</b> CANRD pin name<br>
+* - <b>PinName2:</b> CANTD pin name<br>
+* - <b>FREQ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</b> CAN Bus frequency<br>
+* - <b>CANID &nbsp;&nbsp;&nbsp;&nbsp; :</b> CAN ID. This represents the CAN device ID<br>
+* - <b>VARIABLE_NAME:</b> A Variable name is required. The results will be saved in this variable (might be an array of int). 
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*while(1)<br>
+*&nbsp;{<br>
+*&nbsp;can_get  pb_8, pb_9, 100000,0x10,result;<br>
+*&nbsp;if (result!=0){<br>
+*&nbsp;&nbsp; print result;<br>
+*&nbsp;	}<br>
+*&nbsp; delay 100,msec;<br>
+*}
+*
+*
+*/

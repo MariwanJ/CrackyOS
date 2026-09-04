@@ -1,0 +1,27 @@
+/*!
+
+*\page can_send	CAN Send
+*
+* This instruction will send data to a CAN device. You might need to put it in a loop so you try to send the data successfully to the CAN device<BR>
+* - Return value: result is 1 when the data is transmitted successfully.<br>
+* - Return value: result is 0 when the data fails to transmit.<br>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B>  can_send PinName1, PinName2,ResultVariable ,FREQ, CANID, CAND_DATA0,...CAN_DATA7;</B><BR>
+* - <b>PinName1:</b> CANRD pin name<br>
+* - <b>PinName2:</b> CANTD pin name<br>
+* - <b>ResultVariable:</b> Result Variable.
+* - <b>FREQ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</b> CAN Bus frequency<br>
+* - <b>CANID &nbsp;&nbsp;&nbsp;&nbsp; :</b> CAN ID. This represents the CAN device ID<br>
+* - <b>VARIABLE_NAME/CAN_DATA0 ...CAN_DATA7:</b> You must provide the instruction with a variable name or CAN DATA (At least one byte or up to 8 bytes). 
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*while(1)<br>
+*&nbsp;{<br>
+*&nbsp;can_send pb_8, pb_9,result,100000,0x10,0xdd, 0xaa;<br>
+* &nbsp;if(result==1){<br>
+* &nbsp; exit;<br>
+}
+*&nbsp;<br>delay 500,Msec;<br>
+*}<br>
+*
+*/

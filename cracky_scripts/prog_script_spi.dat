@@ -1,0 +1,28 @@
+REM     DEVICE_ID, WaitForReply(returned bytes), SPI_DATA (could be an array using a variable), DATASIZE/TYPE =8/12/16, FREQ, SPI_MOD =0/1/2/3 Default=0 , VARIABLE_NAME, delay in us
+
+function myFirstF(arg1) {
+
+	MESSAGE=arg1;
+	spi_send 1,26,MESSAGE,8,5000000,0,myvar,10000; 
+	serial_send myvar;
+}
+
+function addTwoNumbers (arg2, arg3){
+	arg2=arg2+arg3;
+	serial_send arg2;
+}
+
+rem  enable_debug;
+t1="ABCDEFGHIJK";
+t2="LMNOPQRSTUVWXYZ";
+t3=t1+t2;
+
+while(1)
+{
+	call myFirstF(t3);
+rem	call myFirstF("This is a test\n");
+
+	rem call addTwoNumbers(22, 44);
+	delay 2000,Msec;
+}
+

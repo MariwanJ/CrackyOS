@@ -1,0 +1,122 @@
+/*!
+*\page function_gen  Function Generator
+*
+* <h1>Function Generator examples:</h1>
+*<h2 style='color:blue'> 1) A Square wave:</h2><br>
+*<table border="1" style="width:50%"> <tr><td>
+*<span style='color:green'>&nbsp;rem&nbsp;enable_debug&nbsp;;</span>&nbsp;<br>
+*<span style='color:blue'>function</span>&nbsp;functionGenerator()<span style='color:red'>{</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;for(i=0,&nbsp;i<5,i++)&nbsp;<span style='color:red'>{</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x=0;<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y=1;<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;put&nbsp;PA_4,x;<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay&nbsp;100,msec<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;put&nbsp;PA_4,y;<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay&nbsp;500,msec<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(j=0,j<20,j++)&nbsp;<span style='color:red'>{</span>&nbsp;<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;put&nbsp;PA_4,x;<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay&nbsp;50,msec<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;put&nbsp;PA_4,y;<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay&nbsp;50,msec<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:red'>}</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:red'>}</span><br>
+*<span style='color:red'>}</span>
+*<br>while(1)<br>
+*<span style='color:red'>{</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;functionGenerator();<br>
+*
+*<span style='color:red'>}</span><br>
+*</td><td>
+*\image html functionGen.bmp "Function Generator"</td></tr></table>
+*<h2 style='color:blue'>2) A Sine Wave:</h2><br>
+*
+*<table border="1" style="width:50%"> <tr><td>
+*<span style='color:green'>&nbsp;rem&nbsp;enable_debug&nbsp;;</span>&nbsp;<br>
+*<span style='color:blue'>function</span>&nbsp;functionGenerator()<span style='color:red'>{</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;for(i=0,&nbsp;i<360,i++)&nbsp;<span style='color:red'>{</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sample=0.5*(32767.5*(cos(i))+32767.5)<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aput PA_4,sample<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:red'>}</span><br>
+
+*<span style='color:red'>}</span>
+
+*<span style='color:green'>&nbsp;Rem -- start of the main program--</span>
+*<br>while(1)<span style='color:red'>{</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;functionGenerator();<br>
+*<span style='color:red'>}</span><br>
+*</td> <td>
+*\image html functionGen1.bmp "SineWave Function Generator"</td></tr></table>
+
+*<h2 style='color:blue'>3) A Diamond</h2><br>
+*<table border="1" style="width:50%"> <tr><td>
+*<span style='color:green'>&nbsp;rem&nbsp;enable_debug&nbsp;;</span>&nbsp;<br>
+*<span style='color:blue'>function</span>&nbsp;functionGenerator()<span style='color:red'>{</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;for(i=0,&nbsp;i<360,i++)&nbsp;<span style='color:red'>{</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j1=round(32676.5-(90.75*i))<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j2=round(32676.5+(90.75*i))<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aput PA_4,j1<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay 20,usec<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aput PA_4,j2<br>
+
+*<span style='color:red'>&nbsp;&nbsp;}</span>
+
+*&nbsp;&nbsp;&nbsp;&nbsp;for(i=360,i>=0,i- -)&nbsp;<span style='color:red'>{</span><br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j1=round(32676.5-(90.75*i))<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j2=round(32676.5+(90.75*i))<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aput PA_4,j1<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay 20,usec<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aput PA_4,j2<br>
+*<span style='color:red'>&nbsp;&nbsp;&nbsp;}</span><br>
+*<span style='color:red'>}</span><br>
+
+
+<span style='color:green'>Rem -- start of the main program--</span><br>
+*while(1)&nbsp;<span style='color:red'>{</span><br>
+*call functionGenerator();<br>
+*<span style='color:red'>}</span><br>
+</td><td>
+\image html diamond.bmp "Diamond Function Generator"</td></tr></table>
+
+<h2 style='color:blue'>4) A Fish</h2><br>
+*<table border="1" style="width:50%"> <tr><td>
+<p><span style="color: #339966;"><strong>Rem</strong> enable_debug;</span><br /><strong><span style="color: #3366ff;">function</span> </strong>functionGenerator(){<br />&nbsp;&nbsp; <strong><span style="color: #3366ff;">for</span></strong>(i=0,i&lt;50,i++)<span style="color: #ff0000;">{</span><br />&nbsp;&nbsp;&nbsp;&nbsp; x=49150-i*380;<br />&nbsp;&nbsp;&nbsp;&nbsp; <strong><span style="color: #3366ff;">aput</span> </strong>PA_4,x;<br />&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #3366ff;"><strong>delay</strong> </span>10, usec;<br />&nbsp;&nbsp; &nbsp; x=i*380;<br />&nbsp; &nbsp; <span style="color: #3366ff;"><strong>aput</strong> </span>PA_4,x;<br />&nbsp; <span style="color: #ff0000;">}</span></p>
+<p>&nbsp; <span style="color: #3366ff;"><strong>for</strong></span>(i=0,i&lt;180,i++)<span style="color: #ff0000;">{</span><br />&nbsp;&nbsp;&nbsp; x=32767+sin(i)*15000;<br />&nbsp;&nbsp;&nbsp; <strong><span style="color: #3366ff;">aput</span> </strong>PA_4,x;<br />&nbsp;&nbsp;&nbsp; <strong><span style="color: #3366ff;">delay</span> </strong>10, usec;<br />&nbsp; &nbsp; x=<strong><span style="color: #3366ff;">sin</span></strong>(i-180)*15000+16383;<br />&nbsp; &nbsp; <span style="color: #3366ff;"><strong>aput</strong> </span>PA_4,x;<br />&nbsp;<span style="color: #ff0000;">}</span><br />&nbsp;<span style="color: #3366ff;"><strong>for</strong></span>(i=0,i&lt;180,i++)<span style="color: #ff0000;">{</span><br />&nbsp;&nbsp;&nbsp; x=380+x-i<br />&nbsp; &nbsp; <span style="color: #3366ff;"><strong>aput</strong> </span>PA_4,x;<br />&nbsp; <span style="color: #ff0000;">}</span><br /> <br />&nbsp; <strong><span style="color: #3366ff;">delay</span> </strong>10,msec;<br /><span style="color: #ff0000;">}</span></p>
+<p><br /><span style="color: #339966;"><strong>Rem</strong> -- start of the main program--</span><br /><strong><span style="color: #3366ff;">while</span></strong>(1){<br /> <strong><span style="color: #3366ff;">call</span> </strong>functionGenerator();<br /> }</p>
+<p>&nbsp;</p>
+</td><td>
+\image html fish.bmp "Fish Function Generator"</td></tr></table>
+  
+<h2 style="color: blue;">5) Semicircle</h2>
+<p><br />
+*<table style="width: 50%;" border="1">
+<tr>
+<td style="width: 62.4879%;">
+<p><span style="color: #339966;"><strong>Rem</strong> enable_debug;</span></p>
+<p><strong><span style="color: #0000ff;">function</span> </strong>functionGenerator()<strong><span style="color: #ff0000;">{</span></strong><br />&nbsp; for(i=0,i&lt;180,i++)<strong><span style="color: #ff0000;">{</span></strong><br />&nbsp;&nbsp; x=16383.5+sin(i)*32767;<br />&nbsp;&nbsp; aput PA_4,x;<br />&nbsp;&nbsp; delay 10, usec;<br />&nbsp;&nbsp; x=16383.5;<br />&nbsp;&nbsp; aput PA_4,x;<br />&nbsp;<span style="color: #ff0000;"><strong>}</strong></span></p>
+<p>&nbsp;for(i=180,i&lt;360,i++)<span style="color: #ff0000;"><strong>{</strong></span><br />&nbsp; x=16383.5-sin(i)*32767;<br />&nbsp; aput PA_4,x;<br />&nbsp; delay 10, usec;<br />&nbsp; x=16383.5;<br />&nbsp; aput PA_4,x;<br />&nbsp;<span style="color: #ff0000;"><strong> }</strong></span><br /><span style="color: #ff0000;"><strong>}</strong></span></p>
+<p>Rem &ndash; start of the main program&ndash;<br />while(1)<strong><span style="color: #ff0000;">{</span></strong><br />call functionGenerator();<br /><strong><span style="color: #ff0000;">}</span></strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="color: #339966;"><strong>Rem</strong> -- start of the main program--</span><br /><strong><span style="color: #3366ff;">while</span></strong>(1)<strong><span style="color: #ff0000;">{</span></strong><br /> <strong><span style="color: #3366ff;">call</span> </strong>functionGenerator();<br /> <strong><span style="color: #ff0000;">}</span></strong></p>
+<p>&nbsp;</p>
+</td>
+<td style="width: 32.8474%;">\image html semicircle.bmp "Semicircle Function Generator"</td>
+</tr>
+</table>
+
+  
+*<h2 style="color: blue;">6) Sine Wave Ellipse</h2><br>
+*<table style="width: 50%; float: left;" border="1"><tr><td style="width: 50%;">
+<p><span style="color: #339966;"><strong>Rem</strong> enable_debug;</span></p>
+<p><strong><span style="color: #3366ff;">function</span> </strong>functionGenerator()<strong><span style="color: #ff0000;">{</span></strong>&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;for(i=0,i&lt;180,i++)<strong><span style="color: #ff0000;">{</span></strong><br />&nbsp;&nbsp; x=32767+sin(i)*182*i;<br />&nbsp;&nbsp; aput PA_4,x;<br />&nbsp;&nbsp; x=32767-sin(i)*182*i;<br />&nbsp;&nbsp; aput PA_4,x;<br /><span style="color: #ff0000;">&nbsp;<strong>}</strong></span><br />&nbsp; for(i=0,i&lt;3,i++)<br /><span style="color: #ff0000;">&nbsp;<strong>{</strong></span><br />&nbsp;&nbsp;&nbsp; aput PA_4,x;<br /> <strong><span style="color: #ff0000;">&nbsp;}</span></strong><br /> <strong><span style="color: #ff0000;">}</span></strong></p>
+<p>&nbsp;</p>
+<p><span style="color: #339966;"><strong>Rem</strong> -- start of the main program--</span></p>
+<p><strong><span style="color: #3366ff;">while</span></strong>(1){<br /><strong><span style="color: #3366ff;">call</span> </strong>functionGenerator();<br /> }&nbsp;</p>
+</td>
+<td style="width: 91.1229%;">\image html elips.bmp "Semi-circle Function Generator"</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+  
+*/

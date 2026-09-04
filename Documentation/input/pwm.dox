@@ -1,0 +1,15 @@
+/*!
+
+*\page pwm Generate PWM Signal
+*
+* This instruction generates a PWM signal defined by a period and a pulse width.<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> pwm PinName, period, pulswidth </B><BR>
+* - <b>period:</b> Period is a float number in seconds which represent the time between two consecutive low to high transitions in sec.\n Make sure that you choose the correct port name. You find the pin names in the manual/datasheet of your board.
+* - <b>period:</b> The period is a floating-point number in seconds that represents the time between two consecutive low-to-high transitions. Make sure that you choose the correct port name. You can find the pin names in the manual or datasheet for your board.
+* - <b>Pulse Width:</b> The pulse width is a floating-point number in seconds that represents the time the signal remains high.
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*	pwm PA_0,0.002,0.001 		&nbsp;&nbsp;&nbsp;   <span style='color:green'> rem  square wave generated at pin PA_0 </span><br>
+*
+*/

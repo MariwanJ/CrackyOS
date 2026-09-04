@@ -1,0 +1,34 @@
+\chapter{Tutorial and Examples}
+\hypertarget{06_tutorial_and_examples}{}\label{06_tutorial_and_examples}\index{Tutorial and Examples@{Tutorial and Examples}}
+\doxyparagraph*{Introduction\+:}
+
+Writing a script program for this system is straightforward. Instruction sets can be found in the documentation. Examples show how to use each instruction.
+
+Variables in this system are global, and only 32 are allowed. Inside functions, variables are local. To access a global variable from a function, pass it as an argument to the function.
+
+Each instruction ends with a new line, a semicolon, or the end of the file. Commas separate arguments. A semicolon is not required at the end of a line if the line ends with a new line.
+
+It is possible to write several instructions in one line separated by a semicolon.
+
+Variables define themselves based on the assigned values\+: floating-\/point, integer, or string. If you no longer need a variable, it is good practice to delete it.
+
+GPIOs are also saved in global variables. You can change the functionality of a GPIO without problems. You can create registers that hold multiple GPIOs, but a register cannot be used with analog input or output. You can also delete registers when you no longer need them.
+
+SPI can be used to connect to peripherals. Chip Select line is multiplexed and up to 15 more devices could be connected in parallel to the SPI channel. Channel 0 of the SPI is reserved for SD-\/\+Card port.
+
+I2C Lines have pull-\/up resistors.
+
+To stop a script program, press Ctrl+C. To stop execution using a command, for example from an ICT, send the binary number 0x03 to the NUCLEO through the Tera Term serial terminal. This stops execution immediately.
+
+~Two serial ports are used in the system. One is for general communication and data exchange between the system and the outside world. The other is for debug log messages.
+
+Debug com port will deliver no debug information if enable\+\_\+debug command is not used in the beginning of the script file. It doesn\textquotesingle{}t mean that enable\+\_\+debug must be in the beginning of the script program. You can have it anywhere inside the script program. for ex. you can enable the debug messages for only a portion of the program.
+
+{\bfseries{ Note\+:}}
+
+To stop execution of any script program press ctrl+C in the terminal. That will stop the execution and the system will go to the interactive mode.
+
+{\itshape \doxyparagraph*{Example Codes\+: }}
+
+{\itshape } \doxylink{function_gen}{Function Generator} \doxylink{other_examples}{Other Examples} \input{d7/dd6/function_gen}
+\input{dd/de4/other_examples}

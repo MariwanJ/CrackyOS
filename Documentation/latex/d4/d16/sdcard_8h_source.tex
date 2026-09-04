@@ -1,0 +1,99 @@
+\doxysection{sdcard.\+h}
+\hypertarget{sdcard_8h_source}{}\label{sdcard_8h_source}\index{CrackyOS/src/sdcard.h@{CrackyOS/src/sdcard.h}}
+\mbox{\hyperlink{sdcard_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00027}00027\ \textcolor{preprocessor}{\#ifndef\ SDCARD\_H}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ SDCARD\_H}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}mbed.h"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00036}00036\ \textcolor{preprocessor}{\#include\ "{}SD/SDBlockDevice.h"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include\ <fat/FATFileSystem.h>}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00039}00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cat_8h}{cat.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00040}00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{serialmessage_8h}{serialmessage.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00041}00041\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{spi__hw_8h}{spi\_hw.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00042}00042\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tokens_8h}{tokens.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00044}00044\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00045}00045\ \textcolor{comment}{\ *\ L476RG}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00046}00046\ \textcolor{comment}{SPI\_MOSI\ =\ PA\_7,}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00047}00047\ \textcolor{comment}{SPI\_MISO\ =\ PA\_6,}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00048}00048\ \textcolor{comment}{SPI\_SCK\ =\ PA\_5,}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00049}00049\ \textcolor{comment}{SPI\_CS\ =\ PB\_6,}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00050}00050\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00051}00051\ \textcolor{comment}{*\ F207zg}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00052}00052\ \textcolor{comment}{SPI\_MOSI\ =PB\_5\ ,}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00053}00053\ \textcolor{comment}{SPI\_MISO\ =\ PA\_6,}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00054}00054\ \textcolor{comment}{SPI\_SCK\ =\ PA\_5,}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00055}00055\ \textcolor{comment}{SPI\_CS\ =\ PD\_14\ ,}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00056}00056\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00057}00057\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00058}00058\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00059}00059\ \textcolor{comment}{//Use\ this\ name\ for\ your\ file\ containing\ the\ program\ for\ the\ system.}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00060}00060\ \textcolor{comment}{\#define\ SCRIPT\_PROG\_NAME\ \ \ \ \ \ \ \ \ \ \ \ "{}/sd/prog\_script.dat"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00061}00061\ \textcolor{comment}{\#define\ SCRIPT\_PROG\_NAME\_DAD\ \ \ \ \ \ \ "{}/sd/prog\_script.dad"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00062}00062\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00064}00064\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00065}00065\ \textcolor{comment}{\#define\ INTERACTIVE\_SCRIPT\_PROG\_NAME\ \ \ \ \ \ "{}/sd/interac\_prog\_script.dat"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00066}00066\ \textcolor{comment}{\#define\ INTERACTIVE\_SCRIPT\_PROG\_NAME\_DAD\ \ "{}/sd/interac\_prog\_script.dad"{}}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00067}00067\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00069}00069\ \textcolor{preprocessor}{\#define\ MAX\_NO\_OF\_DIR\ 256}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00070}00070\ \textcolor{preprocessor}{\#define\ MAX\_LENGTH\_OF\_DIR\_NAME\ 256}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00071}00071\ \textcolor{comment}{//\ We\ have\ only\ two\ ways\ of\ programming\ this\ device\ with\ script,\ a\ file\ on\ SD}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00072}00072\ \textcolor{comment}{//\ card,\ or\ using\ serial\ communications}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00073}00073\ \textcolor{keyword}{enum}\ \{\ SD\_CARD\_SCRIPT\_PROGRAM,\ USART\_SCRIPT\_PROGRAM\ \};}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00075}00075\ \textcolor{comment}{//\ extern\ class\ SDFileSystem\ sd;//(PA\_7,\ PA\_6,\ PA\_5,\ PB\_6,\ "{}sd"{});}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00077}00077\ FILE\ *\mbox{\hyperlink{sdcard_8h_a25ec160d03581fe645996cb272427f41}{initialize\_progFile}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ a);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00078}00078\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{sdcard_8h_ac74d96a3b7642f5ae61f379f921cf837}{CurrentDirectory}};}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00080}00080\ \textcolor{comment}{//\ void\ testSDCard();}}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00082}00082\ \textcolor{keyword}{extern}\ FATFileSystem\ fs;}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00091}00091\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sdcard_8h_a1e7be35960f39c6158a75f250cda1851}{file\_copy}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *src,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *dst);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00101}00101\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sdcard_8h_a29542bbd9dee92fa59fd2f1a3f5243e7}{do\_dir}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *pPos,}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ (\&dirBuf)[MAX\_NO\_OF\_DIR][MAX\_LENGTH\_OF\_DIR\_NAME]);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00110}00110\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_ac6c730a73bea70b8641e9fde00f3435c}{do\_del}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *pFilename);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00116}00116\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_a55c3f8aa9c70aa79db009bda270eb078}{delAllFiles\_SDCard}}();}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00122}00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_ad540a2c054992ec25ea8b8d30e156d8e}{do\_Listdir}}();}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00128}00128\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sdcard_8h_a1a7d582bfff6c766e732574cd32a8848}{do\_cd}}(std::string\ \&st);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00134}00134\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_a5d3c4154ada5a6949f210300f0fe8da9}{do\_copy}}(std::string\ \&st);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00140}00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_a03843916552d7c3e949800d239c93e55}{do\_delete}}(std::string\ \&delFile);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00146}00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_af289002abbe27f09cce3282db629cfb4}{do\_mkdir}}(std::string\ \&st);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00152}00152\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_a02f649de5e11229b0feef2a8888ccba1}{do\_move}}(std::string\ \&st);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00158}00158\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_ad4a073404cc70ba5e14d6622d5325ca1}{do\_format}}();}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00164}00164\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sdcard_8h_a5589f2f5612eb685dd2508e08386afad}{do\_run}}(std::string\ \&st);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00170}00170\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_acf39053b8b26b6dc4e02fbd4ac2f7696}{do\_rename}}(std::string\ \&st);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00189}00189\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_a7cb52fd25833e7f77c767cae31d95b99}{doCat}}(std::string\ \&st);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00191}00191\ \textcolor{keywordtype}{void}\ \_DoCat(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00196}00196\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_a71d5e368d69f195815c51e575cb03060}{removeSpace}}(std::string\ \&st);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00201}00201\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sdcard_8h_a80ddd5e08e3b6b2fc1f0d4771bfbcf66}{defaultDirIncluded}}(std::string\ \&fileName);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00206}00206\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_abfe34379eda875e47a0691531147c5b9}{removeSD}}(std::string\ \&\_st);}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00211}00211\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_a679076c36a649faf1ef670d6e8871808}{do\_mount}}();}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00216}00216\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_afa10b17db4c4710c87aee5e3e6aa485d}{do\_umount}}();}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00220}00220\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_afdeeb04e6597adca378ebb308c5c5aab}{do\_reset}}();}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00225}00225\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sdcard_8h_ad3512e500fa33cabad7a38da18fee5be}{do\_InstructionSet}}();}
+\DoxyCodeLine{\Hypertarget{sdcard_8h_source_l00226}00226\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

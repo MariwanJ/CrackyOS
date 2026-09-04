@@ -1,0 +1,17 @@
+/*!
+
+*\page aput APut (Analog put)
+*
+* This instruction sends the specified voltage to the analog port using a floating-point value.<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> aput GPIO_NAME, VARIABLE_NAME/Number =[0x0 to 0xFFFF] </B><BR>
+*- <b>GPIO_NAME:</b> Make sure that you choose a port that supports analog output. Otherwise, the system will exit and stop executing the code. Since this is specific to the board or CPU used, it is not possible to specify here which pins or GPIOs you should use. Please read the manual for your board.<BR>
+*- <b>VARIABLE_NAME:</b> The variable must be initialized before this instruction or it will fail.
+*- <b>Float Number:</b> Any floating-point number you specify. Please refer to the manual for the analog output.<br>
+*
+*<span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*   myvalue=0.01;	  			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem Initialize myvalue with 0.01  	</span><br>
+*   aput PA_4,  myvalue;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send the value to Analog Output port PA_4</span>
+*
+*
+*/

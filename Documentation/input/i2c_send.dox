@@ -1,0 +1,17 @@
+/*!
+
+*\page i2c_send	I2C Send
+*
+* This instruction sends data to an I2C device (master or slave). The instruction uses the standard I2C_SCL and I2C_SDA definitions.<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> i2c_send MASTER/SLAVE, address, DATA_tobesend, lengthOfData;</B><BR>
+* - <b>MASTER/SLAVE:</b>&nbsp;&nbsp;&nbsp; 0= Master , 1=Slave
+* - <b>address:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address of the MASTER/SLAVE<br>
+* - <b>DATA_tobesend:</b> You must provide a variable containing the data to send. It might be an array of characters.
+* - <b>lengthOfData:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Length of the message or data<br>
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*	i2c_get 1, 1222, myvalue,2;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem read from the slave 2 bytes</span><br>
+* 	print myvalue;	    &nbsp;   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send the value to terminal</span> <br>
+*
+*/

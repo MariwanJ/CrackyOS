@@ -1,0 +1,875 @@
+\doxysection{Cracky\+OS/src/tokens.h File Reference}
+\hypertarget{tokens_8h}{}\label{tokens_8h}\index{CrackyOS/src/tokens.h@{CrackyOS/src/tokens.h}}
+
+
+All script program decoding and analyzing done here.  
+
+
+{\ttfamily \#include \"{}interactive.\+h\"{}}\newline
+{\ttfamily \#include \"{}sourcecodeline.\+h\"{}}\newline
+{\ttfamily \#include \"{}types.\+h\"{}}\newline
+Include dependency graph for tokens.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{tokens_8h_ae58c552031c4f75158c36dbee5983897}{token\+\_\+initialize}} (void)
+\item 
+int \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token}} (void)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tokens_8h_a71f4656e82905c84b93014d26018f628}{token\+\_\+extract\+\_\+string}} (void)
+\item 
+float \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\+\_\+text\+\_\+to\+\_\+number}} (void)
+\item 
+int \mbox{\hyperlink{tokens_8h_ad789ba8f8cc55cd767fb56f38bb9b407}{change\+\_\+program\+\_\+to\+\_\+lower\+\_\+case}} (char \texorpdfstring{$\ast$}{*}prog\+\_\+pointer)
+\item 
+int \mbox{\hyperlink{tokens_8h_a35ee40bf5579d52a873de6ddc5834e73}{Test\+System\+\_\+get\+\_\+variable}} (char \texorpdfstring{$\ast$}{*}var\+Name)
+\item 
+int \mbox{\hyperlink{tokens_8h_a86b46dd515cd3b3c58df1c6e21c6dbce}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos}} (void)
+\item 
+unsigned char \mbox{\hyperlink{tokens_8h_a731f0f0e5d73a592ac35d8643ab6f90f}{is\+Special\+Char}} (char const \texorpdfstring{$\ast$}{*}temp\+P\+\_\+\+PROG)
+\item 
+void \mbox{\hyperlink{tokens_8h_ad0b638d3a9f4e8c9290ee3cdce9a52fc}{Intialize\+Script\+Variable}} (char \texorpdfstring{$\ast$}{*}name\+Of\+Variable)
+\item 
+void \mbox{\hyperlink{tokens_8h_a3cdd09d0ac08c781a9755db003212386}{free\+\_\+\+PWM\+\_\+\+Var}} (void)
+\item 
+void \mbox{\hyperlink{tokens_8h_a2f5f87103d4f87594877c10483aec0c0}{free\+\_\+for\+Extract}} (void)
+\item 
+void \mbox{\hyperlink{tokens_8h_ab39ba0d8fffd0d7dfcf8d10aa2e1e81f}{free\+\_\+while\+Extract}} (void)
+\item 
+void \mbox{\hyperlink{tokens_8h_a6b5cb61736b819f5cf186b37b65dc475}{free\+\_\+globallabel\+Var}} (void)
+\item 
+void \mbox{\hyperlink{tokens_8h_ab1e70ce96b0a5f6ad0b72f65985adad9}{Clean\+Up\+Mem\+To\+Original}} (void)
+\item 
+void \mbox{\hyperlink{tokens_8h_a91c8fc9a6b882774c626717e3ff85b3d}{free\+Up\+\_\+\+Script\+Variable}} ()
+\item 
+int \mbox{\hyperlink{tokens_8h_a51ffff7d3440bd862b183771b7a376a7}{token\+\_\+initialize\+Inter\+Active}} (void)
+\item 
+int \mbox{\hyperlink{tokens_8h_a0f5dad43de9c916df235470edaec525d}{free\+\_\+\+Global\+GPIO\+\_\+\+REG}} ()
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} A function to add string variables and return a new mem allocated variable \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{tokens_8h_a058d33d7c518dfa929e8859696cc68f7}{free\+Up\+\_\+g\+Can\+Variable}} ()
+\item 
+void \mbox{\hyperlink{tokens_8h_a4a9b983b2be802f29ababafbf9b10c70}{capitalize}} (char \texorpdfstring{$\ast$}{*}s)
+\item 
+float \mbox{\hyperlink{tokens_8h_a29ec0a1c249f2c7e33474a93fb758476}{extract\+Float}} (char \texorpdfstring{$\ast$}{*}string\+To\+Float)
+\item 
+int \mbox{\hyperlink{tokens_8h_a3e07d74e33118d581139a566aa18240e}{end\+Of\+Number}} (char const \texorpdfstring{$\ast$}{*}test\+Byte)
+\item 
+void \mbox{\hyperlink{tokens_8h_a3a860209fa9dbbf9c1c5e478105e3dcb}{Fix\+String\+Issue}} (char \texorpdfstring{$\ast$}{*}in\+Str)
+\item 
+int \mbox{\hyperlink{tokens_8h_a490787422dbb60207446b4a884048ff5}{Savelabel\+Positions}} (void)
+\item 
+float \mbox{\hyperlink{tokens_8h_afe426610e846f3b45202e44701ee73fd}{Retrieve\+Value\+In\+Global\+Variable}} (void)
+\begin{DoxyCompactList}\small\item\em Function that retrieve a value from the global script variable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tokens_8h_acc8fc12e6f836eb5cb9ceda7bfe503ca}{Retrieve\+End\+Of\+Instruction}} (void)
+\begin{DoxyCompactList}\small\item\em Function that retrieve the last position in the current line of code. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{tokens_8h_ad51378f90f48a5b0a94362e9a75ebecf}{token\+\_\+label}} (void)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tokens_8h_a7e200a4f1710f7d52198bfa9b8ab8888}{concat}} (int count,...)
+\item 
+void \mbox{\hyperlink{tokens_8h_aa9bb36d06c53d2cca0a3aa36d7834e2e}{Initialize\+Default\+Script\+File\+Name}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{tokens_8h_a964f695e1128d90ccfa95f71ca39ac99}{Calculate\+Hash\+Of\+String}} (const char \texorpdfstring{$\ast$}{*}p\+Text, unsigned int length)
+\item 
+int \mbox{\hyperlink{tokens_8h_a6fdad59492f90db97f26d015ea003285}{end\+\_\+of\+\_\+program\+\_\+token}} (void)
+\item 
+int \mbox{\hyperlink{tokens_8h_ad55a87307d8a411bb940bf27227fabfe}{add\+New\+Script\+Variable}} (char \texorpdfstring{$\ast$}{*}name, int tag, int array\+Size, int Position)
+\item 
+int \mbox{\hyperlink{tokens_8h_a6397a73edc0a383b76f2cc8223396eb2}{add\+New\+Script\+Variable}} (char \texorpdfstring{$\ast$}{*}name, int Position)
+\item 
+void \mbox{\hyperlink{tokens_8h_ab40143d7faf47b5409f7f926dc91766e}{process\+\_\+token}} (int token\+\_\+word)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+All script program decoding and analyzing done here. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{tokens_8h_source}{tokens.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tokens_8h_a6397a73edc0a383b76f2cc8223396eb2}\label{tokens_8h_a6397a73edc0a383b76f2cc8223396eb2} 
+\index{tokens.h@{tokens.h}!addNewScriptVariable@{addNewScriptVariable}}
+\index{addNewScriptVariable@{addNewScriptVariable}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{addNewScriptVariable()}{addNewScriptVariable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int add\+New\+Script\+Variable (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{int}]{Position }\end{DoxyParamCaption})}
+
+Allocate a new variable 
+\begin{DoxyParams}{Parameters}
+{\em name} & Variable name or NULL \\
+\hline
+{\em Position} & Index position of the variable return -\/1 if error, \texorpdfstring{$>$}{>}=0 if OK \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00896}{896}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{types_8h_source_l00675}{Global\+Variables\+::hash\+Varnme}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, and \mbox{\hyperlink{types_8h_source_l00671}{Global\+Variables\+::varname}}.
+
+
+
+Referenced by \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{token\+\_\+serial\+\_\+get()}}, \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{token\+\_\+spi\+\_\+send()}}, and \mbox{\hyperlink{variable_8cpp_source_l00061}{token\+\_\+variable()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{tokens_8h_ad55a87307d8a411bb940bf27227fabfe}\label{tokens_8h_ad55a87307d8a411bb940bf27227fabfe} 
+\index{tokens.h@{tokens.h}!addNewScriptVariable@{addNewScriptVariable}}
+\index{addNewScriptVariable@{addNewScriptVariable}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{addNewScriptVariable()}{addNewScriptVariable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int add\+New\+Script\+Variable (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{int}]{tag,  }\item[{int}]{array\+Size,  }\item[{int}]{Position }\end{DoxyParamCaption})}
+
+Allocate a new variable 
+\begin{DoxyParams}{Parameters}
+{\em name} & Variable name or NULL \\
+\hline
+{\em tag} & Type of variable \\
+\hline
+{\em array\+Size} & Array Size \\
+\hline
+{\em Position} & Index position of the variable return -\/1 if error, \texorpdfstring{$>$}{>}=0 if OK \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00927}{927}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{types_8h_source_l00675}{Global\+Variables\+::hash\+Varnme}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}, and \mbox{\hyperlink{types_8h_source_l00671}{Global\+Variables\+::varname}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+\Hypertarget{tokens_8h_a964f695e1128d90ccfa95f71ca39ac99}\label{tokens_8h_a964f695e1128d90ccfa95f71ca39ac99} 
+\index{tokens.h@{tokens.h}!CalculateHashOfString@{CalculateHashOfString}}
+\index{CalculateHashOfString@{CalculateHashOfString}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{CalculateHashOfString()}{CalculateHashOfString()}}
+{\footnotesize\ttfamily uint32\+\_\+t Calculate\+Hash\+Of\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Text,  }\item[{unsigned int}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculate hash value This will calculate the has of a string. Thinking is to provide hash name for variables to make it faster when searching for them. 
+
+Definition at line \mbox{\hyperlink{tokens_8h_source_l00262}{262}} of file \mbox{\hyperlink{tokens_8h_source}{tokens.\+h}}.
+
+
+
+References \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00927}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00314}{Tokenize\+To\+File\+::check\+Instruction()}}, \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, \mbox{\hyperlink{digital_8cpp_source_l00039}{reg\+::reg()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, and \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{tokens_8h_a4a9b983b2be802f29ababafbf9b10c70}\label{tokens_8h_a4a9b983b2be802f29ababafbf9b10c70} 
+\index{tokens.h@{tokens.h}!capitalize@{capitalize}}
+\index{capitalize@{capitalize}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{capitalize()}{capitalize()}}
+{\footnotesize\ttfamily void capitalize (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})}
+
+Change the string received as parameter to upper case 
+\begin{DoxyParams}{Parameters}
+{\em s} & string to change the case to upper case. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tokens_8h_ad789ba8f8cc55cd767fb56f38bb9b407}\label{tokens_8h_ad789ba8f8cc55cd767fb56f38bb9b407} 
+\index{tokens.h@{tokens.h}!change\_program\_to\_lower\_case@{change\_program\_to\_lower\_case}}
+\index{change\_program\_to\_lower\_case@{change\_program\_to\_lower\_case}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{change\_program\_to\_lower\_case()}{change\_program\_to\_lower\_case()}}
+{\footnotesize\ttfamily int change\+\_\+program\+\_\+to\+\_\+lower\+\_\+case (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{prog\+\_\+pointer }\end{DoxyParamCaption})}
+
+Change the program to upper text. 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00147}{147}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00368}{Tokenize\+To\+File\+::run()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{Tokenize\+To\+File\+::run\+Interactive()}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{tokens_8h_a89627a6b7254066064ec272e728e64a2}\label{tokens_8h_a89627a6b7254066064ec272e728e64a2} 
+\index{tokens.h@{tokens.h}!check\_and\_get\_next\_token@{check\_and\_get\_next\_token}}
+\index{check\_and\_get\_next\_token@{check\_and\_get\_next\_token}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{check\_and\_get\_next\_token()}{check\_and\_get\_next\_token()}}
+{\footnotesize\ttfamily int check\+\_\+and\+\_\+get\+\_\+next\+\_\+token (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Read the code, find out the next part of the code, with syntax checking \begin{DoxyReturn}{Returns}
+-\/1 if error append, otherwise \texorpdfstring{$>$}{>}=0 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{tokens_8h_source_l00347}{347}} of file \mbox{\hyperlink{tokens_8h_source}{tokens.\+h}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{tokens_8h_source_l00293}{end\+\_\+of\+\_\+program\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}, \mbox{\hyperlink{tokens_8cpp_source_l00214}{Savelabel\+Positions()}}, \mbox{\hyperlink{sourcecodeline_8cpp_source_l00104}{Source\+Code\+Line\+::scan\+Source\+Code()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{function_8cpp_source_l00043}{token\+\_\+function()}}, \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{tokens_8h_ab1e70ce96b0a5f6ad0b72f65985adad9}\label{tokens_8h_ab1e70ce96b0a5f6ad0b72f65985adad9} 
+\index{tokens.h@{tokens.h}!CleanUpMemToOriginal@{CleanUpMemToOriginal}}
+\index{CleanUpMemToOriginal@{CleanUpMemToOriginal}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{CleanUpMemToOriginal()}{CleanUpMemToOriginal()}}
+{\footnotesize\ttfamily void Clean\+Up\+Mem\+To\+Original (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Free up mem from all variables.
+
+Clean up all variables in the system. This shoulnd\textquotesingle{}t be run when you run instruction by instruction in interactive mode. 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00835}{835}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00679}{free\+\_\+for\+Extract()}}, \mbox{\hyperlink{tokens_8cpp_source_l00687}{free\+\_\+function\+List()}}, \mbox{\hyperlink{tokens_8cpp_source_l00784}{free\+\_\+\+Global\+GPIO\+\_\+\+REG()}}, \mbox{\hyperlink{tokens_8cpp_source_l00702}{free\+\_\+globallabel\+Var()}}, \mbox{\hyperlink{tokens_8cpp_source_l00651}{free\+\_\+\+PWM\+\_\+\+Var()}}, \mbox{\hyperlink{common_8cpp_source_l00312}{free\+\_\+script\+GPIOVariable()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00587}{free\+\_\+script\+Prog()}}, \mbox{\hyperlink{tokens_8cpp_source_l00672}{free\+\_\+while\+Extract()}}, \mbox{\hyperlink{sourcecodeline_8cpp_source_l00127}{freep\+Script\+Index()}}, \mbox{\hyperlink{tokens_8cpp_source_l00793}{free\+Up\+\_\+g\+Can\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00816}{free\+Up\+\_\+\+Script\+Variable()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00265}{Intialize\+Script\+Variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{tokens_8h_a7e200a4f1710f7d52198bfa9b8ab8888}\label{tokens_8h_a7e200a4f1710f7d52198bfa9b8ab8888} 
+\index{tokens.h@{tokens.h}!concat@{concat}}
+\index{concat@{concat}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{concat()}{concat()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} concat (\begin{DoxyParamCaption}\item[{int}]{count,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+add two strings and return the pointer to the new string. \Hypertarget{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}\label{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9} 
+\index{tokens.h@{tokens.h}!convert\_text\_to\_number@{convert\_text\_to\_number}}
+\index{convert\_text\_to\_number@{convert\_text\_to\_number}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{convert\_text\_to\_number()}{convert\_text\_to\_number()}}
+{\footnotesize\ttfamily float convert\+\_\+text\+\_\+to\+\_\+number (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+convert digital text to real decimal numbers.
+
+convert digital text to real decimal numbers. Find out and convert the numbers to a normal decimal number from text 
+
+Definition at line \mbox{\hyperlink{tokens_8h_source_l00305}{305}} of file \mbox{\hyperlink{tokens_8h_source}{tokens.\+h}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00180}{extract\+Float()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00310}{token\+\_\+baud\+\_\+rate()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, \mbox{\hyperlink{common_8cpp_source_l00420}{token\+\_\+delay()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{analog_8cpp_source_l00300}{token\+\_\+gen\+\_\+pwm()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}, \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00352}{token\+\_\+print()}}, \mbox{\hyperlink{digital_8cpp_source_l00345}{token\+\_\+put()}}, \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{token\+\_\+spi\+\_\+send()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\Hypertarget{tokens_8h_a6fdad59492f90db97f26d015ea003285}\label{tokens_8h_a6fdad59492f90db97f26d015ea003285} 
+\index{tokens.h@{tokens.h}!end\_of\_program\_token@{end\_of\_program\_token}}
+\index{end\_of\_program\_token@{end\_of\_program\_token}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{end\_of\_program\_token()}{end\_of\_program\_token()}}
+{\footnotesize\ttfamily int end\+\_\+of\+\_\+program\+\_\+token (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This version decide how long the string should be taken. 
+
+Definition at line \mbox{\hyperlink{tokens_8h_source_l00293}{293}} of file \mbox{\hyperlink{tokens_8h_source}{tokens.\+h}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, and \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, and \mbox{\hyperlink{function_8cpp_source_l00043}{token\+\_\+function()}}.
+
+Here is the caller graph for this function\+:
+% FIG 14
+\Hypertarget{tokens_8h_a3e07d74e33118d581139a566aa18240e}\label{tokens_8h_a3e07d74e33118d581139a566aa18240e} 
+\index{tokens.h@{tokens.h}!endOfNumber@{endOfNumber}}
+\index{endOfNumber@{endOfNumber}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{endOfNumber()}{endOfNumber()}}
+{\footnotesize\ttfamily int end\+Of\+Number (\begin{DoxyParamCaption}\item[{char const \texorpdfstring{$\ast$}{*}}]{test\+Byte }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find the end of the number inside a string.. could be hex, or dec, or binary
+
+
+\begin{DoxyParams}{Parameters}
+{\em test\+Byte} & pointer to the script program \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{tokens_8h_source_l00207}{207}} of file \mbox{\hyperlink{tokens_8h_source}{tokens.\+h}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00082}{is\+Special\+Char()}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00274}{Tokenize\+To\+File\+::check\+Number()}}.
+
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16
+\Hypertarget{tokens_8h_a29ec0a1c249f2c7e33474a93fb758476}\label{tokens_8h_a29ec0a1c249f2c7e33474a93fb758476} 
+\index{tokens.h@{tokens.h}!extractFloat@{extractFloat}}
+\index{extractFloat@{extractFloat}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{extractFloat()}{extractFloat()}}
+{\footnotesize\ttfamily float extract\+Float (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{string\+To\+Float }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Extract a float number from a string 
+\begin{DoxyParams}{Parameters}
+{\em string\+To\+Float} & A string to convert to float. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{tokens_8h_source_l00180}{180}} of file \mbox{\hyperlink{tokens_8h_source}{tokens.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}.
+
+Here is the caller graph for this function\+:
+% FIG 17
+\Hypertarget{tokens_8h_a3a860209fa9dbbf9c1c5e478105e3dcb}\label{tokens_8h_a3a860209fa9dbbf9c1c5e478105e3dcb} 
+\index{tokens.h@{tokens.h}!FixStringIssue@{FixStringIssue}}
+\index{FixStringIssue@{FixStringIssue}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{FixStringIssue()}{FixStringIssue()}}
+{\footnotesize\ttfamily void Fix\+String\+Issue (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{in\+Str }\end{DoxyParamCaption})}
+
+This function will take care of removing extra \textquotesingle{}\textbackslash{}\textquotesingle{} symbol from a string text The problem is du to the fact that ~\newline
+ inside a text becomes \textbackslash{}n and it will be counted as a normal text not a new line command. 
+\begin{DoxyParams}{Parameters}
+{\em in\+Str} & A pointer to a string \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00352}{token\+\_\+print()}}.
+
+Here is the caller graph for this function\+:
+% FIG 18
+\Hypertarget{tokens_8h_a2f5f87103d4f87594877c10483aec0c0}\label{tokens_8h_a2f5f87103d4f87594877c10483aec0c0} 
+\index{tokens.h@{tokens.h}!free\_forExtract@{free\_forExtract}}
+\index{free\_forExtract@{free\_forExtract}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{free\_forExtract()}{free\_forExtract()}}
+{\footnotesize\ttfamily void free\+\_\+for\+Extract (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Free up mem from for\+Extract variable 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00679}{679}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00045}{for\+Extract}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00324}{token\+\_\+initialize\+Inter\+Active()}}.
+
+Here is the caller graph for this function\+:
+% FIG 19
+\Hypertarget{tokens_8h_a0f5dad43de9c916df235470edaec525d}\label{tokens_8h_a0f5dad43de9c916df235470edaec525d} 
+\index{tokens.h@{tokens.h}!free\_GlobalGPIO\_REG@{free\_GlobalGPIO\_REG}}
+\index{free\_GlobalGPIO\_REG@{free\_GlobalGPIO\_REG}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{free\_GlobalGPIO\_REG()}{free\_GlobalGPIO\_REG()}}
+{\footnotesize\ttfamily int free\+\_\+\+Global\+GPIO\+\_\+\+REG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} A function to add string variables and return a new mem allocated variable 
+
+Free up mem from Global\+GPIO\+\_\+\+REG
+
+Clean mem from free\+\_\+\+Global\+GPIO\+\_\+\+REG 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00784}{784}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}.
+
+Here is the caller graph for this function\+:
+% FIG 20
+\Hypertarget{tokens_8h_a6b5cb61736b819f5cf186b37b65dc475}\label{tokens_8h_a6b5cb61736b819f5cf186b37b65dc475} 
+\index{tokens.h@{tokens.h}!free\_globallabelVar@{free\_globallabelVar}}
+\index{free\_globallabelVar@{free\_globallabelVar}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{free\_globallabelVar()}{free\_globallabelVar()}}
+{\footnotesize\ttfamily void free\+\_\+globallabel\+Var (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Free Label variable 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00702}{702}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00052}{globallabel\+Var}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}.
+
+Here is the caller graph for this function\+:
+% FIG 21
+\Hypertarget{tokens_8h_a3cdd09d0ac08c781a9755db003212386}\label{tokens_8h_a3cdd09d0ac08c781a9755db003212386} 
+\index{tokens.h@{tokens.h}!free\_PWM\_Var@{free\_PWM\_Var}}
+\index{free\_PWM\_Var@{free\_PWM\_Var}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{free\_PWM\_Var()}{free\_PWM\_Var()}}
+{\footnotesize\ttfamily void free\+\_\+\+PWM\+\_\+\+Var (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Free up mem from PWM variable
+
+Free PWM variable 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00651}{651}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00043}{PWM\+\_\+\+Var}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}.
+
+Here is the caller graph for this function\+:
+% FIG 22
+\Hypertarget{tokens_8h_ab39ba0d8fffd0d7dfcf8d10aa2e1e81f}\label{tokens_8h_ab39ba0d8fffd0d7dfcf8d10aa2e1e81f} 
+\index{tokens.h@{tokens.h}!free\_whileExtract@{free\_whileExtract}}
+\index{free\_whileExtract@{free\_whileExtract}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{free\_whileExtract()}{free\_whileExtract()}}
+{\footnotesize\ttfamily void free\+\_\+while\+Extract (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Free up mem from while\+Extract variable
+
+Free while\+Extract variable 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00672}{672}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00046}{while\+Extract}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00324}{token\+\_\+initialize\+Inter\+Active()}}.
+
+Here is the caller graph for this function\+:
+% FIG 23
+\Hypertarget{tokens_8h_a058d33d7c518dfa929e8859696cc68f7}\label{tokens_8h_a058d33d7c518dfa929e8859696cc68f7} 
+\index{tokens.h@{tokens.h}!freeUp\_gCanVariable@{freeUp\_gCanVariable}}
+\index{freeUp\_gCanVariable@{freeUp\_gCanVariable}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{freeUp\_gCanVariable()}{freeUp\_gCanVariable()}}
+{\footnotesize\ttfamily int free\+Up\+\_\+g\+Can\+Variable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Free up mem for CAN variable
+
+Clean mem from CAN variable 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00793}{793}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00040}{g\+Can\+Variable}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}.
+
+Here is the caller graph for this function\+:
+% FIG 24
+\Hypertarget{tokens_8h_a91c8fc9a6b882774c626717e3ff85b3d}\label{tokens_8h_a91c8fc9a6b882774c626717e3ff85b3d} 
+\index{tokens.h@{tokens.h}!freeUp\_ScriptVariable@{freeUp\_ScriptVariable}}
+\index{freeUp\_ScriptVariable@{freeUp\_ScriptVariable}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{freeUp\_ScriptVariable()}{freeUp\_ScriptVariable()}}
+{\footnotesize\ttfamily void free\+Up\+\_\+\+Script\+Variable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Free up mem from all variables.
+
+Clean mem from global script variable 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00816}{816}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00094}{Global\+Variables\+::remove\+PF()}}, \mbox{\hyperlink{tokens_8cpp_source_l00103}{Global\+Variables\+::remove\+PI()}}, \mbox{\hyperlink{tokens_8cpp_source_l00112}{Global\+Variables\+::remove\+TXTString()}}, \mbox{\hyperlink{tokens_8cpp_source_l00088}{Global\+Variables\+::remove\+Varname()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}.
+
+Here is the call graph for this function\+:
+% FIG 25
+Here is the caller graph for this function\+:
+% FIG 26
+\Hypertarget{tokens_8h_aa9bb36d06c53d2cca0a3aa36d7834e2e}\label{tokens_8h_aa9bb36d06c53d2cca0a3aa36d7834e2e} 
+\index{tokens.h@{tokens.h}!InitializeDefaultScriptFileName@{InitializeDefaultScriptFileName}}
+\index{InitializeDefaultScriptFileName@{InitializeDefaultScriptFileName}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{InitializeDefaultScriptFileName()}{InitializeDefaultScriptFileName()}}
+{\footnotesize\ttfamily void Initialize\+Default\+Script\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialize the default file names for the system. 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00362}{362}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{interactive_8cpp_source_l00036}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME}}, and \mbox{\hyperlink{interactive_8cpp_source_l00042}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME\+\_\+\+DAD}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, and \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}.
+
+Here is the caller graph for this function\+:
+% FIG 27
+\Hypertarget{tokens_8h_ad0b638d3a9f4e8c9290ee3cdce9a52fc}\label{tokens_8h_ad0b638d3a9f4e8c9290ee3cdce9a52fc} 
+\index{tokens.h@{tokens.h}!IntializeScriptVariable@{IntializeScriptVariable}}
+\index{IntializeScriptVariable@{IntializeScriptVariable}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{IntializeScriptVariable()}{IntializeScriptVariable()}}
+{\footnotesize\ttfamily void Intialize\+Script\+Variable (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name\+Of\+Variable }\end{DoxyParamCaption})}
+
+If you give a name to the function it will delete only that variable, if you give NULL it will delete all 
+\begin{DoxyParams}{Parameters}
+{\em name\+Of\+Variable} & \+: Variable to delete from memory, if =NULL, all variables will be deleted\\
+\hline
+\end{DoxyParams}
+Free up the memory/\+Initialize a variable. But you can specify a variable to delete or all. Send NULL to delete all 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00265}{265}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{types_8h_source_l00675}{Global\+Variables\+::hash\+Varnme}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00094}{Global\+Variables\+::remove\+PF()}}, \mbox{\hyperlink{tokens_8cpp_source_l00103}{Global\+Variables\+::remove\+PI()}}, \mbox{\hyperlink{tokens_8cpp_source_l00112}{Global\+Variables\+::remove\+TXTString()}}, \mbox{\hyperlink{tokens_8cpp_source_l00088}{Global\+Variables\+::remove\+Varname()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, and \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}, and \mbox{\hyperlink{common_8cpp_source_l00335}{token\+\_\+delete()}}.
+
+Here is the call graph for this function\+:
+% FIG 28
+Here is the caller graph for this function\+:
+% FIG 29
+\Hypertarget{tokens_8h_a731f0f0e5d73a592ac35d8643ab6f90f}\label{tokens_8h_a731f0f0e5d73a592ac35d8643ab6f90f} 
+\index{tokens.h@{tokens.h}!isSpecialChar@{isSpecialChar}}
+\index{isSpecialChar@{isSpecialChar}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{isSpecialChar()}{isSpecialChar()}}
+{\footnotesize\ttfamily unsigned char is\+Special\+Char (\begin{DoxyParamCaption}\item[{char const \texorpdfstring{$\ast$}{*}}]{temp\+P\+\_\+\+PROG }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if a byte is a symbol or not param a char to be checked Return 1 if the char is a symbol, 0 if not. 
+
+Definition at line \mbox{\hyperlink{tokens_8h_source_l00082}{82}} of file \mbox{\hyperlink{tokens_8h_source}{tokens.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00314}{Tokenize\+To\+File\+::check\+Instruction()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00345}{Tokenize\+To\+File\+::check\+Variable()}}, and \mbox{\hyperlink{tokens_8h_source_l00207}{end\+Of\+Number()}}.
+
+Here is the caller graph for this function\+:
+% FIG 30
+\Hypertarget{tokens_8h_ab40143d7faf47b5409f7f926dc91766e}\label{tokens_8h_ab40143d7faf47b5409f7f926dc91766e} 
+\index{tokens.h@{tokens.h}!process\_token@{process\_token}}
+\index{process\_token@{process\_token}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{process\_token()}{process\_token()}}
+{\footnotesize\ttfamily void process\+\_\+token (\begin{DoxyParamCaption}\item[{int}]{token\+\_\+word }\end{DoxyParamCaption})}
+
+Check and accept/process the token 
+\begin{DoxyParams}{Parameters}
+{\em token\+\_\+word} & to be accepted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00852}{852}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{tokens_8h_source_l00293}{end\+\_\+of\+\_\+program\+\_\+token()}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00061}{var\+Glob\+Active\+Interrupt\+Func}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00448}{arithmetic\+\_\+expression()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00536}{Calculate\+Right\+Sideof\+Variable\+Equation\+\_\+\+TEXT()}}, \mbox{\hyperlink{digital_8cpp_source_l00584}{create\+New\+Bus()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{divide\+\_\+multiply()}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00410}{get\+\_\+next\+\_\+number\+\_\+or\+\_\+variable\+\_\+value()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00310}{token\+\_\+baud\+\_\+rate()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, \mbox{\hyperlink{digital_8cpp_source_l00712}{token\+\_\+create\+\_\+reg()}}, \mbox{\hyperlink{common_8cpp_source_l00420}{token\+\_\+delay()}}, \mbox{\hyperlink{common_8cpp_source_l00335}{token\+\_\+delete()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00331}{token\+\_\+enable\+\_\+debug()}}, \mbox{\hyperlink{common_8cpp_source_l00491}{token\+\_\+exit()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{function_8cpp_source_l00043}{token\+\_\+function()}}, \mbox{\hyperlink{analog_8cpp_source_l00300}{token\+\_\+gen\+\_\+pwm()}}, \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}, \mbox{\hyperlink{common_8cpp_source_l00359}{token\+\_\+goto()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}, \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}, \mbox{\hyperlink{interrupt__in_8cpp_source_l00060}{token\+\_\+interrupt\+In()}}, \mbox{\hyperlink{tokens_8cpp_source_l00257}{token\+\_\+label()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00352}{token\+\_\+print()}}, \mbox{\hyperlink{digital_8cpp_source_l00345}{token\+\_\+put()}}, \mbox{\hyperlink{common_8cpp_source_l00396}{token\+\_\+rem()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{token\+\_\+serial\+\_\+get()}}, \mbox{\hyperlink{common_8cpp_source_l00292}{token\+\_\+serial\+\_\+screen\+\_\+clear()}}, \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{token\+\_\+spi\+\_\+send()}}, \mbox{\hyperlink{variable_8cpp_source_l00061}{token\+\_\+variable()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+Here is the call graph for this function\+:
+% FIG 31
+Here is the caller graph for this function\+:
+% FIG 32
+\Hypertarget{tokens_8h_acc8fc12e6f836eb5cb9ceda7bfe503ca}\label{tokens_8h_acc8fc12e6f836eb5cb9ceda7bfe503ca} 
+\index{tokens.h@{tokens.h}!RetrieveEndOfInstruction@{RetrieveEndOfInstruction}}
+\index{RetrieveEndOfInstruction@{RetrieveEndOfInstruction}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{RetrieveEndOfInstruction()}{RetrieveEndOfInstruction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*} Retrieve\+End\+Of\+Instruction (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function that retrieve the last position in the current line of code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em No} & parameter needed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer pointing to the last position in the current line code
+\end{DoxyReturn}
+Use this function whenever you need to know the end of the current command-\/line instruction
+
+Will find the end of the instruction line but it doesn\textquotesingle{}t jump to the end of the line \begin{DoxyReturn}{Returns}
+end of the line 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00721}{721}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, and \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00492}{Calculate\+Right\+Sideof\+Variable\+Equation()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00536}{Calculate\+Right\+Sideof\+Variable\+Equation\+\_\+\+TEXT()}}, \mbox{\hyperlink{digital_8cpp_source_l00584}{create\+New\+Bus()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, and \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}.
+
+Here is the call graph for this function\+:
+% FIG 33
+Here is the caller graph for this function\+:
+% FIG 34
+\Hypertarget{tokens_8h_afe426610e846f3b45202e44701ee73fd}\label{tokens_8h_afe426610e846f3b45202e44701ee73fd} 
+\index{tokens.h@{tokens.h}!RetrieveValueInGlobalVariable@{RetrieveValueInGlobalVariable}}
+\index{RetrieveValueInGlobalVariable@{RetrieveValueInGlobalVariable}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{RetrieveValueInGlobalVariable()}{RetrieveValueInGlobalVariable()}}
+{\footnotesize\ttfamily float Retrieve\+Value\+In\+Global\+Variable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function that retrieve a value from the global script variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em No} & parameter needed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value from global script variables
+\end{DoxyReturn}
+Use this function whenever you need to retrieve a value from the script program.
+
+\begin{DoxyReturn}{Returns}
+Value from global script variables
+\end{DoxyReturn}
+Use this function whenever you need to retrieve a value from the script program. 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00565}{565}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, \mbox{\hyperlink{common_8cpp_source_l00420}{token\+\_\+delay()}}, \mbox{\hyperlink{analog_8cpp_source_l00300}{token\+\_\+gen\+\_\+pwm()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}, and \mbox{\hyperlink{digital_8cpp_source_l00345}{token\+\_\+put()}}.
+
+Here is the call graph for this function\+:
+% FIG 35
+Here is the caller graph for this function\+:
+% FIG 36
+\Hypertarget{tokens_8h_a490787422dbb60207446b4a884048ff5}\label{tokens_8h_a490787422dbb60207446b4a884048ff5} 
+\index{tokens.h@{tokens.h}!SavelabelPositions@{SavelabelPositions}}
+\index{SavelabelPositions@{SavelabelPositions}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{SavelabelPositions()}{SavelabelPositions()}}
+{\footnotesize\ttfamily int Savelabel\+Positions (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will save the position of the lable used in the script.
+
+\begin{DoxyReturn}{Returns}
+size of the lable\+\_\+name
+\end{DoxyReturn}
+This function will save the position of the label used in the script. 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00214}{214}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00052}{globallabel\+Var}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+Here is the call graph for this function\+:
+% FIG 37
+Here is the caller graph for this function\+:
+% FIG 38
+\Hypertarget{tokens_8h_a86b46dd515cd3b3c58df1c6e21c6dbce}\label{tokens_8h_a86b46dd515cd3b3c58df1c6e21c6dbce} 
+\index{tokens.h@{tokens.h}!TestSystem\_get\_empty\_variable\_pos@{TestSystem\_get\_empty\_variable\_pos}}
+\index{TestSystem\_get\_empty\_variable\_pos@{TestSystem\_get\_empty\_variable\_pos}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{TestSystem\_get\_empty\_variable\_pos()}{TestSystem\_get\_empty\_variable\_pos()}}
+{\footnotesize\ttfamily int Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This function will try to find an empty position in the global variable 
+
+Definition at line \mbox{\hyperlink{tokens_8h_source_l00070}{70}} of file \mbox{\hyperlink{tokens_8h_source}{tokens.\+h}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}.
+
+
+
+Referenced by \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{token\+\_\+serial\+\_\+get()}}, \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{token\+\_\+spi\+\_\+send()}}, and \mbox{\hyperlink{variable_8cpp_source_l00061}{token\+\_\+variable()}}.
+
+Here is the caller graph for this function\+:
+% FIG 39
+\Hypertarget{tokens_8h_a35ee40bf5579d52a873de6ddc5834e73}\label{tokens_8h_a35ee40bf5579d52a873de6ddc5834e73} 
+\index{tokens.h@{tokens.h}!TestSystem\_get\_variable@{TestSystem\_get\_variable}}
+\index{TestSystem\_get\_variable@{TestSystem\_get\_variable}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{TestSystem\_get\_variable()}{TestSystem\_get\_variable()}}
+{\footnotesize\ttfamily int Test\+System\+\_\+get\+\_\+variable (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{var\+Name }\end{DoxyParamCaption})}
+
+Take the name of the variable from the program script and find the position of the variable in the global variables.
+
+
+\begin{DoxyParams}{Parameters}
+{\em var\+Name} & is null pointer OR A NAME \\
+\hline
+\end{DoxyParams}
+Before doing anything, we shouldn\textquotesingle{}t allow any operation if the script\+\_\+variables=NULL
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00448}{448}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00536}{Calculate\+Right\+Sideof\+Variable\+Equation\+\_\+\+TEXT()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00518}{Check\+If\+The\+Right\+Side\+Is\+Var\+Of\+Array\+String()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{divide\+\_\+multiply()}}, \mbox{\hyperlink{tokens_8cpp_source_l00265}{Intialize\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}, \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00352}{token\+\_\+print()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{token\+\_\+serial\+\_\+get()}}, \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{token\+\_\+spi\+\_\+send()}}, \mbox{\hyperlink{variable_8cpp_source_l00061}{token\+\_\+variable()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+Here is the call graph for this function\+:
+% FIG 40
+Here is the caller graph for this function\+:
+% FIG 41
+\Hypertarget{tokens_8h_a71f4656e82905c84b93014d26018f628}\label{tokens_8h_a71f4656e82905c84b93014d26018f628} 
+\index{tokens.h@{tokens.h}!token\_extract\_string@{token\_extract\_string}}
+\index{token\_extract\_string@{token\_extract\_string}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_extract\_string()}{token\_extract\_string()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} token\+\_\+extract\+\_\+string (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Extract the string and return the pointer. \Hypertarget{tokens_8h_ae58c552031c4f75158c36dbee5983897}\label{tokens_8h_ae58c552031c4f75158c36dbee5983897} 
+\index{tokens.h@{tokens.h}!token\_initialize@{token\_initialize}}
+\index{token\_initialize@{token\_initialize}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_initialize()}{token\_initialize()}}
+{\footnotesize\ttfamily int token\+\_\+initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Setup the pointers and initialize it to the start of the program. \begin{DoxyReturn}{Returns}
+-\/1 if something wrong happened otherwise \texorpdfstring{$>$}{>}=0 
+\end{DoxyReturn}
+prepare the .dad file and load it to the memory
+
+Not known what value it has. we should initialize it.
+
+FOR -\/LOOP INSTRUCTION WILL BE ACCEPTED ONLY IF THEY ARE \textquotesingle{}=SCRIPT\+\_\+\+MAX\+\_\+\+NESTED\+\_\+\+FOR\+\_\+\+WHILE\+\_\+\+LOOP\textquotesingle{} NESTED FOR-\/\+LOOP. NO MORE. FOR SIMPLICITY
+
+WHILE -\/LOOP INSTRUCTION WILL BE ACCEPTED ONLY IF THEY ARE \textquotesingle{}=SCRIPT\+\_\+\+MAX\+\_\+\+NESTED\+\_\+\+FOR\+\_\+\+WHILE\+\_\+\+LOOP\textquotesingle{} NESTED FOR-\/\+LOOP. NO MORE. FOR SIMPLICITY
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00370}{370}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_aeec68b47085e17e77ae20a487d8734ed}{add\+\_\+\+Reserved\+\_\+\+GPIO()}}, \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00563}{countlines()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00045}{for\+Extract}}, \mbox{\hyperlink{tokens_8cpp_source_l00679}{free\+\_\+for\+Extract()}}, \mbox{\hyperlink{tokens_8cpp_source_l00672}{free\+\_\+while\+Extract()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00031}{nested\+Forloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00035}{nested\+For\+Whileloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00033}{nested\+Whileloop}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00049}{p\+Script\+Index}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00509}{read\+Tolinked\+List()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00368}{Tokenize\+To\+File\+::run()}}, \mbox{\hyperlink{tokens_8cpp_source_l00214}{Savelabel\+Positions()}}, \mbox{\hyperlink{sourcecodeline_8cpp_source_l00104}{Source\+Code\+Line\+::scan\+Source\+Code()}}, \mbox{\hyperlink{interactive_8cpp_source_l00036}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME}}, \mbox{\hyperlink{interactive_8cpp_source_l00042}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME\+\_\+\+DAD}}, and \mbox{\hyperlink{tokens_8cpp_source_l00046}{while\+Extract}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00260}{Run\+Script\+File()}}.
+
+Here is the call graph for this function\+:
+% FIG 42
+Here is the caller graph for this function\+:
+% FIG 43
+\Hypertarget{tokens_8h_a51ffff7d3440bd862b183771b7a376a7}\label{tokens_8h_a51ffff7d3440bd862b183771b7a376a7} 
+\index{tokens.h@{tokens.h}!token\_initializeInterActive@{token\_initializeInterActive}}
+\index{token\_initializeInterActive@{token\_initializeInterActive}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_initializeInterActive()}{token\_initializeInterActive()}}
+{\footnotesize\ttfamily int token\+\_\+initialize\+Inter\+Active (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize the script program for interactive mode
+
+Initialize internal variable for interactive mode FOR -\/LOOP INSTRUCTION WILL BE ACCEPTED ONLY IF THEY ARE \textquotesingle{}=SCRIPT\+\_\+\+MAX\+\_\+\+NESTED\+\_\+\+FOR\+\_\+\+WHILE\+\_\+\+LOOP\textquotesingle{} NESTED FOR-\/\+LOOP. NO MORE. FOR SIMPLICITY
+
+WHILE -\/LOOP INSTRUCTION WILL BE ACCEPTED ONLY IF THEY ARE \textquotesingle{}=SCRIPT\+\_\+\+MAX\+\_\+\+NESTED\+\_\+\+FOR\+\_\+\+WHILE\+\_\+\+LOOP\textquotesingle{} NESTED FOR-\/\+LOOP. NO MORE. FOR SIMPLICITY
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00324}{324}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_aeec68b47085e17e77ae20a487d8734ed}{add\+\_\+\+Reserved\+\_\+\+GPIO()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00045}{for\+Extract}}, \mbox{\hyperlink{tokens_8cpp_source_l00679}{free\+\_\+for\+Extract()}}, \mbox{\hyperlink{tokens_8cpp_source_l00672}{free\+\_\+while\+Extract()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00031}{nested\+Forloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00035}{nested\+For\+Whileloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00033}{nested\+Whileloop}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00046}{while\+Extract}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 44
+Here is the caller graph for this function\+:
+% FIG 45
+\Hypertarget{tokens_8h_ad51378f90f48a5b0a94362e9a75ebecf}\label{tokens_8h_ad51378f90f48a5b0a94362e9a75ebecf} 
+\index{tokens.h@{tokens.h}!token\_label@{token\_label}}
+\index{token\_label@{token\_label}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_label()}{token\_label()}}
+{\footnotesize\ttfamily int token\+\_\+label (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+TOKEN Label. This function do nothing
+
+This function will do nothing. It is already saved during the initialization. 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00257}{257}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 46
+Here is the caller graph for this function\+:
+% FIG 47

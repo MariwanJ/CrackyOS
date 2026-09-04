@@ -1,0 +1,48 @@
+\doxysection{ticker\+\_\+hw.\+h}
+\hypertarget{ticker__hw_8h_source}{}\label{ticker__hw_8h_source}\index{CrackyOS/src/ticker\_hw.h@{CrackyOS/src/ticker\_hw.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00027}00027\ \textcolor{preprocessor}{\#ifndef\ TICKER\_HW\_H}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ TICKER\_HW\_H}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hardware__used_8h}{hardware\_used.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00035}00035\ \textcolor{keywordtype}{int}\ token\_ticker(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00037}00037\ \textcolor{comment}{//\ It\ will\ creates\ a\ Ticker\ object\ that\ could\ be\ started\ and\ stopped\ at\ any}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00038}00038\ \textcolor{comment}{//\ time.\ An\ digital\ GPIO\ should\ be\ given\ to\ the\ ticker\ to}}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00042}\mbox{\hyperlink{class_flipper}{00042}}\ \textcolor{comment}{}\textcolor{keyword}{class\ }\mbox{\hyperlink{class_flipper}{Flipper}}\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00043}00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00048}00048\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_flipper}{Flipper}}(\textcolor{keywordtype}{int}\ m\_en);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00053}00053\ \ \ \mbox{\hyperlink{class_flipper_ae498ab519584627d366565705b5655e3}{\string~Flipper}}();}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00058}\mbox{\hyperlink{class_flipper_afd6416c5626df4035780c70cf107188a}{00058}}\ \ \ \mbox{\hyperlink{class_flipper_afd6416c5626df4035780c70cf107188a}{Flipper}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_flipper}{Flipper}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00063}\mbox{\hyperlink{class_flipper_a3c86a63c5dfddb5f3f1156236998c505}{00063}}\ \ \ \mbox{\hyperlink{class_flipper}{Flipper}}\ \mbox{\hyperlink{class_flipper_a3c86a63c5dfddb5f3f1156236998c505}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_flipper}{Flipper}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00067}00067\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_flipper_a1d8b7e258a2444af14dfb6d771af0abf}{Toggle}}();}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00072}00072\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_flipper_ac9056cfa1b3884cd6d972113016da614}{enumPINNAME}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00076}\mbox{\hyperlink{class_flipper_aa4e65caa9ae353e1b6215b34e529e817}{00076}}\ \ \ Ticker\ \mbox{\hyperlink{class_flipper_aa4e65caa9ae353e1b6215b34e529e817}{mticker}};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00080}00080\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_flipper_acc1916de697da9c3862e6f74f54d26fe}{\_\_attach}}();}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00085}00085\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_flipper_aa23204405febca6b3aba891a8c93f932}{\_\_detach}}();}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00091}00091\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_flipper_ae9e6f8e2286300f8f5a86a7c995d1464}{setInterval}}(uint32\_t\ g);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00092}00092\ \ \ \mbox{\hyperlink{struct_gnode}{GlobalGP}}\ *m\_pin;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00094}00094\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00098}00098\ \ \ uint32\_t\ mInterval;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00102}00102\ \ \ \textcolor{keywordtype}{int}\ m\_enumPINNAME;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00103}00103\ \};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00107}\mbox{\hyperlink{structg_t_obj}{00107}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structg_t_obj}{gTObj}}\ \{}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00108}00108\ \ \ \mbox{\hyperlink{class_flipper}{Flipper}}\ *mToggelPin;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00109}00109\ \ \ \mbox{\hyperlink{structg_t_obj}{gTObj}}\ *next;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00110}00110\ \ \ \mbox{\hyperlink{structg_t_obj}{gTObj}}\ *prev;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00111}00111\ \}\ \mbox{\hyperlink{structg_t_obj}{tobj}};}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00113}00113\ \textcolor{keywordtype}{void}\ FreeUp\_Tickers(\textcolor{keywordtype}{int}\ enumNumber);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00122}00122\ \textcolor{keywordtype}{void}\ TickerObject\_add(\textcolor{keywordtype}{int}\ enumPinName,\ uint32\_t\ uSecTime,\ \textcolor{keywordtype}{bool}\ DefaultValue,}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *tickername);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00128}00128\ \mbox{\hyperlink{structg_t_obj}{tobj}}\ *TickerObject\_find(\textcolor{keywordtype}{int}\ enumPinName);}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00133}00133\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structg_t_obj}{tobj}}\ *GTickerObject;}
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{ticker__hw_8h_source_l00135}00135\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

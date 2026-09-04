@@ -1,0 +1,18 @@
+\doxysection{IF...ELSE Statements}
+\hypertarget{if}{}\label{if}\index{IF...ELSE Statements@{IF...ELSE Statements}}
+Conditional statements are used to perform different actions based on different conditions.~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape }
+
+
+\begin{DoxyItemize}
+\item Use if to specify a block of code to be executed, if a specified condition is true
+\item Use else to specify a block of code to be executed, if the same condition is false {\itshape {\bfseries{ ~\newline
+ Example\+: }} } ~\newline
+ get PA\+\_\+4, myvar; ~~~  rem read GPIO ~\newline
+ if(myvar==0) \{~\newline
+ ~ rem if the GPIO is zero~\newline
+ ~print \"{} Result was Zero\textbackslash{}n\"{}\}; else \{ ~ rem if the GPIO is one~\newline
+ ~print \"{} Result was One\textbackslash{}n\"{}\}; \} 
+\end{DoxyItemize}

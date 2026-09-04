@@ -1,0 +1,15 @@
+/*!
+
+*\page rem  Rem
+*
+* After REM instruction, all letters to the end of the line or to the position of finding a semicolon will be ignored<BR>
+*<span style='color:blue'><em><B> <br> Note:</B> </em> </span><br>
+*Although rem line is not executed and doesn't affect the execution of the script program, but it will occupies the memory space. It is not recommended to use REM a lot. 
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> rem comments ;  </B>
+*<BR><B> comments: </B> Optional. The text of any comment you want to include. A space is required between the "rem" -keyword and the comments. <br>
+<span style='color:blue'><em><B> <br>
+Example:
+</B> </em> </span><br>
+<span style='color:green'> rem Sample script program 2018-06-04 </span><br>
+*/

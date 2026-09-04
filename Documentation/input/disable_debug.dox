@@ -1,0 +1,15 @@
+/*!
+
+*\page disable_debug Disable Debug Log
+*
+* This command disables the debug log messages via RS232.
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> disable_debug</B><BR>
+*
+*<span style='color:blue'><em><B>
+*Example:
+*</B> </em> </span><br>
+* enable_debug;			&nbsp;&nbsp;&nbsp;  <span style='color:green'>  rem enable debug messages.</span><br>
+* disable_debug;		&nbsp;&nbsp;&nbsp;  <span style='color:green'>  rem disable debug messages.</span><br>
+*
+*/

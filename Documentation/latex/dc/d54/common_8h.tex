@@ -1,0 +1,1069 @@
+\doxysection{Cracky\+OS/src/common.h File Reference}
+\hypertarget{common_8h}{}\label{common_8h}\index{CrackyOS/src/common.h@{CrackyOS/src/common.h}}
+
+
+This file contains some functions and definitions. and important variables that are used by the interpreter.  
+
+
+{\ttfamily \#include \"{}SD/\+SDBlock\+Device.\+h\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$mbed.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$cstdarg$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include \"{}interrupt\+\_\+in.\+h\"{}}\newline
+{\ttfamily \#include \"{}ringbuffer.\+h\"{}}\newline
+{\ttfamily \#include \"{}arithmetic.\+h\"{}}\newline
+{\ttfamily \#include \"{}i2c\+\_\+hw.\+h\"{}}\newline
+{\ttfamily \#include \"{}sdcard.\+h\"{}}\newline
+{\ttfamily \#include \"{}serialmessage.\+h\"{}}\newline
+{\ttfamily \#include \"{}spi\+\_\+hw.\+h\"{}}\newline
+{\ttfamily \#include \"{}ticker\+\_\+hw.\+h\"{}}\newline
+{\ttfamily \#include \"{}tokenizetofile.\+h\"{}}\newline
+{\ttfamily \#include \"{}tokens.\+h\"{}}\newline
+{\ttfamily \#include \"{}types.\+h\"{}}\newline
+Include dependency graph for common.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{common_8h_a77dacadacfe0ef086ed95a7965f805f7}{system\+\_\+script\+\_\+init}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_ac9c2a0eacced9c9088d3afdfe993b74c}{Execute\+\_\+\+Instructions}} (\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}to\+Position)
+\item 
+int \mbox{\hyperlink{common_8h_af366bd6905d0426557bc1b1257621a05}{script\+System\+\_\+script\+\_\+run}} (void)
+\item 
+Pin\+Name \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME}} (int Text\+Enum)
+\item 
+int \mbox{\hyperlink{common_8h_ae1401c454fed3d87210c433bb4cd71b1}{token\+\_\+create\+\_\+reg}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a6294317f613ecb1fae1d1a2dd0efa00f}{token\+\_\+put}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_ae3c6d4952f005507ac7eda315e4eac0d}{token\+\_\+get}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_adc9d9485e94cad7b90a3e8f19b7fab81}{token\+\_\+aput}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_ad7b4f00902a71e39c4177a8ae142daab}{token\+\_\+aget}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a970904cc9f9b09170883639765a785fa}{token\+\_\+delay}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a0d7a8467aa25b21f550c9d1db7e45b2e}{token\+\_\+function}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a7ed99eec28da7c75cbd5800f1ee7340b}{token\+\_\+variable}} (void)
+\begin{DoxyCompactList}\small\item\em This function will take care of the variables and the rest of the line. Note\+: All variables are global. You can change the nature of the variable at any time from text to int or to float vice versa. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{common_8h_a7cc50339644ce59f9885d5ea5fd30e1d}{token\+\_\+baud\+\_\+rate}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a68c44d54903a111aeef202dbcf06bd63}{token\+\_\+print}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_ab19ba49a21cdc9b958dcca3bff49d54b}{token\+\_\+serial\+\_\+get}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_af3c622ef82350bfd032d8da01ba37133}{token\+\_\+for\+\_\+loop}} ()
+\item 
+int \mbox{\hyperlink{common_8h_a3170fe95b2a409c2446aa09ef7f3c855}{token\+\_\+while\+\_\+loop}} ()
+\item 
+int \mbox{\hyperlink{common_8h_a6a8f71fa2cc1680cf9686113269e99ee}{token\+\_\+rem}} ()
+\item 
+int \mbox{\hyperlink{common_8h_a62632780a43a6388a2538d171daf48a4}{token\+\_\+spi\+\_\+send}} ()
+\item 
+int \mbox{\hyperlink{common_8h_ab1209e31e93df0db0af17b55ea698f98}{token\+\_\+can\+\_\+send}} ()
+\item 
+int \mbox{\hyperlink{common_8h_a33da550a9c41f70ab4ded332377938ea}{token\+\_\+can\+\_\+get}} ()
+\item 
+int \mbox{\hyperlink{common_8h_abe72ebed44ce7f6ead16c362e323806e}{token\+\_\+gen\+\_\+pwm}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a78bab7127f6044197c9f61e6e1c015c8}{token\+\_\+enable\+\_\+debug}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_ae1d9c3558a489be546c610d7eeaf5b91}{token\+\_\+disable\+\_\+debug}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a0797bf8a444d4f4ae02785fa9767f758}{token\+\_\+if}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a44b92d893d2a7ca19cf9d65972b7b56c}{token\+\_\+goto}} (void)
+\item 
+unsigned char \mbox{\hyperlink{common_8h_a89afd0078e0ef186ea6d679d9ed1edf1}{token\+\_\+serial\+\_\+screen\+\_\+clear}} ()
+\item 
+int \mbox{\hyperlink{common_8h_af6a06322e59d42ed744b8ce272b8a847}{create\+New\+Bus}} (int type)
+\item 
+int \mbox{\hyperlink{common_8h_a26e3de61eaedc6a5623de576ebb577e7}{create\+New\+Can\+Definition}} ()
+\item 
+int \mbox{\hyperlink{common_8h_ae51ee3752c9c15ef6ffa0d262ac41534}{token\+\_\+i2c\+\_\+send}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a8c0f4327a79cfd4f67a3aa8d0b53e5d7}{token\+\_\+i2c\+\_\+get}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a7e5ff83eecb7a170f45e41aa3aa30367}{token\+\_\+exit}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_ac789a6d5db8f6b16099d49725068c0b3}{token\+\_\+call}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a0bd97a0468b8ebe1fbd44d579506441f}{token\+\_\+delete}} (void)
+\item 
+int \mbox{\hyperlink{common_8h_a6cea5f57c159677960eb3dbcf3592188}{token\+\_\+interrupt\+In}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+SDBlock\+Device \mbox{\hyperlink{common_8h_af0f08ac2ee0061f2201dd1c82f9925d3}{sd}}
+\item 
+can\+Type \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{common_8h_ad578dea13813f4d69f4581871f556471}{g\+Can\+Variable}}
+\item 
+\mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{common_8h_a791df047b65c1e1411cd45f30d379bd5}{global\+GPIOvariable}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains some functions and definitions. and important variables that are used by the interpreter. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{common_8h_source}{common.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{common_8h_af6a06322e59d42ed744b8ce272b8a847}\label{common_8h_af6a06322e59d42ed744b8ce272b8a847} 
+\index{common.h@{common.h}!createNewBus@{createNewBus}}
+\index{createNewBus@{createNewBus}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{createNewBus()}{createNewBus()}}
+{\footnotesize\ttfamily int create\+New\+Bus (\begin{DoxyParamCaption}\item[{int}]{type }\end{DoxyParamCaption})}
+
+Create new bus reg
+
+Create New bus Bus will not be created if it is exist. 
+\begin{DoxyParams}{Parameters}
+{\em type} & \+: In or Out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00584}{584}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{digital_8cpp_source_l00093}{reg\+::config\+Bus()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, and \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00712}{token\+\_\+create\+\_\+reg()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{common_8h_a26e3de61eaedc6a5623de576ebb577e7}\label{common_8h_a26e3de61eaedc6a5623de576ebb577e7} 
+\index{common.h@{common.h}!createNewCanDefinition@{createNewCanDefinition}}
+\index{createNewCanDefinition@{createNewCanDefinition}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{createNewCanDefinition()}{createNewCanDefinition()}}
+{\footnotesize\ttfamily int create\+New\+Can\+Definition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a new CAN port definition This is an internal function. \Hypertarget{common_8h_ac9c2a0eacced9c9088d3afdfe993b74c}\label{common_8h_ac9c2a0eacced9c9088d3afdfe993b74c} 
+\index{common.h@{common.h}!Execute\_Instructions@{Execute\_Instructions}}
+\index{Execute\_Instructions@{Execute\_Instructions}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{Execute\_Instructions()}{Execute\_Instructions()}}
+{\footnotesize\ttfamily int Execute\+\_\+\+Instructions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}}]{to\+Position }\end{DoxyParamCaption})}
+
+This function will execute either the entire script program (if NULL is given as a parameter), or it will run the script program from (p\+\_\+prog) to the to\+Position pointer This should be quick 
+\begin{DoxyParams}{Parameters}
+{\em to\+Position} & if NULL is send to this function, all script program line will be executed, otherwise the script will be executed to the position where to\+Positio points to.\\
+\hline
+\end{DoxyParams}
+Main function for fetching/\+Executing the instructions found i each token Care must be taken with this piece of code The beginning of the script program will be decided by the p\+\_\+prog..YOU NEED TO RUN \"{}token\+\_\+jump\+\_\+to (.....)\"{} before calling this function ... \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+WARNING!!! -\/1 should not be returned from any function if no error occurred. -\/1 means there was an error and it will terminate the execution 2020-\/02-\/21
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8h_source_l00293}{end\+\_\+of\+\_\+program\+\_\+token()}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}, \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00310}{token\+\_\+baud\+\_\+rate()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, \mbox{\hyperlink{digital_8cpp_source_l00712}{token\+\_\+create\+\_\+reg()}}, \mbox{\hyperlink{common_8cpp_source_l00420}{token\+\_\+delay()}}, \mbox{\hyperlink{common_8cpp_source_l00335}{token\+\_\+delete()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00331}{token\+\_\+enable\+\_\+debug()}}, \mbox{\hyperlink{common_8cpp_source_l00491}{token\+\_\+exit()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{function_8cpp_source_l00043}{token\+\_\+function()}}, \mbox{\hyperlink{analog_8cpp_source_l00300}{token\+\_\+gen\+\_\+pwm()}}, \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}, \mbox{\hyperlink{common_8cpp_source_l00359}{token\+\_\+goto()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}, \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}, \mbox{\hyperlink{interrupt__in_8cpp_source_l00060}{token\+\_\+interrupt\+In()}}, \mbox{\hyperlink{tokens_8cpp_source_l00257}{token\+\_\+label()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00352}{token\+\_\+print()}}, \mbox{\hyperlink{digital_8cpp_source_l00345}{token\+\_\+put()}}, \mbox{\hyperlink{common_8cpp_source_l00396}{token\+\_\+rem()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{token\+\_\+serial\+\_\+get()}}, \mbox{\hyperlink{common_8cpp_source_l00292}{token\+\_\+serial\+\_\+screen\+\_\+clear()}}, \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{token\+\_\+spi\+\_\+send()}}, \mbox{\hyperlink{variable_8cpp_source_l00061}{token\+\_\+variable()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{common_8cpp_source_l00301}{script\+System\+\_\+script\+\_\+run()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}\label{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312} 
+\index{common.h@{common.h}!retrievePinNameFromTOKEN\_NAME@{retrievePinNameFromTOKEN\_NAME}}
+\index{retrievePinNameFromTOKEN\_NAME@{retrievePinNameFromTOKEN\_NAME}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{retrievePinNameFromTOKEN\_NAME()}{retrievePinNameFromTOKEN\_NAME()}}
+{\footnotesize\ttfamily Pin\+Name retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME (\begin{DoxyParamCaption}\item[{int}]{Text\+Enum }\end{DoxyParamCaption})}
+
+This function will return the pinname of the given pinname in text 
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00184}{add\+GPIOpin\+\_\+\+DIGITAL()}}, \mbox{\hyperlink{digital_8cpp_source_l00584}{create\+New\+Bus()}}, \mbox{\hyperlink{digital_8cpp_source_l00039}{reg\+::reg()}}, \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, \mbox{\hyperlink{analog_8cpp_source_l00300}{token\+\_\+gen\+\_\+pwm()}}, and \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{common_8h_af366bd6905d0426557bc1b1257621a05}\label{common_8h_af366bd6905d0426557bc1b1257621a05} 
+\index{common.h@{common.h}!scriptSystem\_script\_run@{scriptSystem\_script\_run}}
+\index{scriptSystem\_script\_run@{scriptSystem\_script\_run}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{scriptSystem\_script\_run()}{scriptSystem\_script\_run()}}
+{\footnotesize\ttfamily int script\+System\+\_\+script\+\_\+run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Checks if it is not the end of the script program, and lunch Execute\+\_\+\+Instructions with NULL argument (run the all lines in the script program)
+
+Execute the script program. Important things happen here. \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00301}{301}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00260}{Run\+Script\+File()}}.
+
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+\Hypertarget{common_8h_a77dacadacfe0ef086ed95a7965f805f7}\label{common_8h_a77dacadacfe0ef086ed95a7965f805f7} 
+\index{common.h@{common.h}!system\_script\_init@{system\_script\_init}}
+\index{system\_script\_init@{system\_script\_init}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{system\_script\_init()}{system\_script\_init()}}
+{\footnotesize\ttfamily void system\+\_\+script\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will initialize the script program \Hypertarget{common_8h_ad7b4f00902a71e39c4177a8ae142daab}\label{common_8h_ad7b4f00902a71e39c4177a8ae142daab} 
+\index{common.h@{common.h}!token\_aget@{token\_aget}}
+\index{token\_aget@{token\_aget}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_aget()}{token\_aget()}}
+{\footnotesize\ttfamily int token\+\_\+aget (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get digital input data. You must provide the instruction a variable name Syntax of the instruction is like bellow\+: aget GPIO\+\_\+pin\+\_\+name, variable Variable is float and is a percentage of the real value. Multiply with VCC to get the correct voltage
+
+Note\+: Only one pin name should be used. No support for register. 
+
+Definition at line \mbox{\hyperlink{analog_8cpp_source_l00146}{146}} of file \mbox{\hyperlink{analog_8cpp_source}{analog.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00307}{find\+GPIOpin()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{common_8h_adc9d9485e94cad7b90a3e8f19b7fab81}\label{common_8h_adc9d9485e94cad7b90a3e8f19b7fab81} 
+\index{common.h@{common.h}!token\_aput@{token\_aput}}
+\index{token\_aput@{token\_aput}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_aput()}{token\_aput()}}
+{\footnotesize\ttfamily int token\+\_\+aput (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Analog version of in/out voltage in / out \+:: Note\+: This function will not accept REG.. It should be a single GPIO
+
+Put analog voltage/value to the GPIO. Syntax of the instruction is like follow\+: aput GPIO\+\_\+pin\+\_\+name , variable Variable or aput GPIO\+\_\+pin\+\_\+name, value Number (number is between 0 to 0x\+FFFF) 
+
+Definition at line \mbox{\hyperlink{analog_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{analog_8cpp_source}{analog.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00307}{find\+GPIOpin()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, and \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+\Hypertarget{common_8h_a7cc50339644ce59f9885d5ea5fd30e1d}\label{common_8h_a7cc50339644ce59f9885d5ea5fd30e1d} 
+\index{common.h@{common.h}!token\_baud\_rate@{token\_baud\_rate}}
+\index{token\_baud\_rate@{token\_baud\_rate}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_baud\_rate()}{token\_baud\_rate()}}
+{\footnotesize\ttfamily int token\+\_\+baud\+\_\+rate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Change the baud\+\_\+rate of the system
+
+Change the baud rate instruction Syntax baud\+\_\+rate xxxxxx Note\+: After reset, baud rate will return to the default. \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00310}{310}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{interactive_8cpp_source_l00046}{baud\+\_\+rate}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 13
+Here is the caller graph for this function\+:
+% FIG 14
+\Hypertarget{common_8h_ac789a6d5db8f6b16099d49725068c0b3}\label{common_8h_ac789a6d5db8f6b16099d49725068c0b3} 
+\index{common.h@{common.h}!token\_call@{token\_call}}
+\index{token\_call@{token\_call}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_call()}{token\_call()}}
+{\footnotesize\ttfamily int token\+\_\+call (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+CALL of a function arg1, arg2 ..argn Syntax\+: call function\+\_\+name arg1, arg2 ..argn; OR call function\+\_\+name //\+No arguments Note\+: Keep in mind that you must define the function in the top side of the script program before the executable codes. And the arguments are by\+Value .. Values will be transferred to the function ..not variables.
+
+CALL of a function (arg1, arg2 ..argn) Syntax\+: call function\+\_\+name (arg1, arg2 ..argn); OR call function\+\_\+name (\"{}\+STRING \"{}, \"{}\+STRING\"{}.. ,arg1..etc) OR call function\+\_\+name ()//\+No arguments Note\+: 1)Keep in mind that you must define the function in the top side of the script program before the executable codes. And the arguments are by\+Value .. Values will be transfered to the function ..not variables. 2)No global variables are reachable here. This variable will count the no. of while-\/loop instructions inside a block
+
+This will be used when we have for \& while loops used inside each other.
+
+FOR -\/LOOP INSTRUCTION WILL BE ACCEPTED ONLY IF THEY ARE \textquotesingle{}=SCRIPT\+\_\+\+MAX\+\_\+\+NESTED\+\_\+\+FOR\+\_\+\+WHILE\+\_\+\+LOOP\textquotesingle{} NESTED FOR-\/\+LOOP. NO MORE. FOR SIMPLICITY
+
+WHILE -\/LOOP INSTRUCTION WILL BE ACCEPTED ONLY IF THEY ARE \textquotesingle{}=SCRIPT\+\_\+\+MAX\+\_\+\+NESTED\+\_\+\+FOR\+\_\+\+WHILE\+\_\+\+LOOP\textquotesingle{} NESTED FOR-\/\+LOOP. NO MORE. FOR SIMPLICITY
+
+RUNNING THE CODE START HERE
+
+Definition at line \mbox{\hyperlink{function_8cpp_source_l00152}{152}} of file \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{tokens_8cpp_source_l00045}{for\+Extract}}, \mbox{\hyperlink{tokens_8cpp_source_l00679}{free\+\_\+for\+Extract()}}, \mbox{\hyperlink{tokens_8cpp_source_l00672}{free\+\_\+while\+Extract()}}, \mbox{\hyperlink{function_8cpp_source_l00029}{function\+List}}, \mbox{\hyperlink{types_8h_source_l00675}{Global\+Variables\+::hash\+Varnme}}, \mbox{\hyperlink{for__loop_8cpp_source_l00031}{nested\+Forloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00035}{nested\+For\+Whileloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00033}{nested\+Whileloop}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}, \mbox{\hyperlink{types_8h_source_l00671}{Global\+Variables\+::varname}}, and \mbox{\hyperlink{tokens_8cpp_source_l00046}{while\+Extract}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16
+\Hypertarget{common_8h_a33da550a9c41f70ab4ded332377938ea}\label{common_8h_a33da550a9c41f70ab4ded332377938ea} 
+\index{common.h@{common.h}!token\_can\_get@{token\_can\_get}}
+\index{token\_can\_get@{token\_can\_get}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_can\_get()}{token\_can\_get()}}
+{\footnotesize\ttfamily int token\+\_\+can\+\_\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+CAN get instruction
+
+CAN get instruction The syntax of this script is as follow\+:
+
+can\+\_\+get Pin\+Name1, Pin\+Name2, FREQ, CANID, VARIABLE Pin\+Name1 1) CAN H pin as defined in the manual. Pin\+Name2 2) CAN L pin as defined in the manual. Result\+Variable 3) A variable keep the results of the can write process( 0 if write failed, 1 if write was successful) FREQ 4) Frequency of the CAN bus VARIABLE 5) Data received by this device (an array of 8 bits) 
+
+Definition at line \mbox{\hyperlink{can__hw_8cpp_source_l00327}{327}} of file \mbox{\hyperlink{can__hw_8cpp_source}{can\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00040}{g\+Can\+Variable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 17
+Here is the caller graph for this function\+:
+% FIG 18
+\Hypertarget{common_8h_ab1209e31e93df0db0af17b55ea698f98}\label{common_8h_ab1209e31e93df0db0af17b55ea698f98} 
+\index{common.h@{common.h}!token\_can\_send@{token\_can\_send}}
+\index{token\_can\_send@{token\_can\_send}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_can\_send()}{token\_can\_send()}}
+{\footnotesize\ttfamily int token\+\_\+can\+\_\+send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+CAN send instruction
+
+CAN send instruction Important Note\+: Can devices must get isolated power supply. Don\textquotesingle{}t connect GND of the CAN transmitter to the Nucleo GND. Use external adapter (for TJA1051T VCC = +5V). The syntax of this script is as follow\+:
+
+can\+\_\+send Pin\+Name1, Pin\+Name2,Result\+Variable ,FREQ, CANID, CAND\+\_\+\+DATA0,...CAN\+\_\+\+DATA8 Pin\+Name1 1) CAN RD pin as defined in the manual. Pin\+Name2 2) CAN TD pin as defined in the manual. Result\+Variable 3) A variable keep the results of the can write process( 0 if write failed, 1 if write was successful) FREQ 4) Frequency of the CAN bus CANID 5) Address of the can device CAN\+\_\+\+DATA0..8 6) An array of 8 bytes representing the data to be sent via can bus. 
+
+Definition at line \mbox{\hyperlink{can__hw_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{can__hw_8cpp_source}{can\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00040}{g\+Can\+Variable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 19
+Here is the caller graph for this function\+:
+% FIG 20
+\Hypertarget{common_8h_ae1401c454fed3d87210c433bb4cd71b1}\label{common_8h_ae1401c454fed3d87210c433bb4cd71b1} 
+\index{common.h@{common.h}!token\_create\_reg@{token\_create\_reg}}
+\index{token\_create\_reg@{token\_create\_reg}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_create\_reg()}{token\_create\_reg()}}
+{\footnotesize\ttfamily int token\+\_\+create\+\_\+reg (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Creates a Reg from different GPIO pins
+
+Create register for keeping several pins as a port Syntax of the instruction is like follow\+: create\+\_\+reg REGNAME BIT15....,BIT6,BIT5,BIT4,BIT3,BIT2,BIT1,BIT0 You can choose from min 2 to max 16 pins .. While BIT15 ...BIT0 represent the GPIO pins defined in this file REGNAME\+: is the bus name creates by the instruction. Can be used later for sending/getting data 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00712}{712}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{digital_8cpp_source_l00584}{create\+New\+Bus()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 21
+Here is the caller graph for this function\+:
+% FIG 22
+\Hypertarget{common_8h_a970904cc9f9b09170883639765a785fa}\label{common_8h_a970904cc9f9b09170883639765a785fa} 
+\index{common.h@{common.h}!token\_delay@{token\_delay}}
+\index{token\_delay@{token\_delay}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_delay()}{token\_delay()}}
+{\footnotesize\ttfamily int token\+\_\+delay (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Delay instruction syntax\+: Delay instruction should be like that delay NUMBER, TYPE delay 500, msec delay 100, usec \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00420}{420}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 23
+Here is the caller graph for this function\+:
+% FIG 24
+\Hypertarget{common_8h_a0bd97a0468b8ebe1fbd44d579506441f}\label{common_8h_a0bd97a0468b8ebe1fbd44d579506441f} 
+\index{common.h@{common.h}!token\_delete@{token\_delete}}
+\index{token\_delete@{token\_delete}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_delete()}{token\_delete()}}
+{\footnotesize\ttfamily int token\+\_\+delete (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Delete global variable and free mem Syntax\+: delete VAR\+\_\+\+NAME;
+
+Delete global variable and free mem Syntax\+: delete VAR\+\_\+\+NAME; Warning\+: Don\textquotesingle{}t mix this with del FN/filename/dir \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00335}{335}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00160}{delete\+Reg()}}, \mbox{\hyperlink{tokens_8cpp_source_l00265}{Intialize\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 25
+Here is the caller graph for this function\+:
+% FIG 26
+\Hypertarget{common_8h_ae1d9c3558a489be546c610d7eeaf5b91}\label{common_8h_ae1d9c3558a489be546c610d7eeaf5b91} 
+\index{common.h@{common.h}!token\_disable\_debug@{token\_disable\_debug}}
+\index{token\_disable\_debug@{token\_disable\_debug}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_disable\_debug()}{token\_disable\_debug()}}
+{\footnotesize\ttfamily int token\+\_\+disable\+\_\+debug (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+disable debug \Hypertarget{common_8h_a78bab7127f6044197c9f61e6e1c015c8}\label{common_8h_a78bab7127f6044197c9f61e6e1c015c8} 
+\index{common.h@{common.h}!token\_enable\_debug@{token\_enable\_debug}}
+\index{token\_enable\_debug@{token\_enable\_debug}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_enable\_debug()}{token\_enable\_debug()}}
+{\footnotesize\ttfamily int token\+\_\+enable\+\_\+debug (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Internal function to fix pin name problem Enable debug
+
+Enable/\+Disable Debug instructions. Syntax \+: enable\+\_\+debug disable\+\_\+debug \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00331}{331}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{error_8cpp_source_l00038}{DEBUG\+\_\+\+MESSAGE\+\_\+\+ENABLE}}, \mbox{\hyperlink{error_8cpp_source_l00049}{enable\+\_\+disable\+Debug\+Thread()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 27
+Here is the caller graph for this function\+:
+% FIG 28
+\Hypertarget{common_8h_a7e5ff83eecb7a170f45e41aa3aa30367}\label{common_8h_a7e5ff83eecb7a170f45e41aa3aa30367} 
+\index{common.h@{common.h}!token\_exit@{token\_exit}}
+\index{token\_exit@{token\_exit}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_exit()}{token\_exit()}}
+{\footnotesize\ttfamily int token\+\_\+exit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+exit/quit instruction Syntax\+: exit; or quit;
+
+exit/quit instruction Syntax\+: exit; or quit; \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00491}{491}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{Change\+Inter\+Active\+Mode\+Status()}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{interactive_8cpp_source_l00051}{Inter\+Active\+Mode}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 29
+Here is the caller graph for this function\+:
+% FIG 30
+\Hypertarget{common_8h_af3c622ef82350bfd032d8da01ba37133}\label{common_8h_af3c622ef82350bfd032d8da01ba37133} 
+\index{common.h@{common.h}!token\_for\_loop@{token\_for\_loop}}
+\index{token\_for\_loop@{token\_for\_loop}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_for\_loop()}{token\_for\_loop()}}
+{\footnotesize\ttfamily int token\+\_\+for\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Loop instructions.
+
+For loop Syntax for this loop is as follow for (VAR1=NO, var2=?CONDITION , VAR3++/--/..etc) \{ block of code to be executed \} NOTE\+:Please notice that between each part there is a comma ..not a semicolon. 
+
+Definition at line \mbox{\hyperlink{for__loop_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{for__loop_8cpp_source}{for\+\_\+loop.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{tokens_8cpp_source_l00045}{for\+Extract}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00110}{Get\+Logical\+Operation\+Answer()}}, \mbox{\hyperlink{types_8h_source_l00675}{Global\+Variables\+::hash\+Varnme}}, \mbox{\hyperlink{for__loop_8cpp_source_l00031}{nested\+Forloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00035}{nested\+For\+Whileloop}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 31
+Here is the caller graph for this function\+:
+% FIG 32
+\Hypertarget{common_8h_a0d7a8467aa25b21f550c9d1db7e45b2e}\label{common_8h_a0d7a8467aa25b21f550c9d1db7e45b2e} 
+\index{common.h@{common.h}!token\_function@{token\_function}}
+\index{token\_function@{token\_function}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_function()}{token\_function()}}
+{\footnotesize\ttfamily int token\+\_\+function (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Function implementation
+
+Function definition Syntax\+: function myfunction arg1,arg2,...etc \{ do stuff here \} OR function myfunction arg1,arg2,...etc \{ //\+Notice that the bracket MUST be after the arguments without having new line do stuff here \} Note\+: Keep in mind that this function will only save the information about the function. It doesn\textquotesingle{}t run the function To run the function, you need to execute \"{}\+CALL .....\+function name......\"{} 
+
+Definition at line \mbox{\hyperlink{function_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8h_source_l00293}{end\+\_\+of\+\_\+program\+\_\+token()}}, \mbox{\hyperlink{function_8cpp_source_l00029}{function\+List}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 33
+Here is the caller graph for this function\+:
+% FIG 34
+\Hypertarget{common_8h_abe72ebed44ce7f6ead16c362e323806e}\label{common_8h_abe72ebed44ce7f6ead16c362e323806e} 
+\index{common.h@{common.h}!token\_gen\_pwm@{token\_gen\_pwm}}
+\index{token\_gen\_pwm@{token\_gen\_pwm}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_gen\_pwm()}{token\_gen\_pwm()}}
+{\footnotesize\ttfamily int token\+\_\+gen\+\_\+pwm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Generate PWM instruction
+
+Generate PWM signal instruction Syntax\+: pwm Pin\+Name, period, pulswidth Note\+: period and pulswidth are in sec and should be float numbers. 
+
+Definition at line \mbox{\hyperlink{analog_8cpp_source_l00300}{300}} of file \mbox{\hyperlink{analog_8cpp_source}{analog.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00043}{PWM\+\_\+\+Var}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 35
+Here is the caller graph for this function\+:
+% FIG 36
+\Hypertarget{common_8h_ae3c6d4952f005507ac7eda315e4eac0d}\label{common_8h_ae3c6d4952f005507ac7eda315e4eac0d} 
+\index{common.h@{common.h}!token\_get@{token\_get}}
+\index{token\_get@{token\_get}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_get()}{token\_get()}}
+{\footnotesize\ttfamily int token\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Use this function to read data from a GPIO pin. The function will return the value, therefore you need to use a variable to save the data.
+
+Get digital input data. You must provide the instruction a variable name Syntax of the instruction is like follow\+: get REGNAME,variable get GPIO, variable While REGNAME could be a collection of GPIO defines with create\+\_\+reg or Represent one GPIO pins defined in \doxylink{tokens_8h}{tokens.\+h} variable value will be saved in the variable. 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00415}{415}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{types_8h_source_l00229}{reg\+::bus}}, \mbox{\hyperlink{digital_8cpp_source_l00093}{reg\+::config\+Bus()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00307}{find\+GPIOpin()}}, \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 37
+Here is the caller graph for this function\+:
+% FIG 38
+\Hypertarget{common_8h_a44b92d893d2a7ca19cf9d65972b7b56c}\label{common_8h_a44b92d893d2a7ca19cf9d65972b7b56c} 
+\index{common.h@{common.h}!token\_goto@{token\_goto}}
+\index{token\_goto@{token\_goto}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_goto()}{token\_goto()}}
+{\footnotesize\ttfamily int token\+\_\+goto (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+GOTO to new position
+
+goto instruction Syntax\+: goto name \+: where name is the label in the script program defined as \+:name\+: \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00359}{359}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00052}{globallabel\+Var}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 39
+Here is the caller graph for this function\+:
+% FIG 40
+\Hypertarget{common_8h_a8c0f4327a79cfd4f67a3aa8d0b53e5d7}\label{common_8h_a8c0f4327a79cfd4f67a3aa8d0b53e5d7} 
+\index{common.h@{common.h}!token\_i2c\_get@{token\_i2c\_get}}
+\index{token\_i2c\_get@{token\_i2c\_get}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_i2c\_get()}{token\_i2c\_get()}}
+{\footnotesize\ttfamily int token\+\_\+i2c\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+GET message to I2C
+
+I2C Get data instruction Note\+: Please notice that we use standard definition of the SDA SCL. This should help in porting the system to other devices \+:
+
+I2\+C\+\_\+\+SCL= PB\+\_\+8 I2\+C\+\_\+\+SDA = PB\+\_\+9
+
+The syntax of this script is as follow 0 1 i2c\+\_\+get MASTER/\+SLAVE, address, VARIABLE\+\_\+recieve\+\_\+data, length\+Of\+Data VARIABLE\+\_\+recieve\+\_\+data \+: Results of running the code. 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{268}} of file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00058}{I2\+C\+\_\+\+Communication\+::address()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{i2c__hw_8cpp_a5eac504ac13c2e2bebf0419f062340ec}{i2c}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00077}{I2\+C\+\_\+\+Communication\+::init()}}, \mbox{\hyperlink{i2c__hw_8h_source_l00117}{I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Master}}, \mbox{\hyperlink{i2c__hw_8h_source_l00111}{I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Slave}}, \mbox{\hyperlink{types_8h_source_l00081}{MAX\+\_\+\+READ\+\_\+\+BUFF\+\_\+\+I2C}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00070}{I2\+C\+\_\+\+Communication\+::type()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 41
+Here is the caller graph for this function\+:
+% FIG 42
+\Hypertarget{common_8h_ae51ee3752c9c15ef6ffa0d262ac41534}\label{common_8h_ae51ee3752c9c15ef6ffa0d262ac41534} 
+\index{common.h@{common.h}!token\_i2c\_send@{token\_i2c\_send}}
+\index{token\_i2c\_send@{token\_i2c\_send}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_i2c\_send()}{token\_i2c\_send()}}
+{\footnotesize\ttfamily int token\+\_\+i2c\+\_\+send (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Send message to I2C
+
+I2C sending data instruction \begin{DoxyVerb} Note: Please notice that we use standard definition of the SDA SCL. This should help
+ in porting the system to other devices :
+
+ I2C_SCL= PB_8
+ I2C_SDA= PB_9
+
+ The syntax of this script is as follow
+                     0     1
+ i2c_send MASTER/SLAVE, address, DATA_tobesend, lengthOfData
+
+ DATA_tobesend : Should be at least 1 byte
+ VARIABLE_recieve_data : Results of running the code.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{129}} of file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{i2c__hw_8cpp_source_l00058}{I2\+C\+\_\+\+Communication\+::address()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{i2c__hw_8cpp_a5eac504ac13c2e2bebf0419f062340ec}{i2c}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00077}{I2\+C\+\_\+\+Communication\+::init()}}, \mbox{\hyperlink{i2c__hw_8h_source_l00117}{I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Master}}, \mbox{\hyperlink{i2c__hw_8h_source_l00111}{I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Slave}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{i2c__hw_8cpp_source_l00070}{I2\+C\+\_\+\+Communication\+::type()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 43
+Here is the caller graph for this function\+:
+% FIG 44
+\Hypertarget{common_8h_a0797bf8a444d4f4ae02785fa9767f758}\label{common_8h_a0797bf8a444d4f4ae02785fa9767f758} 
+\index{common.h@{common.h}!token\_if@{token\_if}}
+\index{token\_if@{token\_if}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_if()}{token\_if()}}
+{\footnotesize\ttfamily int token\+\_\+if (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+IF statment
+
+IF instruction Syntax\+: if(logical operation) \{block of code\} else \{ block of code\} 
+
+Definition at line \mbox{\hyperlink{if__else_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{if__else_8cpp_source}{if\+\_\+else.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00110}{Get\+Logical\+Operation\+Answer()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, and \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 45
+Here is the caller graph for this function\+:
+% FIG 46
+\Hypertarget{common_8h_a6cea5f57c159677960eb3dbcf3592188}\label{common_8h_a6cea5f57c159677960eb3dbcf3592188} 
+\index{common.h@{common.h}!token\_interruptIn@{token\_interruptIn}}
+\index{token\_interruptIn@{token\_interruptIn}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_interruptIn()}{token\_interruptIn()}}
+{\footnotesize\ttfamily int token\+\_\+interrupt\+In (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}0 if OK Should run a function when interrupt occur
+\end{DoxyReturn}
+Interrupt\+In implementation. Syntax \+: interruptin Pin\+Name, function\+Name Pin\+Name \+: Any GPIO function\+Name\+: Any defined function. Note\+: Function must be defined before defining interruptin. 
+
+Definition at line \mbox{\hyperlink{interrupt__in_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{interrupt__in_8cpp_source}{interrupt\+\_\+in.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{digital_8cpp_source_l00184}{add\+GPIOpin\+\_\+\+DIGITAL()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{function_8cpp_source_l00029}{function\+List}}, \mbox{\hyperlink{tokens_8cpp_source_l00066}{Glob\+Linked\+List\+Interrupt\+In}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{interrupt__in_8cpp_source_l00060}{token\+\_\+interrupt\+In()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00061}{var\+Glob\+Active\+Interrupt\+Func}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, and \mbox{\hyperlink{interrupt__in_8cpp_source_l00060}{token\+\_\+interrupt\+In()}}.
+
+Here is the call graph for this function\+:
+% FIG 47
+Here is the caller graph for this function\+:
+% FIG 48
+\Hypertarget{common_8h_a68c44d54903a111aeef202dbcf06bd63}\label{common_8h_a68c44d54903a111aeef202dbcf06bd63} 
+\index{common.h@{common.h}!token\_print@{token\_print}}
+\index{token\_print@{token\_print}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_print()}{token\_print()}}
+{\footnotesize\ttfamily int token\+\_\+print (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Send message to serial terminal
+
+Syntax of the instruction is like follow\+: print \"{}\+TEXT TO BE SENT\"{} print VARIABLE You should use \textquotesingle{}\"{}\textquotesingle{} for start/end of the string \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00352}{352}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00122}{Fix\+String\+Issue()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 49
+Here is the caller graph for this function\+:
+% FIG 50
+\Hypertarget{common_8h_a6294317f613ecb1fae1d1a2dd0efa00f}\label{common_8h_a6294317f613ecb1fae1d1a2dd0efa00f} 
+\index{common.h@{common.h}!token\_put@{token\_put}}
+\index{token\_put@{token\_put}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_put()}{token\_put()}}
+{\footnotesize\ttfamily int token\+\_\+put (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Use this function to put data to a GPIO pin
+
+put a digital data on GPIO Syntax of the instruction is like follow\+: put NAME,value NAME\+: could be a collection of GPIO (bus) up to 16 no. or represent one GPIO pin defined in \doxylink{tokens_8h}{tokens.\+h} Value\+: 1, 0 or if the NAME is a bus .. the value depends on the bus 0b...n bits. 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00345}{345}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{digital_8cpp_source_l00184}{add\+GPIOpin\+\_\+\+DIGITAL()}}, \mbox{\hyperlink{types_8h_source_l00229}{reg\+::bus}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 51
+Here is the caller graph for this function\+:
+% FIG 52
+\Hypertarget{common_8h_a6a8f71fa2cc1680cf9686113269e99ee}\label{common_8h_a6a8f71fa2cc1680cf9686113269e99ee} 
+\index{common.h@{common.h}!token\_rem@{token\_rem}}
+\index{token\_rem@{token\_rem}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_rem()}{token\_rem()}}
+{\footnotesize\ttfamily int token\+\_\+rem (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Remark instruction. The text after this instruction will be skipped
+
+REMARK instruction Syntax \+: REM $<$\+REM BODY$>$ This should take care of the text found after the REM. Skip the line NOTE\+: Inside REM you shouldn\textquotesingle{}t use symbols like \{ \} since it is used for while \& for loops. This will cause problem for while and loop code. \begin{DoxyReturn}{Returns}
+1 if no error or -\/1 if error 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00396}{396}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 53
+Here is the caller graph for this function\+:
+% FIG 54
+\Hypertarget{common_8h_ab19ba49a21cdc9b958dcca3bff49d54b}\label{common_8h_ab19ba49a21cdc9b958dcca3bff49d54b} 
+\index{common.h@{common.h}!token\_serial\_get@{token\_serial\_get}}
+\index{token\_serial\_get@{token\_serial\_get}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_serial\_get()}{token\_serial\_get()}}
+{\footnotesize\ttfamily int token\+\_\+serial\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get data from Serial terminal. You should use a variable to get the data
+
+Get message from terminal instruction Syntax of the instruction is like follow\+: serial\+\_\+get variable Note\+: You should provide always a variable to this function \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{519}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00188}{GET\+\_\+\+SERIAL\+\_\+\+TEXT()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 55
+Here is the caller graph for this function\+:
+% FIG 56
+\Hypertarget{common_8h_a89afd0078e0ef186ea6d679d9ed1edf1}\label{common_8h_a89afd0078e0ef186ea6d679d9ed1edf1} 
+\index{common.h@{common.h}!token\_serial\_screen\_clear@{token\_serial\_screen\_clear}}
+\index{token\_serial\_screen\_clear@{token\_serial\_screen\_clear}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_serial\_screen\_clear()}{token\_serial\_screen\_clear()}}
+{\footnotesize\ttfamily unsigned char token\+\_\+serial\+\_\+screen\+\_\+clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clear the terminal screen.
+
+Clear screen (terminal) instruction 
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00292}{292}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 57
+Here is the caller graph for this function\+:
+% FIG 58
+\Hypertarget{common_8h_a62632780a43a6388a2538d171daf48a4}\label{common_8h_a62632780a43a6388a2538d171daf48a4} 
+\index{common.h@{common.h}!token\_spi\_send@{token\_spi\_send}}
+\index{token\_spi\_send@{token\_spi\_send}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_spi\_send()}{token\_spi\_send()}}
+{\footnotesize\ttfamily int token\+\_\+spi\+\_\+send (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+SPI instruction
+
+\begin{DoxyVerb} SPI data send instruction
+ The syntax of this script is as follow:
+ spi DEVICE_ID, WaitForReply(returned bytes), SPI_DATA (could be an array using a variable), DATASIZE/TYPE =8/12/16, FREQ, SPI_MOD =0/1/2/3 Default=0 , VARIABLE_NAME
+ unsigned char DEVICE_ID,          1) SPI address - Decoder
+ int waitForReply,                 2) Do the slave send us any value?
+ unsigned int SpiData,             3) Data to be sent to the slave.
+ spiDataSize  DataSize,            4) Data size or type    8, 12, 16
+ int spi_frequency,                5) SPI channel frequency
+ int spi_mode                      6) SPI Mode or SPI Format - default: put 0
+ Variable_Name                     7) Variable will be used to save the results.
+ DelayBetweenPackets               8) DelayBetweenPackets in uSec needs between each packet.
+\end{DoxyVerb}
+ Note\+: Mode Polarity Phase 0 0 0 1 0 1 2 1 0 3 1 1 
+
+Definition at line \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{282}} of file \mbox{\hyperlink{spi__hw_8cpp_source}{spi\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{spi__hw_8cpp_source_l00087}{Send\+Receive\+SPI\+\_\+\+Device()}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 59
+Here is the caller graph for this function\+:
+% FIG 60
+\Hypertarget{common_8h_a7ed99eec28da7c75cbd5800f1ee7340b}\label{common_8h_a7ed99eec28da7c75cbd5800f1ee7340b} 
+\index{common.h@{common.h}!token\_variable@{token\_variable}}
+\index{token\_variable@{token\_variable}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_variable()}{token\_variable()}}
+{\footnotesize\ttfamily int token\+\_\+variable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function will take care of the variables and the rest of the line. Note\+: All variables are global. You can change the nature of the variable at any time from text to int or to float vice versa. 
+
+Variable definition function used by the script
+
+Variable definition (inside the script program)instruction \begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. Syntax\+: VARIABLE\+\_\+\+NAME = NUMBER/\+VARIABLE/\+Expression ; OR VARIABLE\+\_\+\+NAME ++; VARIABLE\+\_\+\+NAME --; OR VARIABLE\+\_\+\+NAME\mbox{[}\mbox{]} = \{NUM1,NUMB2,MUB3,..ETC\}; VARIABLE\+\_\+\+NAME\mbox{[}i\mbox{]}= NUMBER/\+VARIABLE/\+Expression ; \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{variable_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{variable_8cpp_source}{variable.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{variable_8cpp_source_l00061}{token\+\_\+variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, and \mbox{\hyperlink{variable_8cpp_source_l00061}{token\+\_\+variable()}}.
+
+Here is the call graph for this function\+:
+% FIG 61
+Here is the caller graph for this function\+:
+% FIG 62
+\Hypertarget{common_8h_a3170fe95b2a409c2446aa09ef7f3c855}\label{common_8h_a3170fe95b2a409c2446aa09ef7f3c855} 
+\index{common.h@{common.h}!token\_while\_loop@{token\_while\_loop}}
+\index{token\_while\_loop@{token\_while\_loop}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{token\_while\_loop()}{token\_while\_loop()}}
+{\footnotesize\ttfamily int token\+\_\+while\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+WHILE LOOP Syntax for this loop is as follow while(Variable logical\+\_\+condition variable/number) \{
+
+block of code to be executed \}
+
+\begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{while__loop_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{while__loop_8cpp_source}{while\+\_\+loop.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00110}{Get\+Logical\+Operation\+Answer()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00035}{nested\+For\+Whileloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00033}{nested\+Whileloop}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}, and \mbox{\hyperlink{tokens_8cpp_source_l00046}{while\+Extract}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 63
+Here is the caller graph for this function\+:
+% FIG 64
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{common_8h_ad578dea13813f4d69f4581871f556471}\label{common_8h_ad578dea13813f4d69f4581871f556471} 
+\index{common.h@{common.h}!gCanVariable@{gCanVariable}}
+\index{gCanVariable@{gCanVariable}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{gCanVariable}{gCanVariable}}
+{\footnotesize\ttfamily can\+Type\texorpdfstring{$\ast$}{*} g\+Can\+Variable\hspace{0.3cm}{\ttfamily [extern]}}
+
+Global pointer keeps the CAN variable. 
+
+Definition at line \mbox{\hyperlink{tokens_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{tokens_8cpp_source}{tokens.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, and \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}.
+
+\Hypertarget{common_8h_a791df047b65c1e1411cd45f30d379bd5}\label{common_8h_a791df047b65c1e1411cd45f30d379bd5} 
+\index{common.h@{common.h}!globalGPIOvariable@{globalGPIOvariable}}
+\index{globalGPIOvariable@{globalGPIOvariable}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{globalGPIOvariable}{globalGPIOvariable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}}\texorpdfstring{$\ast$}{*} global\+GPIOvariable\hspace{0.3cm}{\ttfamily [extern]}}
+
+Global variable keeps the GPIO variables
+
+Global list variable to keep the pin names/bus of GPIO. Create objects dynamically. 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00312}{free\+\_\+script\+GPIOVariable()}}, \mbox{\hyperlink{types_8cpp_source_l00418}{free\+One\+GPIOVariable()}}, \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, and \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}.
+
+\Hypertarget{common_8h_af0f08ac2ee0061f2201dd1c82f9925d3}\label{common_8h_af0f08ac2ee0061f2201dd1c82f9925d3} 
+\index{common.h@{common.h}!sd@{sd}}
+\index{sd@{sd}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{sd}{sd}}
+{\footnotesize\ttfamily SDBlock\+Device sd\hspace{0.3cm}{\ttfamily [extern]}}
+
+SD block device variable 
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00455}{do\+\_\+format()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00290}{do\+\_\+mount()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00305}{do\+\_\+umount()}}, and \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}.
+

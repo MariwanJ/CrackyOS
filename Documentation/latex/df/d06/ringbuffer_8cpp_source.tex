@@ -1,0 +1,60 @@
+\doxysection{ringbuffer.\+cpp}
+\hypertarget{ringbuffer_8cpp_source}{}\label{ringbuffer_8cpp_source}\index{CrackyOS/src/ringbuffer.cpp@{CrackyOS/src/ringbuffer.cpp}}
+\mbox{\hyperlink{ringbuffer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ringbuffer_8h}{ringbuffer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <mbed.h>}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00037}\mbox{\hyperlink{class_ring_buffer_a129c940ddeb4208b87d691a07d4424ff}{00037}}\ \mbox{\hyperlink{class_ring_buffer_a129c940ddeb4208b87d691a07d4424ff}{RingBuffer::RingBuffer}}(\textcolor{keywordtype}{int}\ bufsize)\ :\ \_bufsize(bufsize),\ read\_index(0),\ write\_index(0),\ item\_count(0)}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00038}00038\ \{}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (\_bufsize\ ==\ 0\ ||\ \_bufsize\ >\ DEBUG\_MAX\_FIFO\_RING\_BUF\_SIZE)}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \_bufsize\ =\ DEBUG\_MAX\_FIFO\_RING\_BUF\_SIZE;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00041}00041\ \ \ \ \ memset(ring\_buf,\ 0,\ \textcolor{keyword}{sizeof}(ring\_buf));}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00044}00044\ \mbox{\hyperlink{class_ring_buffer_a2715b2e99ea24521ef7a586c2f33e1c9}{RingBuffer::\string~RingBuffer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00047}\mbox{\hyperlink{class_ring_buffer_a298799c6451c8a11842beecf1b50b863}{00047}}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_ring_buffer_a298799c6451c8a11842beecf1b50b863}{RingBuffer::checkOverflow}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ item\_count\ >=\ \_bufsize;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00051}\mbox{\hyperlink{class_ring_buffer_a49830e55b87fd4e51580d614e7626a0d}{00051}}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_ring_buffer_a49830e55b87fd4e51580d614e7626a0d}{RingBuffer::checkEmpty}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ item\_count\ ==\ 0;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00056}\mbox{\hyperlink{class_ring_buffer_a04ce65fe5a65d2d8e2b074d88a5ebc56}{00056}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ring_buffer_a04ce65fe5a65d2d8e2b074d88a5ebc56}{RingBuffer::put}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c)}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{error_8cpp_ac0cefbc29fdb43e11229615eaf88641e}{DEBUG\_MESSAGE\_ENABLE}}\ !=\ 1)}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \ \ \textcolor{comment}{//Nothing\ to\ do\ if\ the\ debugger\ is\ deactivated.}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_ring_buffer_a298799c6451c8a11842beecf1b50b863}{checkOverflow}}()\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ wait\_us(100);}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00064}00064\ \ \ \ \ ring\_buf[write\_index]\ =\ c;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00065}00065\ \ \ \ \ write\_index++;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (write\_index\ >=\ \_bufsize)}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ write\_index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00068}00068\ \ \ \ \ item\_count++;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00073}\mbox{\hyperlink{class_ring_buffer_a471bdae38f952402f0f464be4c2ff75d}{00073}}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_ring_buffer_a471bdae38f952402f0f464be4c2ff75d}{RingBuffer::get}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_ring_buffer_a49830e55b87fd4e51580d614e7626a0d}{checkEmpty}}()\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ \textcolor{comment}{//Nothing\ to\ get.}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c\ =\ ring\_buf[read\_index];}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00079}00079\ \ \ \ \ ring\_buf[read\_index]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00080}00080\ \ \ \ \ read\_index++;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (read\_index\ >=\ \_bufsize)}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ read\_index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00083}00083\ \ \ \ \ item\_count-\/-\/;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8cpp_source_l00088}\mbox{\hyperlink{ringbuffer_8cpp_aacbda8306ee4d4042eab9e17f2ddc4e1}{00088}}\ \mbox{\hyperlink{class_ring_buffer}{RingBuffer}}\ \mbox{\hyperlink{ringbuffer_8cpp_aacbda8306ee4d4042eab9e17f2ddc4e1}{DebugSerialFIFO}}(DEBUG\_MAX\_FIFO\_RING\_BUF\_SIZE);}
+
+\end{DoxyCode}

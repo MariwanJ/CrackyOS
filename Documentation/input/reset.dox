@@ -1,0 +1,10 @@
+/*!
+
+*\page reset Reset
+*
+* This instruction is used to reset the system
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+* <span style='color:blue'>reset </span>
+*
+*/

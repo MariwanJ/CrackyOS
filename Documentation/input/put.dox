@@ -1,0 +1,22 @@
+/*!
+
+*\page put Put (Digital Out)
+*
+* Send data to a digital pin or a digital bus. The internal definition of these GPIO is DigitalInOut and configured as output.<BR>
+* Before using a bus you need to create it using create_reg instruction.
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> put GPIO_NAME/BUS_name, VARIABLE_NAME/NUMBER</B><BR>
+* - <b>GPIO_NAME:</b> Any digital GPIO
+* - <b>BUS_name:</b> A combination of multiple digital GPIOs, from 2 to 16 pins. You can combine any GPIO in the bus, but you must create it using the create_reg instruction before using this name.
+* - <b>VARIABLE_NAME:</b> variable name that keeps the data
+* - <b>NUMBER:</b> An integer number.
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*   myvalue=0xff;<br>
+*	put PA_4,  myvalue;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem read the value from PA_4 </span><br>
+* Or:<br>
+*	create_reg myreg , PA_3,PA_2,PA_10_PB3;			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem create register</span> <br>
+*	put myreg, myvalue;			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem read the Register </span> <br>
+*
+*
+*/

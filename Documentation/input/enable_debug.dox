@@ -1,0 +1,16 @@
+/*!
+
+*\page enable_debug Enable Debug Log
+*
+* This command enables the debug log messages via RS232. The system might run slower due to the slowness nature of RS232<BR>
+* This command enables debug log messages via RS232. The system might run more slowly because of the limited speed of RS232.<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> enable_debug</B><BR>
+*
+*<span style='color:blue'><em><B>
+*Example:
+*</B> </em> </span><br>
+* enable_debug;			&nbsp;&nbsp;&nbsp;  <span style='color:green'>  rem enable debug messages.</span><br>
+* disable_debug;		&nbsp;&nbsp;&nbsp;  <span style='color:green'>  rem disable debug messages.</span><br>
+*
+*/

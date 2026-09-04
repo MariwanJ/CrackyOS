@@ -1,0 +1,34 @@
+\doxysection{CAN Get}
+\hypertarget{can_get}{}\label{can_get}\index{CAN Get@{CAN Get}}
+This instruction reads data from a CAN device. You might need to put the instruction in a loop to make sure that data is read correctly from the CAN device.~\newline
+
+\begin{DoxyItemize}
+\item The returned result is 1 when the data is received successfully.~\newline
+
+\item The returned result is 0 when the data is not received successfully.~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+\end{DoxyItemize}
+
+{\itshape } {\bfseries{ can\+\_\+get Pin\+Name1, Pin\+Name2, FREQ, CANID, VARIABLE;}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{Pin\+Name1\+:}} CANRD pin name~\newline
+
+\item {\bfseries{Pin\+Name2\+:}} CANTD pin name~\newline
+
+\item {\bfseries{FREQ ~~~~~ \+:}} CAN Bus frequency~\newline
+
+\item {\bfseries{CANID ~~~~ \+:}} CAN ID. This represents the CAN device ID~\newline
+
+\item {\bfseries{VARIABLE\+\_\+\+NAME\+:}} A Variable name is required. The results will be saved in this variable (might be an array of int).
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ while(1)~\newline
+ ~\{~\newline
+ ~can\+\_\+get pb\+\_\+8, pb\+\_\+9, 100000,0x10,result;~\newline
+ ~if (result!=0)\{~\newline
+ ~~ print result;~\newline
+ ~ \}~\newline
+ ~ delay 100,msec;~\newline
+ \} 

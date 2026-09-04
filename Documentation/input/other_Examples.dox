@@ -1,0 +1,13 @@
+﻿/*!
+*\page other_examples  Other Examples
+*
+<h1>Other Examples:</h1>
+<p><strong>1) Snowing led light:</strong></p>
+<p>enable_debug</p>
+function myfunc()<span style="color: #ff0000;">{</span><br />
+
+<p>snow[]= <span style="color: #ff0000;">{</span>0b11111111,0b11111110,0b11111100,0b11111000,0b11110001,0b11100011,0b1100000,0b10000000,0b0000000<span style="color: #ff0000;">}</span>;<br /><span style="color: #0000ff;">create_reg</span> myreg PA_10,PB_3,PB_5,PB_4,PB_10,PA_8,PA_9,PC_7<br />
+
+&nbsp; for(i=0,i&lt;=8,i++)<span style="color: #ff0000;">{</span><br />&nbsp;&nbsp;&nbsp; put myreg, snow[i];<br />&nbsp;&nbsp; delay 200,msec<br />&nbsp; <span style="color: #ff0000;">}</span><br /><span style="color: #ff0000;">}</span></p>
+<p>while(1) <br />{<br />&nbsp; call myfunc();<br />}</p>
+*/

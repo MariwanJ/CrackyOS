@@ -1,0 +1,18 @@
+\doxysection{APut (Analog put)}
+\hypertarget{aput}{}\label{aput}\index{APut (Analog put)@{APut (Analog put)}}
+This instruction sends the specified voltage to the analog port using a floating-\/point value.~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ aput GPIO\+\_\+\+NAME, VARIABLE\+\_\+\+NAME/\+Number =\mbox{[}0x0 to 0x\+FFFF\mbox{]} }}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{GPIO\+\_\+\+NAME\+:}} Make sure that you choose a port that supports analog output. Otherwise, the system will exit and stop executing the code. Since this is specific to the board or CPU used, it is not possible to specify here which pins or GPIOs you should use. Please read the manual for your board.~\newline
+
+\item {\bfseries{VARIABLE\+\_\+\+NAME\+:}} The variable must be initialized before this instruction or it will fail.
+\item {\bfseries{Float Number\+:}} Any floating-\/point number you specify. Please refer to the manual for the analog output.~\newline
+
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ myvalue=0.\+01; ~~~  rem Initialize myvalue with 0.\+01 ~\newline
+ aput PA\+\_\+4, myvalue; ~~~  rem send the value to Analog Output port PA\+\_\+4 

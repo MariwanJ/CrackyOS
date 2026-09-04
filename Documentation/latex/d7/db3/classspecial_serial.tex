@@ -1,0 +1,98 @@
+\doxysection{special\+Serial Class Reference}
+\hypertarget{classspecial_serial}{}\label{classspecial_serial}\index{specialSerial@{specialSerial}}
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+
+
+Inherits Unbuffered\+Serial.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classspecial_serial_a54e6c1061cdbdd848440895fcf8872ff}{special\+Serial}} (Pin\+Name tx, Pin\+Name rx, int baud)
+\item 
+Pin\+Name \mbox{\hyperlink{classspecial_serial_a970d8dd630f8099114a201696c83bd43}{retrieve\+RX}} ()
+\item 
+Pin\+Name \mbox{\hyperlink{classspecial_serial_aa46767f137cf4eabee57b95dbe4d1fcc}{retrieve\+TX}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Serial communication class definition Class \doxylink{classspecial_serial}{special\+Serial} definition 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00091}{91}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classspecial_serial_a54e6c1061cdbdd848440895fcf8872ff}\label{classspecial_serial_a54e6c1061cdbdd848440895fcf8872ff} 
+\index{specialSerial@{specialSerial}!specialSerial@{specialSerial}}
+\index{specialSerial@{specialSerial}!specialSerial@{specialSerial}}
+\doxysubsubsection{\texorpdfstring{specialSerial()}{specialSerial()}}
+{\footnotesize\ttfamily special\+Serial\+::special\+Serial (\begin{DoxyParamCaption}\item[{Pin\+Name}]{tx,  }\item[{Pin\+Name}]{rx,  }\item[{int}]{baud }\end{DoxyParamCaption})}
+
+Class \doxylink{classspecial_serial}{special\+Serial} constructor 
+\begin{DoxyParams}{Parameters}
+{\em tx} & \+: Pinname TX UART GPIO \\
+\hline
+{\em rx} & \+: Pinname RX UART GPIO \\
+\hline
+{\em baud} & Baud\+Rate value\\
+\hline
+\end{DoxyParams}
+Special\+Serial constructor 
+\begin{DoxyParams}{Parameters}
+{\em tx} & TX UART GPIO \\
+\hline
+{\em rx} & RX UART GPIO \\
+\hline
+{\em baud} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{error_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{error_8cpp_source}{error.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classspecial_serial_a970d8dd630f8099114a201696c83bd43}\label{classspecial_serial_a970d8dd630f8099114a201696c83bd43} 
+\index{specialSerial@{specialSerial}!retrieveRX@{retrieveRX}}
+\index{retrieveRX@{retrieveRX}!specialSerial@{specialSerial}}
+\doxysubsubsection{\texorpdfstring{retrieveRX()}{retrieveRX()}}
+{\footnotesize\ttfamily Pin\+Name special\+Serial\+::retrieve\+RX (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Return RX GPIO Pin\+Name \begin{DoxyReturn}{Returns}
+RX Pin\+Name
+\end{DoxyReturn}
+Get the pin\+Name of the pinname used for RX \begin{DoxyReturn}{Returns}
+pin\+Name of RX 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{error_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{error_8cpp_source}{error.\+cpp}}.
+
+\Hypertarget{classspecial_serial_aa46767f137cf4eabee57b95dbe4d1fcc}\label{classspecial_serial_aa46767f137cf4eabee57b95dbe4d1fcc} 
+\index{specialSerial@{specialSerial}!retrieveTX@{retrieveTX}}
+\index{retrieveTX@{retrieveTX}!specialSerial@{specialSerial}}
+\doxysubsubsection{\texorpdfstring{retrieveTX()}{retrieveTX()}}
+{\footnotesize\ttfamily Pin\+Name special\+Serial\+::retrieve\+TX (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Return TX GPIO Pin\+Name \begin{DoxyReturn}{Returns}
+TX Pin\+Name
+\end{DoxyReturn}
+Get the pin\+Name of the pinname used for TX \begin{DoxyReturn}{Returns}
+pin\+Name of TX 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{error_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{error_8cpp_source}{error.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cracky\+OS/src/\mbox{\hyperlink{types_8h}{types.\+h}}\item 
+Cracky\+OS/src/\mbox{\hyperlink{error_8cpp}{error.\+cpp}}\end{DoxyCompactItemize}

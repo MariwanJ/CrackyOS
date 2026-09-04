@@ -1,0 +1,36 @@
+\doxysection{CAN Send}
+\hypertarget{can_send}{}\label{can_send}\index{CAN Send@{CAN Send}}
+This instruction will send data to a CAN device. You might need to put it in a loop so you try to send the data successfully to the CAN device~\newline
+
+\begin{DoxyItemize}
+\item Return value\+: result is 1 when the data is transmitted successfully.~\newline
+
+\item Return value\+: result is 0 when the data fails to transmit.~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+\end{DoxyItemize}
+
+{\itshape } {\bfseries{ can\+\_\+send Pin\+Name1, Pin\+Name2,Result\+Variable ,FREQ, CANID, CAND\+\_\+\+DATA0,...CAN\+\_\+\+DATA7;}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{Pin\+Name1\+:}} CANRD pin name~\newline
+
+\item {\bfseries{Pin\+Name2\+:}} CANTD pin name~\newline
+
+\item {\bfseries{Result\+Variable\+:}} Result Variable.
+\item {\bfseries{FREQ ~~~~~ \+:}} CAN Bus frequency~\newline
+
+\item {\bfseries{CANID ~~~~ \+:}} CAN ID. This represents the CAN device ID~\newline
+
+\item {\bfseries{VARIABLE\+\_\+\+NAME/\+CAN\+\_\+\+DATA0 ...CAN\+\_\+\+DATA7\+:}} You must provide the instruction with a variable name or CAN DATA (At least one byte or up to 8 bytes).
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ while(1)~\newline
+ ~\{~\newline
+ ~can\+\_\+send pb\+\_\+8, pb\+\_\+9,result,100000,0x10,0xdd, 0xaa;~\newline
+ ~if(result==1)\{~\newline
+ ~ exit;~\newline
+ \} ~~\newline
+delay 500,Msec;~\newline
+ \}~\newline
+ 

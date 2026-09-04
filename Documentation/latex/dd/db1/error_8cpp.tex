@@ -1,0 +1,159 @@
+\doxysection{Cracky\+OS/src/error.cpp File Reference}
+\hypertarget{error_8cpp}{}\label{error_8cpp}\index{CrackyOS/src/error.cpp@{CrackyOS/src/error.cpp}}
+
+
+This file contains the debug print function. It send debug messages to the terminal.  
+
+
+{\ttfamily \#include \"{}types.\+h\"{}}\newline
+{\ttfamily \#include \"{}ringbuffer.\+h\"{}}\newline
+Include dependency graph for error.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{error_8cpp_a012bd18cb574eb0a37a6ec07096e0293}{enable\+\_\+disable\+Debug\+Thread}} (void)
+\item 
+void \mbox{\hyperlink{error_8cpp_a18ed02bde39a3c863993796df520fd54}{debug\+Thread\+Function}} (void)
+\item 
+int \mbox{\hyperlink{error_8cpp_a648a5d5b2dffeac6d0fba4367091cd16}{DEBUG\+\_\+\+Print}} (const char \texorpdfstring{$\ast$}{*}format,...)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{error_8cpp_ac0cefbc29fdb43e11229615eaf88641e}{DEBUG\+\_\+\+MESSAGE\+\_\+\+ENABLE}} = 0
+\item 
+Thread \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{error_8cpp_ad611ff781865966fc327795487f9b461}{debug\+Thread}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the debug print function. It send debug messages to the terminal. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{error_8cpp_source}{error.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{error_8cpp_a648a5d5b2dffeac6d0fba4367091cd16}\label{error_8cpp_a648a5d5b2dffeac6d0fba4367091cd16} 
+\index{error.cpp@{error.cpp}!DEBUG\_Print@{DEBUG\_Print}}
+\index{DEBUG\_Print@{DEBUG\_Print}!error.cpp@{error.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_Print()}{DEBUG\_Print()}}
+{\footnotesize\ttfamily int DEBUG\+\_\+\+Print (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Actual debug print function. This function is a replacement of printf it uses ringbuffer to print out debug info to terminal (It doesn\textquotesingle{}t do the actual sending. It puts the messages in to the ringbuffer Later the thread will take care of sending the data to the terminal. 
+\begin{DoxyParams}{Parameters}
+{\em format} & formating the string \\
+\hline
+{\em ...} & other parameter sens to the function. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{error_8cpp_source_l00136}{136}} of file \mbox{\hyperlink{error_8cpp_source}{error.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{error_8cpp_source_l00038}{DEBUG\+\_\+\+MESSAGE\+\_\+\+ENABLE}}, \mbox{\hyperlink{ringbuffer_8cpp_aacbda8306ee4d4042eab9e17f2ddc4e1}{Debug\+Serial\+FIFO}}, \mbox{\hyperlink{sourcecodeline_8cpp_source_l00082}{Source\+Code\+Line\+::find\+Pointer()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00049}{p\+Script\+Index}}, \mbox{\hyperlink{ringbuffer_8cpp_source_l00056}{Ring\+Buffer\+::put()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\Hypertarget{error_8cpp_a18ed02bde39a3c863993796df520fd54}\label{error_8cpp_a18ed02bde39a3c863993796df520fd54} 
+\index{error.cpp@{error.cpp}!debugThreadFunction@{debugThreadFunction}}
+\index{debugThreadFunction@{debugThreadFunction}!error.cpp@{error.cpp}}
+\doxysubsubsection{\texorpdfstring{debugThreadFunction()}{debugThreadFunction()}}
+{\footnotesize\ttfamily void debug\+Thread\+Function (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Sub thread to take care of debug serial communications This thread will print debug info to the debug terminal. 
+
+Definition at line \mbox{\hyperlink{error_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{error_8cpp_source}{error.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{ringbuffer_8cpp_source_l00051}{Ring\+Buffer\+::check\+Empty()}}, \mbox{\hyperlink{ringbuffer_8cpp_aacbda8306ee4d4042eab9e17f2ddc4e1}{Debug\+Serial\+FIFO}}, \mbox{\hyperlink{ringbuffer_8cpp_source_l00073}{Ring\+Buffer\+::get()}}, and \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}.
+
+
+
+Referenced by \mbox{\hyperlink{error_8cpp_source_l00049}{enable\+\_\+disable\+Debug\+Thread()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{error_8cpp_a012bd18cb574eb0a37a6ec07096e0293}\label{error_8cpp_a012bd18cb574eb0a37a6ec07096e0293} 
+\index{error.cpp@{error.cpp}!enable\_disableDebugThread@{enable\_disableDebugThread}}
+\index{enable\_disableDebugThread@{enable\_disableDebugThread}!error.cpp@{error.cpp}}
+\doxysubsubsection{\texorpdfstring{enable\_disableDebugThread()}{enable\_disableDebugThread()}}
+{\footnotesize\ttfamily int enable\+\_\+disable\+Debug\+Thread (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will enable the thread It will create a new thread if the thread dosen\textquotesingle{}t exists. 
+\begin{DoxyParams}{Parameters}
+{\em return} & -\/1 if error otherwise +1 \\
+\hline
+\end{DoxyParams}
+Thread that take care of debug messages to terminal
+
+Definition at line \mbox{\hyperlink{error_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{error_8cpp_source}{error.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{error_8cpp_source_l00038}{DEBUG\+\_\+\+MESSAGE\+\_\+\+ENABLE}}, \mbox{\hyperlink{error_8cpp_source_l00042}{debug\+Thread}}, \mbox{\hyperlink{error_8cpp_source_l00109}{debug\+Thread\+Function()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, and \mbox{\hyperlink{serialmessage_8cpp_source_l00331}{token\+\_\+enable\+\_\+debug()}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{error_8cpp_ac0cefbc29fdb43e11229615eaf88641e}\label{error_8cpp_ac0cefbc29fdb43e11229615eaf88641e} 
+\index{error.cpp@{error.cpp}!DEBUG\_MESSAGE\_ENABLE@{DEBUG\_MESSAGE\_ENABLE}}
+\index{DEBUG\_MESSAGE\_ENABLE@{DEBUG\_MESSAGE\_ENABLE}!error.cpp@{error.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_MESSAGE\_ENABLE}{DEBUG\_MESSAGE\_ENABLE}}
+{\footnotesize\ttfamily unsigned char DEBUG\+\_\+\+MESSAGE\+\_\+\+ENABLE = 0}
+
+This variable is used to keep the status of debug message enable if DEBUG\+\_\+\+MESSAGE\+\_\+\+ENABLE=0 No message will be send to the debug-\/terminal DEBUG\+\_\+\+MESSAGE\+\_\+\+ENABLE=0 Debug Message will be delivered to debug-\/terminal Note\+: Code must be compiled with CXX\+\_\+\+FLAGS += -\/D\+\_\+\+DEBUG=1 
+
+Definition at line \mbox{\hyperlink{error_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{error_8cpp_source}{error.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{error_8cpp_source_l00136}{DEBUG\+\_\+\+Print()}}, \mbox{\hyperlink{error_8cpp_source_l00049}{enable\+\_\+disable\+Debug\+Thread()}}, \mbox{\hyperlink{ringbuffer_8cpp_source_l00056}{Ring\+Buffer\+::put()}}, and \mbox{\hyperlink{serialmessage_8cpp_source_l00331}{token\+\_\+enable\+\_\+debug()}}.
+
+\Hypertarget{error_8cpp_ad611ff781865966fc327795487f9b461}\label{error_8cpp_ad611ff781865966fc327795487f9b461} 
+\index{error.cpp@{error.cpp}!debugThread@{debugThread}}
+\index{debugThread@{debugThread}!error.cpp@{error.cpp}}
+\doxysubsubsection{\texorpdfstring{debugThread}{debugThread}}
+{\footnotesize\ttfamily Thread\texorpdfstring{$\ast$}{*} debug\+Thread = 0}
+
+Debug thread pointer 
+
+Definition at line \mbox{\hyperlink{error_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{error_8cpp_source}{error.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{error_8cpp_source_l00049}{enable\+\_\+disable\+Debug\+Thread()}}.
+

@@ -1,0 +1,24 @@
+\doxysection{Cat (Catenate)}
+\hypertarget{cat}{}\label{cat}\index{Cat (Catenate)@{Cat (Catenate)}}
+This instruction reads data from a file and outputs its contents. You can also use it to create a new file.~\newline
+ The instruction can also combine two files and put their contents in a newly created file.
+
+{\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape }
+\begin{DoxyItemize}
+\item cat \+: It displays the help on the screen~\newline
+
+\item cat help \+: It displays the help on the screen~\newline
+
+\item cat \texorpdfstring{$<$}{<}filename\texorpdfstring{$>$}{>} \+: It displays the contents of the text file on the screen~\newline
+
+\item cat -\/c \texorpdfstring{$<$}{<}filename\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}Script\+\_\+commands\texorpdfstring{$>$}{>} \+: Creates a new file and puts the \texorpdfstring{$<$}{<}text\texorpdfstring{$>$}{>} inside the file. \texorpdfstring{$<$}{<}Script\+\_\+commands\texorpdfstring{$>$}{>} is optional.~\newline
+
+\item cat -\/a \texorpdfstring{$<$}{<}filename1\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}filename2\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}filename3\texorpdfstring{$>$}{>} \+: ~\newline
+ This command creates a new file named \texorpdfstring{$<$}{<}filename1\texorpdfstring{$>$}{>}, combines the text from \texorpdfstring{$<$}{<}filename2\texorpdfstring{$>$}{>} and \texorpdfstring{$<$}{<}filename3\texorpdfstring{$>$}{>}, and puts it in the new file.~\newline
+
+\end{DoxyItemize}
+
+{\bfseries{Note\+:}}~\newline
+ An SD-\/card module must be connected to the Nucleo board through SPI, with an SD card inserted. The card must be mounted before using this instruction. 

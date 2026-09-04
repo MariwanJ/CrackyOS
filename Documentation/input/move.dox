@@ -1,0 +1,12 @@
+/*!
+
+*\page move Move (move a file from one directory to another)
+*
+* This instruction is used to move a file from one folder to another on the SD card.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*   <strong>move   &lt;source_filename_with_path&gt; &lt;destination_filename_with_path&gt;</strong>
+*
+* <span style='color:green'><strong>Note:</strong></span><br>
+* An SD-card module must be connected to the Nucleo board through SPI, with an SD card inserted. The card must be mounted before using this instruction.
+*/

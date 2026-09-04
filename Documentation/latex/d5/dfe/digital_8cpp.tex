@@ -1,0 +1,277 @@
+\doxysection{Cracky\+OS/src/digital.cpp File Reference}
+\hypertarget{digital_8cpp}{}\label{digital_8cpp}\index{CrackyOS/src/digital.cpp@{CrackyOS/src/digital.cpp}}
+
+
+This file contains Digital IO instructions and definitions.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+{\ttfamily \#include \"{}types.\+h\"{}}\newline
+Include dependency graph for digital.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{digital_8cpp_a3e4f06dccdb52421553c7d058fe4f260}{find\+Reg}} (char \texorpdfstring{$\ast$}{*}Searchname)
+\item 
+int \mbox{\hyperlink{digital_8cpp_a50a5163181efe63433118675a8555c3c}{delete\+Reg}} (char \texorpdfstring{$\ast$}{*}name)
+\item 
+\mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{digital_8cpp_ab7f21e4f05daa71811aedf2816a84d45}{add\+GPIOpin\+\_\+\+DIGITAL}} (int enum\+Pin\+Name, int type)
+\item 
+\mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{digital_8cpp_ad39ebaade21a6f4db5e19e5716ed42ad}{find\+GPIOpin}} (int enum\+Pin\+Name)
+\item 
+int \mbox{\hyperlink{digital_8cpp_a6294317f613ecb1fae1d1a2dd0efa00f}{token\+\_\+put}} (void)
+\item 
+int \mbox{\hyperlink{digital_8cpp_ae3c6d4952f005507ac7eda315e4eac0d}{token\+\_\+get}} (void)
+\item 
+int \mbox{\hyperlink{digital_8cpp_af6a06322e59d42ed744b8ce272b8a847}{create\+New\+Bus}} (int type)
+\item 
+int \mbox{\hyperlink{digital_8cpp_ae1401c454fed3d87210c433bb4cd71b1}{token\+\_\+create\+\_\+reg}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{digital_8cpp_a791df047b65c1e1411cd45f30d379bd5}{global\+GPIOvariable}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains Digital IO instructions and definitions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{digital_8cpp_ab7f21e4f05daa71811aedf2816a84d45}\label{digital_8cpp_ab7f21e4f05daa71811aedf2816a84d45} 
+\index{digital.cpp@{digital.cpp}!addGPIOpin\_DIGITAL@{addGPIOpin\_DIGITAL}}
+\index{addGPIOpin\_DIGITAL@{addGPIOpin\_DIGITAL}!digital.cpp@{digital.cpp}}
+\doxysubsubsection{\texorpdfstring{addGPIOpin\_DIGITAL()}{addGPIOpin\_DIGITAL()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}} \texorpdfstring{$\ast$}{*} add\+GPIOpin\+\_\+\+DIGITAL (\begin{DoxyParamCaption}\item[{int}]{enum\+Pin\+Name,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+This function will add a new digital GPIO. It could be used for IN,OUT,Ticker or Interrup\+In. 
+\begin{DoxyParams}{Parameters}
+{\em enum\+Pin\+Name} & Name of the pin using ENUM value \\
+\hline
+{\em type} & Type of the GPIO Interruptin, Ticker, or IN/\+OUT\\
+\hline
+\end{DoxyParams}
+Add new digital in/out 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00184}{184}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00307}{find\+GPIOpin()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, and \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}.
+
+
+
+Referenced by \mbox{\hyperlink{interrupt__in_8cpp_source_l00060}{token\+\_\+interrupt\+In()}}, and \mbox{\hyperlink{digital_8cpp_source_l00345}{token\+\_\+put()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{digital_8cpp_af6a06322e59d42ed744b8ce272b8a847}\label{digital_8cpp_af6a06322e59d42ed744b8ce272b8a847} 
+\index{digital.cpp@{digital.cpp}!createNewBus@{createNewBus}}
+\index{createNewBus@{createNewBus}!digital.cpp@{digital.cpp}}
+\doxysubsubsection{\texorpdfstring{createNewBus()}{createNewBus()}}
+{\footnotesize\ttfamily int create\+New\+Bus (\begin{DoxyParamCaption}\item[{int}]{type }\end{DoxyParamCaption})}
+
+Create New bus Bus will not be created if it is exist. 
+\begin{DoxyParams}{Parameters}
+{\em type} & \+: In or Out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00584}{584}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{digital_8cpp_source_l00093}{reg\+::config\+Bus()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, and \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00712}{token\+\_\+create\+\_\+reg()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{digital_8cpp_a50a5163181efe63433118675a8555c3c}\label{digital_8cpp_a50a5163181efe63433118675a8555c3c} 
+\index{digital.cpp@{digital.cpp}!deleteReg@{deleteReg}}
+\index{deleteReg@{deleteReg}!digital.cpp@{digital.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteReg()}{deleteReg()}}
+{\footnotesize\ttfamily int delete\+Reg (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+Delete a named register bus and release its pin registrations. 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00160}{160}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00223}{reg\+::enum\+\_\+r\+\_\+bit}}, \mbox{\hyperlink{types_8cpp_source_l00328}{Register\+GPIO\+::find()}}, \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, and \mbox{\hyperlink{types_8cpp_source_l00354}{Register\+GPIO\+::remove()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00335}{token\+\_\+delete()}}.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{digital_8cpp_ad39ebaade21a6f4db5e19e5716ed42ad}\label{digital_8cpp_ad39ebaade21a6f4db5e19e5716ed42ad} 
+\index{digital.cpp@{digital.cpp}!findGPIOpin@{findGPIOpin}}
+\index{findGPIOpin@{findGPIOpin}!digital.cpp@{digital.cpp}}
+\doxysubsubsection{\texorpdfstring{findGPIOpin()}{findGPIOpin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}} \texorpdfstring{$\ast$}{*} find\+GPIOpin (\begin{DoxyParamCaption}\item[{int}]{enum\+Pin\+Name }\end{DoxyParamCaption})}
+
+Find a specific defined gpio name in the list 
+\begin{DoxyParams}{Parameters}
+{\em enum\+Pin\+Name} & GPIO pin name using enum value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00307}{307}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, and \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00184}{add\+GPIOpin\+\_\+\+DIGITAL()}}, \mbox{\hyperlink{types_8cpp_source_l00063}{Register\+GPIO\+::gpio\+Free\+Mem()}}, \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}, and \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{digital_8cpp_a3e4f06dccdb52421553c7d058fe4f260}\label{digital_8cpp_a3e4f06dccdb52421553c7d058fe4f260} 
+\index{digital.cpp@{digital.cpp}!findReg@{findReg}}
+\index{findReg@{findReg}!digital.cpp@{digital.cpp}}
+\doxysubsubsection{\texorpdfstring{findReg()}{findReg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}} \texorpdfstring{$\ast$}{*} find\+Reg (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{Searchname }\end{DoxyParamCaption})}
+
+Find a register .. 
+\begin{DoxyParams}{Parameters}
+{\em Searchname} & if Searchname==NULL it will collect the search name from p\+\_\+prog. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00238}{reg\+::\+\_\+hashname}}, \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, and \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00584}{create\+New\+Bus()}}, \mbox{\hyperlink{digital_8cpp_source_l00160}{delete\+Reg()}}, \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}, and \mbox{\hyperlink{digital_8cpp_source_l00345}{token\+\_\+put()}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{digital_8cpp_ae1401c454fed3d87210c433bb4cd71b1}\label{digital_8cpp_ae1401c454fed3d87210c433bb4cd71b1} 
+\index{digital.cpp@{digital.cpp}!token\_create\_reg@{token\_create\_reg}}
+\index{token\_create\_reg@{token\_create\_reg}!digital.cpp@{digital.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_create\_reg()}{token\_create\_reg()}}
+{\footnotesize\ttfamily int token\+\_\+create\+\_\+reg (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Create register for keeping several pins as a port Syntax of the instruction is like follow\+: create\+\_\+reg REGNAME BIT15....,BIT6,BIT5,BIT4,BIT3,BIT2,BIT1,BIT0 You can choose from min 2 to max 16 pins .. While BIT15 ...BIT0 represent the GPIO pins defined in this file REGNAME\+: is the bus name creates by the instruction. Can be used later for sending/getting data 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00712}{712}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{digital_8cpp_source_l00584}{create\+New\+Bus()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{digital_8cpp_ae3c6d4952f005507ac7eda315e4eac0d}\label{digital_8cpp_ae3c6d4952f005507ac7eda315e4eac0d} 
+\index{digital.cpp@{digital.cpp}!token\_get@{token\_get}}
+\index{token\_get@{token\_get}!digital.cpp@{digital.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_get()}{token\_get()}}
+{\footnotesize\ttfamily int token\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get digital input data. You must provide the instruction a variable name Syntax of the instruction is like follow\+: get REGNAME,variable get GPIO, variable While REGNAME could be a collection of GPIO defines with create\+\_\+reg or Represent one GPIO pins defined in \doxylink{tokens_8h}{tokens.\+h} variable value will be saved in the variable. 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00415}{415}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{types_8h_source_l00229}{reg\+::bus}}, \mbox{\hyperlink{digital_8cpp_source_l00093}{reg\+::config\+Bus()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00307}{find\+GPIOpin()}}, \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\Hypertarget{digital_8cpp_a6294317f613ecb1fae1d1a2dd0efa00f}\label{digital_8cpp_a6294317f613ecb1fae1d1a2dd0efa00f} 
+\index{digital.cpp@{digital.cpp}!token\_put@{token\_put}}
+\index{token\_put@{token\_put}!digital.cpp@{digital.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_put()}{token\_put()}}
+{\footnotesize\ttfamily int token\+\_\+put (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+put a digital data on GPIO Syntax of the instruction is like follow\+: put NAME,value NAME\+: could be a collection of GPIO (bus) up to 16 no. or represent one GPIO pin defined in \doxylink{tokens_8h}{tokens.\+h} Value\+: 1, 0 or if the NAME is a bus .. the value depends on the bus 0b...n bits. 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00345}{345}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{digital_8cpp_source_l00184}{add\+GPIOpin\+\_\+\+DIGITAL()}}, \mbox{\hyperlink{types_8h_source_l00229}{reg\+::bus}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 14
+Here is the caller graph for this function\+:
+% FIG 15
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{digital_8cpp_a791df047b65c1e1411cd45f30d379bd5}\label{digital_8cpp_a791df047b65c1e1411cd45f30d379bd5} 
+\index{digital.cpp@{digital.cpp}!globalGPIOvariable@{globalGPIOvariable}}
+\index{globalGPIOvariable@{globalGPIOvariable}!digital.cpp@{digital.cpp}}
+\doxysubsubsection{\texorpdfstring{globalGPIOvariable}{globalGPIOvariable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{Global\+GP}}\texorpdfstring{$\ast$}{*} global\+GPIOvariable = 0}
+
+Global list variable to keep the pin names/bus of GPIO. Create objects dynamically. 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00184}{add\+GPIOpin\+\_\+\+DIGITAL()}}, \mbox{\hyperlink{digital_8cpp_source_l00584}{create\+New\+Bus()}}, \mbox{\hyperlink{digital_8cpp_source_l00307}{find\+GPIOpin()}}, \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, \mbox{\hyperlink{common_8cpp_source_l00312}{free\+\_\+script\+GPIOVariable()}}, \mbox{\hyperlink{types_8cpp_source_l00418}{free\+One\+GPIOVariable()}}, \mbox{\hyperlink{types_8cpp_source_l00063}{Register\+GPIO\+::gpio\+Free\+Mem()}}, \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}, and \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}.
+

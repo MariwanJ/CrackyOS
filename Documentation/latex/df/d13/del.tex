@@ -1,0 +1,15 @@
+\doxysection{Del (Delete file or directory)}
+\hypertarget{del}{}\label{del}\index{Del (Delete file or directory)@{Del (Delete file or directory)}}
+This instruction is used to delete a file or multiple files using \texorpdfstring{$<$}{<}\texorpdfstring{$\ast$}{*}\texorpdfstring{$>$}{>} or deleting a directory.
+
+{\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape }
+\begin{DoxyItemize}
+\item del $<$\+FN$>$  \+: delete file $<$\+FN$>$
+\item del \texorpdfstring{$<$}{<}\texorpdfstring{$\ast$}{*}\texorpdfstring{$>$}{>}  \+: delete all files and directories
+\item del $<$\+DIR$>$  \+: delete file directory.
+\end{DoxyItemize}
+
+{\bfseries{Note\+:}}~\newline
+ An SD-\/card module must be connected to the Nucleo board through SPI, with an SD card inserted. The card must be mounted before using this instruction. 

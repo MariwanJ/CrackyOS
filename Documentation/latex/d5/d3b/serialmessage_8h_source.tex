@@ -1,0 +1,81 @@
+\doxysection{serialmessage.\+h}
+\hypertarget{serialmessage_8h_source}{}\label{serialmessage_8h_source}\index{CrackyOS/src/serialmessage.h@{CrackyOS/src/serialmessage.h}}
+\mbox{\hyperlink{serialmessage_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00027}00027\ \textcolor{preprocessor}{\#ifndef\ SERIALMESSAGE\_H}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ SERIALMESSAGE\_H}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hardware__used_8h}{hardware\_used.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interactive_8h}{interactive.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00034}\mbox{\hyperlink{serialmessage_8h_a79d0fd68dab19a786ec2c9c90bd690c1}{00034}}\ \textcolor{preprocessor}{\#define\ INTER\_ACTIVE\_MODE\_MAX\_LENGTH\_OF\_THE\_STRING\ 2\ *\ 1024\ }\textcolor{comment}{//\ 2k\ bytes}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00037}\mbox{\hyperlink{serialmessage_8h_afd57be3278b9d583a49086da2572609b}{00037}}\ \textcolor{preprocessor}{\#define\ FONT\_BLACK\_CODE\ "{}[30m"{}}\ \ \ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00038}00038\ \textcolor{preprocessor}{\#define\ FONT\_RED\_CODE\ "{}[31m"{}}\ \ \ \ \ \textcolor{comment}{//\ 1}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00039}00039\ \textcolor{preprocessor}{\#define\ FONT\_GREEN\_CODE\ "{}[32m"{}}\ \ \ \textcolor{comment}{//\ 2}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00040}00040\ \textcolor{preprocessor}{\#define\ FONT\_YELLOW\_CODE\ "{}[33m"{}}\ \ \textcolor{comment}{//\ 3}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00041}00041\ \textcolor{preprocessor}{\#define\ FONT\_BLUE\_CODE\ "{}[34m"{}}\ \ \ \ \textcolor{comment}{//\ 4}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00042}00042\ \textcolor{preprocessor}{\#define\ FONT\_MAGENTA\_CODE\ "{}[35m"{}}\ \textcolor{comment}{//\ 5}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ FONT\_CYNA\_CODE\ "{}[36m"{}}\ \ \ \ \textcolor{comment}{//\ 6}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00044}00044\ \textcolor{preprocessor}{\#define\ FONT\_WHITE\_CODE\ "{}[37m"{}}\ \ \ \textcolor{comment}{//\ 7}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00045}00045\ \textcolor{preprocessor}{\#define\ FONT\_DEFAULT\_CODE\ "{}[39m"{}}\ \textcolor{comment}{//\ 10}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00047}00047\ \textcolor{preprocessor}{\#define\ BKG\_BLACK\_CODE\ "{}[40m"{}}\ \ \ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00048}00048\ \textcolor{preprocessor}{\#define\ BKG\_RED\_CODE\ "{}[41m"{}}\ \ \ \ \ \textcolor{comment}{//\ 1}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00049}00049\ \textcolor{preprocessor}{\#define\ BKG\_GREEN\_CODE\ "{}[42m"{}}\ \ \ \textcolor{comment}{//\ 2}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00050}00050\ \textcolor{preprocessor}{\#define\ BKG\_YELLOW\_CODE\ "{}[43m"{}}\ \ \textcolor{comment}{//\ 3}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00051}00051\ \textcolor{preprocessor}{\#define\ BKG\_BLUE\_CODE\ "{}[44m"{}}\ \ \ \ \textcolor{comment}{//\ 4}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00052}00052\ \textcolor{preprocessor}{\#define\ BKG\_MAGENTA\_CODE\ "{}[45m"{}}\ \textcolor{comment}{//\ 5}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00053}00053\ \textcolor{preprocessor}{\#define\ BKG\_CYNA\_CODE\ "{}[46m"{}}\ \ \ \ \textcolor{comment}{//\ 6}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00054}00054\ \textcolor{preprocessor}{\#define\ BKG\_WHITE\_CODE\ "{}[47m"{}}\ \ \ \textcolor{comment}{//\ 7}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00055}00055\ \textcolor{preprocessor}{\#define\ BKG\_DEFAULT\_CODE\ "{}[49m"{}}\ \textcolor{comment}{//\ 10}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00060}00060\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00061}00061\ \ \ FONT\_BLACK\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00062}00062\ \ \ FONT\_READ\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00063}00063\ \ \ FONT\_GREEN\ =\ 2,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00064}00064\ \ \ FONT\_YELLOW\ =\ 3,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00065}00065\ \ \ FONT\_BLUE\ =\ 4,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00066}00066\ \ \ FONT\_MAGNETA\ =\ 5,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00067}00067\ \ \ FONT\_CYNA\ =\ 6,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00068}00068\ \ \ FONT\_WHITE\ =\ 7,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00069}00069\ \ \ FONT\_DEFAULT\ =\ 10,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00071}00071\ \ \ BKG\_BLACK\ =\ 20,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00072}00072\ \ \ BKG\_READ\ =\ 21,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00073}00073\ \ \ BKG\_GREEN\ =\ 22,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00074}00074\ \ \ BKG\_YELLOW\ =\ 23,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00075}00075\ \ \ BKG\_BLUE\ =\ 24,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00076}00076\ \ \ BKG\_MAGNETA\ =\ 25,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00077}00077\ \ \ BKG\_CYNA\ =\ 26,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00078}00078\ \ \ BKG\_WHITE\ =\ 27,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00079}00079\ \ \ BKG\_DEFAULT\ =\ 30}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00080}00080\ \};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00084}00084\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_aabdc388a948fd2d4510b28704eed4351}{ChangeInterActiveModeStatus}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00087}00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_ad4fe6900869724f5f94d448ae9c415be}{clearAndHome}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00090}00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_ae0000cf6f87dca81e79f42882c69e058}{clearAndHomeSerial}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00093}00093\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_af7a75650db2927eac4ec11f1a4adf1a5}{clearAndHomeDEBUG}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00096}00096\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{serialmessage_8h_acd5bfd0bce081cb3ee6d5d9f45dfd18e}{GET\_SERIAL\_TEXT}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00099}00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_afbaba4deee6542e01b6eed52fcaac82d}{getScriptProgramFile}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00102}\mbox{\hyperlink{serialmessage_8h_a70ab3af6324ea9a7628db026dc6d8b1d}{00102}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_a70ab3af6324ea9a7628db026dc6d8b1d}{RUN\_MENU}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00105}00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_a402ea961bfc2ffeee61e3a7c330b1559}{print\_help}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00108}00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_a3d772b95d3bbe01c30f97786e026b67c}{GetStringFromSerial}}(\textcolor{keywordtype}{char}\ *stringBuf);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00111}\mbox{\hyperlink{serialmessage_8h_a4e0e944e6165eb29b0c700d60469793d}{00111}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_a4e0e944e6165eb29b0c700d60469793d}{SerialThreadFunction}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00113}\mbox{\hyperlink{serialmessage_8h_a22315ec07b5eeb91e5e9de0408136902}{00113}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_a22315ec07b5eeb91e5e9de0408136902}{do\_FolderOperations}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00115}00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8h_af10e9c1e26fd1cb27fdcc61ecf304092}{ChangeTerminalColor}}(\textcolor{keywordtype}{int}\ color);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00119}00119\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serialmessage_8h_a8f318f40726f8afedfaf996b7e0f7137}{interactive\_mode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8h_source_l00120}00120\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,1270 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A3 16535 11693
+encoding utf-8
+Sheet 1 1
+Title "CrackyOS Testing system "
+Date "2017-11-13"
+Rev "0.0.1"
+Comp "CrackyOS"
+Comment1 "Author: Mariwan Jalal"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text Label 5720 4455 0    24   ~ 5
+PC_8_PWM8/1
+Text Label 5720 4555 0    24   ~ 5
+PC_6_PWM8/1
+Text Label 5720 4655 0    24   ~ 5
+PC_5_AnalogIn_Serial3_RX
+Text Label 5715 4755 0    24   ~ 5
+U+5V
+Text Label 5720 4855 0    24   ~ 5
+N.C
+Text Label 5720 4955 0    24   ~ 5
+PA_12_Serial1_RTS_CAN1_TD
+Text Label 5720 5055 0    24   ~ 5
+PA_11_Serial1_CTS_CAN1_RD_PWM1/4
+Text Label 5720 5155 0    24   ~ 5
+PB_12_PIS2_SSEL
+Text Label 5720 5255 0    24   ~ 5
+PB_11_PWM2/4_Serial3_RX_I2C2_SDA
+Text Label 5720 5355 0    24   ~ 5
+GND
+Text Label 5720 5455 0    24   ~ 5
+PB_2
+Text Label 5720 5555 0    24   ~ 5
+PB_1_PWM3/4_AnalogIn
+Text Label 5720 5655 0    24   ~ 5
+PB_15_SPI2_MOSI_PWM1/3N
+Text Label 5720 5755 0    24   ~ 5
+PB_14_I2C2_SDA_SPI2_MISO_PWM1/2N
+Text Label 5715 5855 0    24   ~ 5
+PB_13_I2C2_SCL_SPI2_SCLK
+Text Label 5725 5955 0    24   ~ 5
+AGND
+$Comp
+L CrackyOS-rescue:CONN_02X19 CN10
+U 1 1 5A09B380
+P 5465 5355
+F 0 "CN10" H 5465 6355 50  0000 C CNN
+F 1 "CONN_02X19" V 5465 5355 50  0000 C CNN
+F 2 "" H 5465 4355 50  0001 C CNN
+F 3 "" H 5465 4355 50  0001 C CNN
+	1    5465 5355
+	1    0    0    -1  
+$EndComp
+$Comp
+L CrackyOS-rescue:CONN_02X19 CN7
+U 1 1 5A09B575
+P 3075 5355
+F 0 "CN7" H 3075 6355 50  0000 C CNN
+F 1 "CONN_02X19" V 3075 5355 50  0000 C CNN
+F 2 "" H 3075 4355 50  0001 C CNN
+F 3 "" H 3075 4355 50  0001 C CNN
+	1    3075 5355
+	1    0    0    -1  
+$EndComp
+Text Label 5720 6055 0    24   ~ 5
+PC_4_AnalogIn_Serial3_TX
+Text Label 5720 6155 0    24   ~ 5
+N.C
+Text Label 5720 6255 0    24   ~ 5
+N.C
+Text Label 5205 4455 2    24   ~ 5
+PC_9_PWM8/4
+Text Label 5210 4555 2    24   ~ 5
+PB_8_D15_CAN1_RD_I2C1_SCL_PWM4/3
+Text Label 5210 4655 2    24   ~ 5
+PB_9_D14_SPI2_SSEL_CAN1_TD_I2C1_SDA_PWM4/4
+Text Label 5210 4755 2    24   ~ 5
+AVDD
+Text Label 5210 4855 2    24   ~ 5
+GND
+Text Label 5210 4955 2    24   ~ 5
+PA_5_D13_L1_SC1_AnalogOut_AnalogIn_PWM2/1
+Text Label 5210 5055 2    24   ~ 5
+PA_6_D12_SPI1_MISO_AnalogIn_PWM3/1
+Text Label 5210 5155 2    24   ~ 5
+PA_7_D11_SPI1_MOSI_AnalogIn_PWM3/2
+Text Label 5210 5255 2    24   ~ 5
+PB_6_D10_I2C1_SCL_Serial1_TX_PWM4/1
+Text Label 5210 5355 2    24   ~ 5
+PC_7_D9_PWM8/2
+Text Label 5210 5455 2    24   ~ 5
+PA_9_D8_Serial1_TX_PWM1/2
+Text Label 5205 5555 2    24   ~ 5
+PA_8_D7_PWM1/1
+Text Label 5205 5655 2    24   ~ 5
+PB_10_D6_SPI2_SCLK_I2C2_SCL_Serial3_TX
+Text Label 5210 5755 2    24   ~ 5
+PB_4_D5_SPI1_MISO_PWM3/1
+Text Label 5205 5855 2    24   ~ 5
+PB_5_D4_SPI1_MOSI_PWM3/2
+Text Label 5210 5955 2    24   ~ 5
+PB_3_D3_SPI1_SCLK_PWM2/2
+Text Label 5210 6055 2    24   ~ 5
+PA_10_D2_Serial1_RX_PWM1/3
+Text Label 5210 6155 2    24   ~ 5
+PA_2_D1_AnalogIn_Serial2_TX_PWM2/3
+Text Label 5210 6255 2    24   ~ 5
+PA_3_D0_AnalogIn_Serial2_RX_PWM2/4
+Text Label 3330 4455 0    24   ~ 5
+PC_11_Serial_3RX_SPI3_MISO
+Text Label 3330 4555 0    24   ~ 5
+PD_2_Serial5_RX
+Text Label 3335 4655 0    24   ~ 5
+E5V
+Text Label 3335 4755 0    24   ~ 5
+GND
+Text Label 3330 4955 0    24   ~ 5
+IOREF
+Text Label 3335 5055 0    24   ~ 5
+RESET
+Text Label 3330 5155 0    24   ~ 5
+3V3
+Text Label 3335 5255 0    24   ~ 5
+5V
+Text Label 3330 5355 0    24   ~ 5
+GND
+Text Label 3330 5455 0    24   ~ 5
+GND
+Text Label 3330 5555 0    24   ~ 5
+VIN
+Text Label 3330 5655 0    24   ~ 5
+N.C
+Text Label 3330 5755 0    24   ~ 5
+PA_0_Serial4_TX_Serial2_CTS_PWM2/1_AnalogIn_A0
+Text Label 3330 5855 0    24   ~ 5
+PA_1_Serial4_RX_Serial2_RTS_PWM12/2_AnalogIn_A1
+Text Label 3330 5955 0    24   ~ 5
+PA_4_AnalogOut_SPI_SSEL_AnalogIn_A2
+Text Label 3330 6055 0    24   ~ 5
+PB_0_PWM3/3_AnalogIn_A3
+Text Label 3335 6155 0    24   ~ 5
+PC_1_Serial1_TX_I2C3_SDA_AnalogIn_A4
+Text Label 3335 4855 0    24   ~ 5
+N.C
+Text Label 3330 6255 0    24   ~ 5
+PC_0_Serial1_RX_I2C3_SCL_AnalogIn_A6
+Text Label 2820 4455 2    24   ~ 5
+PC_10_SPI3_SCLK_Serial3_TX
+Text Label 2820 4555 2    24   ~ 5
+PC_12_SPI3_MOSI_Serial5_TX
+Text Label 2820 4655 2    24   ~ 5
+VDD
+Text Label 2820 4755 2    24   ~ 5
+BOOT0
+Text Label 2820 4855 2    24   ~ 5
+N.C
+Text Label 2820 4955 2    24   ~ 5
+N.C
+Text Label 2820 5055 2    24   ~ 5
+PA_13
+Text Label 2820 5155 2    24   ~ 5
+PA_14
+Text Label 2820 5255 2    24   ~ 5
+PA_15_SPI1_SSEL_PWM2/1
+Text Label 2820 5355 2    24   ~ 5
+GND
+Text Label 2820 5455 2    24   ~ 5
+PB_7_I2C1_SDA_Serial1_RX_PWM4/2
+Text Label 2820 5555 2    24   ~ 5
+PC_13_USER_BU.
+Text Label 2820 5655 2    24   ~ 5
+PC_14
+Text Label 2820 5755 2    24   ~ 5
+PC_15
+Text Label 2820 5855 2    24   ~ 5
+PH_0
+Text Label 2820 5955 2    24   ~ 5
+PH_1
+Text Label 2820 6055 2    24   ~ 5
+VBAT
+Text Label 2820 6155 2    24   ~ 5
+PC_2
+Text Label 2820 6255 2    24   ~ 5
+PC_3
+$Comp
+L conn:SD_Card J1
+U 1 1 5A0A94B7
+P 4325 1750
+F 0 "J1" H 3675 2300 50  0000 C CNN
+F 1 "SD_Card" H 4925 1200 50  0000 C CNN
+F 2 "10067847-001" H 4525 2100 50  0001 C CNN
+F 3 "" H 4325 1750 50  0001 C CNN
+	1    4325 1750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CD74HC4067:CD74HC4067 U1
+U 1 1 5A0A97C5
+P 1370 6515
+F 0 "U1" H 1370 6415 50  0000 C CNN
+F 1 "CD74HC4067" H 1370 6615 50  0000 C CNN
+F 2 "MODULE" H 1370 6515 50  0001 C CNN
+F 3 "DOCUMENTATION" H 1370 6515 50  0001 C CNN
+	1    1370 6515
+	0    -1   -1   0   
+$EndComp
+Text Label 4660 4330 1    12   ~ 0
+CS
+Text Label 4700 4330 1    12   ~ 0
+MOSI
+Text Label 4745 4330 1    12   ~ 0
+MISO
+Text Label 4795 4330 1    12   ~ 0
+SCLK
+$Comp
+L Device:R R1
+U 1 1 5A0AB7A3
+P 3270 2855
+F 0 "R1" V 3285 2605 50  0000 C CNN
+F 1 "10K" V 3270 2855 50  0000 C CNN
+F 2 "" V 3200 2855 50  0001 C CNN
+F 3 "" H 3270 2855 50  0001 C CNN
+	1    3270 2855
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5A0AB979
+P 3270 2950
+F 0 "R2" V 3265 2700 50  0000 C CNN
+F 1 "10K" V 3270 2950 50  0000 C CNN
+F 2 "" V 3200 2950 50  0001 C CNN
+F 3 "" H 3270 2950 50  0001 C CNN
+	1    3270 2950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5A0AB9C5
+P 3270 3045
+F 0 "R3" V 3260 2795 50  0000 C CNN
+F 1 "10K" V 3270 3045 50  0000 C CNN
+F 2 "" V 3200 3045 50  0001 C CNN
+F 3 "" H 3270 3045 50  0001 C CNN
+	1    3270 3045
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5A0ABA14
+P 3270 3140
+F 0 "R4" V 3240 2890 50  0000 C CNN
+F 1 "10K" V 3270 3140 50  0000 C CNN
+F 2 "" V 3200 3140 50  0001 C CNN
+F 3 "" H 3270 3140 50  0001 C CNN
+	1    3270 3140
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3V3 #PWR4
+U 1 1 5A0AC3FF
+P 2755 2690
+F 0 "#PWR4" H 2755 2540 50  0001 C CNN
+F 1 "+3V3" H 2755 2830 50  0000 C CNN
+F 2 "" H 2755 2690 50  0001 C CNN
+F 3 "" H 2755 2690 50  0001 C CNN
+	1    2755 2690
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR5
+U 1 1 5A0AD186
+P 4525 2750
+F 0 "#PWR5" H 4525 2500 50  0001 C CNN
+F 1 "GND" H 4525 2600 50  0000 C CNN
+F 2 "" H 4525 2750 50  0001 C CNN
+F 3 "" H 4525 2750 50  0001 C CNN
+	1    4525 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C2
+U 1 1 5A0ADC0F
+P 2755 3265
+F 0 "C2" H 2780 3365 50  0000 L CNN
+F 1 "CP" H 2780 3165 50  0000 L CNN
+F 2 "" H 2793 3115 50  0001 C CNN
+F 3 "" H 2755 3265 50  0001 C CNN
+	1    2755 3265
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5A0ADCA2
+P 2540 3265
+F 0 "C1" H 2565 3365 50  0000 L CNN
+F 1 "C" H 2565 3165 50  0000 L CNN
+F 2 "" H 2578 3115 50  0001 C CNN
+F 3 "" H 2540 3265 50  0001 C CNN
+	1    2540 3265
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR3
+U 1 1 5A0ADF3C
+P 2645 3600
+F 0 "#PWR3" H 2645 3350 50  0001 C CNN
+F 1 "GND" H 2645 3450 50  0000 C CNN
+F 2 "" H 2645 3600 50  0001 C CNN
+F 3 "" H 2645 3600 50  0001 C CNN
+	1    2645 3600
+	1    0    0    -1  
+$EndComp
+NoConn ~ 4125 850 
+NoConn ~ 4225 850 
+NoConn ~ 4425 850 
+NoConn ~ 4525 850 
+$Comp
+L power:GND #PWR2
+U 1 1 5A0AFFC6
+P 1990 7325
+F 0 "#PWR2" H 1990 7075 50  0001 C CNN
+F 1 "GND" H 1990 7175 50  0000 C CNN
+F 2 "" H 1990 7325 50  0001 C CNN
+F 3 "" H 1990 7325 50  0001 C CNN
+	1    1990 7325
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+3.3V #PWR1
+U 1 1 5A0B0252
+P 700 5680
+F 0 "#PWR1" H 700 5530 50  0001 C CNN
+F 1 "+3.3V" H 700 5820 50  0000 C CNN
+F 2 "" H 700 5680 50  0001 C CNN
+F 3 "" H 700 5680 50  0001 C CNN
+	1    700  5680
+	0    -1   -1   0   
+$EndComp
+NoConn ~ 2605 6055
+Text Label 1175 3955 0    20   ~ 4
+CS
+$Comp
+L DeeComponents:BME280 U2
+U 1 1 5A0AED7E
+P 13690 4115
+F 0 "U2" H 13690 4165 60  0000 C CNN
+F 1 "BME280" H 13690 4265 60  0000 C CNN
+F 2 "" H 13690 4115 60  0001 C CNN
+F 3 "" H 13690 4115 60  0001 C CNN
+	1    13690 4115
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR7
+U 1 1 5A0AF1B0
+P 13340 3935
+F 0 "#PWR7" H 13340 3785 50  0001 C CNN
+F 1 "+3.3V" H 13340 4075 50  0000 C CNN
+F 2 "" H 13340 3935 50  0001 C CNN
+F 3 "" H 13340 3935 50  0001 C CNN
+	1    13340 3935
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR6
+U 1 1 5A0AF27C
+P 13285 5045
+F 0 "#PWR6" H 13285 4795 50  0001 C CNN
+F 1 "GND" H 13285 4895 50  0000 C CNN
+F 2 "" H 13285 5045 50  0001 C CNN
+F 3 "" H 13285 5045 50  0001 C CNN
+	1    13285 5045
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR8
+U 1 1 5A0AF52F
+P 14680 4075
+F 0 "#PWR8" H 14680 3825 50  0001 C CNN
+F 1 "GND" H 14680 3925 50  0000 C CNN
+F 2 "" H 14680 4075 50  0001 C CNN
+F 3 "" H 14680 4075 50  0001 C CNN
+	1    14680 4075
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 5A0AFFA6
+P 13380 4725
+F 0 "C4" H 13510 4730 50  0000 L CNN
+F 1 "100nF" H 13405 4625 50  0000 L CNN
+F 2 "" H 13418 4575 50  0001 C CNN
+F 3 "" H 13380 4725 50  0001 C CNN
+	1    13380 4725
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C3
+U 1 1 5A0B0035
+P 13195 4725
+F 0 "C3" H 12990 4730 50  0000 L CNN
+F 1 "100nF" H 13220 4625 50  0000 L CNN
+F 2 "" H 13233 4575 50  0001 C CNN
+F 3 "" H 13195 4725 50  0001 C CNN
+	1    13195 4725
+	1    0    0    -1  
+$EndComp
+Text Label 15040 1570 0    24   ~ 5
+PC_8_PWM8/1
+Text Label 15040 1670 0    24   ~ 5
+PC_6_PWM8/1
+Text Label 15040 1770 0    24   ~ 5
+PC_5_AnalogIn_Serial3_RX
+Text Label 15035 1870 0    24   ~ 5
+U+5V
+Text Label 15040 1970 0    24   ~ 5
+N.C
+Text Label 15040 2070 0    24   ~ 5
+PA_12_Serial1_RTS_CAN1_TD
+Text Label 15040 2170 0    24   ~ 5
+PA_11_Serial1_CTS_CAN1_RD_PWM1/4
+Text Label 15040 2270 0    24   ~ 5
+PB_12_PIS2_SSEL
+Text Label 15040 2370 0    24   ~ 5
+PB_11_PWM2/4_Serial3_RX_I2C2_SDA
+Text Label 15040 2470 0    24   ~ 5
+GND
+Text Label 15040 2570 0    24   ~ 5
+PB_2
+Text Label 15040 2670 0    24   ~ 5
+PB_1_PWM3/4_AnalogIn
+Text Label 15040 2770 0    24   ~ 5
+PB_15_SPI2_MOSI_PWM1/3N
+Text Label 15040 2870 0    24   ~ 5
+PB_14_I2C2_SDA_SPI2_MISO_PWM1/2N
+Text Label 15035 2970 0    24   ~ 5
+PB_13_I2C2_SCL_SPI2_SCLK
+Text Label 15045 3070 0    24   ~ 5
+AGND
+$Comp
+L CrackyOS-rescue:CONN_02X19 CN2
+U 1 1 5A0B2A26
+P 14785 2470
+F 0 "CN2" H 14785 3470 50  0000 C CNN
+F 1 "CONN_02X19" V 14785 2470 50  0000 C CNN
+F 2 "" H 14785 1470 50  0001 C CNN
+F 3 "" H 14785 1470 50  0001 C CNN
+	1    14785 2470
+	1    0    0    -1  
+$EndComp
+Text Label 15040 3170 0    24   ~ 5
+PC_4_AnalogIn_Serial3_TX
+Text Label 15040 3270 0    24   ~ 5
+PF5
+Text Label 15040 3370 0    24   ~ 5
+PF4
+Text Label 14525 1570 2    24   ~ 5
+PC_9_PWM8/4
+Text Label 14530 1670 2    24   ~ 5
+PB_8_D15_CAN1_RD_I2C1_SCL_PWM4/3
+Text Label 14535 1770 2    24   ~ 5
+PB_9_D14_SPI2_SSEL_CAN1_TD_I2C1_SDA_PWM4/4
+Text Label 14535 1870 2    24   ~ 5
+AVDD
+Text Label 14530 1970 2    24   ~ 5
+GND
+Text Label 14530 2070 2    24   ~ 5
+PA_5_D13_L1_SC1_AnalogOut_AnalogIn_PWM2/1
+Text Label 14530 2170 2    24   ~ 5
+PA_6_D12_SPI1_MISO_AnalogIn_PWM3/1
+Text Label 14530 2270 2    24   ~ 5
+PA_7_D11_SPI1_MOSI_AnalogIn_PWM3/2
+Text Label 14530 2370 2    24   ~ 5
+PB_6_D10_I2C1_SCL_Serial1_TX_PWM4/1
+Text Label 14530 2470 2    24   ~ 5
+PC_7_D9_PWM8/2
+Text Label 14530 2570 2    24   ~ 5
+PA_9_D8_Serial1_TX_PWM1/2
+Text Label 14525 2670 2    24   ~ 5
+PA_8_D7_PWM1/1
+Text Label 14525 2770 2    24   ~ 5
+PB_10_D6_SPI2_SCLK_I2C2_SCL_Serial3_TX
+Text Label 14530 2870 2    24   ~ 5
+PB_4_D5_SPI1_MISO_PWM3/1
+Text Label 14525 2970 2    24   ~ 5
+PB_5_D4_SPI1_MOSI_PWM3/2
+Text Label 14530 3070 2    24   ~ 5
+PB_3_D3_SPI1_SCLK_PWM2/2
+Text Label 14530 3170 2    24   ~ 5
+PA_10_D2_Serial1_RX_PWM1/3
+Text Label 14530 3270 2    24   ~ 5
+PA_2_D1_AnalogIn_Serial2_TX_PWM2/3
+Text Label 14530 3370 2    24   ~ 5
+PA_3_D0_AnalogIn_Serial2_RX_PWM2/4
+$Comp
+L CrackyOS-rescue:CONN_02X19 CN1
+U 1 1 5A0B2E2F
+P 12240 2475
+F 0 "CN1" H 12240 3475 50  0000 C CNN
+F 1 "CONN_02X19" V 12240 2475 50  0000 C CNN
+F 2 "" H 12240 1475 50  0001 C CNN
+F 3 "" H 12240 1475 50  0001 C CNN
+	1    12240 2475
+	1    0    0    -1  
+$EndComp
+Text Label 12495 1575 0    24   ~ 5
+PC_11_Serial_3RX_SPI3_MISO
+Text Label 12495 1675 0    24   ~ 5
+PD_2_Serial5_RX
+Text Label 12500 1775 0    24   ~ 5
+E5V
+Text Label 12500 1875 0    24   ~ 5
+GND
+Text Label 12495 2075 0    24   ~ 5
+IOREF
+Text Label 12500 2175 0    24   ~ 5
+RESET
+Text Label 12495 2275 0    24   ~ 5
+3V3
+Text Label 12500 2375 0    24   ~ 5
+5V
+Text Label 12495 2475 0    24   ~ 5
+GND
+Text Label 12495 2575 0    24   ~ 5
+GND
+Text Label 12495 2675 0    24   ~ 5
+VIN
+Text Label 12495 2775 0    24   ~ 5
+N.C
+Text Label 12495 2875 0    24   ~ 5
+PA_0_Serial4_TX_Serial2_CTS_PWM2/1_AnalogIn_A0
+Text Label 12495 2975 0    24   ~ 5
+PA_1_Serial4_RX_Serial2_RTS_PWM12/2_AnalogIn_A1
+Text Label 12495 3075 0    24   ~ 5
+PA_4_AnalogOut_SPI_SSEL_AnalogIn_A2
+Text Label 12495 3175 0    24   ~ 5
+PB_0_PWM3/3_AnalogIn_A3
+Text Label 12500 3275 0    24   ~ 5
+PC_1_Serial1_TX_I2C3_SDA_AnalogIn_A4
+Text Label 12500 1975 0    24   ~ 5
+N.C
+Text Label 12495 3375 0    24   ~ 5
+PC_0_Serial1_RX_I2C3_SCL_AnalogIn_A6
+Text Label 11985 1575 2    24   ~ 5
+PC_10_SPI3_SCLK_Serial3_TX
+Text Label 11985 1675 2    24   ~ 5
+PC_12_SPI3_MOSI_Serial5_TX
+Text Label 11985 1775 2    24   ~ 5
+VDD
+Text Label 11985 1875 2    24   ~ 5
+BOOT0
+Text Label 11985 1975 2    24   ~ 5
+PF_6
+Text Label 11985 2075 2    24   ~ 5
+PF_7
+Text Label 11985 2175 2    24   ~ 5
+PA_13
+Text Label 11985 2275 2    24   ~ 5
+PA_14
+Text Label 11985 2375 2    24   ~ 5
+PA_15_SPI1_SSEL_PWM2/1
+Text Label 11985 2475 2    24   ~ 5
+GND
+Text Label 11985 2575 2    24   ~ 5
+PB_7_I2C1_SDA_Serial1_RX_PWM4/2
+Text Label 11985 2675 2    24   ~ 5
+PC_13_USER_BU.
+Text Label 11985 2775 2    24   ~ 5
+PC_14
+Text Label 11985 2875 2    24   ~ 5
+PC_15
+Text Label 11985 2975 2    24   ~ 5
+PF_0
+Text Label 11985 3075 2    24   ~ 5
+PF_1
+Text Label 11985 3175 2    24   ~ 5
+VBAT
+Text Label 11985 3275 2    24   ~ 5
+PC_2
+Text Label 11985 3375 2    24   ~ 5
+PC_3
+Text Notes 13100 1315 0    60   ~ 12
+NUCLEO-F030R8
+Text Notes 3740 4355 0    60   ~ 12
+NUCLEO-L476RG
+$Comp
+L CrackyOS-rescue:CONN_01X04 J4
+U 1 1 5A0B63A2
+P 5890 3190
+F 0 "J4" V 5575 3180 50  0000 C CNN
+F 1 "MOSI_CON" V 5995 3220 50  0000 C CNN
+F 2 "" H 5890 3190 50  0001 C CNN
+F 3 "" H 5890 3190 50  0001 C CNN
+	1    5890 3190
+	0    1    1    0   
+$EndComp
+$Comp
+L CrackyOS-rescue:CONN_01X04 J3
+U 1 1 5A0B6541
+P 5885 3685
+F 0 "J3" H 5885 3935 50  0000 C CNN
+F 1 "MISO_CON" V 5985 3640 50  0000 C CNN
+F 2 "" H 5885 3685 50  0001 C CNN
+F 3 "" H 5885 3685 50  0001 C CNN
+	1    5885 3685
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CrackyOS-rescue:CONN_01X04 J2
+U 1 1 5A0B688B
+P 5615 3430
+F 0 "J2" H 5390 3680 50  0000 C CNN
+F 1 "SCLK_CON" V 5280 3385 50  0000 C CNN
+F 2 "" H 5615 3430 50  0001 C CNN
+F 3 "" H 5615 3430 50  0001 C CNN
+	1    5615 3430
+	1    0    0    -1  
+$EndComp
+Text Label 8455 995  0    60   ~ 12
+MOSI_SLAVE
+Text Label 8455 1095 0    60   ~ 12
+MISO_SLAVE
+Text Label 8455 1195 0    60   ~ 12
+SCLK_SLAVE
+Text Label 8450 1295 0    60   ~ 12
+CS_SLAVE
+$Comp
+L CrackyOS-rescue:CONN_01X04 J5
+U 1 1 5A0C060A
+P 7900 1145
+F 0 "J5" H 7900 1395 50  0000 C CNN
+F 1 "CONN_01X04" V 8000 1145 50  0000 C CNN
+F 2 "" H 7900 1145 50  0001 C CNN
+F 3 "" H 7900 1145 50  0001 C CNN
+	1    7900 1145
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5715 4455 5935 4455
+Wire Wire Line
+	5715 4555 5935 4555
+Wire Wire Line
+	5715 4655 5935 4655
+Wire Wire Line
+	5715 4755 5935 4755
+Wire Wire Line
+	5715 4855 5935 4855
+Wire Wire Line
+	5715 4955 5935 4955
+Wire Wire Line
+	5715 5055 5935 5055
+Wire Wire Line
+	5715 5155 5935 5155
+Wire Wire Line
+	5715 5255 5935 5255
+Wire Wire Line
+	5715 5355 5935 5355
+Wire Wire Line
+	5715 5455 5935 5455
+Wire Wire Line
+	5715 5555 5935 5555
+Wire Wire Line
+	5715 5655 5935 5655
+Wire Wire Line
+	5715 5755 5935 5755
+Wire Wire Line
+	5715 5855 5935 5855
+Wire Wire Line
+	5715 5955 5935 5955
+Wire Wire Line
+	5715 6055 5935 6055
+Wire Wire Line
+	5715 6155 5935 6155
+Wire Wire Line
+	5715 6255 5935 6255
+Wire Wire Line
+	3325 4455 3545 4455
+Wire Wire Line
+	3325 4555 3545 4555
+Wire Wire Line
+	3325 4655 3545 4655
+Wire Wire Line
+	3325 4755 3545 4755
+Wire Wire Line
+	3325 4855 3545 4855
+Wire Wire Line
+	3325 4955 3545 4955
+Wire Wire Line
+	3325 5055 3545 5055
+Wire Wire Line
+	3325 5155 3545 5155
+Wire Wire Line
+	3325 5255 3545 5255
+Wire Wire Line
+	3325 5355 3545 5355
+Wire Wire Line
+	3325 5455 3545 5455
+Wire Wire Line
+	3325 5555 3545 5555
+Wire Wire Line
+	3325 5655 3545 5655
+Wire Wire Line
+	3325 5755 3545 5755
+Wire Wire Line
+	3325 5855 3545 5855
+Wire Wire Line
+	3325 5955 3545 5955
+Wire Wire Line
+	3325 6055 3545 6055
+Wire Wire Line
+	3325 6155 3545 6155
+Wire Wire Line
+	3325 6255 3545 6255
+Wire Wire Line
+	5215 4455 4995 4455
+Wire Wire Line
+	5215 4555 4995 4555
+Wire Wire Line
+	5215 4655 4995 4655
+Wire Wire Line
+	5215 4755 4995 4755
+Wire Wire Line
+	5215 4855 4995 4855
+Wire Wire Line
+	4795 4955 5215 4955
+Wire Wire Line
+	4745 5055 5215 5055
+Wire Wire Line
+	4700 5155 5215 5155
+Wire Wire Line
+	4660 5255 5215 5255
+Wire Wire Line
+	5215 5355 4995 5355
+Wire Wire Line
+	5215 5455 4995 5455
+Wire Wire Line
+	5215 5555 4995 5555
+Wire Wire Line
+	5215 5655 4995 5655
+Wire Wire Line
+	5215 5755 4995 5755
+Wire Wire Line
+	5215 5855 4995 5855
+Wire Wire Line
+	5215 5955 4995 5955
+Wire Wire Line
+	5215 6055 4995 6055
+Wire Wire Line
+	5215 6155 4995 6155
+Wire Wire Line
+	5215 6255 4995 6255
+Wire Wire Line
+	2825 4455 2605 4455
+Wire Wire Line
+	2825 4555 2605 4555
+Wire Wire Line
+	2825 4655 2605 4655
+Wire Wire Line
+	2825 4755 2605 4755
+Wire Wire Line
+	2825 4855 2605 4855
+Wire Wire Line
+	2825 4955 2605 4955
+Wire Wire Line
+	2825 5055 2605 5055
+Wire Wire Line
+	2825 5155 2605 5155
+Wire Wire Line
+	2825 5255 2605 5255
+Wire Wire Line
+	2825 5355 2605 5355
+Wire Wire Line
+	2825 5455 2605 5455
+Wire Wire Line
+	2825 5555 2605 5555
+Wire Wire Line
+	2825 5655 2605 5655
+Wire Wire Line
+	2825 5755 2605 5755
+Wire Wire Line
+	2145 5855 2825 5855
+Wire Wire Line
+	2065 5955 2825 5955
+Wire Wire Line
+	2825 6055 2605 6055
+Wire Wire Line
+	2530 6155 2825 6155
+Wire Wire Line
+	2825 6255 2605 6255
+Wire Wire Line
+	4660 4090 4660 5255
+Wire Wire Line
+	4700 2950 4700 3980
+Wire Wire Line
+	4700 3980 4700 5155
+Wire Wire Line
+	4745 3740 4745 3875
+Wire Wire Line
+	4745 3875 4745 5055
+Wire Wire Line
+	4795 3425 4795 3855
+Wire Wire Line
+	4795 3855 4795 4955
+Wire Wire Line
+	3120 2855 3085 2855
+Wire Wire Line
+	3085 2855 3085 2950
+Wire Wire Line
+	3085 2950 3085 2990
+Wire Wire Line
+	3085 2990 3085 3045
+Wire Wire Line
+	3085 3045 3085 3140
+Wire Wire Line
+	3085 3140 3120 3140
+Wire Wire Line
+	3120 3045 3085 3045
+Connection ~ 3085 3045
+Wire Wire Line
+	3120 2950 3085 2950
+Connection ~ 3085 2950
+Wire Wire Line
+	4125 2650 4125 2855
+Wire Wire Line
+	4125 2855 4125 3980
+Wire Wire Line
+	4125 3980 4700 3980
+Wire Wire Line
+	3420 2855 4125 2855
+Connection ~ 4125 2855
+Wire Wire Line
+	2540 2990 2755 2990
+Wire Wire Line
+	2755 2990 3085 2990
+Wire Wire Line
+	2755 2690 2755 2780
+Wire Wire Line
+	2755 2780 2755 2990
+Wire Wire Line
+	2755 2990 2755 3115
+Connection ~ 3085 2990
+Wire Wire Line
+	4425 3570 4860 3570
+Wire Wire Line
+	4425 2650 4425 2950
+Wire Wire Line
+	4425 2950 4425 3570
+Wire Wire Line
+	3420 2950 4425 2950
+Connection ~ 4425 2950
+Wire Wire Line
+	4525 2650 4525 2710
+Wire Wire Line
+	4525 2710 4525 2750
+Wire Wire Line
+	4225 2710 4525 2710
+Wire Wire Line
+	4225 2710 4225 2650
+Wire Wire Line
+	4725 3140 4725 2650
+Wire Wire Line
+	3420 3140 4725 3140
+Wire Wire Line
+	4325 2650 4325 2670
+Wire Wire Line
+	4325 2670 2845 2670
+Wire Wire Line
+	2845 2670 2845 2780
+Wire Wire Line
+	2845 2780 2755 2780
+Connection ~ 2755 2780
+Connection ~ 4525 2710
+Connection ~ 2755 2990
+Wire Wire Line
+	2540 3115 2540 2990
+Wire Wire Line
+	2540 3415 2540 3510
+Wire Wire Line
+	2540 3510 2645 3510
+Wire Wire Line
+	2645 3510 2755 3510
+Wire Wire Line
+	2755 3510 2755 3415
+Wire Wire Line
+	2645 3510 2645 3600
+Connection ~ 2645 3510
+Wire Wire Line
+	4025 2650 4025 3955
+Connection ~ 4700 3980
+Wire Wire Line
+	4625 3875 4745 3875
+Connection ~ 4745 3875
+Wire Wire Line
+	1920 7265 1920 7325
+Wire Wire Line
+	1920 7325 1990 7325
+Wire Wire Line
+	820  5765 820  5680
+Wire Wire Line
+	820  5680 700  5680
+Wire Wire Line
+	1720 7265 1720 7540
+Wire Wire Line
+	1720 7540 2605 7540
+Wire Wire Line
+	2605 7540 2605 6255
+Wire Wire Line
+	2530 6155 2530 7480
+Wire Wire Line
+	2530 7480 1820 7480
+Wire Wire Line
+	1820 7480 1820 7265
+Wire Wire Line
+	2065 5955 2065 5700
+Wire Wire Line
+	2065 5700 1920 5700
+Wire Wire Line
+	1920 5700 1920 5765
+Wire Wire Line
+	2145 5855 2145 5650
+Wire Wire Line
+	2145 5650 1820 5650
+Wire Wire Line
+	1820 5650 1820 5765
+Wire Wire Line
+	1620 7265 1620 7510
+Wire Wire Line
+	1620 7510 495  7510
+Wire Wire Line
+	495  7510 495  3955
+Wire Wire Line
+	495  3955 4025 3955
+Wire Wire Line
+	13410 4215 13490 4215
+Wire Wire Line
+	13340 4215 13340 3935
+Wire Wire Line
+	14490 4215 14490 3980
+Wire Wire Line
+	14490 3980 14680 3980
+Wire Wire Line
+	14680 3980 14680 4075
+Wire Wire Line
+	13410 4215 13410 4415
+Wire Wire Line
+	13380 4415 13410 4415
+Wire Wire Line
+	13410 4415 13490 4415
+Connection ~ 13410 4215
+Wire Wire Line
+	13195 4575 13195 4215
+Wire Wire Line
+	13380 4575 13380 4415
+Connection ~ 13410 4415
+Wire Wire Line
+	13380 4990 13380 4875
+Wire Wire Line
+	13195 4990 13285 4990
+Wire Wire Line
+	13285 4990 13380 4990
+Wire Wire Line
+	13195 4990 13195 4875
+Wire Wire Line
+	13490 4315 13285 4315
+Wire Wire Line
+	13285 4315 13285 4990
+Connection ~ 13285 4990
+Wire Wire Line
+	13285 4995 13285 5045
+Wire Wire Line
+	4860 3570 4860 3855
+Wire Wire Line
+	4860 3855 4795 3855
+Connection ~ 4795 3855
+Wire Wire Line
+	15035 1570 15255 1570
+Wire Wire Line
+	15035 1670 15255 1670
+Wire Wire Line
+	15035 1770 15255 1770
+Wire Wire Line
+	15035 1870 15255 1870
+Wire Wire Line
+	15035 1970 15255 1970
+Wire Wire Line
+	15035 2070 15255 2070
+Wire Wire Line
+	15035 2170 15255 2170
+Wire Wire Line
+	15035 2270 15255 2270
+Wire Wire Line
+	15035 2370 15255 2370
+Wire Wire Line
+	15035 2470 15255 2470
+Wire Wire Line
+	15035 2570 15255 2570
+Wire Wire Line
+	15035 2670 15255 2670
+Wire Wire Line
+	15035 2770 15540 2770
+Wire Wire Line
+	15035 2870 15835 2870
+Wire Wire Line
+	15035 2970 15690 2970
+Wire Wire Line
+	15035 3070 15255 3070
+Wire Wire Line
+	15035 3170 15255 3170
+Wire Wire Line
+	15035 3270 15255 3270
+Wire Wire Line
+	15035 3370 15255 3370
+Wire Wire Line
+	14535 1570 14315 1570
+Wire Wire Line
+	14535 1670 14315 1670
+Wire Wire Line
+	14535 1770 14315 1770
+Wire Wire Line
+	14535 1870 14315 1870
+Wire Wire Line
+	14535 1970 14315 1970
+Wire Wire Line
+	13290 2070 14535 2070
+Wire Wire Line
+	13455 2170 14535 2170
+Wire Wire Line
+	13520 2270 14535 2270
+Wire Wire Line
+	13405 2370 14535 2370
+Wire Wire Line
+	14535 2470 14315 2470
+Wire Wire Line
+	14535 2570 14315 2570
+Wire Wire Line
+	14535 2670 14315 2670
+Wire Wire Line
+	13660 2770 14535 2770
+Wire Wire Line
+	14535 2870 14315 2870
+Wire Wire Line
+	14535 2970 14315 2970
+Wire Wire Line
+	14535 3070 14315 3070
+Wire Wire Line
+	14535 3170 14315 3170
+Wire Wire Line
+	14535 3270 14315 3270
+Wire Wire Line
+	14535 3370 14315 3370
+Wire Wire Line
+	12490 1575 12710 1575
+Wire Wire Line
+	12490 1675 12710 1675
+Wire Wire Line
+	12490 1775 12710 1775
+Wire Wire Line
+	12490 1875 12710 1875
+Wire Wire Line
+	12490 1975 12710 1975
+Wire Wire Line
+	12490 2075 12710 2075
+Wire Wire Line
+	12490 2175 12710 2175
+Wire Wire Line
+	12490 2275 12710 2275
+Wire Wire Line
+	12490 2375 12710 2375
+Wire Wire Line
+	12490 2475 12710 2475
+Wire Wire Line
+	12490 2575 12710 2575
+Wire Wire Line
+	12490 2675 12710 2675
+Wire Wire Line
+	12490 2775 12710 2775
+Wire Wire Line
+	12490 2875 12710 2875
+Wire Wire Line
+	12490 2975 12710 2975
+Wire Wire Line
+	12490 3075 12710 3075
+Wire Wire Line
+	12490 3175 12710 3175
+Wire Wire Line
+	12490 3275 12710 3275
+Wire Wire Line
+	12490 3375 12710 3375
+Wire Wire Line
+	11990 1575 11770 1575
+Wire Wire Line
+	11990 1675 11770 1675
+Wire Wire Line
+	11990 1775 11770 1775
+Wire Wire Line
+	11990 1875 11770 1875
+Wire Wire Line
+	11990 1975 11770 1975
+Wire Wire Line
+	11990 2075 11770 2075
+Wire Wire Line
+	11990 2175 11770 2175
+Wire Wire Line
+	11990 2275 11770 2275
+Wire Wire Line
+	11990 2375 11770 2375
+Wire Wire Line
+	11990 2475 11770 2475
+Wire Wire Line
+	11990 2575 11770 2575
+Wire Wire Line
+	11990 2675 11770 2675
+Wire Wire Line
+	11990 2775 11770 2775
+Wire Wire Line
+	11990 2875 11770 2875
+Wire Wire Line
+	11310 2975 11990 2975
+Wire Wire Line
+	11230 3075 11990 3075
+Wire Wire Line
+	11990 3175 11770 3175
+Wire Wire Line
+	11695 3275 11990 3275
+Wire Wire Line
+	11990 3375 11770 3375
+Wire Notes Line
+	11385 1095 15805 1095
+Wire Notes Line
+	15805 1095 15805 3740
+Wire Notes Line
+	15805 3740 11385 3740
+Wire Notes Line
+	11385 3740 11385 1095
+Wire Notes Line
+	2375 6400 6405 6400
+Wire Notes Line
+	6405 6400 6405 4250
+Wire Notes Line
+	6405 4250 2375 4250
+Wire Notes Line
+	2375 4250 2375 6400
+Wire Wire Line
+	5415 3280 5360 3280
+Wire Wire Line
+	5360 3425 5360 3480
+Wire Wire Line
+	5360 3480 5360 3580
+Wire Wire Line
+	5360 3580 5415 3580
+Wire Wire Line
+	5415 3480 5360 3480
+Connection ~ 5360 3480
+Wire Wire Line
+	5415 3380 5360 3380
+Wire Wire Line
+	4795 3425 5360 3425
+Connection ~ 5360 3425
+Wire Wire Line
+	5740 2990 5740 2950
+Wire Wire Line
+	5740 2950 5840 2950
+Wire Wire Line
+	5940 2950 6040 2950
+Wire Wire Line
+	6040 2950 6040 2990
+Wire Wire Line
+	5940 2990 5940 2950
+Connection ~ 5940 2950
+Wire Wire Line
+	5840 2990 5840 2950
+Connection ~ 5840 2950
+Wire Wire Line
+	4700 2950 5840 2950
+Wire Wire Line
+	6035 3930 6035 3885
+Wire Wire Line
+	5885 3930 5935 3930
+Wire Wire Line
+	5935 3930 6035 3930
+Wire Wire Line
+	5735 3930 5735 3885
+Wire Wire Line
+	5835 3885 5835 3930
+Wire Wire Line
+	5935 3885 5935 3930
+Connection ~ 5935 3930
+Wire Notes Line
+	6490 2715 6490 4050
+Wire Notes Line
+	6490 4050 5245 4050
+Wire Notes Line
+	5245 4050 5245 2715
+Wire Wire Line
+	15540 2770 15540 4415
+Wire Wire Line
+	15540 4415 14490 4415
+Wire Wire Line
+	15690 2970 15690 4515
+Wire Wire Line
+	15690 4515 14490 4515
+Wire Wire Line
+	14490 4315 14975 4315
+Wire Wire Line
+	14975 4315 14975 3785
+Wire Wire Line
+	14975 3785 13660 3785
+Wire Wire Line
+	13660 3785 13660 2770
+Wire Wire Line
+	13520 995  13520 2270
+Wire Wire Line
+	8100 995  13520 995 
+Wire Wire Line
+	13455 2170 13455 1095
+Wire Wire Line
+	13455 1095 8100 1095
+Wire Wire Line
+	8100 1195 13405 1195
+Wire Wire Line
+	13290 1295 13290 2070
+Wire Wire Line
+	8100 1295 13290 1295
+Wire Wire Line
+	13405 1195 13405 2370
+Wire Wire Line
+	5885 3930 5885 4100
+Wire Wire Line
+	5885 4100 4995 4100
+Wire Wire Line
+	4995 4100 4995 3740
+Wire Wire Line
+	4995 3740 4745 3740
+Connection ~ 5885 3930
+Wire Wire Line
+	4660 4090 1720 4090
+Wire Wire Line
+	1720 4090 1720 5765
+Wire Wire Line
+	13490 4515 13490 4660
+Wire Wire Line
+	13490 4660 15835 4660
+Wire Wire Line
+	15835 4660 15835 2870
+Wire Wire Line
+	3925 2650 3925 3140
+Wire Wire Line
+	13195 4215 13410 4215
+Wire Wire Line
+	5360 3280 5360 3425
+Wire Wire Line
+	5735 3930 5885 3930
+Wire Notes Line
+	5245 2715 6490 2715
+Wire Wire Line
+	5840 2950 5940 2950
+Wire Wire Line
+	3420 3045 4625 3045
+Wire Wire Line
+	4625 2650 4625 3045
+Connection ~ 4625 3045
+Wire Wire Line
+	4625 3045 4625 3875
+$EndSCHEMATC

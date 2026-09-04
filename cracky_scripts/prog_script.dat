@@ -1,0 +1,22 @@
+ rem enable_debug ; 
+function functionGenerator(){
+    for(i=0, i<5,i++) {
+        x=0;
+        y=1;
+        put PA_4,x;
+        delay 100,msec
+        put PA_4,y;
+        delay 500,msec
+        for(j=0,j<20,j++) { 
+            put PA_4,x;
+            delay 50,msec
+            put PA_4,y;
+            delay 50,msec
+         }
+    }
+}
+while(1)
+{
+    call functionGenerator();
+
+}

@@ -1,0 +1,104 @@
+\doxysection{spi\+\_\+hw.\+h}
+\hypertarget{spi__hw_8h_source}{}\label{spi__hw_8h_source}\index{CrackyOS/src/spi\_hw.h@{CrackyOS/src/spi\_hw.h}}
+\mbox{\hyperlink{spi__hw_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00026}00026\ \textcolor{preprocessor}{\#ifndef\ SPI\_HW\_H}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ SPI\_HW\_H}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hardware__used_8h}{hardware\_used.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00030}00030\ \textcolor{preprocessor}{\#define\ MAX\_TRY\_SPI\_WRITE\_READ\ 20}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00032}00032\ \textcolor{preprocessor}{\#define\ SPI\_START\ 0x55}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00033}00033\ \textcolor{preprocessor}{\#define\ SPI\_ACK\ 0X33}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ SPI\_DUMMY\ 0X00}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00036}00036\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00037}00037\ \textcolor{comment}{\ \ \ We\ will\ do\ like\ this\ for\ the\ SPI:}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00038}00038\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00039}00039\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00061}00061\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00062}00062\ \textcolor{comment}{We\ will\ have\ ONLY\ one\ master\ SPI\ device.\ But\ this\ device\ has\ a\ decoder\ for\ the}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00063}00063\ \textcolor{comment}{CS\ signal.\ i.e.\ you\ can\ connect\ up\ to\ 15\ devices\ to\ the\ master.\ Device\ 0}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00064}00064\ \textcolor{comment}{select\_spi\_channel(CHANNEL0)\ is\ reserved\ for\ the\ SD\ card.}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00065}00065\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00066}\mbox{\hyperlink{spi__hw_8h_ad7c03f4176b7164745749a4e04860ee5}{00066}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ SPI\_BYTE,\ SPI\_WORD,\ SPI\_FLOAT\ \}\ \mbox{\hyperlink{spi__hw_8h_ad7c03f4176b7164745749a4e04860ee5}{SPIVarType}};}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00068}00068\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ SPI\_8BIT\ =\ 8,\ SPI\_12BIT\ =\ 12,\ SPI\_16BIT\ =\ 16\ \}\ spiDataSize;}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00070}00070\ \textcolor{comment}{//\ typedef\ struct\ \{}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00071}00071\ \textcolor{comment}{//\ \ \ SPIVarType\ tag;}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00072}00072\ \textcolor{comment}{//\ \ \ float\ f;}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00073}00073\ \textcolor{comment}{//\ \}\ spitt;}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00075}00075\ \textcolor{comment}{//\ typedef\ struct\ \{}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00076}00076\ \textcolor{comment}{//\ \ \ spitt\ data;}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00077}00077\ \textcolor{comment}{//\ \ \ unsigned\ char\ SPI\_Packet[sizeof(spitt)];}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00078}00078\ \textcolor{comment}{//\ \}\ spispecialVar;}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00080}00080\ \textcolor{comment}{//\ extern\ spispecialVar\ globalSpiVar;}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00082}00082\ \textcolor{keyword}{extern}\ SPI\ MasterSPI\_Device;}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00083}00083\ \textcolor{keyword}{extern}\ DigitalOut\ Master\_SPI\_cs;}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00085}00085\ \textcolor{keywordtype}{void}\ select\_spi\_channel(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ channelNo);}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00087}00087\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00088}00088\ \ \ CHANNEL0\ =\ 0,\ \textcolor{comment}{//\ Reserved\ for\ SD-\/Card}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00089}00089\ \ \ CHANNEL1\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00090}00090\ \ \ CHANNEL2\ =\ 2,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00091}00091\ \ \ CHANNEL3\ =\ 3,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00092}00092\ \ \ CHANNEL4\ =\ 4,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00093}00093\ \ \ CHANNEL5\ =\ 5,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00094}00094\ \ \ CHANNEL6\ =\ 6,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00095}00095\ \ \ CHANNEL7\ =\ 7,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00096}00096\ \ \ CHANNEL8\ =\ 8,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00097}00097\ \ \ CHANNEL9\ =\ 9,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00098}00098\ \ \ CHANNEL10\ =\ 10,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00099}00099\ \ \ CHANNEL11\ =\ 11,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00100}00100\ \ \ CHANNEL12\ =\ 12,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00101}00101\ \ \ CHANNEL13\ =\ 13,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00102}00102\ \ \ CHANNEL14\ =\ 14,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00103}00103\ \ \ CHANNEL15\ =\ 15,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00104}00104\ \};}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00112}\mbox{\hyperlink{class_decoder_g_p_i_oclass}{00112}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_decoder_g_p_i_oclass}{DecoderGPIOclass}}\ \{}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00113}00113\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00117}\mbox{\hyperlink{class_decoder_g_p_i_oclass_ab8427cc8211d3858eca896f60603fd58}{00117}}\ \ \ DigitalOut\ *\mbox{\hyperlink{class_decoder_g_p_i_oclass_ab8427cc8211d3858eca896f60603fd58}{Line3}};}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00118}00118\ \ \ DigitalOut\ *Line2;}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00119}00119\ \ \ DigitalOut\ *Line1;}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00120}00120\ \ \ DigitalOut\ *Line0;}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00130}00130\ \ \ \mbox{\hyperlink{class_decoder_g_p_i_oclass}{DecoderGPIOclass}}(PinName\ p3,\ PinName\ p2,\ PinName\ p1,\ PinName\ p0);}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00135}\mbox{\hyperlink{class_decoder_g_p_i_oclass_a4292bf0dbc449621d4164c6bfc309304}{00135}}\ \ \ \mbox{\hyperlink{class_decoder_g_p_i_oclass_a4292bf0dbc449621d4164c6bfc309304}{DecoderGPIOclass}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_decoder_g_p_i_oclass}{DecoderGPIOclass}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00140}\mbox{\hyperlink{class_decoder_g_p_i_oclass_ac161c0d50e4283cc8c44e1bd54c60299}{00140}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_decoder_g_p_i_oclass_ac161c0d50e4283cc8c44e1bd54c60299}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_decoder_g_p_i_oclass}{DecoderGPIOclass}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00145}00145\ \ \ \mbox{\hyperlink{class_decoder_g_p_i_oclass_a82bec18329a88d5411e9a498d495a8fa}{\string~DecoderGPIOclass}}();}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00156}00156\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_decoder_g_p_i_oclass_a35dab419d4624a51b92c59929612403b}{select}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ v3,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ v2,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ v1,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ v0);}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00158}00158\ \};}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00160}00160\ \textcolor{comment}{//\ Object\ will\ hold\ the\ decoder\ GPIO\ line}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00161}00161\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_decoder_g_p_i_oclass}{DecoderGPIOclass}}\ DecoderGPIO;}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00162}00162\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00164}00164\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spi__hw_8h_a1b6101d14ed973a93f1a381b79f0c62e}{SendReceiveSPI\_Device}}(}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00165}00165\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ DEVICE\_ID,}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00166}00166\ \ \ \ \ \textcolor{keywordtype}{int}\ numberOfBytesWillBeReturned,\ \textcolor{comment}{//\ Do\ the\ slave\ sends\ us\ any\ value?}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ //Notice\ that\ if\ the\ slave\ return\ 8}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bits,\ we\ should\ AND\ the\ result\ with}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 0x00FF\ for\ each\ int\ value.}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00170}00170\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sendDataToSlave,\ \ \ \ \textcolor{comment}{//\ \ Data\ to\ be\ sent\ to\ the\ slave.}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00171}00171\ \ \ \ \ \textcolor{keywordtype}{int}\ globalVariableData,\ \textcolor{comment}{//\ \ Global\ variable\ has\ got\ the\ data\ if\ the\ pointer}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ is\ not\ -\/1.\ This\ will\ be\ applicable\ when\ we\ have}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ an\ array\ to\ send.}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00174}00174\ \ \ \ \ \textcolor{keywordtype}{int}\ globalVariableResults,\ \textcolor{comment}{//\ \ This\ should\ be\ a\ position\ if\ we\ need\ results}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ or\ -\/1\ if\ we\ don't\ need\ results.}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00176}00176\ \ \ \ \ spiDataSize\ DataSize,\ \ \ \ \ \ \textcolor{comment}{//\ \ Data\ size\ or\ type\ -\/-\/\ 8,12,16}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00177}00177\ \ \ \ \ \textcolor{keywordtype}{int}\ spi\_frequency,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ SPI\ channel\ frequency}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00178}00178\ \ \ \ \ \textcolor{keywordtype}{int}\ spi\_mode,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ SPI\ Mode\ -\/\ Default\ is\ 0}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00179}00179\ \ \ \ \ \textcolor{keywordtype}{int}\ DelayBetweenPackets);\ \ \textcolor{comment}{//\ \ Delay\ between\ packets.}}
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{spi__hw_8h_source_l00181}00181\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

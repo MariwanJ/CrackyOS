@@ -1,0 +1,146 @@
+\doxysection{cat.\+cpp}
+\hypertarget{cat_8cpp_source}{}\label{cat_8cpp_source}\index{CrackyOS/src/cat.cpp@{CrackyOS/src/cat.cpp}}
+\mbox{\hyperlink{cat_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cat_8h}{cat.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00032}\mbox{\hyperlink{cat_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{00032}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{cat_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{printHelp}}()\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00033}00033\ \ \ \ \ SERIAL\_MESSAGE(}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Syntax\ cat\ <filename>\ <-\/arg1>\ <-\/arg2>\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00035}00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/c\ :\ create\ file\ \(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00036}00036\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ -\/a\ :\ append/Create\ new\ file\ by\ joining\ two\ other\ files\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00037}00037\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ commands\ -\/c\ argument:\ Optional\ <arg1>\ :\ text\ will\ be\ written\ to\ the\ created\ file\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00038}00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/a:argument:\ <New\ FN>\ <FN1>\ <FN2>\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00039}00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ help:\ print\ help\ info\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00040}00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ no\ argument:\ print\ the\ content\ of\ this\ message.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00047}\mbox{\hyperlink{cat_8cpp_a6a73e5cbd6c70dce45c032dfaeb39b04}{00047}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{cat_8cpp_a6a73e5cbd6c70dce45c032dfaeb39b04}{ToLower}}(\textcolor{keywordtype}{char}*\ me)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00049}00049\ \ \ \ \ STOP\_CODE\_EXECUTION}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{while}\ (me[x]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ me[x]\ =\ tolower(me[x]);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ x++;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00060}\mbox{\hyperlink{cat_8cpp_a542ba0fa3236557aa927edd0ab12610f}{00060}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{cat_8cpp_a542ba0fa3236557aa927edd0ab12610f}{printfile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fname)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00062}00062\ \ \ \ \ STOP\_CODE\_EXECUTION}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00065}00065\ \ \ \ \ FILE*\ fptr;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{int}\ LineNo\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00067}00067\ \ \ \ \ fptr\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ Open\ file}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00069}00069\ \ \ \ \ std::string\ stFname\ =\ fname;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{sdcard_8cpp_a80ddd5e08e3b6b2fc1f0d4771bfbcf66}{defaultDirIncluded}}(stFname))\ stFname\ =\ \mbox{\hyperlink{sdcard_8cpp_ac74d96a3b7642f5ae61f379f921cf837}{CurrentDirectory}}\ +\ \textcolor{stringliteral}{"{}/"{}}\ +\ stFname;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00071}00071\ \ \ \ \ fptr\ =\ fopen(stFname.c\_str(),\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (fptr\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}Cannot\ open\ file\ \(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordtype}{char}\ *a=\textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[256];}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{comment}{//\ Read\ contents\ from\ file}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{while}\ (fgets(a,\ 255,\ fptr)\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{serialmessage_8cpp_a838bd3673f5c8e9614bbcbcb2b056b58}{ChangeTerminalColor}}(BKG\_WHITE);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{serialmessage_8cpp_a838bd3673f5c8e9614bbcbcb2b056b58}{ChangeTerminalColor}}(FONT\_BLACK);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}\%04d:\ \%s"{}},\ LineNo,\ a);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{serialmessage_8cpp_a838bd3673f5c8e9614bbcbcb2b056b58}{ChangeTerminalColor}}(BKG\_DEFAULT);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{serialmessage_8cpp_a838bd3673f5c8e9614bbcbcb2b056b58}{ChangeTerminalColor}}(FONT\_DEFAULT);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ LineNo++;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00087}00087\ \ \ \ \ fclose(fptr);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00088}00088\ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (a!=NULL)}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ []a;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00098}\mbox{\hyperlink{cat_8cpp_a9c0bac7fbc3d212e10cdce93e3e93d0e}{00098}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{cat_8cpp_a9c0bac7fbc3d212e10cdce93e3e93d0e}{Do\_Cat}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00100}00100\ \ \ \ \ STOP\_CODE\_EXECUTION}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ c;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00102}00102\ \ \ \ \ std::string\ stfName1,\ stfName2,\ stfName3;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cat_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{printHelp}}();}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00106}00106\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (argc\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cat_8cpp_a6a73e5cbd6c70dce45c032dfaeb39b04}{ToLower}}(argv[0]);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(argv[0],\ \textcolor{stringliteral}{"{}help"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cat_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{printHelp}}();}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cat_8cpp_a542ba0fa3236557aa927edd0ab12610f}{printfile}}(argv[0]);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (argc\ >=\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ stfName1\ =\ argv[1];\ \textcolor{comment}{//New\ file\ name.}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{sdcard_8cpp_a80ddd5e08e3b6b2fc1f0d4771bfbcf66}{defaultDirIncluded}}(stfName1))\ stfName1\ =\ \mbox{\hyperlink{sdcard_8cpp_ac74d96a3b7642f5ae61f379f921cf837}{CurrentDirectory}}\ +\ \textcolor{stringliteral}{"{}/"{}}\ +\ stfName1;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(argv[0],\ \textcolor{stringliteral}{"{}-\/a"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stfName2\ =\ argv[2];\ \textcolor{comment}{//First\ file\ name}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{sdcard_8cpp_a80ddd5e08e3b6b2fc1f0d4771bfbcf66}{defaultDirIncluded}}(stfName2))\ stfName2\ =\ \mbox{\hyperlink{sdcard_8cpp_ac74d96a3b7642f5ae61f379f921cf837}{CurrentDirectory}}\ +\ \textcolor{stringliteral}{"{}/"{}}\ +\ stfName2;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stfName3\ =\ argv[3];\ \ \textcolor{comment}{//Second\ file\ name}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{sdcard_8cpp_a80ddd5e08e3b6b2fc1f0d4771bfbcf66}{defaultDirIncluded}}(stfName3))\ stfName3\ =\ \mbox{\hyperlink{sdcard_8cpp_ac74d96a3b7642f5ae61f379f921cf837}{CurrentDirectory}}\ +\ \textcolor{stringliteral}{"{}/"{}}\ +\ stfName3;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FILE*\ appendfname\ =\ fopen(stfName1.c\_str(),\ \textcolor{stringliteral}{"{}w"{}});\ \ \textcolor{comment}{//New\ file}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (appendfname\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}ERROR:\ Cannot\ create\ the\ file\ a\%s"{}},\ argv[1]);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FILE*\ fname\ =\ fopen(stfName2.c\_str(),\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fname\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}ERROR:\ Cannot\ open\ the\ file\ \%s"{}},\ argv[2]);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fclose(appendfname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fgetc(fname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ EOF)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fputc(c,\ appendfname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fclose(fname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fname\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fname\ =\ fopen(stfName3.c\_str(),\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fname\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}ERROR:\ Cannot\ open\ the\ file\ \%s"{}},\ argv[3]);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fgetc(fname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ EOF)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fputc(c,\ appendfname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fclose(fname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fclose(appendfname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}ERROR.\ Syntax\ error\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(argv[0],\ \textcolor{stringliteral}{"{}-\/c"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ FILE*\ fname\ =\ fopen(stfName1.c\_str(),\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fname\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}ERROR:\ Cannot\ open\ the\ file\ \%s"{}},\ argv[1]);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ temstr\ =\ correctString(argv[2]);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ fputs(temstr,\ fname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ temstr!=NULL)}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ temstr;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ temstr\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}File\ created\ successfully\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//close\ the\ created\ file\ pointer.}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ fclose(fname);}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cat_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{printHelp}}();}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00181}00181\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cat_8cpp_source_l00182}00182\ \}}
+
+\end{DoxyCode}

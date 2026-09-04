@@ -1,0 +1,20 @@
+\doxysection{I2C Send}
+\hypertarget{i2c_send}{}\label{i2c_send}\index{I2C Send@{I2C Send}}
+This instruction sends data to an I2C device (master or slave). The instruction uses the standard I2\+C\+\_\+\+SCL and I2\+C\+\_\+\+SDA definitions.~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ i2c\+\_\+send MASTER/\+SLAVE, address, DATA\+\_\+tobesend, length\+Of\+Data;}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{MASTER/\+SLAVE\+:}}~~~ 0= Master , 1=Slave
+\item {\bfseries{address\+:}} ~~~~~~~ ~~~~~~Address of the MASTER/\+SLAVE~\newline
+
+\item {\bfseries{DATA\+\_\+tobesend\+:}} You must provide a variable containing the data to send. It might be an array of characters.
+\item {\bfseries{length\+Of\+Data\+:}}~~~~~Length of the message or data~\newline
+
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ i2c\+\_\+get 1, 1222, myvalue,2; ~~~  rem read from the slave 2 bytes~\newline
+ print myvalue; ~ ~~~ ~~~ ~~~  rem send the value to terminal ~\newline
+ 

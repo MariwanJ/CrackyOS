@@ -1,0 +1,44 @@
+\doxysection{arithmetic.\+h}
+\hypertarget{arithmetic_8h_source}{}\label{arithmetic_8h_source}\index{CrackyOS/src/arithmetic.h@{CrackyOS/src/arithmetic.h}}
+\mbox{\hyperlink{arithmetic_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00027}00027\ \textcolor{preprocessor}{\#ifndef\ ARITHMETIC\_H}}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ ARITHMETIC\_H}}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tokenizetofile_8h}{tokenizetofile.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tokens_8h}{tokens.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00042}00042\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{arithmetic_8h_a604eb5227832ec1cb7b6173f7c38af31}{GetLogicalOperationAnswer}}(\textcolor{keywordtype}{int}\ enumOperation,\ \textcolor{keywordtype}{int}\ Oldvalue,}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ComparisionValue);}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00055}00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{arithmetic_8h_a01ccf031e8e617c84af8dffd19a11d29}{CalculateLogicalOperation}}(\textcolor{keywordtype}{int}\ \&val1,\ \textcolor{keywordtype}{int}\ val2,\ \textcolor{keywordtype}{int}\ operation);}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00062}00062\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{arithmetic_8h_a09451cb972b20407e2a593c3c9db9258}{CalculatePower}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00071}00071\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{arithmetic_8h_a08699e9e66bc6c64fe54cead08e81a96}{divide\_multiply}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00080}00080\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{arithmetic_8h_a980240f837357f653db7881bb64dc836}{get\_next\_number\_or\_variable\_value}}();}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00092}00092\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{arithmetic_8h_ac860f15d66bf0cc499042f943acf75ec}{arithmetic\_expression}}(\mbox{\hyperlink{structnode}{instr\_linkedList}}\ *p\_strat,\ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *p\_end);}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00103}00103\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{arithmetic_8h_a450c1aa3eaf02a14d4f600c023ee0809}{CalculateRightSideofVariableEquation}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00104}00104\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{arithmetic_8cpp_ad8364de772f879f81711919cdc29f468}{CalculatSpecialFunction}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00113}00113\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{arithmetic_8h_a5ee7b5ae2799b4e36fffb0404c0a3157}{CheckIfTheRightSideIsVarOfArrayString}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00122}00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{arithmetic_8h_a091f57ad6fbc0bdd3492013aeff6e4ec}{CalculateRightSideofVariableEquation\_TEXT}}(\textcolor{keywordtype}{int}\ varPosition);}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00131}00131\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{arithmetic_8h_ae8dd326281cfc16b06344a47c4b8b471}{CheckforLogicalArithmeticOperations}}(\textcolor{keywordtype}{int}\ m\_Tokenword);}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00133}00133\ \textcolor{comment}{//\ Functions\ to\ make\ it\ easier\ to\ read\ the\ code}}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00135}00135\ \textcolor{keywordtype}{float}\ get\_next\_number\_or\_variable\_value\_Parenthesis();}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00136}00136\ \textcolor{keywordtype}{float}\ get\_next\_number\_or\_variable\_value\_Number();}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00137}00137\ \textcolor{keywordtype}{float}\ get\_next\_number\_or\_variable\_value\_SizeOfVar();}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00138}00138\ \textcolor{keywordtype}{float}\ get\_next\_number\_or\_variable\_value\_Variable();}
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{arithmetic_8h_source_l00140}00140\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

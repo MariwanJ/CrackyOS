@@ -1,0 +1,413 @@
+\doxysection{Cracky\+OS/src/serialmessage.cpp File Reference}
+\hypertarget{serialmessage_8cpp}{}\label{serialmessage_8cpp}\index{CrackyOS/src/serialmessage.cpp@{CrackyOS/src/serialmessage.cpp}}
+
+
+This file contains Serial communications instructions and definitions.  
+
+
+{\ttfamily \#include \"{}serialmessage.\+h\"{}}\newline
+Include dependency graph for serialmessage.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{serialmessage_8cpp_a838bd3673f5c8e9614bbcbcb2b056b58}{Change\+Terminal\+Color}} (int \+\_\+color)
+\item 
+int \mbox{\hyperlink{serialmessage_8cpp_abb33710040c1d3401e8a0996b3b5d0fa}{SERIAL\+\_\+\+Print}} (const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+void \mbox{\hyperlink{serialmessage_8cpp_a3d772b95d3bbe01c30f97786e026b67c}{Get\+String\+From\+Serial}} (char \texorpdfstring{$\ast$}{*}string\+Buf)
+\item 
+void \mbox{\hyperlink{serialmessage_8cpp_ae0000cf6f87dca81e79f42882c69e058}{clear\+And\+Home\+Serial}} ()
+\item 
+void \mbox{\hyperlink{serialmessage_8cpp_af7a75650db2927eac4ec11f1a4adf1a5}{clear\+And\+Home\+DEBUG}} ()
+\item 
+void \mbox{\hyperlink{serialmessage_8cpp_ad4fe6900869724f5f94d448ae9c415be}{clear\+And\+Home}} ()
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{serialmessage_8cpp_acd5bfd0bce081cb3ee6d5d9f45dfd18e}{GET\+\_\+\+SERIAL\+\_\+\+TEXT}} (void)
+\item 
+void \mbox{\hyperlink{serialmessage_8cpp_afbaba4deee6542e01b6eed52fcaac82d}{get\+Script\+Program\+File}} ()
+\item 
+void \mbox{\hyperlink{serialmessage_8cpp_a402ea961bfc2ffeee61e3a7c330b1559}{print\+\_\+help}} (void)
+\item 
+int \mbox{\hyperlink{serialmessage_8cpp_a1682f1ac4ba8ca721e2a05d758b83816}{token\+\_\+baud\+\_\+rate}} ()
+\item 
+int \mbox{\hyperlink{serialmessage_8cpp_a5d441f4b18602c1e62c5f25a3a8011e4}{token\+\_\+enable\+\_\+debug}} ()
+\item 
+int \mbox{\hyperlink{serialmessage_8cpp_a68c44d54903a111aeef202dbcf06bd63}{token\+\_\+print}} (void)
+\item 
+int \mbox{\hyperlink{serialmessage_8cpp_ab19ba49a21cdc9b958dcca3bff49d54b}{token\+\_\+serial\+\_\+get}} (void)
+\item 
+void \mbox{\hyperlink{serialmessage_8cpp_aabdc388a948fd2d4510b28704eed4351}{Change\+Inter\+Active\+Mode\+Status}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{serialmessage_8cpp_a751e58737c673f4b8c279d6d8797f59a}{test\+Progw}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains Serial communications instructions and definitions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{serialmessage_8cpp_aabdc388a948fd2d4510b28704eed4351}\label{serialmessage_8cpp_aabdc388a948fd2d4510b28704eed4351} 
+\index{serialmessage.cpp@{serialmessage.cpp}!ChangeInterActiveModeStatus@{ChangeInterActiveModeStatus}}
+\index{ChangeInterActiveModeStatus@{ChangeInterActiveModeStatus}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{ChangeInterActiveModeStatus()}{ChangeInterActiveModeStatus()}}
+{\footnotesize\ttfamily void Change\+Inter\+Active\+Mode\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Thread that take care of serial interrupt to show the Menu on terminal YOU MUST KEEP IT SHORT .. NO SD-\/\+Card activity allowed here. 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{581}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00055}{Break\+Pressed}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, and \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, and \mbox{\hyperlink{common_8cpp_source_l00491}{token\+\_\+exit()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{serialmessage_8cpp_a838bd3673f5c8e9614bbcbcb2b056b58}\label{serialmessage_8cpp_a838bd3673f5c8e9614bbcbcb2b056b58} 
+\index{serialmessage.cpp@{serialmessage.cpp}!ChangeTerminalColor@{ChangeTerminalColor}}
+\index{ChangeTerminalColor@{ChangeTerminalColor}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{ChangeTerminalColor()}{ChangeTerminalColor()}}
+{\footnotesize\ttfamily void Change\+Terminal\+Color (\begin{DoxyParamCaption}\item[{int}]{\+\_\+color }\end{DoxyParamCaption})}
+
+Change text color or background of the terminal 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+color} & background or foreground color FONT\+\_\+\+BLACK\+\_\+\+CODE FONT\+\_\+\+RED\+\_\+\+CODE) FONT\+\_\+\+GREEN\+\_\+\+CODE FONT\+\_\+\+YELLOW\+\_\+\+CODE FONT\+\_\+\+BLUE\+\_\+\+CODE FONT\+\_\+\+MAGENTA\+\_\+\+CODE FONT\+\_\+\+CYNA\+\_\+\+CODE) FONT\+\_\+\+WHITE\+\_\+\+CODE FONT\+\_\+\+DEFAULT\+\_\+\+CODE\\
+\hline
+\end{DoxyParams}
+BKG\+\_\+\+BLACK\+\_\+\+CODE BKG\+\_\+\+RED\+\_\+\+CODE BKG\+\_\+\+GREEN\+\_\+\+CODE BKG\+\_\+\+YELLOW\+\_\+\+CODE BKG\+\_\+\+BLUE\+\_\+\+CODE BKG\+\_\+\+MAGENTA\+\_\+\+CODE BKG\+\_\+\+CYNA\+\_\+\+CODE BKG\+\_\+\+WHITE\+\_\+\+CODE BKG\+\_\+\+DEFAULT\+\_\+\+CODE 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8h_source_l00037}{FONT\+\_\+\+BLACK\+\_\+\+CODE}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00217}{do\+\_\+\+Listdir()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, and \mbox{\hyperlink{cat_8cpp_source_l00060}{printfile()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{serialmessage_8cpp_ad4fe6900869724f5f94d448ae9c415be}\label{serialmessage_8cpp_ad4fe6900869724f5f94d448ae9c415be} 
+\index{serialmessage.cpp@{serialmessage.cpp}!clearAndHome@{clearAndHome}}
+\index{clearAndHome@{clearAndHome}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{clearAndHome()}{clearAndHome()}}
+{\footnotesize\ttfamily void clear\+And\+Home (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clear and go home for both terminals. 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{179}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00168}{clear\+And\+Home\+DEBUG()}}, and \mbox{\hyperlink{serialmessage_8cpp_source_l00156}{clear\+And\+Home\+Serial()}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00195}{del\+All\+Files\+\_\+\+SDCard()}}, \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00275}{print\+\_\+help()}}, and \mbox{\hyperlink{common_8cpp_source_l00292}{token\+\_\+serial\+\_\+screen\+\_\+clear()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{serialmessage_8cpp_af7a75650db2927eac4ec11f1a4adf1a5}\label{serialmessage_8cpp_af7a75650db2927eac4ec11f1a4adf1a5} 
+\index{serialmessage.cpp@{serialmessage.cpp}!clearAndHomeDEBUG@{clearAndHomeDEBUG}}
+\index{clearAndHomeDEBUG@{clearAndHomeDEBUG}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{clearAndHomeDEBUG()}{clearAndHomeDEBUG()}}
+{\footnotesize\ttfamily void clear\+And\+Home\+DEBUG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clean up the screen and go back to home debug com port 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00168}{168}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{serialmessage_8cpp_ae0000cf6f87dca81e79f42882c69e058}\label{serialmessage_8cpp_ae0000cf6f87dca81e79f42882c69e058} 
+\index{serialmessage.cpp@{serialmessage.cpp}!clearAndHomeSerial@{clearAndHomeSerial}}
+\index{clearAndHomeSerial@{clearAndHomeSerial}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{clearAndHomeSerial()}{clearAndHomeSerial()}}
+{\footnotesize\ttfamily void clear\+And\+Home\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clean up the screen and go back to home serial com port 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{serialmessage_8cpp_acd5bfd0bce081cb3ee6d5d9f45dfd18e}\label{serialmessage_8cpp_acd5bfd0bce081cb3ee6d5d9f45dfd18e} 
+\index{serialmessage.cpp@{serialmessage.cpp}!GET\_SERIAL\_TEXT@{GET\_SERIAL\_TEXT}}
+\index{GET\_SERIAL\_TEXT@{GET\_SERIAL\_TEXT}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{GET\_SERIAL\_TEXT()}{GET\_SERIAL\_TEXT()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} GET\+\_\+\+SERIAL\+\_\+\+TEXT (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get a string from the terminal \begin{DoxyReturn}{Returns}
+the string got from the user. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{token\+\_\+serial\+\_\+get()}}.
+
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+\Hypertarget{serialmessage_8cpp_afbaba4deee6542e01b6eed52fcaac82d}\label{serialmessage_8cpp_afbaba4deee6542e01b6eed52fcaac82d} 
+\index{serialmessage.cpp@{serialmessage.cpp}!getScriptProgramFile@{getScriptProgramFile}}
+\index{getScriptProgramFile@{getScriptProgramFile}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{getScriptProgramFile()}{getScriptProgramFile()}}
+{\footnotesize\ttfamily void get\+Script\+Program\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will take care of getting a script program from terminal and save it to the SD-\/\+Disk\texorpdfstring{$<$}{<} 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00236}{236}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{sdcard_8cpp_source_l00075}{initialize\+\_\+prog\+File()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{serialmessage_8cpp_source_l00030}{test\+Progw}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{serialmessage_8cpp_a3d772b95d3bbe01c30f97786e026b67c}\label{serialmessage_8cpp_a3d772b95d3bbe01c30f97786e026b67c} 
+\index{serialmessage.cpp@{serialmessage.cpp}!GetStringFromSerial@{GetStringFromSerial}}
+\index{GetStringFromSerial@{GetStringFromSerial}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{GetStringFromSerial()}{GetStringFromSerial()}}
+{\footnotesize\ttfamily void Get\+String\+From\+Serial (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{string\+Buf }\end{DoxyParamCaption})}
+
+Get a line of instructions or string form terminal. send a buffer buf\mbox{[}INTER\+\_\+\+ACTIVE\+\_\+\+MODE\+\_\+\+MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+THE\+\_\+\+STRING\mbox{]} to this function 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00121}{121}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, and \mbox{\hyperlink{serialmessage_8h_source_l00034}{INTER\+\_\+\+ACTIVE\+\_\+\+MODE\+\_\+\+MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+THE\+\_\+\+STRING}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{serialmessage_8cpp_a402ea961bfc2ffeee61e3a7c330b1559}\label{serialmessage_8cpp_a402ea961bfc2ffeee61e3a7c330b1559} 
+\index{serialmessage.cpp@{serialmessage.cpp}!print\_help@{print\_help}}
+\index{print\_help@{print\_help}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_help()}{print\_help()}}
+{\footnotesize\ttfamily void print\+\_\+help (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+The function will print a help message to the terminal. 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00275}{275}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00195}{del\+All\+Files\+\_\+\+SDCard()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\Hypertarget{serialmessage_8cpp_abb33710040c1d3401e8a0996b3b5d0fa}\label{serialmessage_8cpp_abb33710040c1d3401e8a0996b3b5d0fa} 
+\index{serialmessage.cpp@{serialmessage.cpp}!SERIAL\_Print@{SERIAL\_Print}}
+\index{SERIAL\_Print@{SERIAL\_Print}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_Print()}{SERIAL\_Print()}}
+{\footnotesize\ttfamily int SERIAL\+\_\+\+Print (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Serial printf function with formating arguments. 
+\begin{DoxyParams}{Parameters}
+{\em format} & and other parameter..etc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if failed or \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+Here is the call graph for this function\+:
+% FIG 14
+\Hypertarget{serialmessage_8cpp_a1682f1ac4ba8ca721e2a05d758b83816}\label{serialmessage_8cpp_a1682f1ac4ba8ca721e2a05d758b83816} 
+\index{serialmessage.cpp@{serialmessage.cpp}!token\_baud\_rate@{token\_baud\_rate}}
+\index{token\_baud\_rate@{token\_baud\_rate}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_baud\_rate()}{token\_baud\_rate()}}
+{\footnotesize\ttfamily int token\+\_\+baud\+\_\+rate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Change the baud rate instruction Syntax baud\+\_\+rate xxxxxx Note\+: After reset, baud rate will return to the default. \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00310}{310}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{interactive_8cpp_source_l00046}{baud\+\_\+rate}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16
+\Hypertarget{serialmessage_8cpp_a5d441f4b18602c1e62c5f25a3a8011e4}\label{serialmessage_8cpp_a5d441f4b18602c1e62c5f25a3a8011e4} 
+\index{serialmessage.cpp@{serialmessage.cpp}!token\_enable\_debug@{token\_enable\_debug}}
+\index{token\_enable\_debug@{token\_enable\_debug}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_enable\_debug()}{token\_enable\_debug()}}
+{\footnotesize\ttfamily int token\+\_\+enable\+\_\+debug (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Enable/\+Disable Debug instructions. Syntax \+: enable\+\_\+debug disable\+\_\+debug \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00331}{331}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{error_8cpp_source_l00038}{DEBUG\+\_\+\+MESSAGE\+\_\+\+ENABLE}}, \mbox{\hyperlink{error_8cpp_source_l00049}{enable\+\_\+disable\+Debug\+Thread()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 17
+Here is the caller graph for this function\+:
+% FIG 18
+\Hypertarget{serialmessage_8cpp_a68c44d54903a111aeef202dbcf06bd63}\label{serialmessage_8cpp_a68c44d54903a111aeef202dbcf06bd63} 
+\index{serialmessage.cpp@{serialmessage.cpp}!token\_print@{token\_print}}
+\index{token\_print@{token\_print}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_print()}{token\_print()}}
+{\footnotesize\ttfamily int token\+\_\+print (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Syntax of the instruction is like follow\+: print \"{}\+TEXT TO BE SENT\"{} print VARIABLE You should use \textquotesingle{}\"{}\textquotesingle{} for start/end of the string \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00352}{352}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00122}{Fix\+String\+Issue()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 19
+Here is the caller graph for this function\+:
+% FIG 20
+\Hypertarget{serialmessage_8cpp_ab19ba49a21cdc9b958dcca3bff49d54b}\label{serialmessage_8cpp_ab19ba49a21cdc9b958dcca3bff49d54b} 
+\index{serialmessage.cpp@{serialmessage.cpp}!token\_serial\_get@{token\_serial\_get}}
+\index{token\_serial\_get@{token\_serial\_get}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_serial\_get()}{token\_serial\_get()}}
+{\footnotesize\ttfamily int token\+\_\+serial\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get message from terminal instruction Syntax of the instruction is like follow\+: serial\+\_\+get variable Note\+: You should provide always a variable to this function \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{519}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00188}{GET\+\_\+\+SERIAL\+\_\+\+TEXT()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 21
+Here is the caller graph for this function\+:
+% FIG 22
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{serialmessage_8cpp_a751e58737c673f4b8c279d6d8797f59a}\label{serialmessage_8cpp_a751e58737c673f4b8c279d6d8797f59a} 
+\index{serialmessage.cpp@{serialmessage.cpp}!testProgw@{testProgw}}
+\index{testProgw@{testProgw}!serialmessage.cpp@{serialmessage.cpp}}
+\doxysubsubsection{\texorpdfstring{testProgw}{testProgw}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} test\+Progw = 0}
+
+Variable used to keep track of the SD-\/\+Card script file ~\newline
+ 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00236}{get\+Script\+Program\+File()}}.
+

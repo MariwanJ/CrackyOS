@@ -1,0 +1,27 @@
+\doxysection{Variables}
+\hypertarget{variable}{}\label{variable}\index{Variables@{Variables}}
+Variables are used to store information that can be referenced and manipulated in a script program. Variables inside the system are global.~\newline
+ To free memory, use the {\bfseries{del}} command. Some names are reserved for instructions command. Look at the instruction commands to know the reserved name list.
+
+Addition between array variables is not implemented. An array can be passed to a function using its variable name. The function can read all values represented by the variable if it is an array. Variable names are not case sensitive. This means that for example\+:~\newline
+ My\+Variable is equal to myvariable and they are the same name of one variable. ~\newline
+~\newline
+This system doesn\textquotesingle{}t care about the case of the letters used in the script program. They all will be changed to lower case during the initialization and run of the script program. ~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ My\+Variable=arithmetic expression; }} ~\newline
+OR~\newline
+ {\bfseries{ My\+Variable\mbox{[}~\mbox{]}=\{nr1,nr2...etc\}; }} {\itshape {\bfseries{ ~\newline
+ Example\+: }} } ~\newline
+ var1=0; ~~~  rem define and initialize var1 to be zero~\newline
+ var2=var1+(5\texorpdfstring{$\ast$}{*}2)\texorpdfstring{$^\wedge$}{\string^}2;~\newline
+ var2++;~\newline
+ var1=var2/100;~\newline
+ array\mbox{[}~ \mbox{]}=\{10,10,10,10,10,1\};~\newline
+ array\mbox{[}4\mbox{]}=9;~\newline
+ ne\+Var= log(10); ~\newline
+ delete var2;  rem Free up the memory~\newline
+
+
+{\itshape {\bfseries{Note\+:}} } ~\newline
+ Before using any variable in the right side in any arithmetical operation/calculation, you need to assign a value to the variable before that. Not assigning a value to the variable, means that you are using a variable that doesn\textquotesingle{}t exist in the script. This will cause a fatal error. 

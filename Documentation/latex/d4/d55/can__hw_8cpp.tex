@@ -1,0 +1,95 @@
+\doxysection{Cracky\+OS/src/can\+\_\+hw.cpp File Reference}
+\hypertarget{can__hw_8cpp}{}\label{can__hw_8cpp}\index{CrackyOS/src/can\_hw.cpp@{CrackyOS/src/can\_hw.cpp}}
+
+
+This file contains CAN instructions.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+{\ttfamily \#include \"{}types.\+h\"{}}\newline
+Include dependency graph for can\+\_\+hw.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{can__hw_8cpp_ab1209e31e93df0db0af17b55ea698f98}{token\+\_\+can\+\_\+send}} ()
+\item 
+int \mbox{\hyperlink{can__hw_8cpp_a33da550a9c41f70ab4ded332377938ea}{token\+\_\+can\+\_\+get}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains CAN instructions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{can__hw_8cpp_source}{can\+\_\+hw.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{can__hw_8cpp_a33da550a9c41f70ab4ded332377938ea}\label{can__hw_8cpp_a33da550a9c41f70ab4ded332377938ea} 
+\index{can\_hw.cpp@{can\_hw.cpp}!token\_can\_get@{token\_can\_get}}
+\index{token\_can\_get@{token\_can\_get}!can\_hw.cpp@{can\_hw.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_can\_get()}{token\_can\_get()}}
+{\footnotesize\ttfamily int token\+\_\+can\+\_\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+CAN get instruction The syntax of this script is as follow\+:
+
+can\+\_\+get Pin\+Name1, Pin\+Name2, FREQ, CANID, VARIABLE Pin\+Name1 1) CAN H pin as defined in the manual. Pin\+Name2 2) CAN L pin as defined in the manual. Result\+Variable 3) A variable keep the results of the can write process( 0 if write failed, 1 if write was successful) FREQ 4) Frequency of the CAN bus VARIABLE 5) Data received by this device (an array of 8 bits) 
+
+Definition at line \mbox{\hyperlink{can__hw_8cpp_source_l00327}{327}} of file \mbox{\hyperlink{can__hw_8cpp_source}{can\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00040}{g\+Can\+Variable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{can__hw_8cpp_ab1209e31e93df0db0af17b55ea698f98}\label{can__hw_8cpp_ab1209e31e93df0db0af17b55ea698f98} 
+\index{can\_hw.cpp@{can\_hw.cpp}!token\_can\_send@{token\_can\_send}}
+\index{token\_can\_send@{token\_can\_send}!can\_hw.cpp@{can\_hw.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_can\_send()}{token\_can\_send()}}
+{\footnotesize\ttfamily int token\+\_\+can\+\_\+send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+CAN send instruction Important Note\+: Can devices must get isolated power supply. Don\textquotesingle{}t connect GND of the CAN transmitter to the Nucleo GND. Use external adapter (for TJA1051T VCC = +5V). The syntax of this script is as follow\+:
+
+can\+\_\+send Pin\+Name1, Pin\+Name2,Result\+Variable ,FREQ, CANID, CAND\+\_\+\+DATA0,...CAN\+\_\+\+DATA8 Pin\+Name1 1) CAN RD pin as defined in the manual. Pin\+Name2 2) CAN TD pin as defined in the manual. Result\+Variable 3) A variable keep the results of the can write process( 0 if write failed, 1 if write was successful) FREQ 4) Frequency of the CAN bus CANID 5) Address of the can device CAN\+\_\+\+DATA0..8 6) An array of 8 bytes representing the data to be sent via can bus. 
+
+Definition at line \mbox{\hyperlink{can__hw_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{can__hw_8cpp_source}{can\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00040}{g\+Can\+Variable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4

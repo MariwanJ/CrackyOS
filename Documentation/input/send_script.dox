@@ -1,0 +1,15 @@
+/*!
+
+*\page send_script Send_script
+*
+* This instruction is used to send via RS232/Terminal script program.
+* You need to stop the process by sending the symbol '#'.
+* After that the text (script) will be saved as default script program on
+* the SD card.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*   <strong>send_script  script_Text#  </strong>
+*
+* <span style='color:green'><strong>Note:</strong></span><br>
+* An SD-card module must be connected to the Nucleo board through SPI, with an SD card inserted. The card must be mounted before using this instruction.
+*/

@@ -1,0 +1,22 @@
+/*!
+
+*\page if IF...ELSE Statements
+*
+* Conditional statements are used to perform different actions based on different conditions.<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+
+* - Use if to specify a block of code to be executed, if a specified condition is true
+* - Use else to specify a block of code to be executed, if the same condition is false
+* <span style='color:blue'><em><B> <br>
+Example:
+</B> </em> </span><br>
+*   get PA_4, myvar; 			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem read GPIO </span><br>
+*   if(myvar==0) {\n
+*	&nbsp;<span style='color:green'> rem if the GPIO is zero</span><br>
+*	&nbsp;print " Result was Zero\n"};
+*   else {
+*	&nbsp;<span style='color:green'> rem if the GPIO is one</span><br>
+*	&nbsp;print " Result was One\n"};
+*	}
+*
+*/

@@ -1,0 +1,21 @@
+\doxysection{While loop}
+\hypertarget{while}{}\label{while}\index{While loop@{While loop}}
+This instruction repeatedly executes a statement or block of statements until the condition becomes false. The test takes place before each iteration.~\newline
+
+
+{\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ while (logical condition) \{ ... block of code \} }}~\newline
+
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ i=0;~\newline
+  rem infinite repeat ~\newline
+ while(1)\{~\newline
+ ~ aput PA\+\_\+4, i; ~~~  rem send the value to Analog Output port PA\+\_\+4~\newline
+ ~ i=i+0.1;~\newline
+ ~ if( i==1)~\newline
+ ~\{~\newline
+ ~~~~i=0; ~ \}
+
+\} 

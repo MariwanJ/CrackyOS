@@ -1,0 +1,17 @@
+\doxysection{Generate PWM Signal}
+\hypertarget{pwm}{}\label{pwm}\index{Generate PWM Signal@{Generate PWM Signal}}
+This instruction generates a PWM signal defined by a period and a pulse width.~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ pwm Pin\+Name, period, pulswidth }}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{period\+:}} Period is a float number in seconds which represent the time between two consecutive low to high transitions in sec.~\newline
+ Make sure that you choose the correct port name. You find the pin names in the manual/datasheet of your board.
+\item {\bfseries{period\+:}} The period is a floating-\/point number in seconds that represents the time between two consecutive low-\/to-\/high transitions. Make sure that you choose the correct port name. You can find the pin names in the manual or datasheet for your board.
+\item {\bfseries{Pulse Width\+:}} The pulse width is a floating-\/point number in seconds that represents the time the signal remains high.
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ pwm PA\+\_\+0,0.\+002,0.\+001 ~~~  rem square wave generated at pin PA\+\_\+0 ~\newline
+ 

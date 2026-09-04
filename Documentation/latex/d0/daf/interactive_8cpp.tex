@@ -1,0 +1,281 @@
+\doxysection{Cracky\+OS/src/interactive.cpp File Reference}
+\hypertarget{interactive_8cpp}{}\label{interactive_8cpp}\index{CrackyOS/src/interactive.cpp@{CrackyOS/src/interactive.cpp}}
+
+
+This file contains function for creating/reading config file It defines default filename, baudrate, interactive and other parameters for the system.  
+
+
+{\ttfamily \#include \"{}interactive.\+h\"{}}\newline
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+Include dependency graph for interactive.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{interactive_8cpp_ab288090df6e0f2b1a5bfe5624605a35b}{write\+Config\+To\+File}} ()
+\item 
+int \mbox{\hyperlink{interactive_8cpp_a548ee9dae50dd045d1ed9dd58f24d5da}{get\+File\+Size}} (std\+::string filename)
+\item 
+bool \mbox{\hyperlink{interactive_8cpp_a38be03ae9697404e6bbd70f766478664}{Is\+Comment}} (std\+::string \&str)
+\item 
+int \mbox{\hyperlink{interactive_8cpp_a7661ba76cbaa3908193ac55fd2f73330}{read\+Config\+File}} (void)
+\item 
+int \mbox{\hyperlink{interactive_8cpp_a8a58225c954b51e80936a44a3434bc60}{Run\+Script\+File}} (void)
+\item 
+int \mbox{\hyperlink{interactive_8cpp_a8f318f40726f8afedfaf996b7e0f7137}{interactive\+\_\+mode}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{interactive_8cpp_abf47ced073ddd0493bbce6104385cfa5}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME}}
+\item 
+std\+::string \mbox{\hyperlink{interactive_8cpp_aca6a67c19739b668c7baa51ef5b73479}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME\+\_\+\+DAD}}
+\item 
+int \mbox{\hyperlink{interactive_8cpp_a784e73e1ce3f90fbcbb0a78d72a053ff}{baud\+\_\+rate}} = 115200
+\item 
+unsigned char \mbox{\hyperlink{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}{Inter\+Active\+Mode}} = 0
+\item 
+unsigned char \mbox{\hyperlink{interactive_8cpp_a1264a22868c936b388b7dfbc68e1f5f2}{Stop\+Execution}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains function for creating/reading config file It defines default filename, baudrate, interactive and other parameters for the system. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{interactive_8cpp_a548ee9dae50dd045d1ed9dd58f24d5da}\label{interactive_8cpp_a548ee9dae50dd045d1ed9dd58f24d5da} 
+\index{interactive.cpp@{interactive.cpp}!getFileSize@{getFileSize}}
+\index{getFileSize@{getFileSize}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{getFileSize()}{getFileSize()}}
+{\footnotesize\ttfamily int get\+File\+Size (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+This file will determine the size of the file. "{}
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00128}{read\+Config\+File()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{interactive_8cpp_a8f318f40726f8afedfaf996b7e0f7137}\label{interactive_8cpp_a8f318f40726f8afedfaf996b7e0f7137} 
+\index{interactive.cpp@{interactive.cpp}!interactive\_mode@{interactive\_mode}}
+\index{interactive\_mode@{interactive\_mode}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{interactive\_mode()}{interactive\_mode()}}
+{\footnotesize\ttfamily int interactive\+\_\+mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will activate the interactive mode User can use this mode when there is no script program running. Different activities can be performed plus running instructions. As long as the instructions runs, values will be remained in memory. But if you reset the system .. values will be delete. User can start a program from here. Please read the manual for further info. \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00277}{277}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00147}{change\+\_\+program\+\_\+to\+\_\+lower\+\_\+case()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{Change\+Inter\+Active\+Mode\+Status()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00054}{Change\+Terminal\+Color()}}, \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00156}{clear\+And\+Home\+Serial()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, \mbox{\hyperlink{sdcard_8cpp_source_l00255}{do\+\_\+cd()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00318}{do\+\_\+copy()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00348}{do\+\_\+delete()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00455}{do\+\_\+format()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00683}{do\+\_\+\+Instruction\+Set()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00217}{do\+\_\+\+Listdir()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00415}{do\+\_\+mkdir()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00290}{do\+\_\+mount()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00431}{do\+\_\+move()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00532}{do\+\_\+rename()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00283}{do\+\_\+reset()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00305}{do\+\_\+umount()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00565}{do\+Cat()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00587}{free\+\_\+script\+Prog()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00236}{get\+Script\+Program\+File()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00121}{Get\+String\+From\+Serial()}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{serialmessage_8h_source_l00034}{INTER\+\_\+\+ACTIVE\+\_\+\+MODE\+\_\+\+MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+THE\+\_\+\+STRING}}, \mbox{\hyperlink{for__loop_8cpp_source_l00031}{nested\+Forloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00035}{nested\+For\+Whileloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00033}{nested\+Whileloop}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00275}{print\+\_\+help()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{Tokenize\+To\+File\+::run\+Interactive()}}, \mbox{\hyperlink{interactive_8cpp_source_l00036}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME}}, \mbox{\hyperlink{interactive_8cpp_source_l00042}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME\+\_\+\+DAD}}, \mbox{\hyperlink{common_8cpp_source_l00301}{script\+System\+\_\+script\+\_\+run()}}, \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}, and \mbox{\hyperlink{tokens_8cpp_source_l00324}{token\+\_\+initialize\+Inter\+Active()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{interactive_8cpp_a38be03ae9697404e6bbd70f766478664}\label{interactive_8cpp_a38be03ae9697404e6bbd70f766478664} 
+\index{interactive.cpp@{interactive.cpp}!IsComment@{IsComment}}
+\index{IsComment@{IsComment}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{IsComment()}{IsComment()}}
+{\footnotesize\ttfamily bool Is\+Comment (\begin{DoxyParamCaption}\item[{std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Is it a comment line ?
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & represent the input data to the function that will be checked to figure out if the string is text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean value 1 if the input value was a string. otherwise 0 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00128}{read\+Config\+File()}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{interactive_8cpp_a7661ba76cbaa3908193ac55fd2f73330}\label{interactive_8cpp_a7661ba76cbaa3908193ac55fd2f73330} 
+\index{interactive.cpp@{interactive.cpp}!readConfigFile@{readConfigFile}}
+\index{readConfigFile@{readConfigFile}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{readConfigFile()}{readConfigFile()}}
+{\footnotesize\ttfamily int read\+Config\+File (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will read the configuration saved on the SD-\/\+Disk If the configuration file is not there it will return the following integer -\/1 \+: Default\+File is not found or bad -\/2 \+: Baud\+Rate is not found or bad -\/3 \+: Inter\+Active\+Mode is not found or bad
+
+-\/10 \+: File not found -\/20 \+: File size is wrong. The file is corrupted.
+
+In all these cases, default configuration file should be re-\/created. 
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00128}{128}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{interactive_8cpp_source_l00046}{baud\+\_\+rate}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{interactive_8h_source_l00083}{DEFAULT\+\_\+\+CONFIG\+\_\+\+FILE\+\_\+\+NAME}}, \mbox{\hyperlink{interactive_8cpp_source_l00083}{get\+File\+Size()}}, \mbox{\hyperlink{interactive_8cpp_source_l00051}{Inter\+Active\+Mode}}, \mbox{\hyperlink{interactive_8cpp_source_l00102}{Is\+Comment()}}, \mbox{\hyperlink{interactive_8h_source_l00062}{MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+CONF\+\_\+\+FILE}}, \mbox{\hyperlink{interactive_8cpp_source_l00036}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME}}, and \mbox{\hyperlink{interactive_8cpp_source_l00042}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME\+\_\+\+DAD}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{interactive_8cpp_a8a58225c954b51e80936a44a3434bc60}\label{interactive_8cpp_a8a58225c954b51e80936a44a3434bc60} 
+\index{interactive.cpp@{interactive.cpp}!RunScriptFile@{RunScriptFile}}
+\index{RunScriptFile@{RunScriptFile}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{RunScriptFile()}{RunScriptFile()}}
+{\footnotesize\ttfamily int Run\+Script\+File (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Run a specific script file 
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00260}{260}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{common_8cpp_source_l00301}{script\+System\+\_\+script\+\_\+run()}}, \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}, and \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}.
+
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+\Hypertarget{interactive_8cpp_ab288090df6e0f2b1a5bfe5624605a35b}\label{interactive_8cpp_ab288090df6e0f2b1a5bfe5624605a35b} 
+\index{interactive.cpp@{interactive.cpp}!writeConfigToFile@{writeConfigToFile}}
+\index{writeConfigToFile@{writeConfigToFile}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{writeConfigToFile()}{writeConfigToFile()}}
+{\footnotesize\ttfamily int write\+Config\+To\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create config.\+ini with default values. 
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{interactive_8h_source_l00083}{DEFAULT\+\_\+\+CONFIG\+\_\+\+FILE\+\_\+\+NAME}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}.
+
+Here is the caller graph for this function\+:
+% FIG 9
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{interactive_8cpp_a784e73e1ce3f90fbcbb0a78d72a053ff}\label{interactive_8cpp_a784e73e1ce3f90fbcbb0a78d72a053ff} 
+\index{interactive.cpp@{interactive.cpp}!baud\_rate@{baud\_rate}}
+\index{baud\_rate@{baud\_rate}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{baud\_rate}{baud\_rate}}
+{\footnotesize\ttfamily int baud\+\_\+rate = 115200}
+
+Default baudrate 
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00282}{create\+Debug\+PC()}}, \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, \mbox{\hyperlink{interactive_8cpp_source_l00128}{read\+Config\+File()}}, and \mbox{\hyperlink{serialmessage_8cpp_source_l00310}{token\+\_\+baud\+\_\+rate()}}.
+
+\Hypertarget{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}\label{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7} 
+\index{interactive.cpp@{interactive.cpp}!InterActiveMode@{InterActiveMode}}
+\index{InterActiveMode@{InterActiveMode}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{InterActiveMode}{InterActiveMode}}
+{\footnotesize\ttfamily unsigned char Inter\+Active\+Mode = 0}
+
+This will activate or deactivate debug messages to RS232 1=DEBUG 0=NO-\/\+DEBUG MESSAGES 
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{interactive_8cpp_source_l00128}{read\+Config\+File()}}, and \mbox{\hyperlink{common_8cpp_source_l00491}{token\+\_\+exit()}}.
+
+\Hypertarget{interactive_8cpp_abf47ced073ddd0493bbce6104385cfa5}\label{interactive_8cpp_abf47ced073ddd0493bbce6104385cfa5} 
+\index{interactive.cpp@{interactive.cpp}!SCRIPT\_PROG\_NAME@{SCRIPT\_PROG\_NAME}}
+\index{SCRIPT\_PROG\_NAME@{SCRIPT\_PROG\_NAME}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{SCRIPT\_PROG\_NAME}{SCRIPT\_PROG\_NAME}}
+{\footnotesize\ttfamily std\+::string SCRIPT\+\_\+\+PROG\+\_\+\+NAME}
+
+Keeps the name of the default script file name non processed source code 
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00075}{initialize\+\_\+prog\+File()}}, \mbox{\hyperlink{tokens_8cpp_source_l00362}{Initialize\+Default\+Script\+File\+Name()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{interactive_8cpp_source_l00128}{read\+Config\+File()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+\Hypertarget{interactive_8cpp_aca6a67c19739b668c7baa51ef5b73479}\label{interactive_8cpp_aca6a67c19739b668c7baa51ef5b73479} 
+\index{interactive.cpp@{interactive.cpp}!SCRIPT\_PROG\_NAME\_DAD@{SCRIPT\_PROG\_NAME\_DAD}}
+\index{SCRIPT\_PROG\_NAME\_DAD@{SCRIPT\_PROG\_NAME\_DAD}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{SCRIPT\_PROG\_NAME\_DAD}{SCRIPT\_PROG\_NAME\_DAD}}
+{\footnotesize\ttfamily std\+::string SCRIPT\+\_\+\+PROG\+\_\+\+NAME\+\_\+\+DAD}
+
+Keeps the name of the default script file name processed source code 
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{tokens_8cpp_source_l00362}{Initialize\+Default\+Script\+File\+Name()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{interactive_8cpp_source_l00128}{read\+Config\+File()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+\Hypertarget{interactive_8cpp_a1264a22868c936b388b7dfbc68e1f5f2}\label{interactive_8cpp_a1264a22868c936b388b7dfbc68e1f5f2} 
+\index{interactive.cpp@{interactive.cpp}!StopExecution@{StopExecution}}
+\index{StopExecution@{StopExecution}!interactive.cpp@{interactive.cpp}}
+\doxysubsubsection{\texorpdfstring{StopExecution}{StopExecution}}
+{\footnotesize\ttfamily unsigned char Stop\+Execution = 0}
+
+This will activate or deactivate debug messages to RS232 1=DEBUG 0=NO-\/\+DEBUG MESSAGES 
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{Change\+Inter\+Active\+Mode\+Status()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{interactive_8cpp_source_l00260}{Run\+Script\+File()}}, and \mbox{\hyperlink{common_8cpp_source_l00491}{token\+\_\+exit()}}.
+

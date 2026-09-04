@@ -1,0 +1,23 @@
+\doxysection{Delay}
+\hypertarget{delay}{}\label{delay}\index{Delay@{Delay}}
+Generic wait function. It provides a simple NOP-\/type delay or wait capability. ~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ delay VALUE,TYPE}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{VALUE\+:}} Any Integer number representing the delay
+\item {\bfseries{TYPE\+:}} Three types are available as follows\+:
+\begin{DoxyItemize}
+\item Sec\+:~~ The delay will be in seconds.
+\item m\+Sec\+: The delay will be in milliseconds.
+\item u\+Sec\+: The delay will be in microseconds.~\newline
+
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+: }} } ~\newline
+ put PA\+\_\+1, 1; ~~~  rem put HIGH at the PA\+\_\+1.~\newline
+ delay 500,usec ; ~~~  rem 500 microseconds delay between the first and second instruction.~\newline
+ put PA\+\_\+1,0; ~~~  rem put LOW at the PA\+\_\+1.~\newline
+ 

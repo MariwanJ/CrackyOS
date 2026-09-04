@@ -1,0 +1,23 @@
+\doxysection{Ticker}
+\hypertarget{ticker}{}\label{ticker}\index{Ticker@{Ticker}}
+This instruction toggles a GPIO pin repeatedly at a specified rate.~\newline
+
+
+{\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape }
+
+{\bfseries{ ticker GPIO\+\_\+\+NAME , Time\+Interval in\+Usec, Start/\+STOP =1/0,}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{GPIO\+\_\+\+NAME\+:}} Any digital GPIO
+\item {\bfseries{Time\+Interval\+:}} Time required to activate the toggle function. It could be a variable or a number
+\item {\bfseries{Start/\+Stop\+:}} A Boolean value. 1 starts the counter, and 0 stops the counter. \textbackslash{}tticker PA\+\_\+4 10000 1;\textbackslash{}t\textbackslash{}t~~~  rem PA\+\_\+4 will toggle every 10 milliseconds ~\newline
+ ticker PA\+\_\+4, 1000, 1; ~~~  rem PA\+\_\+4 will toggle every 10 milliseconds ~\newline
+ OR\+:~\newline
+ ticker PA\+\_\+4 10000 1; ~~~  rem PA\+\_\+4 will toggle each 10 millisecond ~\newline
+ OR\+:~\newline
+ interval=1000;~\newline
+ ticker PA\+\_\+4, interval, 1; ~~~  rem PA\+\_\+4 will toggle each 1 millisecond ~\newline
+ 
+\end{DoxyItemize}

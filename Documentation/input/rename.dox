@@ -1,0 +1,12 @@
+/*!
+
+*\page rename Rename (rename a file )
+*
+* This instruction is used to rename a file
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+* *  <span style='color:blue'>rename <source_filename> <destination_filename></span>
+*
+* <span style='color:green'><strong>Note:</strong></span><br>
+* An SD-card module must be connected to the Nucleo board through SPI, with an SD card inserted. The card must be mounted before using this instruction.
+*/

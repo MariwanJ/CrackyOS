@@ -1,0 +1,40 @@
+\doxysection{interactive.\+h}
+\hypertarget{interactive_8h_source}{}\label{interactive_8h_source}\index{CrackyOS/src/interactive.h@{CrackyOS/src/interactive.h}}
+\mbox{\hyperlink{interactive_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00026}00026\ \textcolor{preprocessor}{\#ifndef\ INTERACTIVE\_H}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ INTERACTIVE\_H}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00035}00035\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00036}00036\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00038}00038\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{interactive_8h_abf47ced073ddd0493bbce6104385cfa5}{SCRIPT\_PROG\_NAME}};}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00039}00039\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{interactive_8h_aca6a67c19739b668c7baa51ef5b73479}{SCRIPT\_PROG\_NAME\_DAD}};}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00041}00041\ \textcolor{preprocessor}{\#define\ DEFAULT\_DOT\_DAT\_FILENAME\ "{}/sd/script.dat"{}};}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00042}00042\ \textcolor{preprocessor}{\#define\ DEFAULT\_DOT\_DAD\_FILENAME\ "{}/sd/script.dad"{}};}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00058}00058\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{interactive_8h_a7661ba76cbaa3908193ac55fd2f73330}{readConfigFile}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00062}\mbox{\hyperlink{interactive_8h_a7c2e74f6cc61673ee23a4f8e653da1e1}{00062}}\ \textcolor{preprocessor}{\#define\ MAX\_LENGTH\_OF\_CONF\_FILE\ 256}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00067}\mbox{\hyperlink{interactive_8h_ae78bf7e06bbba1c42b740fef55cf20f8}{00067}}\ \textcolor{preprocessor}{\#define\ PATH\_SIZE\ 1024}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00072}\mbox{\hyperlink{interactive_8h_ab117546549783a058d0321a287699579}{00072}}\ \textcolor{preprocessor}{\#define\ FILE\_NAME\ 1035}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00077}\mbox{\hyperlink{interactive_8h_ab8b58512bf05fa6dcb06fb54fb9f6d88}{00077}}\ \textcolor{preprocessor}{\#define\ COMPORT\_NAME\_SIZE\ 10}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00083}\mbox{\hyperlink{interactive_8h_a937c674b4ff18f13a3af8d1cde8ecc67}{00083}}\ \textcolor{preprocessor}{\#define\ DEFAULT\_CONFIG\_FILE\_NAME\ "{}/sd/config.ini"{}}}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00088}00088\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{interactive_8h_ab288090df6e0f2b1a5bfe5624605a35b}{writeConfigToFile}}();}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00093}00093\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{interactive_8h_a8a58225c954b51e80936a44a3434bc60}{RunScriptFile}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00097}00097\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{interactive_8h_ac168729267d9c21dbfb99546762a813b}{IsComment}}(std::string\ \&);}
+\DoxyCodeLine{\Hypertarget{interactive_8h_source_l00098}00098\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

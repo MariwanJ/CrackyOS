@@ -1,0 +1,125 @@
+/*!
+
+*\page spi_send SPI Send
+*
+* SPI protocol communication instruction. This instruction sends data or an array to an SPI device and gets a response, which is saved in the provided variable.<BR>
+* SPI protocol supports multiple slaves. To make this function work properly, make sure that the devices support a tri-state configuration when they are disabled.<br>
+* No more than one device should be on the bus at the same time.<br>
+* If you need to send several bytes (more than 16bit) to the device you target without changing the chip select signal, put the bytes you have (it doesn't matter how many) in an array and make the communication 8bits.
+* This will allow the spi_send command to send the bytes one by one using only one chip select cycling (high-low- high). This is applicable ONLY when you have a numerical array.
+* But, Text array will be treated differently, and data will be sent byte by byte with chip select cycling per each byte.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> spi_send </B> DEVICE_ID, WaitForReply(returned bytes), SPI_DATA (could be an array using a variable), DATASIZE/TYPE =8/12/16, FREQ, SPI_MOD =0/1/2/3 Default=0 , VARIABLE_NAME, DELAY BETWEEN PACKETS(Optional)<br>
+*~~~
+* -DEVICE_ID:                 SPI address/Device ID - Decoder from 1 to 15. 0 is reserved for SD-Card
+* -waitForReply:              Do the slave reply back any value?
+* -SpiData:          		  Data to be sent to the slave. (could be an array using a variable)
+* -spiDataSize  DataSize:     Data size or type. DATASIZE/TYPE =8/12/16
+* -spi_frequency:             SPI channel frequency. Typical =1000000
+* -spi_mode:                  SPI Mode: SPI_MOD =0/1/2/3 Default=0
+* -Variable_Name:             Variable will be used to save the reply.
+* -Delay:					  Delay necessary between packets (Optional)
+*~~~
+* <span style='color:blue'><em><B> Example:</B></em> </span><br>
+*MESSAGE="ABCDEFGHIJKLMNOPQRSTUVXYZ"<br>
+*<span span style='color:green'> REM     DEVICE_ID, WaitForReply, SPI_DATA, DATASIZE/TYPE =8/12/16, FREQ, SPI_MOD =0/1/2/3 Default=0 , VARIABLE_NAME, DELAY between packets(optional)</span><br>
+*spi_send 1,26,MESSAGE,8,5000000,0,myvar,10000;<br>
+*
+* <span style='color:blue'><em><B> Complex Example:</B></em> </span><br>
+*Let say that we need to write and read from an external Flash memory for ex. (AT25512N-SH). The following code is using mbed and C++.
+\code{.cpp}
+#include "mbed.h"
+SPI device(SPI_MOSI, SPI_MISO, SPI_SCK);
+
+DigitalOut CS(SPI_CS);
+
+Serial pc(USBTX, USBRX);
+
+int main()
+{
+    pc.printf("MEM Write Started\n");
+   device.format(8, 0);
+   device.frequency(1000000);
+    int v;
+        for(int i=0x200; i<0x0210;i++){
+            CS=1;
+            CS=0;
+            wait_ms(1);
+           device.write(0x01);
+           device.write(0x00);
+            CS=1;
+            CS=0;
+           device.write(0x6);
+            CS=1;
+            CS=0;
+           device.write(0x02);
+            v=slave.write((i&0xff00)>>8);
+            v=slave.write(i&0xff);
+           device.write((0xDA));
+            CS=1;
+            pc.printf("Address= %x %x\n",((i&0xff00)>>8), (i&0xff));
+        }
+    pc.printf("MEM Read Started\n");
+
+    CS=1;
+    {
+        for(int i=0x200; i<0x210;i++) {
+            wait_ms(1);
+            CS=0;
+           device.write(0x03);
+           device.write((i&0xff00)>>8);
+           device.write(i&0xff);
+            v=slave.write(0);///dummy
+            CS=1;
+            pc.printf("Results for i=%i : %x\n",i,v);
+        }
+    }
+}
+\endcode
+*Now the equivalent script code is as follow :
+\code{.unparsed}
+enable_debug
+function write(adres){
+    REM send write enable.
+    spi_send 1,0,0x0100,0x16,1000000,0,Reply,0
+
+	REM send enable write
+	spi_send 1,0,0x06,0x8,1000000,0,Reply,0
+
+	REM send data
+	spi_send 1,0,adres,0x8,1000000,0,Reply,0
+
+}
+
+
+function read(av ){
+	REM Read request
+	Address[]={0x03,0,0,0};
+	Address[1]=av
+	spi_send 1,1,Address,0x8,1000000,0,Reply,0
+	print Reply
+}
+
+
+
+for(i=0x200, i<0x210, i++){
+ writeAdr[]={0x02,0,0,0xDA}
+ writeAdr[1]=(i&0xff00);
+ writeAdr[1]=writeAdr[1]>>8;
+ writeAdr[1]=(i&0x00ff);;
+ call write(writeAdr)
+}
+
+while(1)
+{
+ for(i=0x200, i<0x210, i++){
+  print "i="
+  print i
+  call read(i)
+  print "\n"
+  }
+}
+\endcode
+
+*/

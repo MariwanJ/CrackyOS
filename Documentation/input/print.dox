@@ -1,0 +1,15 @@
+/*!
+
+*\page print Print
+*
+* It sends data to the terminal and acts like printf. <BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> print VARIABLE_NAME/"text"</B><BR>
+* - <b>VARIABLE_NAME:</b> a variable containing value, string
+* - <b>NUMBER :</b> any number you want to send to terminal
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*	serial_get myText;			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem read a string from terminal </span><br>
+* 	print myText;	        &nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send the value to terminal </span> <br>
+*
+*/

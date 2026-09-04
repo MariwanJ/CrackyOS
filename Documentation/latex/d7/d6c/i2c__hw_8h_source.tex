@@ -1,0 +1,41 @@
+\doxysection{i2c\+\_\+hw.\+h}
+\hypertarget{i2c__hw_8h_source}{}\label{i2c__hw_8h_source}\index{CrackyOS/src/i2c\_hw.h@{CrackyOS/src/i2c\_hw.h}}
+\mbox{\hyperlink{i2c__hw_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00027}00027\ \textcolor{preprocessor}{\#ifndef\ i2c\_hw\_H}}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ i2c\_hw\_H}}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hardware__used_8h}{hardware\_used.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00067}\mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{00067}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ I2CSLAVE\ =\ 0,\ I2CMASTER\ =\ 1,\ I2CUDEFINED\ =\ 2\ \}\ \mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{i2ctype}};}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00074}\mbox{\hyperlink{class_i2_c___communication}{00074}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i2_c___communication}{I2C\_Communication}}\ \{}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00075}00075\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00082}00082\ \ \ \mbox{\hyperlink{class_i2_c___communication}{I2C\_Communication}}(PinName\ SDA,\ PinName\ SCL,\ \mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{i2ctype}}\ Slave);}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00086}00086\ \ \ \mbox{\hyperlink{class_i2_c___communication_ac0a63162e96d41cc25dda2982b06e786}{\string~I2C\_Communication}}();}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00091}00091\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_i2_c___communication_ae24f4aeafe29892f5cd0c9e6255dfccb}{init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00096}00096\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i2_c___communication_a197fa790d6835ca6df36d4fd75347134}{address}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_i2_c___communication_a197fa790d6835ca6df36d4fd75347134}{address}});}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00106}00106\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i2_c___communication_a9c9364ea7bb30d0cc824e4d65f435428}{type}}(\mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{i2ctype}}\ typ);}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00111}\mbox{\hyperlink{class_i2_c___communication_af6f61ac10601ff96507cb93512c399c8}{00111}}\ \ \ I2CSlave\ *\mbox{\hyperlink{class_i2_c___communication_af6f61ac10601ff96507cb93512c399c8}{m\_i2cSlave}};}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00117}\mbox{\hyperlink{class_i2_c___communication_a7380066c05dbb1b59137e0b40eae99ce}{00117}}\ \ \ I2C\ *\mbox{\hyperlink{class_i2_c___communication_a7380066c05dbb1b59137e0b40eae99ce}{m\_i2cMaster}};}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00122}\mbox{\hyperlink{class_i2_c___communication_adea5ac48638ea99707aad7d60b1fe755}{00122}}\ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{class_i2_c___communication_adea5ac48638ea99707aad7d60b1fe755}{m\_sendData}};}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00126}\mbox{\hyperlink{class_i2_c___communication_ac158196a3b255c4786dbef6f47ed79c0}{00126}}\ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{class_i2_c___communication_ac158196a3b255c4786dbef6f47ed79c0}{m\_recieveData}};}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00128}00128\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00132}00132\ \ \ \textcolor{keywordtype}{int}\ m\_type;}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00137}00137\ \ \ \textcolor{keywordtype}{int}\ m\_address;}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00143}00143\ \ \ PinName\ m\_sda;}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00148}00148\ \ \ PinName\ m\_scl;}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00149}00149\ \};}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00154}00154\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_i2_c___communication}{I2C\_Communication}}\ \mbox{\hyperlink{i2c__hw_8h_a39d44fa6686d270ac1f463a2886b4e19}{i2c}};}
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{i2c__hw_8h_source_l00156}00156\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

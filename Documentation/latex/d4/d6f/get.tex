@@ -1,0 +1,22 @@
+\doxysection{Get (Digital In)}
+\hypertarget{get}{}\label{get}\index{Get (Digital In)@{Get (Digital In)}}
+This instruction reads from a digital port the value available on the pin/bus. The internal definition of these GPIO will be Digital\+In\+Out and configured as Input for this instruction.~\newline
+ Bus or Register GPIO needs to be created before you can use them using create\+\_\+reg instruction. {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ get GPIO\+\_\+\+NAME/\+BUS\+\_\+name, VARIABLE\+\_\+\+NAME}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{GPIO\+\_\+\+NAME\+:}} Any digital GPIO
+\item {\bfseries{BUS\+\_\+name\+:}} A combination of multiple digital GPIOs, from 2 to 16 pins. You can combine any GPIO in the bus. Use the create\+\_\+reg instruction to create a register.
+\item {\bfseries{VARIABLE\+\_\+\+NAME\+:}} A variable name is required to save the read data. The results will be saved in that variable and it is float.
+\item {\bfseries{VARIABLE\+\_\+\+NAME\+:}} A variable name is required to save the read data. The result is saved in that variable as a floating-\/point value.
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ get PA\+\_\+4, myvalue; ~~~  rem read the value from PA\+\_\+4 ~\newline
+ print myvalue; ~~~  rem send the value to terminal ~\newline
+ OR\+:~\newline
+ create\+\_\+reg myreg , PA\+\_\+3,PA\+\_\+2,PA\+\_\+10\+\_\+\+PB3; ~~~  rem create register ~\newline
+ get myreg, myvalue; ~~~  rem read the Register ~\newline
+ print myvalue; ~~~  rem send the value to terminal ~\newline
+ 

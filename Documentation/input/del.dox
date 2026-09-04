@@ -1,0 +1,15 @@
+/*!
+
+*\page del Del (Delete file or directory)
+*
+* This instruction is used to delete a file or multiple files using <*> or deleting a directory.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+* *  <span style='color:blue'>del  <FN> </span> 		 : delete file <FN>
+* *  <span style='color:blue'>del  <*> </span> 			 :  delete all files and directories
+* *  <span style='color:blue'>del  <DIR> </span> 		 : delete file directory.
+*
+*
+* <span style='color:green'><strong>Note:</strong></span><br>
+* An SD-card module must be connected to the Nucleo board through SPI, with an SD card inserted. The card must be mounted before using this instruction.
+*/

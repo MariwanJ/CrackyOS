@@ -1,0 +1,37 @@
+\chapter{Requirements}
+\hypertarget{01_requirements}{}\label{01_requirements}\index{Requirements@{Requirements}}
+To be able to use the system there are some requirements as follow\+: To use the system, the following requirements must be met\+:
+
+
+\begin{DoxyItemize}
+\item Hardware \+:
+\begin{DoxyItemize}
+\item ARM CORTEX 4 and above hardware -\/ mbed enabled.
+\item Sufficient amount of Flash memory and RAM memory
+\item SD Card and SD Card reader
+\item Power supply 3.\+3V (Optional if you use USB to power up the system)
+\item Decoder chip (16 channels) CD74\+HC4067\+: Used to connect multiple SPI devices to the same SPI port -\/ CS signal
+\end{DoxyItemize}
+\item Software\+:
+\begin{DoxyItemize}
+\item Eclipse or VSCode
+\item MBED-\/\+OS CE\+: This will be cloned automatically as sub-\/module. When you clone, clone with --recursive
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+~\newline
+ \hypertarget{01_requirements_eclipse}{}\doxysection{\texorpdfstring{Eclipse Installation and configuration\+:}{Eclipse Installation and configuration:}}\label{01_requirements_eclipse}
+
+\begin{DoxyItemize}
+\item Download Oxygen Eclipse IDE for C/\+C++ Developers
+\item Install ARM GNU toolchain
+\item Install Graphviz
+\item GNU Make \& Ninja
+\item GIT
+\item Via Eclipse install the following\+:
+\begin{DoxyItemize}
+\item Open\+OCD
+\item Doxygen
+\item Eclox 
+\end{DoxyItemize}
+\end{DoxyItemize}

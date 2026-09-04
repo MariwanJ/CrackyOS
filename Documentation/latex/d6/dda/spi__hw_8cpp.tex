@@ -1,0 +1,110 @@
+\doxysection{Cracky\+OS/src/spi\+\_\+hw.cpp File Reference}
+\hypertarget{spi__hw_8cpp}{}\label{spi__hw_8cpp}\index{CrackyOS/src/spi\_hw.cpp@{CrackyOS/src/spi\_hw.cpp}}
+
+
+This file contains SPI instructions.  
+
+
+{\ttfamily \#include \"{}spi\+\_\+hw.\+h\"{}}\newline
+Include dependency graph for spi\+\_\+hw.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+SDBlock\+Device \mbox{\hyperlink{spi__hw_8cpp_a9e0b629a84d4d070df6b16f94a88d6fe}{sd}} (SPI\+\_\+1\+\_\+\+MOSI, SPI\+\_\+1\+\_\+\+MISO, SPI\+\_\+1\+\_\+\+SCK, SPI\+\_\+1\+\_\+\+CS)
+\item 
+void \mbox{\hyperlink{spi__hw_8cpp_a1b6101d14ed973a93f1a381b79f0c62e}{Send\+Receive\+SPI\+\_\+\+Device}} (unsigned char DEVICE\+\_\+\+ID, int number\+Of\+Bytes\+Will\+Be\+Returned, unsigned int send\+Data\+To\+Slave, int global\+Variable\+Data, int global\+Variable\+Results, spi\+Data\+Size Data\+Size, int spi\+\_\+frequency, int spi\+\_\+mode, int Delay\+Between\+Packets)
+\item 
+int \mbox{\hyperlink{spi__hw_8cpp_ae6da6c19121fa58b566be4c8a362b6dc}{token\+\_\+spi\+\_\+send}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains SPI instructions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{spi__hw_8cpp_source}{spi\+\_\+hw.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{spi__hw_8cpp_a9e0b629a84d4d070df6b16f94a88d6fe}\label{spi__hw_8cpp_a9e0b629a84d4d070df6b16f94a88d6fe} 
+\index{spi\_hw.cpp@{spi\_hw.cpp}!sd@{sd}}
+\index{sd@{sd}!spi\_hw.cpp@{spi\_hw.cpp}}
+\doxysubsubsection{\texorpdfstring{sd()}{sd()}}
+{\footnotesize\ttfamily SDBlock\+Device sd (\begin{DoxyParamCaption}\item[{SPI\+\_\+1\+\_\+\+MOSI}]{,  }\item[{SPI\+\_\+1\+\_\+\+MISO}]{,  }\item[{SPI\+\_\+1\+\_\+\+SCK}]{,  }\item[{SPI\+\_\+1\+\_\+\+CS}]{ }\end{DoxyParamCaption})}
+
+sd variable definition . SPI 1 is used for SD-\/\+Card \Hypertarget{spi__hw_8cpp_a1b6101d14ed973a93f1a381b79f0c62e}\label{spi__hw_8cpp_a1b6101d14ed973a93f1a381b79f0c62e} 
+\index{spi\_hw.cpp@{spi\_hw.cpp}!SendReceiveSPI\_Device@{SendReceiveSPI\_Device}}
+\index{SendReceiveSPI\_Device@{SendReceiveSPI\_Device}!spi\_hw.cpp@{spi\_hw.cpp}}
+\doxysubsubsection{\texorpdfstring{SendReceiveSPI\_Device()}{SendReceiveSPI\_Device()}}
+{\footnotesize\ttfamily void Send\+Receive\+SPI\+\_\+\+Device (\begin{DoxyParamCaption}\item[{unsigned char}]{DEVICE\+\_\+\+ID,  }\item[{int}]{number\+Of\+Bytes\+Will\+Be\+Returned,  }\item[{unsigned int}]{send\+Data\+To\+Slave,  }\item[{int}]{global\+Variable\+Data,  }\item[{int}]{global\+Variable\+Results,  }\item[{spi\+Data\+Size}]{Data\+Size,  }\item[{int}]{spi\+\_\+frequency,  }\item[{int}]{spi\+\_\+mode,  }\item[{int}]{Delay\+Between\+Packets }\end{DoxyParamCaption})}
+
+SPI communication function.
+
+Definition at line \mbox{\hyperlink{spi__hw_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{spi__hw_8cpp_source}{spi\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{token\+\_\+spi\+\_\+send()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{spi__hw_8cpp_ae6da6c19121fa58b566be4c8a362b6dc}\label{spi__hw_8cpp_ae6da6c19121fa58b566be4c8a362b6dc} 
+\index{spi\_hw.cpp@{spi\_hw.cpp}!token\_spi\_send@{token\_spi\_send}}
+\index{token\_spi\_send@{token\_spi\_send}!spi\_hw.cpp@{spi\_hw.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_spi\_send()}{token\_spi\_send()}}
+{\footnotesize\ttfamily int token\+\_\+spi\+\_\+send (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} SPI data send instruction
+ The syntax of this script is as follow:
+ spi DEVICE_ID, WaitForReply(returned bytes), SPI_DATA (could be an array using a variable), DATASIZE/TYPE =8/12/16, FREQ, SPI_MOD =0/1/2/3 Default=0 , VARIABLE_NAME
+ unsigned char DEVICE_ID,          1) SPI address - Decoder
+ int waitForReply,                 2) Do the slave send us any value?
+ unsigned int SpiData,             3) Data to be sent to the slave.
+ spiDataSize  DataSize,            4) Data size or type    8, 12, 16
+ int spi_frequency,                5) SPI channel frequency
+ int spi_mode                      6) SPI Mode or SPI Format - default: put 0
+ Variable_Name                     7) Variable will be used to save the results.
+ DelayBetweenPackets               8) DelayBetweenPackets in uSec needs between each packet.
+\end{DoxyVerb}
+ Note\+: Mode Polarity Phase 0 0 0 1 0 1 2 1 0 3 1 1 
+
+Definition at line \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{282}} of file \mbox{\hyperlink{spi__hw_8cpp_source}{spi\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{spi__hw_8cpp_source_l00087}{Send\+Receive\+SPI\+\_\+\+Device()}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4

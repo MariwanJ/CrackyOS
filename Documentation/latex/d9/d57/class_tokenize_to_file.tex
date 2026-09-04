@@ -1,0 +1,240 @@
+\doxysection{Tokenize\+To\+File Class Reference}
+\hypertarget{class_tokenize_to_file}{}\label{class_tokenize_to_file}\index{TokenizeToFile@{TokenizeToFile}}
+
+
+{\ttfamily \#include $<$tokenizetofile.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tokenize_to_file_ac28ed9282ebffd58eb18339199e18e20}{Tokenize\+To\+File}} (const char \texorpdfstring{$\ast$}{*}inpu\+File\+Name, const char \texorpdfstring{$\ast$}{*}output\+File\+Name)
+\item 
+\mbox{\hyperlink{class_tokenize_to_file_a9b12069ba4f609ff28d2e7d5675e188d}{\texorpdfstring{$\sim$}{\string~}\+Tokenize\+To\+File}} ()
+\item 
+int \mbox{\hyperlink{class_tokenize_to_file_a6904ce4e2c0920ec3e4aa4a35d24e9c0}{run}} ()
+\item 
+int \mbox{\hyperlink{class_tokenize_to_file_a150d67d9114e0329e0709cc1fe4a6d17}{run\+Interactive}} (char \texorpdfstring{$\ast$}{*}input\+Command)
+\item 
+int \mbox{\hyperlink{class_tokenize_to_file_aeb45f517ed92e6497c59a79c834595a0}{check\+Number}} (void)
+\item 
+int \mbox{\hyperlink{class_tokenize_to_file_a6e0c0e0aa8fee7eda1ec60f017b5b957}{check\+Singel\+Char}} (void)
+\item 
+int \mbox{\hyperlink{class_tokenize_to_file_af863ffaf4f4558f4a12ca675afb03441}{check\+String}} (void)
+\item 
+int \mbox{\hyperlink{class_tokenize_to_file_a259b4bacdc34b7b1455fd0aac4da8855}{check\+Instruction}} (void)
+\item 
+int \mbox{\hyperlink{class_tokenize_to_file_a8b49c86bc60d24c7692259dbd8f55d35}{check\+Variable}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_tokenize_to_file}{Tokenize\+To\+File} class
+
+\doxylink{class_tokenize_to_file}{Tokenize\+To\+File} class implementation 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8h_source_l00057}{57}} of file \mbox{\hyperlink{tokenizetofile_8h_source}{tokenizetofile.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tokenize_to_file_ac28ed9282ebffd58eb18339199e18e20}\label{class_tokenize_to_file_ac28ed9282ebffd58eb18339199e18e20} 
+\index{TokenizeToFile@{TokenizeToFile}!TokenizeToFile@{TokenizeToFile}}
+\index{TokenizeToFile@{TokenizeToFile}!TokenizeToFile@{TokenizeToFile}}
+\doxysubsubsection{\texorpdfstring{TokenizeToFile()}{TokenizeToFile()}}
+{\footnotesize\ttfamily Tokenize\+To\+File\+::\+Tokenize\+To\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{inpu\+File\+Name,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{output\+File\+Name }\end{DoxyParamCaption})}
+
+Class \doxylink{class_tokenize_to_file}{Tokenize\+To\+File} constructor 
+\begin{DoxyParams}{Parameters}
+{\em inpu\+File\+Name} & \+: pointer to a file name \\
+\hline
+{\em output\+File\+Name} & \+: pointer to the new generated file containing the precompiled script \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+\Hypertarget{class_tokenize_to_file_a9b12069ba4f609ff28d2e7d5675e188d}\label{class_tokenize_to_file_a9b12069ba4f609ff28d2e7d5675e188d} 
+\index{TokenizeToFile@{TokenizeToFile}!````~TokenizeToFile@{\texorpdfstring{$\sim$}{\string~}TokenizeToFile}}
+\index{````~TokenizeToFile@{\texorpdfstring{$\sim$}{\string~}TokenizeToFile}!TokenizeToFile@{TokenizeToFile}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TokenizeToFile()}{\string~TokenizeToFile()}}
+{\footnotesize\ttfamily Tokenize\+To\+File\+::\texorpdfstring{$\sim$}{\string~}\+Tokenize\+To\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Class Tokinize\+To\+File destructor 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tokenize_to_file_a259b4bacdc34b7b1455fd0aac4da8855}\label{class_tokenize_to_file_a259b4bacdc34b7b1455fd0aac4da8855} 
+\index{TokenizeToFile@{TokenizeToFile}!checkInstruction@{checkInstruction}}
+\index{checkInstruction@{checkInstruction}!TokenizeToFile@{TokenizeToFile}}
+\doxysubsubsection{\texorpdfstring{checkInstruction()}{checkInstruction()}}
+{\footnotesize\ttfamily int Tokenize\+To\+File\+::check\+Instruction (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will serach for instruction .. If it found it will result in a command ..for ex TOKEN\+\_\+\+PUT, TOKEN\+\_\+\+GO ..etc 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00314}{314}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{tokens_8h_source_l00082}{is\+Special\+Char()}}, and \mbox{\hyperlink{types_8h_a253f99174b66672c79873bcbe7f600cf}{token\+\_\+exchange\+\_\+list}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00368}{run()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{run\+Interactive()}}.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{class_tokenize_to_file_aeb45f517ed92e6497c59a79c834595a0}\label{class_tokenize_to_file_aeb45f517ed92e6497c59a79c834595a0} 
+\index{TokenizeToFile@{TokenizeToFile}!checkNumber@{checkNumber}}
+\index{checkNumber@{checkNumber}!TokenizeToFile@{TokenizeToFile}}
+\doxysubsubsection{\texorpdfstring{checkNumber()}{checkNumber()}}
+{\footnotesize\ttfamily int Tokenize\+To\+File\+::check\+Number (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will check if there is a number in the text of the script program It results in a TOKEN\+\_\+\+NUMBER 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00274}{274}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, and \mbox{\hyperlink{tokens_8h_source_l00207}{end\+Of\+Number()}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00368}{run()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{run\+Interactive()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{class_tokenize_to_file_a6e0c0e0aa8fee7eda1ec60f017b5b957}\label{class_tokenize_to_file_a6e0c0e0aa8fee7eda1ec60f017b5b957} 
+\index{TokenizeToFile@{TokenizeToFile}!checkSingelChar@{checkSingelChar}}
+\index{checkSingelChar@{checkSingelChar}!TokenizeToFile@{TokenizeToFile}}
+\doxysubsubsection{\texorpdfstring{checkSingelChar()}{checkSingelChar()}}
+{\footnotesize\ttfamily int Tokenize\+To\+File\+::check\+Singel\+Char (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will check if there is a single variable .. It could result in TOKEN\+\_\+\+MINUS, TOKEN\+\_\+\+COMMA, ..etc 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, and \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00368}{run()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{run\+Interactive()}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{class_tokenize_to_file_af863ffaf4f4558f4a12ca675afb03441}\label{class_tokenize_to_file_af863ffaf4f4558f4a12ca675afb03441} 
+\index{TokenizeToFile@{TokenizeToFile}!checkString@{checkString}}
+\index{checkString@{checkString}!TokenizeToFile@{TokenizeToFile}}
+\doxysubsubsection{\texorpdfstring{checkString()}{checkString()}}
+{\footnotesize\ttfamily int Tokenize\+To\+File\+::check\+String (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will check if there is a string It will result in TOKEN\+\_\+\+STRING 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00289}{289}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, and \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00368}{run()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{run\+Interactive()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{class_tokenize_to_file_a8b49c86bc60d24c7692259dbd8f55d35}\label{class_tokenize_to_file_a8b49c86bc60d24c7692259dbd8f55d35} 
+\index{TokenizeToFile@{TokenizeToFile}!checkVariable@{checkVariable}}
+\index{checkVariable@{checkVariable}!TokenizeToFile@{TokenizeToFile}}
+\doxysubsubsection{\texorpdfstring{checkVariable()}{checkVariable()}}
+{\footnotesize\ttfamily int Tokenize\+To\+File\+::check\+Variable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This will check if the text is a variable. It could result in a TOKEN\+\_\+\+VARIABLE. 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00345}{345}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, and \mbox{\hyperlink{tokens_8h_source_l00082}{is\+Special\+Char()}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00368}{run()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{run\+Interactive()}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{class_tokenize_to_file_a6904ce4e2c0920ec3e4aa4a35d24e9c0}\label{class_tokenize_to_file_a6904ce4e2c0920ec3e4aa4a35d24e9c0} 
+\index{TokenizeToFile@{TokenizeToFile}!run@{run}}
+\index{run@{run}!TokenizeToFile@{TokenizeToFile}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily int Tokenize\+To\+File\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Tokinize the string. This function is used for the sd-\/card script.\+dat file. It analyze the text and devide it to enum and a text value It saves the reuslt in the global linkedlist (p\+\_\+prog)
+
+This function will analyze the script file and generate a new tokinized file. It allows the system to remove all \textquotesingle{}\textbackslash{}r\textquotesingle{} also to minimize mem usage. 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00368}{368}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00147}{change\+\_\+program\+\_\+to\+\_\+lower\+\_\+case()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00314}{check\+Instruction()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00274}{check\+Number()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00078}{check\+Singel\+Char()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00289}{check\+String()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00345}{check\+Variable()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokenizetofile_8h_source_l00044}{MAX\+\_\+\+INT\+\_\+\+SIZE}}, \mbox{\hyperlink{tokenizetofile_8h_source_l00035}{MAX\+\_\+\+LINE\+\_\+\+SIZE}}, \mbox{\hyperlink{tokenizetofile_8h_source_l00039}{MAX\+\_\+\+TOKEN\+\_\+\+SIZE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{class_tokenize_to_file_a150d67d9114e0329e0709cc1fe4a6d17}\label{class_tokenize_to_file_a150d67d9114e0329e0709cc1fe4a6d17} 
+\index{TokenizeToFile@{TokenizeToFile}!runInteractive@{runInteractive}}
+\index{runInteractive@{runInteractive}!TokenizeToFile@{TokenizeToFile}}
+\doxysubsubsection{\texorpdfstring{runInteractive()}{runInteractive()}}
+{\footnotesize\ttfamily int Tokenize\+To\+File\+::run\+Interactive (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{input\+Command }\end{DoxyParamCaption})}
+
+Tokinze a string This function is used for the interactive mode 
+\begin{DoxyParams}{Parameters}
+{\em input\+Command} & instruction set that needs to be executed later.\\
+\hline
+\end{DoxyParams}
+This will tokinize a string (not a file) in the interactive mode tokinize a string given to the function. This is used only in the interactive mode. 
+\begin{DoxyParams}{Parameters}
+{\em input\+Command} & A pointer points to the buffer containing the instructions given to the system via the terminal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if error, return \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{614}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokenizetofile_8cpp_source_l00034}{add\+New\+Item\+To\+Linked\+List()}}, \mbox{\hyperlink{tokens_8cpp_source_l00147}{change\+\_\+program\+\_\+to\+\_\+lower\+\_\+case()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00314}{check\+Instruction()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00274}{check\+Number()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00078}{check\+Singel\+Char()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00289}{check\+String()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00345}{check\+Variable()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokenizetofile_8h_source_l00044}{MAX\+\_\+\+INT\+\_\+\+SIZE}}, \mbox{\hyperlink{tokenizetofile_8h_source_l00039}{MAX\+\_\+\+TOKEN\+\_\+\+SIZE}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00029}{script\+Prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cracky\+OS/src/\mbox{\hyperlink{tokenizetofile_8h}{tokenizetofile.\+h}}\item 
+Cracky\+OS/src/\mbox{\hyperlink{tokenizetofile_8cpp}{tokenizetofile.\+cpp}}\end{DoxyCompactItemize}

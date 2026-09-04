@@ -1,0 +1,120 @@
+\doxysection{interrupt\+\_\+in.\+cpp}
+\hypertarget{interrupt__in_8cpp_source}{}\label{interrupt__in_8cpp_source}\index{CrackyOS/src/interrupt\_in.cpp@{CrackyOS/src/interrupt\_in.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}interrupt\_in.h"{}}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00041}00041\ \textcolor{keywordtype}{void}\ GeneralInterruptInCallback(\textcolor{keywordtype}{int}*\ enumNumber)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{int}\ enumvalue\ =\ *enumNumber;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{struct_gnode}{GlobalGP}}*\ interruptPIN\ =\ \mbox{\hyperlink{digital_8cpp_ad39ebaade21a6f4db5e19e5716ed42ad}{findGPIOpin}}(enumvalue);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (interruptPIN\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ cannot\ call\ quitScriptProgram\ as\ it\ uses\ serial\ message.\ just\ stop\ execution.}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}{InterActiveMode}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a1264a22868c936b388b7dfbc68e1f5f2}{StopExecution}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_afbd3f4a3f13eee2fbf79fa1dbe3bc982}{varGlobActiveInterruptFunc}}\ =\ interruptPIN-\/>scripPin.fun;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00060}\mbox{\hyperlink{common_8h_a6cea5f57c159677960eb3dbcf3592188}{00060}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{common_8h_a6cea5f57c159677960eb3dbcf3592188}{token\_interruptIn}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00061}00061\ \ \ \ \ STOP\_CODE\_EXECUTION\_MINUS}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_INTERRUPTIN);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{int}\ InterruptInEnumName\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{comment}{/*\ We\ simply\ save\ the\ interrupt\ function\ inside\ the\ pinname\ ..}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ \ \ -\/pinName\ must\ be\ an\ DigitalIn\ pin}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ -\/Function\ name\ must\ be\ correct\ and\ valid}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ -\/GlobActiveInterruptFunc\ will\ keep\ the\ function\ name\ when\ it\ activates.}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ -\/Only\ one\ interrupt\ should\ be\ active\ at\ each\ time.}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ -\/Function\ MUST\ be\ short..\ Or\ other\ interrupts\ will\ not\ be\ captured.}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00072}00072\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_COMMA);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{comment}{//1)\ Save\ enumname}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00077}00077\ \ \ \ \ InterruptInEnumName\ =\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}};}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(InterruptInEnumName);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_COMMA)}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_COMMA);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//2)\ Get\ Function\ Name}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_VARIABLE)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_INTERRUPT\_IN\_FUNCTION\_MISSING);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00087}00087\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{struct_gnode}{GlobalGP}}*\ interruptPIN\ =\ \mbox{\hyperlink{digital_8cpp_ab7f21e4f05daa71811aedf2816a84d45}{addGPIOpin\_DIGITAL}}(InterruptInEnumName,\ GPIO\_INTERRUPTIN);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (interruptPIN\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_INTERRUPT\_IN\_PINNAME\_WRONG);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{function_8cpp_a8d775f02eee59f08287f0faa9ad3612d}{functionList}}\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_INTERRUPT\_IN\_FUNCTION\_MISSING);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{structf_list}{GlobalfunList}}*\ pfunScan\ =\ \mbox{\hyperlink{function_8cpp_a8d775f02eee59f08287f0faa9ad3612d}{functionList}};}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{while}\ (pfunScan-\/>next\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ pfunScan\ =\ pfunScan-\/>next;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(pfunScan-\/>name,\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ interruptPIN-\/>scripPin.fun\ =\ pfunScan;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pfunScan-\/>prev\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ pfunScan\ =\ pfunScan-\/>prev;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00111}00111\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_VARIABLE);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_afbd3f4a3f13eee2fbf79fa1dbe3bc982}{varGlobActiveInterruptFunc}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Initialize\ the\ global\ active\ interrupt\ function}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}\ =\ \textcolor{keyword}{new}(\mbox{\hyperlink{types_8h_adbaf93df9858a6c872732740bd27e21c}{gINTstruct}});}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_INTERRUPT\_MEM\_ALLOCATION\_FAILED);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>enumPinName\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>function\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>prev\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00126}00126\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Check\ if\ we\ have\ the\ function\ already\ in\ the\ global\ variable\ list}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}\ =\ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next;\ \textcolor{comment}{//Go\ to\ the\ end.}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ found\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>prev\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>function\ ==\ pfunScan)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}\ =\ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>prev;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ !=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}\ =\ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next\ =\ \textcolor{keyword}{new}(\mbox{\hyperlink{types_8h_adbaf93df9858a6c872732740bd27e21c}{gINTstruct}});}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_INTERRUPT\_MEM\_ALLOCATION\_FAILED);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next-\/>enumPinName\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next-\/>function\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next-\/>prev\ =\ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}};}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next-\/>next\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}\ =\ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>next;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00155}00155\ \ \ \ \ \textcolor{comment}{//if\ not\ found\ ..we\ create\ the\ linkedlist\ otherwise\ we\ just\ update\ it.}}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00156}00156\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>enumPinName\ =\ InterruptInEnumName;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00157}00157\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>function\ =\ pfunScan;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00158}00158\ \ \ \ \ interruptPIN-\/>scripPin.gpio.OnePinGPIO-\/>genInOut.interrupt\_in-\/>rise(callback(\&GeneralInterruptInCallback,\ \&\mbox{\hyperlink{tokens_8cpp_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}}-\/>enumPinName));}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{interrupt__in_8cpp_source_l00160}00160\ \}}
+
+\end{DoxyCode}

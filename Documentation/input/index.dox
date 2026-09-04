@@ -1,0 +1,13 @@
+/*!
+
+*\mainpage CrackyOS Script System Documentation
+
+* - \subpage 00_introductions
+* - \subpage 01_requirements
+* - \subpage 02_supported_Systems
+* - \subpage 03_coding_format
+* - \subpage 04_known_issues
+* - \subpage 05_instruction_set
+* - \subpage 06_tutorial_and_examples
+*
+*/

@@ -1,0 +1,19 @@
+/*!
+
+*\page cat Cat (Catenate)
+*
+* This instruction reads data from a file and outputs its contents. You can also use it to create a new file.<BR>
+* The instruction can also combine two files and put their contents in a newly created file.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+* *  <span style='color:blue'>cat</span> 			   : It displays the help on the screen<br>
+* *  <span style='color:blue'>cat</span> help         :  It displays the help on the screen<br>
+* *  <span style='color:blue'>cat</span> &lt;filename&gt;   :  It displays the contents of the text file on the screen<br>
+*
+* *  <span style='color:blue'>cat</span>  -c &lt;filename&gt;  &lt;Script_commands&gt;  : Creates a new file and puts the &lt;text&gt; inside the file. &lt;Script_commands&gt; is optional.<br>
+* *  <span style='color:blue'>cat</span>  -a &lt;filename1&gt; &lt;filename2&gt; &lt;filename3&gt; : <br>
+*    This command creates a new file named &lt;filename1&gt;, combines the text from &lt;filename2&gt; and &lt;filename3&gt;, and puts it in the new file.<br>
+*
+* <span style='color:green'><strong>Note:</strong></span><br>
+* An SD-card module must be connected to the Nucleo board through SPI, with an SD card inserted. The card must be mounted before using this instruction.
+*/

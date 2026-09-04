@@ -1,0 +1,331 @@
+\doxysection{Cracky\+OS/src/common.cpp File Reference}
+\hypertarget{common_8cpp}{}\label{common_8cpp}\index{CrackyOS/src/common.cpp@{CrackyOS/src/common.cpp}}
+
+
+This file contains some functions and definitions. and important variables that are used by the interpreter.  
+
+
+{\ttfamily \#include \"{}common.\+h\"{}}\newline
+Include dependency graph for common.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{common_8cpp_abe1a6182920a65c8a381060dbfdc1d30}{START\+\_\+\+PROFILE}} ()
+\item 
+void \mbox{\hyperlink{common_8cpp_a708d388a76847dd1b8a1d619977852d8}{STOP\+\_\+\+PROFILE\+\_\+\+SHOW\+\_\+\+RESULT}} (int val)
+\item 
+int \mbox{\hyperlink{common_8cpp_ac9c2a0eacced9c9088d3afdfe993b74c}{Execute\+\_\+\+Instructions}} (\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}to\+Position)
+\item 
+int \mbox{\hyperlink{common_8cpp_ab40060493d659e1b0840dda12904ffd9}{create\+Debug\+PC}} (void)
+\item 
+unsigned char \mbox{\hyperlink{common_8cpp_a89afd0078e0ef186ea6d679d9ed1edf1}{token\+\_\+serial\+\_\+screen\+\_\+clear}} ()
+\item 
+int \mbox{\hyperlink{common_8cpp_a36d7bcb2140cb65bf4c6bd0c4fff3e54}{script\+System\+\_\+script\+\_\+run}} ()
+\item 
+void \mbox{\hyperlink{common_8cpp_a57c7b87e5d1d07f5d4b0b30725ccd190}{free\+\_\+script\+GPIOVariable}} (void)
+\item 
+int \mbox{\hyperlink{common_8cpp_afe4360eb67be508af0727aed94910e61}{token\+\_\+delete}} ()
+\item 
+int \mbox{\hyperlink{common_8cpp_a44b92d893d2a7ca19cf9d65972b7b56c}{token\+\_\+goto}} (void)
+\item 
+int \mbox{\hyperlink{common_8cpp_a4b488d791e015b0cbdb882dab9312c08}{token\+\_\+rem}} (void)
+\item 
+int \mbox{\hyperlink{common_8cpp_aba95585eb37b935f49ee70321cf86e05}{token\+\_\+delay}} ()
+\item 
+int \mbox{\hyperlink{common_8cpp_a7e5ff83eecb7a170f45e41aa3aa30367}{token\+\_\+exit}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains some functions and definitions. and important variables that are used by the interpreter. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{common_8cpp_ab40060493d659e1b0840dda12904ffd9}\label{common_8cpp_ab40060493d659e1b0840dda12904ffd9} 
+\index{common.cpp@{common.cpp}!createDebugPC@{createDebugPC}}
+\index{createDebugPC@{createDebugPC}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{createDebugPC()}{createDebugPC()}}
+{\footnotesize\ttfamily int create\+Debug\+PC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Create the Debug terminal 
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00282}{282}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{interactive_8cpp_source_l00046}{baud\+\_\+rate}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{common_8cpp_ac9c2a0eacced9c9088d3afdfe993b74c}\label{common_8cpp_ac9c2a0eacced9c9088d3afdfe993b74c} 
+\index{common.cpp@{common.cpp}!Execute\_Instructions@{Execute\_Instructions}}
+\index{Execute\_Instructions@{Execute\_Instructions}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{Execute\_Instructions()}{Execute\_Instructions()}}
+{\footnotesize\ttfamily int Execute\+\_\+\+Instructions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}}]{to\+Position }\end{DoxyParamCaption})}
+
+Main function for fetching/\+Executing the instructions found i each token Care must be taken with this piece of code The beginning of the script program will be decided by the p\+\_\+prog..YOU NEED TO RUN \"{}token\+\_\+jump\+\_\+to (.....)\"{} before calling this function ... \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+WARNING!!! -\/1 should not be returned from any function if no error occurred. -\/1 means there was an error and it will terminate the execution 2020-\/02-\/21
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8h_source_l00293}{end\+\_\+of\+\_\+program\+\_\+token()}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}, \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00310}{token\+\_\+baud\+\_\+rate()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00327}{token\+\_\+can\+\_\+get()}}, \mbox{\hyperlink{can__hw_8cpp_source_l00045}{token\+\_\+can\+\_\+send()}}, \mbox{\hyperlink{digital_8cpp_source_l00712}{token\+\_\+create\+\_\+reg()}}, \mbox{\hyperlink{common_8cpp_source_l00420}{token\+\_\+delay()}}, \mbox{\hyperlink{common_8cpp_source_l00335}{token\+\_\+delete()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00331}{token\+\_\+enable\+\_\+debug()}}, \mbox{\hyperlink{common_8cpp_source_l00491}{token\+\_\+exit()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{function_8cpp_source_l00043}{token\+\_\+function()}}, \mbox{\hyperlink{analog_8cpp_source_l00300}{token\+\_\+gen\+\_\+pwm()}}, \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}, \mbox{\hyperlink{common_8cpp_source_l00359}{token\+\_\+goto()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}, \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}, \mbox{\hyperlink{interrupt__in_8cpp_source_l00060}{token\+\_\+interrupt\+In()}}, \mbox{\hyperlink{tokens_8cpp_source_l00257}{token\+\_\+label()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00352}{token\+\_\+print()}}, \mbox{\hyperlink{digital_8cpp_source_l00345}{token\+\_\+put()}}, \mbox{\hyperlink{common_8cpp_source_l00396}{token\+\_\+rem()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{token\+\_\+serial\+\_\+get()}}, \mbox{\hyperlink{common_8cpp_source_l00292}{token\+\_\+serial\+\_\+screen\+\_\+clear()}}, \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{token\+\_\+spi\+\_\+send()}}, \mbox{\hyperlink{variable_8cpp_source_l00061}{token\+\_\+variable()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{common_8cpp_source_l00301}{script\+System\+\_\+script\+\_\+run()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{common_8cpp_a57c7b87e5d1d07f5d4b0b30725ccd190}\label{common_8cpp_a57c7b87e5d1d07f5d4b0b30725ccd190} 
+\index{common.cpp@{common.cpp}!free\_scriptGPIOVariable@{free\_scriptGPIOVariable}}
+\index{free\_scriptGPIOVariable@{free\_scriptGPIOVariable}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{free\_scriptGPIOVariable()}{free\_scriptGPIOVariable()}}
+{\footnotesize\ttfamily void free\+\_\+script\+GPIOVariable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Free up the memory.
+
+Remove all GPIO variables. 
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00312}{312}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{common_8cpp_a36d7bcb2140cb65bf4c6bd0c4fff3e54}\label{common_8cpp_a36d7bcb2140cb65bf4c6bd0c4fff3e54} 
+\index{common.cpp@{common.cpp}!scriptSystem\_script\_run@{scriptSystem\_script\_run}}
+\index{scriptSystem\_script\_run@{scriptSystem\_script\_run}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{scriptSystem\_script\_run()}{scriptSystem\_script\_run()}}
+{\footnotesize\ttfamily int script\+System\+\_\+script\+\_\+run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Execute the script program. Important things happen here. \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00301}{301}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00260}{Run\+Script\+File()}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{common_8cpp_abe1a6182920a65c8a381060dbfdc1d30}\label{common_8cpp_abe1a6182920a65c8a381060dbfdc1d30} 
+\index{common.cpp@{common.cpp}!START\_PROFILE@{START\_PROFILE}}
+\index{START\_PROFILE@{START\_PROFILE}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{START\_PROFILE()}{START\_PROFILE()}}
+{\footnotesize\ttfamily void START\+\_\+\+PROFILE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Use this macro to start profiling an instruction 
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+\Hypertarget{common_8cpp_a708d388a76847dd1b8a1d619977852d8}\label{common_8cpp_a708d388a76847dd1b8a1d619977852d8} 
+\index{common.cpp@{common.cpp}!STOP\_PROFILE\_SHOW\_RESULT@{STOP\_PROFILE\_SHOW\_RESULT}}
+\index{STOP\_PROFILE\_SHOW\_RESULT@{STOP\_PROFILE\_SHOW\_RESULT}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{STOP\_PROFILE\_SHOW\_RESULT()}{STOP\_PROFILE\_SHOW\_RESULT()}}
+{\footnotesize\ttfamily void STOP\+\_\+\+PROFILE\+\_\+\+SHOW\+\_\+\+RESULT (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Use this macro to stop profiling and showing the results. 
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}.
+
+\Hypertarget{common_8cpp_aba95585eb37b935f49ee70321cf86e05}\label{common_8cpp_aba95585eb37b935f49ee70321cf86e05} 
+\index{common.cpp@{common.cpp}!token\_delay@{token\_delay}}
+\index{token\_delay@{token\_delay}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_delay()}{token\_delay()}}
+{\footnotesize\ttfamily int token\+\_\+delay (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Delay instruction syntax\+: Delay instruction should be like that delay NUMBER, TYPE delay 500, msec delay 100, usec \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00420}{420}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{common_8cpp_afe4360eb67be508af0727aed94910e61}\label{common_8cpp_afe4360eb67be508af0727aed94910e61} 
+\index{common.cpp@{common.cpp}!token\_delete@{token\_delete}}
+\index{token\_delete@{token\_delete}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_delete()}{token\_delete()}}
+{\footnotesize\ttfamily int token\+\_\+delete (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Delete global variable and free mem Syntax\+: delete VAR\+\_\+\+NAME; Warning\+: Don\textquotesingle{}t mix this with del FN/filename/dir \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00335}{335}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00160}{delete\+Reg()}}, \mbox{\hyperlink{tokens_8cpp_source_l00265}{Intialize\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{common_8cpp_a7e5ff83eecb7a170f45e41aa3aa30367}\label{common_8cpp_a7e5ff83eecb7a170f45e41aa3aa30367} 
+\index{common.cpp@{common.cpp}!token\_exit@{token\_exit}}
+\index{token\_exit@{token\_exit}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_exit()}{token\_exit()}}
+{\footnotesize\ttfamily int token\+\_\+exit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+exit/quit instruction Syntax\+: exit; or quit; \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00491}{491}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{Change\+Inter\+Active\+Mode\+Status()}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{interactive_8cpp_source_l00051}{Inter\+Active\+Mode}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\Hypertarget{common_8cpp_a44b92d893d2a7ca19cf9d65972b7b56c}\label{common_8cpp_a44b92d893d2a7ca19cf9d65972b7b56c} 
+\index{common.cpp@{common.cpp}!token\_goto@{token\_goto}}
+\index{token\_goto@{token\_goto}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_goto()}{token\_goto()}}
+{\footnotesize\ttfamily int token\+\_\+goto (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+goto instruction Syntax\+: goto name \+: where name is the label in the script program defined as \+:name\+: \begin{DoxyReturn}{Returns}
+-\/1 if error , \texorpdfstring{$>$}{>}=0 if OK. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00359}{359}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00052}{globallabel\+Var}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 14
+Here is the caller graph for this function\+:
+% FIG 15
+\Hypertarget{common_8cpp_a4b488d791e015b0cbdb882dab9312c08}\label{common_8cpp_a4b488d791e015b0cbdb882dab9312c08} 
+\index{common.cpp@{common.cpp}!token\_rem@{token\_rem}}
+\index{token\_rem@{token\_rem}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_rem()}{token\_rem()}}
+{\footnotesize\ttfamily int token\+\_\+rem (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+REMARK instruction Syntax \+: REM $<$\+REM BODY$>$ This should take care of the text found after the REM. Skip the line NOTE\+: Inside REM you shouldn\textquotesingle{}t use symbols like \{ \} since it is used for while \& for loops. This will cause problem for while and loop code. \begin{DoxyReturn}{Returns}
+1 if no error or -\/1 if error 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00396}{396}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 16
+Here is the caller graph for this function\+:
+% FIG 17
+\Hypertarget{common_8cpp_a89afd0078e0ef186ea6d679d9ed1edf1}\label{common_8cpp_a89afd0078e0ef186ea6d679d9ed1edf1} 
+\index{common.cpp@{common.cpp}!token\_serial\_screen\_clear@{token\_serial\_screen\_clear}}
+\index{token\_serial\_screen\_clear@{token\_serial\_screen\_clear}!common.cpp@{common.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_serial\_screen\_clear()}{token\_serial\_screen\_clear()}}
+{\footnotesize\ttfamily unsigned char token\+\_\+serial\+\_\+screen\+\_\+clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clear screen (terminal) instruction 
+
+Definition at line \mbox{\hyperlink{common_8cpp_source_l00292}{292}} of file \mbox{\hyperlink{common_8cpp_source}{common.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 18
+Here is the caller graph for this function\+:
+% FIG 19

@@ -1,0 +1,11 @@
+/*!
+
+*\page exit Exit script program execution
+*
+* This instruction terminates the execution of the code currently active.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+* *  <span style='color:blue'>exit </span>
+*
+*
+*/

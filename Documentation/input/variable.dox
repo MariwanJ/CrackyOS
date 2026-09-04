@@ -1,0 +1,29 @@
+/*!
+
+*\page variable Variables
+*
+* Variables are used to store information that can be referenced and manipulated in a script program. Variables inside the system are global.<BR> To free memory, use the <B>del</B> command.
+* Some names are reserved for instructions command. Look at the instruction commands to know the reserved name list.
+
+* Addition between array variables is not implemented. An array can be passed to a function using its variable name. The function can read all values represented by the variable if it is an array.
+* Variable names are not case sensitive. This means that for example:<br> 
+* MyVariable is equal to myvariable and they are the same name of one variable. <br><br>This system doesn't care about the case of the letters used in the script program. They all will be changed to lower case during the initialization and run of the script program. <br>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> MyVariable=arithmetic expression;  </B>
+*<br>OR<br>
+*<B> MyVariable[&nbsp;]={nr1,nr2...etc};  </B>
+* <span style='color:blue'><em><B> <br>
+Example:
+</B> </em> </span><br>
+*   var1=0;	  						&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem define and initialize var1 to be zero</span><br>
+*	var2=var1+(5*2)^2;<br>
+*   var2++;<br>
+*	var1=var2/100;<br>
+*	array[&nbsp; ]={10,10,10,10,10,1};<br>
+*   array[4]=9;<br>
+*   neVar= log(10); <br>
+*   delete var2;  <span style='color:green'> rem Free up the memory</span><br>
+* 
+*<span style='color:blue'><em><B>Note:</B> </em> </span><br>
+* Before using any variable in the right side in any arithmetical operation/calculation, you need to assign a value to the variable before that. Not assigning a value to the variable, means that you are using a variable that doesn't exist in the script. This will cause a fatal error.
+*/

@@ -1,0 +1,18 @@
+\doxysection{Create a Register (GPIO)}
+\hypertarget{create_reg}{}\label{create_reg}\index{Create a Register (GPIO)@{Create a Register (GPIO)}}
+This instruction creates a bus or register for input/output GPIOs. You can combine between 2 and 16 GPIOs. The internal definition is a bus, and it is bidirectional. You can change it from an input to an output port without problems.~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } ~\newline
+{\bfseries{ create\+\_\+reg REG\+\_\+\+NAME, GPIO1,GPIO2,....GPIO16 }}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{REG\+\_\+\+NAME\+:}} Any name you choose for the register.
+\item {\bfseries{GPIO1,GPIO2,....GPIO16\+:}} Any digital input or output GPIO.
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Note\+: }} } ~\newline
+ You cannot create a register for an analog GPIO. This instruction works only for digital GPIOs. The register name is saved globally. Changing the direction of the port (input or output) is supported. {\itshape {\bfseries{ ~\newline
+ Example\+: }} } ~\newline
+ create\+\_\+reg rg, PB\+\_\+0, PB\+\_\+7, pb\+\_\+14; REM LED1,2,3 myvalue=0b111; ~~~  rem Initialize myvalue with 0b111; ~\newline
+ put rg, myvalue; ~~~  rem send the value to all three LEDs;  

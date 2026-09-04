@@ -1,0 +1,120 @@
+\doxysection{Cracky\+OS/src/function.cpp File Reference}
+\hypertarget{function_8cpp}{}\label{function_8cpp}\index{CrackyOS/src/function.cpp@{CrackyOS/src/function.cpp}}
+
+
+This file contains function instruction.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+Include dependency graph for function.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{function_8cpp_a9130d8156203f57b270b7ca4f8c77bac}{token\+\_\+function}} ()
+\item 
+int \mbox{\hyperlink{function_8cpp_ac789a6d5db8f6b16099d49725068c0b3}{token\+\_\+call}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a9631d36733baf631fcdc0c90db308db3}{Globalfun\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{function_8cpp_a8d775f02eee59f08287f0faa9ad3612d}{function\+List}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains function instruction. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{function_8cpp_ac789a6d5db8f6b16099d49725068c0b3}\label{function_8cpp_ac789a6d5db8f6b16099d49725068c0b3} 
+\index{function.cpp@{function.cpp}!token\_call@{token\_call}}
+\index{token\_call@{token\_call}!function.cpp@{function.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_call()}{token\_call()}}
+{\footnotesize\ttfamily int token\+\_\+call (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+CALL of a function (arg1, arg2 ..argn) Syntax\+: call function\+\_\+name (arg1, arg2 ..argn); OR call function\+\_\+name (\"{}\+STRING \"{}, \"{}\+STRING\"{}.. ,arg1..etc) OR call function\+\_\+name ()//\+No arguments Note\+: 1)Keep in mind that you must define the function in the top side of the script program before the executable codes. And the arguments are by\+Value .. Values will be transfered to the function ..not variables. 2)No global variables are reachable here. This variable will count the no. of while-\/loop instructions inside a block
+
+This will be used when we have for \& while loops used inside each other.
+
+FOR -\/LOOP INSTRUCTION WILL BE ACCEPTED ONLY IF THEY ARE \textquotesingle{}=SCRIPT\+\_\+\+MAX\+\_\+\+NESTED\+\_\+\+FOR\+\_\+\+WHILE\+\_\+\+LOOP\textquotesingle{} NESTED FOR-\/\+LOOP. NO MORE. FOR SIMPLICITY
+
+WHILE -\/LOOP INSTRUCTION WILL BE ACCEPTED ONLY IF THEY ARE \textquotesingle{}=SCRIPT\+\_\+\+MAX\+\_\+\+NESTED\+\_\+\+FOR\+\_\+\+WHILE\+\_\+\+LOOP\textquotesingle{} NESTED FOR-\/\+LOOP. NO MORE. FOR SIMPLICITY
+
+RUNNING THE CODE START HERE
+
+Definition at line \mbox{\hyperlink{function_8cpp_source_l00152}{152}} of file \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{tokens_8cpp_source_l00045}{for\+Extract}}, \mbox{\hyperlink{tokens_8cpp_source_l00679}{free\+\_\+for\+Extract()}}, \mbox{\hyperlink{tokens_8cpp_source_l00672}{free\+\_\+while\+Extract()}}, \mbox{\hyperlink{function_8cpp_source_l00029}{function\+List}}, \mbox{\hyperlink{types_8h_source_l00675}{Global\+Variables\+::hash\+Varnme}}, \mbox{\hyperlink{for__loop_8cpp_source_l00031}{nested\+Forloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00035}{nested\+For\+Whileloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00033}{nested\+Whileloop}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}, \mbox{\hyperlink{types_8h_source_l00671}{Global\+Variables\+::varname}}, and \mbox{\hyperlink{tokens_8cpp_source_l00046}{while\+Extract}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{function_8cpp_a9130d8156203f57b270b7ca4f8c77bac}\label{function_8cpp_a9130d8156203f57b270b7ca4f8c77bac} 
+\index{function.cpp@{function.cpp}!token\_function@{token\_function}}
+\index{token\_function@{token\_function}!function.cpp@{function.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_function()}{token\_function()}}
+{\footnotesize\ttfamily int token\+\_\+function (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Function definition Syntax\+: function myfunction arg1,arg2,...etc \{ do stuff here \} OR function myfunction arg1,arg2,...etc \{ //\+Notice that the bracket MUST be after the arguments without having new line do stuff here \} Note\+: Keep in mind that this function will only save the information about the function. It doesn\textquotesingle{}t run the function To run the function, you need to execute \"{}\+CALL .....\+function name......\"{} 
+
+Definition at line \mbox{\hyperlink{function_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8h_source_l00293}{end\+\_\+of\+\_\+program\+\_\+token()}}, \mbox{\hyperlink{function_8cpp_source_l00029}{function\+List}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{function_8cpp_a8d775f02eee59f08287f0faa9ad3612d}\label{function_8cpp_a8d775f02eee59f08287f0faa9ad3612d} 
+\index{function.cpp@{function.cpp}!functionList@{functionList}}
+\index{functionList@{functionList}!function.cpp@{function.cpp}}
+\doxysubsubsection{\texorpdfstring{functionList}{functionList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a9631d36733baf631fcdc0c90db308db3}{Globalfun\+List}}\texorpdfstring{$\ast$}{*} function\+List = NULL}
+
+Global variable keeps the function list 
+
+Definition at line \mbox{\hyperlink{function_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00687}{free\+\_\+function\+List()}}, \mbox{\hyperlink{function_8cpp_source_l00152}{token\+\_\+call()}}, \mbox{\hyperlink{function_8cpp_source_l00043}{token\+\_\+function()}}, and \mbox{\hyperlink{interrupt__in_8cpp_source_l00060}{token\+\_\+interrupt\+In()}}.
+

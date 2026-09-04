@@ -1,0 +1,125 @@
+\doxysection{Cracky\+OS/src/i2c\+\_\+hw.cpp File Reference}
+\hypertarget{i2c__hw_8cpp}{}\label{i2c__hw_8cpp}\index{CrackyOS/src/i2c\_hw.cpp@{CrackyOS/src/i2c\_hw.cpp}}
+
+
+This file contains I2C instructions.  
+
+
+{\ttfamily \#include \"{}i2c\+\_\+hw.\+h\"{}}\newline
+Include dependency graph for i2c\+\_\+hw.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{i2c__hw_8cpp_ae51ee3752c9c15ef6ffa0d262ac41534}{token\+\_\+i2c\+\_\+send}} (void)
+\item 
+int \mbox{\hyperlink{i2c__hw_8cpp_a8c0f4327a79cfd4f67a3aa8d0b53e5d7}{token\+\_\+i2c\+\_\+get}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i2_c___communication}{I2\+C\+\_\+\+Communication}} \mbox{\hyperlink{i2c__hw_8cpp_a5eac504ac13c2e2bebf0419f062340ec}{i2c}} (I2\+C\+\_\+\+SDA, I2\+C\+\_\+\+SCL, I2\+CUDEFINED)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains I2C instructions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{i2c__hw_8cpp_a8c0f4327a79cfd4f67a3aa8d0b53e5d7}\label{i2c__hw_8cpp_a8c0f4327a79cfd4f67a3aa8d0b53e5d7} 
+\index{i2c\_hw.cpp@{i2c\_hw.cpp}!token\_i2c\_get@{token\_i2c\_get}}
+\index{token\_i2c\_get@{token\_i2c\_get}!i2c\_hw.cpp@{i2c\_hw.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_i2c\_get()}{token\_i2c\_get()}}
+{\footnotesize\ttfamily int token\+\_\+i2c\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+I2C Get data instruction Note\+: Please notice that we use standard definition of the SDA SCL. This should help in porting the system to other devices \+:
+
+I2\+C\+\_\+\+SCL= PB\+\_\+8 I2\+C\+\_\+\+SDA = PB\+\_\+9
+
+The syntax of this script is as follow 0 1 i2c\+\_\+get MASTER/\+SLAVE, address, VARIABLE\+\_\+recieve\+\_\+data, length\+Of\+Data VARIABLE\+\_\+recieve\+\_\+data \+: Results of running the code. 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{268}} of file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00058}{I2\+C\+\_\+\+Communication\+::address()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{i2c__hw_8cpp_a5eac504ac13c2e2bebf0419f062340ec}{i2c}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00077}{I2\+C\+\_\+\+Communication\+::init()}}, \mbox{\hyperlink{i2c__hw_8h_source_l00117}{I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Master}}, \mbox{\hyperlink{i2c__hw_8h_source_l00111}{I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Slave}}, \mbox{\hyperlink{types_8h_source_l00081}{MAX\+\_\+\+READ\+\_\+\+BUFF\+\_\+\+I2C}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00070}{I2\+C\+\_\+\+Communication\+::type()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{i2c__hw_8cpp_ae51ee3752c9c15ef6ffa0d262ac41534}\label{i2c__hw_8cpp_ae51ee3752c9c15ef6ffa0d262ac41534} 
+\index{i2c\_hw.cpp@{i2c\_hw.cpp}!token\_i2c\_send@{token\_i2c\_send}}
+\index{token\_i2c\_send@{token\_i2c\_send}!i2c\_hw.cpp@{i2c\_hw.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_i2c\_send()}{token\_i2c\_send()}}
+{\footnotesize\ttfamily int token\+\_\+i2c\+\_\+send (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+I2C sending data instruction \begin{DoxyVerb} Note: Please notice that we use standard definition of the SDA SCL. This should help
+ in porting the system to other devices :
+
+ I2C_SCL= PB_8
+ I2C_SDA= PB_9
+
+ The syntax of this script is as follow
+                     0     1
+ i2c_send MASTER/SLAVE, address, DATA_tobesend, lengthOfData
+
+ DATA_tobesend : Should be at least 1 byte
+ VARIABLE_recieve_data : Results of running the code.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{129}} of file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{i2c__hw_8cpp_source_l00058}{I2\+C\+\_\+\+Communication\+::address()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{i2c__hw_8cpp_a5eac504ac13c2e2bebf0419f062340ec}{i2c}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00077}{I2\+C\+\_\+\+Communication\+::init()}}, \mbox{\hyperlink{i2c__hw_8h_source_l00117}{I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Master}}, \mbox{\hyperlink{i2c__hw_8h_source_l00111}{I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Slave}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{i2c__hw_8cpp_source_l00070}{I2\+C\+\_\+\+Communication\+::type()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{i2c__hw_8cpp_a5eac504ac13c2e2bebf0419f062340ec}\label{i2c__hw_8cpp_a5eac504ac13c2e2bebf0419f062340ec} 
+\index{i2c\_hw.cpp@{i2c\_hw.cpp}!i2c@{i2c}}
+\index{i2c@{i2c}!i2c\_hw.cpp@{i2c\_hw.cpp}}
+\doxysubsubsection{\texorpdfstring{i2c}{i2c}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i2_c___communication}{I2\+C\+\_\+\+Communication}} i2c(I2\+C\+\_\+\+SDA, I2\+C\+\_\+\+SCL, I2\+CUDEFINED) (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+SDA}]{,  }\item[{I2\+C\+\_\+\+SCL}]{,  }\item[{I2\+CUDEFINED}]{ }\end{DoxyParamCaption})}
+
+Definition of I2\+C1 
+
+Referenced by \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, and \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}.
+

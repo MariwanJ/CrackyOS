@@ -1,0 +1,623 @@
+\doxysection{Cracky\+OS/src/sdcard.cpp File Reference}
+\hypertarget{sdcard_8cpp}{}\label{sdcard_8cpp}\index{CrackyOS/src/sdcard.cpp@{CrackyOS/src/sdcard.cpp}}
+
+
+This file contains sd-\/card driver.  
+
+
+{\ttfamily \#include \"{}sdcard.\+h\"{}}\newline
+Include dependency graph for sdcard.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{sdcard_8cpp_a80ddd5e08e3b6b2fc1f0d4771bfbcf66}{default\+Dir\+Included}} (std\+::string \&file\+Name)
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{sdcard_8cpp_a25ec160d03581fe645996cb272427f41}{initialize\+\_\+prog\+File}} (unsigned char a)
+\item 
+int \mbox{\hyperlink{sdcard_8cpp_a1e7be35960f39c6158a75f250cda1851}{file\+\_\+copy}} (const char \texorpdfstring{$\ast$}{*}src, const char \texorpdfstring{$\ast$}{*}dst)
+\item 
+unsigned int \mbox{\hyperlink{sdcard_8cpp_a29542bbd9dee92fa59fd2f1a3f5243e7}{do\+\_\+dir}} (const char \texorpdfstring{$\ast$}{*}p\+Pos, char(\&dir\+Buf)\mbox{[}256\mbox{]}\mbox{[}256\mbox{]})
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_a355290cca9db41e48bc2c87134f51fe6}{do\+\_\+del}} (const char \texorpdfstring{$\ast$}{*}fsrc)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_afa0f82b2bdd1d69891f1ff056ce59c60}{del\+All\+Files\+\_\+\+SDCard}} (void)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_ad540a2c054992ec25ea8b8d30e156d8e}{do\+\_\+\+Listdir}} ()
+\item 
+int \mbox{\hyperlink{sdcard_8cpp_a1a7d582bfff6c766e732574cd32a8848}{do\+\_\+cd}} (std\+::string \&st)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_afdeeb04e6597adca378ebb308c5c5aab}{do\+\_\+reset}} ()
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_a679076c36a649faf1ef670d6e8871808}{do\+\_\+mount}} ()
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_afa10b17db4c4710c87aee5e3e6aa485d}{do\+\_\+umount}} ()
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_a5d3c4154ada5a6949f210300f0fe8da9}{do\+\_\+copy}} (std\+::string \&st)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_a03843916552d7c3e949800d239c93e55}{do\+\_\+delete}} (std\+::string \&del\+File)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_af289002abbe27f09cce3282db629cfb4}{do\+\_\+mkdir}} (std\+::string \&st)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_a02f649de5e11229b0feef2a8888ccba1}{do\+\_\+move}} (std\+::string \&st)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_ad4a073404cc70ba5e14d6622d5325ca1}{do\+\_\+format}} ()
+\item 
+int \mbox{\hyperlink{sdcard_8cpp_a5589f2f5612eb685dd2508e08386afad}{do\+\_\+run}} (std\+::string \&st)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_a3c8708097b56a779f961bd0efccbf8ab}{remove\+Space}} (std\+::string \&\+\_\+st)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_abfe34379eda875e47a0691531147c5b9}{remove\+SD}} (std\+::string \&\+\_\+st)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_acf39053b8b26b6dc4e02fbd4ac2f7696}{do\+\_\+rename}} (std\+::string \&st)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_a8292668aca8b21b299757c85d12d3f11}{do\+Cat}} (std\+::string \&st\+In)
+\item 
+void \mbox{\hyperlink{sdcard_8cpp_ad3512e500fa33cabad7a38da18fee5be}{do\+\_\+\+Instruction\+Set}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{sdcard_8cpp_ac74d96a3b7642f5ae61f379f921cf837}{Current\+Directory}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains sd-\/card driver. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sdcard_8cpp_a80ddd5e08e3b6b2fc1f0d4771bfbcf66}\label{sdcard_8cpp_a80ddd5e08e3b6b2fc1f0d4771bfbcf66} 
+\index{sdcard.cpp@{sdcard.cpp}!defaultDirIncluded@{defaultDirIncluded}}
+\index{defaultDirIncluded@{defaultDirIncluded}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{defaultDirIncluded()}{defaultDirIncluded()}}
+{\footnotesize\ttfamily bool default\+Dir\+Included (\begin{DoxyParamCaption}\item[{std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+Check if the file name contains /sd/ 
+\begin{DoxyParams}{Parameters}
+{\em a} & string as a filename \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{cat_8cpp_source_l00098}{Do\+\_\+\+Cat()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00255}{do\+\_\+cd()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00318}{do\+\_\+copy()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00348}{do\+\_\+delete()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, and \mbox{\hyperlink{cat_8cpp_source_l00060}{printfile()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{sdcard_8cpp_afa0f82b2bdd1d69891f1ff056ce59c60}\label{sdcard_8cpp_afa0f82b2bdd1d69891f1ff056ce59c60} 
+\index{sdcard.cpp@{sdcard.cpp}!delAllFiles\_SDCard@{delAllFiles\_SDCard}}
+\index{delAllFiles\_SDCard@{delAllFiles\_SDCard}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{delAllFiles\_SDCard()}{delAllFiles\_SDCard()}}
+{\footnotesize\ttfamily void del\+All\+Files\+\_\+\+SDCard (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+DEL all files in the directory -\/ implementation TODO\texorpdfstring{$\ast$}{*}\+: Write the syntax. 
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00195}{195}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00172}{do\+\_\+del()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00140}{do\+\_\+dir()}}, and \mbox{\hyperlink{serialmessage_8cpp_source_l00275}{print\+\_\+help()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\Hypertarget{sdcard_8cpp_a1a7d582bfff6c766e732574cd32a8848}\label{sdcard_8cpp_a1a7d582bfff6c766e732574cd32a8848} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_cd@{do\_cd}}
+\index{do\_cd@{do\_cd}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_cd()}{do\_cd()}}
+{\footnotesize\ttfamily int do\+\_\+cd (\begin{DoxyParamCaption}\item[{std\+::string \&}]{st }\end{DoxyParamCaption})}
+
+Change the current active directory. syntax\+: cd New\+Directory\+Name. 
+\begin{DoxyParams}{Parameters}
+{\em st} & a string represent the new directory to change to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00255}{255}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00039}{default\+Dir\+Included()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{sdcard_8cpp_a5d3c4154ada5a6949f210300f0fe8da9}\label{sdcard_8cpp_a5d3c4154ada5a6949f210300f0fe8da9} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_copy@{do\_copy}}
+\index{do\_copy@{do\_copy}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_copy()}{do\_copy()}}
+{\footnotesize\ttfamily void do\+\_\+copy (\begin{DoxyParamCaption}\item[{std\+::string \&}]{st }\end{DoxyParamCaption})}
+
+Copy a file Syntax\+: copy old\+File\+Name\+With\+Path new\+File\+Name\+With\+Path 
+\begin{DoxyParams}{Parameters}
+{\em st} & a string of oldfilename and newfilename to be copied \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00318}{318}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, \mbox{\hyperlink{sdcard_8cpp_source_l00039}{default\+Dir\+Included()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00102}{file\+\_\+copy()}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00512}{remove\+Space()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{sdcard_8cpp_a355290cca9db41e48bc2c87134f51fe6}\label{sdcard_8cpp_a355290cca9db41e48bc2c87134f51fe6} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_del@{do\_del}}
+\index{do\_del@{do\_del}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_del()}{do\_del()}}
+{\footnotesize\ttfamily void do\+\_\+del (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{fsrc }\end{DoxyParamCaption})}
+
+DEL-\/file instruction implementation. syntax\+: del File\+Name\+With\+Path 
+\begin{DoxyParams}{Parameters}
+{\em fsrc} & filename to be deleted. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00172}{172}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00195}{del\+All\+Files\+\_\+\+SDCard()}}.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{sdcard_8cpp_a03843916552d7c3e949800d239c93e55}\label{sdcard_8cpp_a03843916552d7c3e949800d239c93e55} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_delete@{do\_delete}}
+\index{do\_delete@{do\_delete}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_delete()}{do\_delete()}}
+{\footnotesize\ttfamily void do\+\_\+delete (\begin{DoxyParamCaption}\item[{std\+::string \&}]{del\+File }\end{DoxyParamCaption})}
+
+Delete a file Syntax\+: del file\+Name without path. 
+\begin{DoxyParams}{Parameters}
+{\em del\+File} & filename to be deleted. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00348}{348}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, \mbox{\hyperlink{sdcard_8cpp_source_l00039}{default\+Dir\+Included()}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00520}{remove\+SD()}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00431}{do\+\_\+move()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{sdcard_8cpp_a29542bbd9dee92fa59fd2f1a3f5243e7}\label{sdcard_8cpp_a29542bbd9dee92fa59fd2f1a3f5243e7} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_dir@{do\_dir}}
+\index{do\_dir@{do\_dir}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_dir()}{do\_dir()}}
+{\footnotesize\ttfamily unsigned int do\+\_\+dir (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Pos,  }\item[{char(\&)}]{dir\+Buf\mbox{[}256\mbox{]}\mbox{[}256\mbox{]} }\end{DoxyParamCaption})}
+
+List the files in the directory .. syntax\+: dir 
+\begin{DoxyParams}{Parameters}
+{\em p\+Pos} & \+: the directory to list @ dir\+Buf a reference to an array represent a 2 dimensions array will contain the results \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of objects found 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00195}{del\+All\+Files\+\_\+\+SDCard()}}.
+
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{sdcard_8cpp_ad4a073404cc70ba5e14d6622d5325ca1}\label{sdcard_8cpp_ad4a073404cc70ba5e14d6622d5325ca1} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_format@{do\_format}}
+\index{do\_format@{do\_format}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_format()}{do\_format()}}
+{\footnotesize\ttfamily void do\+\_\+format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Format the SD Card Syntax\+: format 
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00455}{455}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, and \mbox{\hyperlink{common_8h_af0f08ac2ee0061f2201dd1c82f9925d3}{sd}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{sdcard_8cpp_ad3512e500fa33cabad7a38da18fee5be}\label{sdcard_8cpp_ad3512e500fa33cabad7a38da18fee5be} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_InstructionSet@{do\_InstructionSet}}
+\index{do\_InstructionSet@{do\_InstructionSet}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_InstructionSet()}{do\_InstructionSet()}}
+{\footnotesize\ttfamily void do\+\_\+\+Instruction\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Show instruction sets. 
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00683}{683}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 12
+\Hypertarget{sdcard_8cpp_ad540a2c054992ec25ea8b8d30e156d8e}\label{sdcard_8cpp_ad540a2c054992ec25ea8b8d30e156d8e} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_Listdir@{do\_Listdir}}
+\index{do\_Listdir@{do\_Listdir}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_Listdir()}{do\_Listdir()}}
+{\footnotesize\ttfamily void do\+\_\+\+Listdir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+SD-\/\+Card file/folder operations list all directories and print it on the terminal 
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00217}{217}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00054}{Change\+Terminal\+Color()}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 13
+Here is the caller graph for this function\+:
+% FIG 14
+\Hypertarget{sdcard_8cpp_af289002abbe27f09cce3282db629cfb4}\label{sdcard_8cpp_af289002abbe27f09cce3282db629cfb4} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_mkdir@{do\_mkdir}}
+\index{do\_mkdir@{do\_mkdir}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_mkdir()}{do\_mkdir()}}
+{\footnotesize\ttfamily void do\+\_\+mkdir (\begin{DoxyParamCaption}\item[{std\+::string \&}]{st }\end{DoxyParamCaption})}
+
+Make a directory Syntax\+: mkdir directory\+Name 
+\begin{DoxyParams}{Parameters}
+{\em path} & of the directory that dir should take place \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00415}{415}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00512}{remove\+Space()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16
+\Hypertarget{sdcard_8cpp_a679076c36a649faf1ef670d6e8871808}\label{sdcard_8cpp_a679076c36a649faf1ef670d6e8871808} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_mount@{do\_mount}}
+\index{do\_mount@{do\_mount}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_mount()}{do\_mount()}}
+{\footnotesize\ttfamily void do\+\_\+mount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Re mount the SD card 
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00290}{290}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{common_8h_af0f08ac2ee0061f2201dd1c82f9925d3}{sd}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 17
+\Hypertarget{sdcard_8cpp_a02f649de5e11229b0feef2a8888ccba1}\label{sdcard_8cpp_a02f649de5e11229b0feef2a8888ccba1} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_move@{do\_move}}
+\index{do\_move@{do\_move}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_move()}{do\_move()}}
+{\footnotesize\ttfamily void do\+\_\+move (\begin{DoxyParamCaption}\item[{std\+::string \&}]{st }\end{DoxyParamCaption})}
+
+Move a file to another directory move file\+Name\+With\+Path file\+Name\+With\+Path 
+\begin{DoxyParams}{Parameters}
+{\em st} & a string contation both file\+Name\+With\+Path file\+Name\+With\+Path \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00431}{431}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, \mbox{\hyperlink{sdcard_8cpp_source_l00348}{do\+\_\+delete()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00102}{file\+\_\+copy()}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00512}{remove\+Space()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 18
+Here is the caller graph for this function\+:
+% FIG 19
+\Hypertarget{sdcard_8cpp_acf39053b8b26b6dc4e02fbd4ac2f7696}\label{sdcard_8cpp_acf39053b8b26b6dc4e02fbd4ac2f7696} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_rename@{do\_rename}}
+\index{do\_rename@{do\_rename}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_rename()}{do\_rename()}}
+{\footnotesize\ttfamily void do\+\_\+rename (\begin{DoxyParamCaption}\item[{std\+::string \&}]{st }\end{DoxyParamCaption})}
+
+Rename a file Syntax\+:rename file\+Name\+With\+Path file\+Name\+With\+Path 
+\begin{DoxyParams}{Parameters}
+{\em st} & \+: a string that contains file\+Name\+With\+Path file\+Name\+With\+Path \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00532}{532}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00512}{remove\+Space()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 20
+Here is the caller graph for this function\+:
+% FIG 21
+\Hypertarget{sdcard_8cpp_afdeeb04e6597adca378ebb308c5c5aab}\label{sdcard_8cpp_afdeeb04e6597adca378ebb308c5c5aab} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_reset@{do\_reset}}
+\index{do\_reset@{do\_reset}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_reset()}{do\_reset()}}
+{\footnotesize\ttfamily void do\+\_\+reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reset the system 
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00283}{283}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{sdcard_8cpp_source_l00305}{do\+\_\+umount()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 22
+Here is the caller graph for this function\+:
+% FIG 23
+\Hypertarget{sdcard_8cpp_a5589f2f5612eb685dd2508e08386afad}\label{sdcard_8cpp_a5589f2f5612eb685dd2508e08386afad} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_run@{do\_run}}
+\index{do\_run@{do\_run}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_run()}{do\_run()}}
+{\footnotesize\ttfamily int do\+\_\+run (\begin{DoxyParamCaption}\item[{std\+::string \&}]{st }\end{DoxyParamCaption})}
+
+Run a script File Syntax run script\+File\+Name without path. 
+\begin{DoxyParams}{Parameters}
+{\em st} & a string contains the script\+File\+Name without path. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00470}{470}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{Change\+Inter\+Active\+Mode\+Status()}}, \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, \mbox{\hyperlink{sdcard_8cpp_source_l00039}{default\+Dir\+Included()}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{tokens_8cpp_source_l00362}{Initialize\+Default\+Script\+File\+Name()}}, \mbox{\hyperlink{interactive_8cpp_source_l00051}{Inter\+Active\+Mode}}, \mbox{\hyperlink{sdcard_8cpp_source_l00512}{remove\+Space()}}, \mbox{\hyperlink{interactive_8cpp_source_l00036}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME}}, \mbox{\hyperlink{interactive_8cpp_source_l00042}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME\+\_\+\+DAD}}, and \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 24
+Here is the caller graph for this function\+:
+% FIG 25
+\Hypertarget{sdcard_8cpp_afa10b17db4c4710c87aee5e3e6aa485d}\label{sdcard_8cpp_afa10b17db4c4710c87aee5e3e6aa485d} 
+\index{sdcard.cpp@{sdcard.cpp}!do\_umount@{do\_umount}}
+\index{do\_umount@{do\_umount}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{do\_umount()}{do\_umount()}}
+{\footnotesize\ttfamily void do\+\_\+umount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+unmount the SD card 
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00305}{305}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{common_8h_af0f08ac2ee0061f2201dd1c82f9925d3}{sd}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00283}{do\+\_\+reset()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 26
+\Hypertarget{sdcard_8cpp_a8292668aca8b21b299757c85d12d3f11}\label{sdcard_8cpp_a8292668aca8b21b299757c85d12d3f11} 
+\index{sdcard.cpp@{sdcard.cpp}!doCat@{doCat}}
+\index{doCat@{doCat}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{doCat()}{doCat()}}
+{\footnotesize\ttfamily void do\+Cat (\begin{DoxyParamCaption}\item[{std\+::string \&}]{st\+In }\end{DoxyParamCaption})}
+
+CAT instruction implementation. This instruction reads data from the file and gives their content as output. You can also use it to create new file 
+\begin{DoxyParams}{Parameters}
+{\em st\+In} & \+: Astring with multiple words syntax\+: cat \+: It displays the help on the screen cat help \+: It displays the help on the screen cat $<$filename$>$ \+: It displays the contents of the text file on the screen cat -\/c $<$filename$>$ $<$\+Script\+\_\+commands$>$ \+: Creates a new file and put the $<$text$>$ inside the file. $<$\+Script\+\_\+commands$>$ is optional. cat -\/a $<$filenme1$>$ $<$filename2$>$ $<$filename3$>$ \+: This command creates a new file with the name $<$filename1$>$ and combines the text of file $<$filename2$>$ and $<$filename3$>$ and put it in the new file. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00565}{565}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{cat_8cpp_source_l00098}{Do\+\_\+\+Cat()}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 27
+Here is the caller graph for this function\+:
+% FIG 28
+\Hypertarget{sdcard_8cpp_a1e7be35960f39c6158a75f250cda1851}\label{sdcard_8cpp_a1e7be35960f39c6158a75f250cda1851} 
+\index{sdcard.cpp@{sdcard.cpp}!file\_copy@{file\_copy}}
+\index{file\_copy@{file\_copy}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{file\_copy()}{file\_copy()}}
+{\footnotesize\ttfamily int file\+\_\+copy (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{src,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{dst }\end{DoxyParamCaption})}
+
+File copy -\/ implementation. syntax copy Old\+File\+Name\+With\+Path new\+File\+Name\+With\+Path 
+\begin{DoxyParams}{Parameters}
+{\em src} & as source file name \\
+\hline
+{\em dst} & as destination file name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if error , 0 if ok. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00318}{do\+\_\+copy()}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00431}{do\+\_\+move()}}.
+
+Here is the caller graph for this function\+:
+% FIG 29
+\Hypertarget{sdcard_8cpp_a25ec160d03581fe645996cb272427f41}\label{sdcard_8cpp_a25ec160d03581fe645996cb272427f41} 
+\index{sdcard.cpp@{sdcard.cpp}!initialize\_progFile@{initialize\_progFile}}
+\index{initialize\_progFile@{initialize\_progFile}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{initialize\_progFile()}{initialize\_progFile()}}
+{\footnotesize\ttfamily FILE \texorpdfstring{$\ast$}{*} initialize\+\_\+prog\+File (\begin{DoxyParamCaption}\item[{unsigned char}]{a }\end{DoxyParamCaption})}
+
+This function can be used to test the SD-\/\+Card. The function is not used by the Cracky\+OS Initialize the file used by the system. 
+\begin{DoxyParams}{Parameters}
+{\em a} & byte represent the type of the file 0 is read 1 is write \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{interactive_8cpp_source_l00036}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00236}{get\+Script\+Program\+File()}}.
+
+Here is the caller graph for this function\+:
+% FIG 30
+\Hypertarget{sdcard_8cpp_abfe34379eda875e47a0691531147c5b9}\label{sdcard_8cpp_abfe34379eda875e47a0691531147c5b9} 
+\index{sdcard.cpp@{sdcard.cpp}!removeSD@{removeSD}}
+\index{removeSD@{removeSD}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{removeSD()}{removeSD()}}
+{\footnotesize\ttfamily void remove\+SD (\begin{DoxyParamCaption}\item[{std\+::string \&}]{\+\_\+st }\end{DoxyParamCaption})}
+
+Remove the path /sd/. This assume that the path is only /sd/ 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+st} & remove the word /sd/ from a string. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00520}{520}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00348}{do\+\_\+delete()}}.
+
+Here is the caller graph for this function\+:
+% FIG 31
+\Hypertarget{sdcard_8cpp_a3c8708097b56a779f961bd0efccbf8ab}\label{sdcard_8cpp_a3c8708097b56a779f961bd0efccbf8ab} 
+\index{sdcard.cpp@{sdcard.cpp}!removeSpace@{removeSpace}}
+\index{removeSpace@{removeSpace}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{removeSpace()}{removeSpace()}}
+{\footnotesize\ttfamily void remove\+Space (\begin{DoxyParamCaption}\item[{std\+::string \&}]{\+\_\+st }\end{DoxyParamCaption})}
+
+Remove space before and after filename. Warning\+:File\+Name shouldn\textquotesingle{}t contain space. It will cause error 
+\begin{DoxyParams}{Parameters}
+{\em st} & a string that has space needs to be removed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00512}{512}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00318}{do\+\_\+copy()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00415}{do\+\_\+mkdir()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00431}{do\+\_\+move()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00532}{do\+\_\+rename()}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}.
+
+Here is the caller graph for this function\+:
+% FIG 32
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{sdcard_8cpp_ac74d96a3b7642f5ae61f379f921cf837}\label{sdcard_8cpp_ac74d96a3b7642f5ae61f379f921cf837} 
+\index{sdcard.cpp@{sdcard.cpp}!CurrentDirectory@{CurrentDirectory}}
+\index{CurrentDirectory@{CurrentDirectory}!sdcard.cpp@{sdcard.cpp}}
+\doxysubsubsection{\texorpdfstring{CurrentDirectory}{CurrentDirectory}}
+{\footnotesize\ttfamily std\+::string Current\+Directory}
+
+Global variable keeps the current\+Directory name. 
+
+Definition at line \mbox{\hyperlink{sdcard_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{sdcard_8cpp_source}{sdcard.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{cat_8cpp_source_l00098}{Do\+\_\+\+Cat()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00255}{do\+\_\+cd()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00318}{do\+\_\+copy()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00348}{do\+\_\+delete()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00217}{do\+\_\+\+Listdir()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00415}{do\+\_\+mkdir()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00431}{do\+\_\+move()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00532}{do\+\_\+rename()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, and \mbox{\hyperlink{cat_8cpp_source_l00060}{printfile()}}.
+

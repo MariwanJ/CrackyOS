@@ -1,0 +1,19 @@
+\doxysection{I2C Get}
+\hypertarget{i2c_get}{}\label{i2c_get}\index{I2C Get@{I2C Get}}
+This instruction reads data from an I2C device (master or slave). The instruction uses the standard I2\+C\+\_\+\+SCL and I2\+C\+\_\+\+SDA definitions.~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ i2c\+\_\+get MASTER/\+SLAVE, address, VARIABLE\+\_\+receive\+\_\+data, length\+Of\+Data;}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{MASTER/\+SLAVE\+:}} ~~~0= Master , 1=Slave
+\item {\bfseries{ADDRESS\+:}}~~~~~ ~~~~~~ Address of the MASTER/\+SLAVE~\newline
+
+\item {\bfseries{VARIABLE\+\_\+\+NAME\+:}} You must provide the instruction a variable name. The results will be saved in that variable (might be an array of char).
+\item {\bfseries{length\+Of\+Data\+:}} ~~~~~~~Length of the message or data~\newline
+
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ myvalue =\{245,133\}; i2c\+\_\+send 1, 1222, myvalue,2; ~~~  rem read from the slave 2 bytes~\newline
+ 

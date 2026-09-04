@@ -1,0 +1,36 @@
+\doxysection{ringbuffer.\+h}
+\hypertarget{ringbuffer_8h_source}{}\label{ringbuffer_8h_source}\index{CrackyOS/src/ringbuffer.h@{CrackyOS/src/ringbuffer.h}}
+\mbox{\hyperlink{ringbuffer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00026}00026\ \textcolor{preprocessor}{\#ifndef\ RINGBUFFER\_H}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ RINGBUFFER\_H}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00029}00029\ \textcolor{preprocessor}{\#define\ DEBUG\_MAX\_FIFO\_RING\_BUF\_SIZE\ 1024\ *\ 4}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00030}00030\ \textcolor{preprocessor}{\#define\ SERIAL\_MAX\_FIFO\_RING\_BUF\_SIZE\ 1024}}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00037}\mbox{\hyperlink{class_ring_buffer}{00037}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ring_buffer}{RingBuffer}}\ \{}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00038}00038\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00039}00039\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ring\_buf[DEBUG\_MAX\_FIFO\_RING\_BUF\_SIZE];}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00040}00040\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \_bufsize;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00041}00041\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ read\_index;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00042}00042\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ write\_index;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00043}00043\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ item\_count;}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00045}00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00049}00049\ \ \ \mbox{\hyperlink{class_ring_buffer}{RingBuffer}}(\textcolor{keywordtype}{int}\ \_bufsize\ =\ 100);}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00053}\mbox{\hyperlink{class_ring_buffer_a2715b2e99ea24521ef7a586c2f33e1c9}{00053}}\ \ \ \mbox{\hyperlink{class_ring_buffer_a2715b2e99ea24521ef7a586c2f33e1c9}{\string~RingBuffer}}();}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00059}00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ring_buffer_a04ce65fe5a65d2d8e2b074d88a5ebc56}{put}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00064}00064\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_ring_buffer_a471bdae38f952402f0f464be4c2ff75d}{get}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00069}00069\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_ring_buffer_a49830e55b87fd4e51580d614e7626a0d}{checkEmpty}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00076}00076\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_ring_buffer_a298799c6451c8a11842beecf1b50b863}{checkOverflow}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00081}\mbox{\hyperlink{class_ring_buffer_a151421c4e2368dc4d340ed3506ae93fa}{00081}}\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_ring_buffer_a151421c4e2368dc4d340ed3506ae93fa}{buffersize}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ \_bufsize;\ \};}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00082}00082\ \};}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00085}00085\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_ring_buffer}{RingBuffer}}\ \mbox{\hyperlink{ringbuffer_8h_a98efbd908f8658a20f778062bcf962d2}{DebugSerialFIFO}};}
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{ringbuffer_8h_source_l00087}00087\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

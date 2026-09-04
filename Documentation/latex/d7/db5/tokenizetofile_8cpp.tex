@@ -1,0 +1,174 @@
+\doxysection{Cracky\+OS/src/tokenizetofile.cpp File Reference}
+\hypertarget{tokenizetofile_8cpp}{}\label{tokenizetofile_8cpp}\index{CrackyOS/src/tokenizetofile.cpp@{CrackyOS/src/tokenizetofile.cpp}}
+
+
+This file contains per-\/compiling mechanism functions.  
+
+
+{\ttfamily \#include \"{}tokenizetofile.\+h\"{}}\newline
+Include dependency graph for tokenizetofile.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tokenizetofile_8cpp_a223b611e556f247af4037f2da83ae382}{add\+New\+Item\+To\+Linked\+List}} ()
+\item 
+int \mbox{\hyperlink{tokenizetofile_8cpp_aaf4bd95078f66090aa460d7b9cfacb1f}{read\+Tolinked\+List}} (const char \texorpdfstring{$\ast$}{*}filename, unsigned int lines)
+\item 
+unsigned int \mbox{\hyperlink{tokenizetofile_8cpp_ad56fedd65da20cb5cb6c112a62e1481f}{countlines}} (const char \texorpdfstring{$\ast$}{*}filename)
+\item 
+void \mbox{\hyperlink{tokenizetofile_8cpp_ad920367658f41912f4a583563baf71b3}{free\+\_\+script\+Prog}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tokenizetofile_8cpp_ab3a251d9612b63a8f2cf1809c04e67d5}{script\+Prog}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains per-\/compiling mechanism functions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tokenizetofile_8cpp_a223b611e556f247af4037f2da83ae382}\label{tokenizetofile_8cpp_a223b611e556f247af4037f2da83ae382} 
+\index{tokenizetofile.cpp@{tokenizetofile.cpp}!addNewItemToLinkedList@{addNewItemToLinkedList}}
+\index{addNewItemToLinkedList@{addNewItemToLinkedList}!tokenizetofile.cpp@{tokenizetofile.cpp}}
+\doxysubsubsection{\texorpdfstring{addNewItemToLinkedList()}{addNewItemToLinkedList()}}
+{\footnotesize\ttfamily void add\+New\+Item\+To\+Linked\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+add new item to the script\+Prog linked list 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00029}{script\+Prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00509}{read\+Tolinked\+List()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{Tokenize\+To\+File\+::run\+Interactive()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{tokenizetofile_8cpp_ad56fedd65da20cb5cb6c112a62e1481f}\label{tokenizetofile_8cpp_ad56fedd65da20cb5cb6c112a62e1481f} 
+\index{tokenizetofile.cpp@{tokenizetofile.cpp}!countlines@{countlines}}
+\index{countlines@{countlines}!tokenizetofile.cpp@{tokenizetofile.cpp}}
+\doxysubsubsection{\texorpdfstring{countlines()}{countlines()}}
+{\footnotesize\ttfamily unsigned int countlines (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+This function will count the number of lines available for the given filename 
+\begin{DoxyParams}{Parameters}
+{\em filename} & A filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int value represent the total line numbers. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00563}{563}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{tokenizetofile_8cpp_ad920367658f41912f4a583563baf71b3}\label{tokenizetofile_8cpp_ad920367658f41912f4a583563baf71b3} 
+\index{tokenizetofile.cpp@{tokenizetofile.cpp}!free\_scriptProg@{free\_scriptProg}}
+\index{free\_scriptProg@{free\_scriptProg}!tokenizetofile.cpp@{tokenizetofile.cpp}}
+\doxysubsubsection{\texorpdfstring{free\_scriptProg()}{free\_scriptProg()}}
+{\footnotesize\ttfamily void free\+\_\+script\+Prog (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Remove the linked list items from memory 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00587}{587}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokenizetofile_8cpp_source_l00029}{script\+Prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{tokenizetofile_8cpp_aaf4bd95078f66090aa460d7b9cfacb1f}\label{tokenizetofile_8cpp_aaf4bd95078f66090aa460d7b9cfacb1f} 
+\index{tokenizetofile.cpp@{tokenizetofile.cpp}!readTolinkedList@{readTolinkedList}}
+\index{readTolinkedList@{readTolinkedList}!tokenizetofile.cpp@{tokenizetofile.cpp}}
+\doxysubsubsection{\texorpdfstring{readTolinkedList()}{readTolinkedList()}}
+{\footnotesize\ttfamily int read\+Tolinked\+List (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{unsigned int}]{lines }\end{DoxyParamCaption})}
+
+Load from the file the linked list which contains the code
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A file name to load the tokinized instructions. \\
+\hline
+{\em lines} & Number of lines to load. \\
+\hline
+\end{DoxyParams}
+We should avoid having ~\newline
+ in all token words and strings we save in memory. We should have it in the .dad file but, not in the memory. 2020-\/03-\/05
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00509}{509}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokenizetofile_8cpp_source_l00034}{add\+New\+Item\+To\+Linked\+List()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokenizetofile_8h_source_l00039}{MAX\+\_\+\+TOKEN\+\_\+\+SIZE}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00029}{script\+Prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{tokenizetofile_8cpp_ab3a251d9612b63a8f2cf1809c04e67d5}\label{tokenizetofile_8cpp_ab3a251d9612b63a8f2cf1809c04e67d5} 
+\index{tokenizetofile.cpp@{tokenizetofile.cpp}!scriptProg@{scriptProg}}
+\index{scriptProg@{scriptProg}!tokenizetofile.cpp@{tokenizetofile.cpp}}
+\doxysubsubsection{\texorpdfstring{scriptProg}{scriptProg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}}\texorpdfstring{$\ast$}{*} script\+Prog = NULL}
+
+Global variable used in \doxylink{tokenizetofile_8cpp}{tokenizetofile.\+cpp} 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00034}{add\+New\+Item\+To\+Linked\+List()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00587}{free\+\_\+script\+Prog()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00509}{read\+Tolinked\+List()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{Tokenize\+To\+File\+::run\+Interactive()}}.
+

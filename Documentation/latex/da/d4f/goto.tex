@@ -1,0 +1,13 @@
+\doxysection{Goto}
+\hypertarget{goto}{}\label{goto}\index{Goto@{Goto}}
+A goto statement provides an unconditional jump from the \textquotesingle{}goto\textquotesingle{} to a labeled statement or start of a script program. It must be in the same function~\newline
+ Goto might be a better choice than while loop or for loop since there are less calculations in the script engine. This can increase speed and performance of the script program. {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ goto LABEL }} Note\+: Label\+: must be defined for goto statment works. If you jump to an undefined label, script program execution will fails. {\itshape {\bfseries{ ~\newline
+ Example\+: }} } ~\newline
+ goto exit\+Point; ~~~  rem goto exit ~\newline
+ print \"{}\+Unexecuted instruction\textbackslash{}n\"{};~\newline
+ ....~\newline
+ \+:exit\+Point\+: ~~~  rem Label definition ~\newline
+ print \"{}\+I am going out!!\textbackslash{}n\"{}; ~~~  rem send to serial \"{}\+I am going out!!\"{} ~\newline
+ 

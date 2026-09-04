@@ -1,0 +1,485 @@
+\doxysection{serialmessage.\+cpp}
+\hypertarget{serialmessage_8cpp_source}{}\label{serialmessage_8cpp_source}\index{CrackyOS/src/serialmessage.cpp@{CrackyOS/src/serialmessage.cpp}}
+\mbox{\hyperlink{serialmessage_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{serialmessage_8h}{serialmessage.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00030}\mbox{\hyperlink{serialmessage_8cpp_a751e58737c673f4b8c279d6d8797f59a}{00030}}\ FILE\ *\mbox{\hyperlink{serialmessage_8cpp_a751e58737c673f4b8c279d6d8797f59a}{testProgw}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00054}\mbox{\hyperlink{serialmessage_8cpp_a838bd3673f5c8e9614bbcbcb2b056b58}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8cpp_a838bd3673f5c8e9614bbcbcb2b056b58}{ChangeTerminalColor}}(\textcolor{keywordtype}{int}\ \_color)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00055}00055\ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}\%c"{}},\ \textcolor{keywordtype}{char}(27));}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\_color)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{case}\ 0:\ SERIAL\_MESSAGE(\mbox{\hyperlink{serialmessage_8h_afd57be3278b9d583a49086da2572609b}{FONT\_BLACK\_CODE}});\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ SERIAL\_MESSAGE(FONT\_RED\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ SERIAL\_MESSAGE(FONT\_GREEN\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ SERIAL\_MESSAGE(FONT\_YELLOW\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{case}\ 4:\ SERIAL\_MESSAGE(FONT\_BLUE\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ SERIAL\_MESSAGE(FONT\_MAGENTA\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{case}\ 6:\ SERIAL\_MESSAGE(FONT\_CYNA\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{case}\ 7:\ SERIAL\_MESSAGE(FONT\_WHITE\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{case}\ 10:SERIAL\_MESSAGE(FONT\_DEFAULT\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{case}\ 20:\ SERIAL\_MESSAGE(BKG\_BLACK\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{case}\ 21:\ SERIAL\_MESSAGE(BKG\_RED\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{case}\ 22:\ SERIAL\_MESSAGE(BKG\_GREEN\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{case}\ 23:\ SERIAL\_MESSAGE(BKG\_YELLOW\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{case}\ 24:\ SERIAL\_MESSAGE(BKG\_BLUE\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{case}\ 25:\ SERIAL\_MESSAGE(BKG\_MAGENTA\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{case}\ 26:\ SERIAL\_MESSAGE(BKG\_CYNA\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{case}\ 27:\ SERIAL\_MESSAGE(BKG\_WHITE\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{case}\ 30:SERIAL\_MESSAGE(BKG\_DEFAULT\_CODE);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00084}\mbox{\hyperlink{serialmessage_8cpp_abb33710040c1d3401e8a0996b3b5d0fa}{00084}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serialmessage_8cpp_abb33710040c1d3401e8a0996b3b5d0fa}{SERIAL\_Print}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format,\ ...)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordtype}{char}\ *pstrBuf\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{char}\ *scanBuffr\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00088}00088\ \ \ \ \ std::va\_list\ arg;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00089}00089\ \ \ \ \ va\_start(arg,\ format);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00090}00090\ \ \ \ \ std::va\_list\ length\_arg;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00091}00091\ \ \ \ \ va\_copy(length\_arg,\ arg);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ ARMCC\ microlib\ does\ not\ properly\ handle\ a\ size\ of\ 0.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{comment}{//\ As\ a\ workaround\ supply\ a\ dummy\ buffer\ with\ a\ size\ of\ 1.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{char}\ dummy\_buf[1];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00095}00095\ \ \ \ \ len\ =\ vsnprintf(dummy\_buf,\ \textcolor{keyword}{sizeof}(dummy\_buf),\ format,\ length\_arg);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00096}00096\ \ \ \ \ va\_end(length\_arg);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00097}00097\ \ \ \ \ pstrBuf\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[len\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (pstrBuf\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00102}00102\ \ \ \ \ vsnprintf(pstrBuf,\ len\ +\ 1,\ format,\ arg);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00103}00103\ \ \ \ \ scanBuffr\ =\ pstrBuf;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{while}\ (*scanBuffr\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>write(scanBuffr,\ 1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ scanBuffr++;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//\ printf(pstrBuf);\ We\ avoid\ blocking\ the\ execution.\ \ A\ thread\ will\ take\ care\ of\ this\ part.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00109}00109\ \ \ \ \ va\_end(arg);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{keyword}{delete}[]\ pstrBuf;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00111}00111\ \ \ \ \ pstrBuf\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{return}\ len;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00113}00113\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00115}00115\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00121}\mbox{\hyperlink{serialmessage_8cpp_a3d772b95d3bbe01c30f97786e026b67c}{00121}}\ \textcolor{comment}{}\textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8cpp_a3d772b95d3bbe01c30f97786e026b67c}{GetStringFromSerial}}(\textcolor{keywordtype}{char}\ *stringBuf\ )\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00122}00122\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordtype}{char}\ tempbuf[2];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00124}00124\ \ \ \ \ memset(stringBuf,\ \textcolor{charliteral}{'\(\backslash\)0'},\ \mbox{\hyperlink{serialmessage_8h_a79d0fd68dab19a786ec2c9c90bd690c1}{INTER\_ACTIVE\_MODE\_MAX\_LENGTH\_OF\_THE\_STRING}});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{while}\ (count\ <\ \mbox{\hyperlink{serialmessage_8h_a79d0fd68dab19a786ec2c9c90bd690c1}{INTER\_ACTIVE\_MODE\_MAX\_LENGTH\_OF\_THE\_STRING}}\ -\/\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>readable())\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ memset(tempbuf,\ 0,\ 2);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>read(tempbuf,\ 1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ stringBuf[count]\ =\ tempbuf[0];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stringBuf[count]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stringBuf[count]\ ==\ \textcolor{charliteral}{'\(\backslash\)b'})\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ >=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>write(\textcolor{stringliteral}{"{}\(\backslash\)b\ \(\backslash\)b"{}},\ 3);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stringBuf[count]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count-\/-\/;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stringBuf[count]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memset(tempbuf,\ 0,\ 2);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tempbuf[0]\ =\ stringBuf[count];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>write(tempbuf,\ 1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ rtos::ThisThread::sleep\_for(chrono::milliseconds(1));}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ ;\ \ \ \ \textcolor{comment}{//Wait\ 1\ \ msec}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00150}00150\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00156}\mbox{\hyperlink{serialmessage_8cpp_ae0000cf6f87dca81e79f42882c69e058}{00156}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8cpp_ae0000cf6f87dca81e79f42882c69e058}{clearAndHomeSerial}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{comment}{//Serial\ Terminal}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00158}00158\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ clearAndHomeSequence[]\ =\ \textcolor{stringliteral}{"{}\(\backslash\)033[2J\(\backslash\)033[H"{}};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>write(clearAndHomeSequence,\ \textcolor{keyword}{sizeof}(clearAndHomeSequence)\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00162}00162\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00168}\mbox{\hyperlink{serialmessage_8cpp_af7a75650db2927eac4ec11f1a4adf1a5}{00168}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8cpp_af7a75650db2927eac4ec11f1a4adf1a5}{clearAndHomeDEBUG}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00169}00169\ \ \ \ \ \textcolor{comment}{//Debug\ Terminal}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Debug\_pc\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ clearAndHomeSequence[]\ =\ \textcolor{stringliteral}{"{}\(\backslash\)033[2J\(\backslash\)033[H"{}};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Debug\_pc-\/>write(clearAndHomeSequence,\ \textcolor{keyword}{sizeof}(clearAndHomeSequence)\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00173}00173\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00174}00174\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00179}\mbox{\hyperlink{serialmessage_8cpp_ad4fe6900869724f5f94d448ae9c415be}{00179}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8cpp_ad4fe6900869724f5f94d448ae9c415be}{clearAndHome}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00180}00180\ \ \ \ \ \textcolor{comment}{//Serial\ Terminal}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00181}00181\ \ \ \ \ \mbox{\hyperlink{serialmessage_8cpp_ae0000cf6f87dca81e79f42882c69e058}{clearAndHomeSerial}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00182}00182\ \ \ \ \ \mbox{\hyperlink{serialmessage_8cpp_af7a75650db2927eac4ec11f1a4adf1a5}{clearAndHomeDEBUG}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00183}00183\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00188}\mbox{\hyperlink{serialmessage_8cpp_acd5bfd0bce081cb3ee6d5d9f45dfd18e}{00188}}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{serialmessage_8cpp_acd5bfd0bce081cb3ee6d5d9f45dfd18e}{GET\_SERIAL\_TEXT}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00189}00189\ \ \ \ \ \textcolor{keywordtype}{char}\ *pstrTextMessage1\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00190}00190\ \ \ \ \ \textcolor{keywordtype}{char}\ *pstrTextMessage2\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00192}00192\ \ \ \ \ \textcolor{keywordtype}{int}\ counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00193}00193\ \ \ \ \ \textcolor{keywordtype}{int}\ memPage\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00194}00194\ \ \ \ \ pstrTextMessage2\ =\ pstrTextMessage1\ =\ (\textcolor{keywordtype}{char}*)\ calloc(}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ MAX\_ALLOWED\_MESSAGELENGTH,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00196}00196\ \ \ \ \ \textcolor{keywordflow}{if}\ (pstrTextMessage1\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SERIAL\_BUFF);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00200}00200\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>readable())\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ bufft[2];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ memset(bufft,\ 0,\ 2);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>read(bufft,\ 1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ pstrTextMessage1[counter]\ =\ bufft[0];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ checksum+=pstrTextMessage1[counter];\ \ \ \ //Calculate\ checksum}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((pstrTextMessage1[counter]\ !=\ \textcolor{charliteral}{'\#'}))\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ counter++;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\ +\ 1\ >=\ MAX\_ALLOWED\_MESSAGELENGTH\ *\ memPage)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memPage++;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *newReallocatedPointer\ =\ (\textcolor{keywordtype}{char}*)\ realloc(}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pstrTextMessage1,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MAX\_ALLOWED\_MESSAGELENGTH\ *\ memPage);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newReallocatedPointer\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GET\_SERIAL);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pstrTextMessage1\ =\ newReallocatedPointer;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ have\ the\ text\ now.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pstrTextMessage1[counter]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \textcolor{comment}{//\ remove\ \#\ from\ the\ string.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pstrTextMessage2;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\ +\ 1\ <\ MAX\_ALLOWED\_MESSAGELENGTH\ *\ memPage)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//This\ will\ replace\ memset\ as\ we\ cannot\ memset\ reallocated\ memory.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pstrTextMessage1[counter\ +\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \textcolor{comment}{//memset\ for\ reallocated\ places.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00231}00231\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00236}\mbox{\hyperlink{serialmessage_8cpp_afbaba4deee6542e01b6eed52fcaac82d}{00236}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8cpp_afbaba4deee6542e01b6eed52fcaac82d}{getScriptProgramFile}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00237}00237\ \ \ \ \ \textcolor{keywordtype}{int}\ counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00238}00238\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ sbuff;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00239}00239\ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}Send\ the\ file\ please\ and\ quit\ with\ '\#'\ symbol\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00241}00241\ \ \ \ \ select\_spi\_channel\ (CHANNEL0);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00242}00242\ \ \ \ \ \mbox{\hyperlink{serialmessage_8cpp_a751e58737c673f4b8c279d6d8797f59a}{testProgw}}\ =\ \mbox{\hyperlink{sdcard_8cpp_a25ec160d03581fe645996cb272427f41}{initialize\_progFile}}(1);\ \ \ \ \ \textcolor{comment}{//\ Open\ file\ in\ WRITE\ MODE.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00243}00243\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{serialmessage_8cpp_a751e58737c673f4b8c279d6d8797f59a}{testProgw}}\ ==\ NULL)\ \{\ \textcolor{comment}{//If\ we\ didn't\ open\ the\ file\ for\ 'write'\ quit\ and\ you\ could\ run\ interactive\ mode\ again.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ERROR\_CANNOT\_CREATE\_FILE);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00246}00246\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00247}00247\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>readable())\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ buff[2];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ memset(buff,\ 0,\ 2);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>read(buff,\ 1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ checksum+=sbuff;\ \ \ \ //Calculate\ checksum}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((\textcolor{keywordtype}{char})\ buff[0])\ !=\ \textcolor{charliteral}{'\#'})\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>write(buff,\ 1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sbuff\ =\ buff[0];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fputc(sbuff,\ \mbox{\hyperlink{serialmessage_8cpp_a751e58737c673f4b8c279d6d8797f59a}{testProgw}});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ counter++;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fclose(\mbox{\hyperlink{serialmessage_8cpp_a751e58737c673f4b8c279d6d8797f59a}{testProgw}});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rtos::ThisThread::sleep\_for(chrono::seconds(1));\ \textcolor{comment}{//Wait\ 1000\ \ msec}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00267}00267\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00268}00268\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00270}00270\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ checksum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00275}\mbox{\hyperlink{serialmessage_8cpp_a402ea961bfc2ffeee61e3a7c330b1559}{00275}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8cpp_a402ea961bfc2ffeee61e3a7c330b1559}{print\_help}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00276}00276\ \ \ \ \ \mbox{\hyperlink{serialmessage_8cpp_ad4fe6900869724f5f94d448ae9c415be}{clearAndHome}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00278}00278\ \ \ \ \ SERIAL\_MESSAGE(}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00280}00280\ \textcolor{stringliteral}{\ \ \ \ \(\backslash\)033[5m\(\backslash\)033[7m\(\backslash\)033[1m\(\backslash\)t\(\backslash\)tCrackyOS\ Scripting\ OS\ Version\ 1.0:\(\backslash\)033[0m\ \(\backslash\)t\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00281}00281\ \textcolor{stringliteral}{\ \ \ \ 1)\ dir:\ List\ the\ directories\ available\ on\ the\ SD\ disk\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00282}00282\ \textcolor{stringliteral}{\ \ \ \ 2)\ cd\ dirName:\ Change\ current\ directory\ \(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00283}00283\ \textcolor{stringliteral}{\ \ \ \ 3)\ copy\ oldfilename\ newfilename:\ Copy\ a\ file\ \(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00284}00284\ \textcolor{stringliteral}{\ \ \ \ 4)\ del\ fName:\ delete\ the\ file\ from\ SD\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00285}00285\ \textcolor{stringliteral}{\ \ \ \ 5)\ mkdir\ name:\ Make\ a\ directory\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00286}00286\ \textcolor{stringliteral}{\ \ \ \ 6)\ move:\ oldfilename\ newfilename\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00287}00287\ \textcolor{stringliteral}{\ \ \ \ 7)\ format:\ Erase\ SD\ Disk\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00288}00288\ \textcolor{stringliteral}{\ \ \ \ 8)\ run:\ filename:\ Run\ a\ script\ program\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00289}00289\ \textcolor{stringliteral}{\ \ \ \ 9)\ rename:\ oldfilename\ newfilename:\ Rename\ a\ file\ name\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00290}00290\ \textcolor{stringliteral}{\ \ \ 10)\ clear:\ Clear\ terminal\ screen\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00291}00291\ \textcolor{stringliteral}{\ \ \ 11)\ cls:\ Clear\ terminal\ screen\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00292}00292\ \textcolor{stringliteral}{\ \ \ 12)\ mount:\ mount\ the\ SD\ card\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00293}00293\ \textcolor{stringliteral}{\ \ \ 13)\ umount/unmount:\ Unmount\ the\ SD\ Card\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00294}00294\ \textcolor{stringliteral}{\ \ \ 14)\ reset:\ Reset\ the\ system\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00295}00295\ \textcolor{stringliteral}{\ \ \ 15)\ help:\ print\ help\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00296}00296\ \textcolor{stringliteral}{\ \ \ 16)\ InstructionSet:\ list\ down\ the\ instruction\ sets\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00297}00297\ \textcolor{stringliteral}{\ \ \ 17)\ cat:\ Show\ content\ of\ a\ file\ or\ create\ a\ file\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00298}00298\ \textcolor{stringliteral}{\ \ \ 18)\ send\_script:\ Send\ program\ script\ file\ via\ serial\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00299}00299\ \textcolor{stringliteral}{\ \ \ 19)\ or\ Instruction\ sets\ separated\ by\ semicolon\ ..\ Please\ read\ the\ documentation\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00300}00300\ \textcolor{stringliteral}{\ \ \ "{}});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00301}00301\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00310}\mbox{\hyperlink{common_8h_a7cc50339644ce59f9885d5ea5fd30e1d}{00310}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serialmessage_8cpp_a1682f1ac4ba8ca721e2a05d758b83816}{token\_baud\_rate}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00311}00311\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00312}00312\ \ \ \ \ STOP\_CODE\_EXECUTION\_MINUS}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00314}00314\ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_BAUD\_RATE\_COMMAND\_EXECUTED);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00315}00315\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_BAUD\_RATE);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00316}00316\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_BAUDRATE\_NUMBER\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00319}00319\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00320}00320\ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a784e73e1ce3f90fbcbb0a78d72a053ff}{baud\_rate}}\ =\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00321}00321\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>baud(\mbox{\hyperlink{interactive_8cpp_a784e73e1ce3f90fbcbb0a78d72a053ff}{baud\_rate}});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00322}00322\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00323}00323\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00324}00324\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00331}\mbox{\hyperlink{common_8h_a78bab7127f6044197c9f61e6e1c015c8}{00331}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serialmessage_8cpp_a5d441f4b18602c1e62c5f25a3a8011e4}{token\_enable\_debug}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00332}00332\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00333}00333\ \ \ \ \ STOP\_CODE\_EXECUTION\_MINUS}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00335}00335\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_ENABLE\_DEBUG)}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{error_8cpp_ac0cefbc29fdb43e11229615eaf88641e}{DEBUG\_MESSAGE\_ENABLE}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00337}00337\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{error_8cpp_ac0cefbc29fdb43e11229615eaf88641e}{DEBUG\_MESSAGE\_ENABLE}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00339}00339\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00340}00340\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}});}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00341}00341\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{error_8cpp_a012bd18cb574eb0a37a6ec07096e0293}{enable\_disableDebugThread}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00342}00342\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00352}\mbox{\hyperlink{common_8h_a68c44d54903a111aeef202dbcf06bd63}{00352}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serialmessage_8cpp_a68c44d54903a111aeef202dbcf06bd63}{token\_print}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00353}00353\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00354}00354\ \ \ \ \ STOP\_CODE\_EXECUTION\_MINUS}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00356}00356\ \ \ \ \ \textcolor{comment}{//TODO:\ Make\ this\ function\ to\ be\ able\ to\ take\ even\ the\ format\ of\ normal\ printf\ ..ie\ ("{}\%i,\ text\ ,\ ..etc"{},var1,\ var2..etc)\ 2018-\/04-\/01}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00357}00357\ \ \ \ \ \textcolor{keywordtype}{char}\ *pserBuff\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00358}00358\ \ \ \ \ ;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00359}00359\ \ \ \ \ \textcolor{keywordtype}{int}\ strLength\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00361}00361\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_PRINT);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00362}00362\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}})\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00363}00363\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_STRING:\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ strLength\ =\ strlen(\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString)\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ pserBuff\ =\ (\textcolor{keywordtype}{char}*)\ calloc(strLength\ +\ 1,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pserBuff\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ free(pserBuff);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ strncpy(pserBuff,\ (\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString\ +\ 1),\ strLength\ -\/\ 1);\ \textcolor{comment}{//We\ don't\ need\ to\ add\ '\(\backslash\)0'\ as\ we\ uses\ calloc}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a3a860209fa9dbbf9c1c5e478105e3dcb}{FixStringIssue}}(pserBuff);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ It\ is\ only\ a\ string\ ...Just\ send\ it\ to\ the\ serial\ terminal}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(pserBuff);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_STRING);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ free(pserBuff);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ pserBuff\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00380}00380\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00381}00381\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_VARIABLE:\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ strLength\ =\ strlen(\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ pserBuff\ =\ (\textcolor{keywordtype}{char}*)\ calloc(strLength\ +\ 1,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pserBuff\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ strncpy(pserBuff,\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString,\ strLength);\ \textcolor{comment}{//We\ don't\ need\ to\ add\ '\(\backslash\)0'\ as\ we\ uses\ calloc}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Here\ we\ have\ a\ variable}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \textcolor{comment}{//the\ variable\ could\ be\ either\ numerical\ or\ string.\ We\ have\ to\ separate\ that.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ varPosition\ =\ \mbox{\hyperlink{tokens_8cpp_af255f12c1be461e65dbaf4363419b7ef}{TestSystem\_get\_variable}}(pserBuff);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00395}00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (varPosition\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//It\ is\ an\ error\ since\ the\ variable\ was\ used\ with\ another\ instruction}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_VARIABLE);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pserBuff\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ free(pserBuff);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ pserBuff\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Find\ out\ if\ the\ variable\ is\ an\ array\ and\ we\ have\ only\ a\ value\ of\ the\ array\ to\ be\ printed}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_LEFT\_SQUARE\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ a\ value\ of\ an\ array\ that\ must\ be\ printed\ ..i.e\ a[No.]}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_LEFT\_SQUARE\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}==TOKEN\_VARIABLE)\{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_PRINT\_SYNTAX\_NOT\_SUPPORTED);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_PRINT0);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00418}00418\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ value\ =\ (int)\ \mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_PRINT1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_RIGHT\_SQUARE\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_PRINT2);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_RIGHT\_SQUARE\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ T\_STRING:}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}\%c"{}},}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.txtvalue[value]);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00438}00438\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ T\_FLOAT:}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}\%f"{}},\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf[value]);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00440}00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ T\_INT:}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE\ (\textcolor{stringliteral}{"{}\%i"{}},\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi[value]);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00443}00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_WRONG\_VAR);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00448}00448\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00449}00449\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00450}00450\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ T\_STRING:\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *testString\ =\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (testString\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ need\ to\ check\ if\ the\ array\ has\ got\ ASCII\ code\ or\ Hex\ numbers.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a3a860209fa9dbbf9c1c5e478105e3dcb}{FixStringIssue}}(testString);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00456}00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(testString);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00460}00460\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00461}00461\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ T\_FLOAT:\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sizeOfFloatArray\ =\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00463}00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sizeOfFloatArray\ >\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00464}00464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ sizeOfFloatArray;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ st;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00466}00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ st\ =\ std::to\_string(}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf[i]);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(st.c\_str());}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ st;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00472}00472\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ st\ =\ std::to\_string(}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00473}00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pf);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00474}00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(st.c\_str());}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00475}00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00479}00479\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ T\_INT:\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00480}00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sizeOfFloatArray\ =\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00481}00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sizeOfFloatArray\ >\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ sizeOfFloatArray;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00483}00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ st;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00484}00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ st\ =\ std::to\_string(}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00485}00485\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi[i]);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00486}00486\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(st.c\_str());}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ st;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ st\ =\ std::to\_string(}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00491}00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].Value.pi);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(st.c\_str());}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00495}00495\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00496}00496\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_WRONG\_VAR);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00501}00501\ \ \ \ \ \ \ \ \ \textcolor{comment}{//SERIAL\_MESSAGE("{}\(\backslash\)n"{});\ \ We\ can\ not\ have\ this\ as\ user\ must\ decide\ if\ they\ want\ to\ do\ so.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00502}00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00503}00503\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00504}00504\ \ \ \ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00505}00505\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ERROR\_FATAL\_WE\_SHOULDNT\_BE\_HERE1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00507}00507\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00508}00508\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00509}00509\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00510}00510\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00511}00511\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00519}\mbox{\hyperlink{common_8h_ab19ba49a21cdc9b958dcca3bff49d54b}{00519}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serialmessage_8cpp_ab19ba49a21cdc9b958dcca3bff49d54b}{token\_serial\_get}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00520}00520\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00521}00521\ \ \ \ \ STOP\_CODE\_EXECUTION\_MINUS}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00522}00522\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00523}00523\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_SERIAL\_GET);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00524}00524\ \ \ \ \ \textcolor{keywordtype}{int}\ varPosition;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00525}00525\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_VARIABLE)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00526}00526\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_FOUND\_SERIAL\_GET);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00528}00528\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00529}00529\ \ \ \ \ \textcolor{keywordtype}{int}\ stringLength\ =\ (strlen(\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString));}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00530}00530\ \ \ \ \ \textcolor{keywordtype}{char}\ *Serialvar\_buf\ =\ (\textcolor{keywordtype}{char}*)\ calloc(stringLength,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00531}00531\ \ \ \ \ \textcolor{keywordflow}{if}\ (Serialvar\_buf\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00532}00532\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_VAR);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00533}00533\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00534}00534\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00535}00535\ \ \ \ \ strncpy(Serialvar\_buf,\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>txtString,\ stringLength);\ \textcolor{comment}{//We\ don't\ need\ to\ add\ '\(\backslash\)0'\ as\ we\ uses\ calloc}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00536}00536\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00537}00537\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}\ (TOKEN\_VARIABLE);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ next\ token\ word.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00538}00538\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00539}00539\ \ \ \ \ \textcolor{comment}{//Be\ aware,\ the\ function\ GET\_SERIAL\_TEXT\ return\ an\ allocated\ mem.\ Memory\ should\ be\ cleared\ if\ the\ variable\ dies.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00540}00540\ \ \ \ \ \textcolor{comment}{//But\ at\ the\ moment\ we\ don't\ care\ since\ the\ global\ variable\ has\ only\ a\ pointer\ and\ will\ keep\ this\ memory\ location.}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00541}00541\ \ \ \ \ \textcolor{keywordtype}{char}\ *getStr\ =\ \mbox{\hyperlink{serialmessage_8cpp_acd5bfd0bce081cb3ee6d5d9f45dfd18e}{GET\_SERIAL\_TEXT}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00542}00542\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00543}00543\ \ \ \ \ varPosition\ =\ \mbox{\hyperlink{tokens_8cpp_af255f12c1be461e65dbaf4363419b7ef}{TestSystem\_get\_variable}}(Serialvar\_buf);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00544}00544\ \ \ \ \ \textcolor{keywordflow}{if}\ (varPosition\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00545}00545\ \ \ \ \ \ \ \ \ \textcolor{comment}{//create\ the\ variable}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00546}00546\ \ \ \ \ \ \ \ \ varPosition\ =\ \mbox{\hyperlink{tokens_8h_a86b46dd515cd3b3c58df1c6e21c6dbce}{TestSystem\_get\_empty\_variable\_pos}}();}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00547}00547\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (varPosition\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ERROR\_SCRIPT\_VARIABLE\_OVERFLOW);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00549}00549\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00550}00550\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00551}00551\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6397a73edc0a383b76f2cc8223396eb2}{addNewScriptVariable}}(Serialvar\_buf,\ T\_STRING,\ strlen(getStr)\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00552}00552\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ varPosition);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00553}00553\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue\ =\ getStr;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00554}00554\ \ \ \ \ \ \ \ \ Serialvar\_buf\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00555}00555\ \ \ \ \ \ \ \ \ getStr\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00556}00556\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00557}00557\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_STRING)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue\ =\ getStr;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}}\ =\ strlen(getStr)\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00562}00562\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Variable\ has\ changed\ it's\ type}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_INT)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_FLOAT)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00569}00569\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pf\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00571}00571\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00572}00572\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}}\ =\ T\_STRING;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00573}00573\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.txtvalue\ =\ getStr;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00574}00574\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}}\ =\ strlen(getStr)\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00575}00575\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00576}00576\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00577}00577\ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00578}00578\ }
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00581}\mbox{\hyperlink{serialmessage_8cpp_aabdc388a948fd2d4510b28704eed4351}{00581}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serialmessage_8cpp_aabdc388a948fd2d4510b28704eed4351}{ChangeInterActiveModeStatus}}()\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00582}00582\ \ \ \ \ \textcolor{keywordtype}{char}\ buff[2];}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00583}00583\ \ \ \ \ memset(buff,\ 0,\ 2);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00584}00584\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>read(buff,\ 1);}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00585}00585\ \ \ \ \ \textcolor{keywordflow}{if}\ (buff[0]\ ==\ 03)\ \{}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00586}00586\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a1264a22868c936b388b7dfbc68e1f5f2}{StopExecution}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00587}00587\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a3b16c18fe2ee672b8df06da1da2e0dc7}{BreakPressed}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00588}00588\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{serialmessage_8cpp_source_l00589}00589\ \}}
+
+\end{DoxyCode}

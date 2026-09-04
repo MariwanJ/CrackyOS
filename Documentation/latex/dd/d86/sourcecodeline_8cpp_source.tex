@@ -1,0 +1,111 @@
+\doxysection{sourcecodeline.\+cpp}
+\hypertarget{sourcecodeline_8cpp_source}{}\label{sourcecodeline_8cpp_source}\index{CrackyOS/src/sourcecodeline.cpp@{CrackyOS/src/sourcecodeline.cpp}}
+\mbox{\hyperlink{sourcecodeline_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sourcecodeline_8h}{sourcecodeline.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00029}\mbox{\hyperlink{class_source_code_line_a87b80d1e7964f34d0b875e0c30a4f433}{00029}}\ \mbox{\hyperlink{class_source_code_line_a87b80d1e7964f34d0b875e0c30a4f433}{SourceCodeLine::SourceCodeLine}}()\ :}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00030}00030\ \ \ \ \ m\_TableOfPointer(NULL),\ m\_psourceCode(NULL),\ mfirst(NULL)}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00034}\mbox{\hyperlink{class_source_code_line_a822ce50f9f06b71e90394cfbead98b19}{00034}}\ \mbox{\hyperlink{class_source_code_line_a87b80d1e7964f34d0b875e0c30a4f433}{SourceCodeLine::SourceCodeLine}}(\mbox{\hyperlink{structnode}{instr\_linkedList}}*\ pSourceCodeText)\ :}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00035}00035\ \ \ \ \ m\_TableOfPointer(NULL),\ m\_psourceCode(pSourceCodeText),\ mfirst(NULL)}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00039}\mbox{\hyperlink{class_source_code_line_ae1746a5c1211525eeb72cd3a81205c0c}{00039}}\ \mbox{\hyperlink{class_source_code_line_ae1746a5c1211525eeb72cd3a81205c0c}{SourceCodeLine::\string~SourceCodeLine}}()}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (mfirst\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//Nothing\ to\ do\ .}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{while}\ (mfirst-\/>next\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ mfirst\ =\ mfirst-\/>next;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ (mfirst-\/>prev);}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ mfirst-\/>prev\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{delete}\ (mfirst);}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00049}00049\ \ \ \ \ mfirst\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00051}\mbox{\hyperlink{class_source_code_line_a41bcdc1567e4e1e3d13f4bbe470b75e7}{00051}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_source_code_line_a41bcdc1567e4e1e3d13f4bbe470b75e7}{SourceCodeLine::addNewLine}}(\mbox{\hyperlink{structnode}{instr\_linkedList}}*\ pPosition)}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00054}00054\ \ \ \ \ STOP\_CODE\_EXECUTION;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_TableOfPointer\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ m\_TableOfPointer\ =\ \textcolor{keyword}{new}\ listObj;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_TableOfPointer\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}Error\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_TABLEOFPOINTER);}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\textcolor{comment}{//Exit\ the\ program}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ m\_TableOfPointer-\/>prev\ =\ NULL;\ \ \ \ \textcolor{comment}{//Point\ the\ new\ item\ to\ the\ old\ item.}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ m\_TableOfPointer-\/>next\ =\ NULL;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Point\ the\ next\ of\ the\ new\ item\ to\ Null}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ m\_TableOfPointer-\/>lineNo\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ m\_TableOfPointer-\/>pLineStart\ =\ pPosition;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ mfirst\ =\ m\_TableOfPointer;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ m\_TableOfPointer-\/>next\ =\ \textcolor{keyword}{new}\ listObj;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_TableOfPointer-\/>next\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}Error\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_TABLEOFPOINTER);}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\textcolor{comment}{//Exit\ the\ program}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ m\_TableOfPointer-\/>next-\/>prev\ =\ m\_TableOfPointer;\ \ \ \ \textcolor{comment}{//Point\ the\ new\ item\ to\ the\ old\ item.}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ m\_TableOfPointer-\/>next-\/>next\ =\ NULL;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Point\ the\ next\ of\ the\ new\ item\ to\ Null}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ m\_TableOfPointer\ =\ m\_TableOfPointer-\/>next;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Change\ the\ current\ pointer\ to\ the\ created\ one}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ m\_TableOfPointer-\/>lineNo\ =\ m\_TableOfPointer-\/>prev-\/>lineNo\ +\ 1;\ \ \textcolor{comment}{//Add\ one\ to\ the\ previous\ line\ number}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ m\_TableOfPointer-\/>pLineStart\ =\ pPosition;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00081}00081\ \textcolor{comment}{//This\ function\ will\ return\ a\ pointer\ to\ the\ list\ element.\ You\ can\ use\ it\ to\ get\ line\ number\ of\ printf\ the\ line}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00082}\mbox{\hyperlink{class_source_code_line_a7f31f21aec36493c2b1a553b0f556ab8}{00082}}\ listObj*\ \mbox{\hyperlink{class_source_code_line_a7f31f21aec36493c2b1a553b0f556ab8}{SourceCodeLine::findPointer}}(\mbox{\hyperlink{structnode}{instr\_linkedList}}*\ pCurrent)}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00083}00083\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00085}00085\ \ \ \ \ STOP\_CODE\_EXECUTION\_NULL}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pCurrent\ ==\ NULL\ ||\ \mbox{\hyperlink{types_8h_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_EOF)}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00089}00089\ \ \ \ \ listObj*\ pTempSearch\ =\ NULL;;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00090}00090\ \ \ \ \ pTempSearch\ =\ mfirst;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (pTempSearch\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;\ \ \ \ \textcolor{comment}{//We\ shoulnd't\ be\ here}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pTempSearch-\/>next\ !=\ NULL\ \&\&\ pCurrent\ >=\ pTempSearch-\/>pLineStart\ \&\&\ pCurrent\ <=\ pTempSearch-\/>next-\/>pLineStart)\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//The\ pointer\ is\ inside\ this\ line\ ..\ return\ the\ first\ position\ of\ the\ len}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pTempSearch;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ pTempSearch\ =\ pTempSearch-\/>next;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00100}00100\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (pTempSearch-\/>next\ !=\ NULL);}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;\ \ \ \ \textcolor{comment}{//We\ shoulnd't\ be\ here}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00102}00102\ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00104}\mbox{\hyperlink{class_source_code_line_aa8aaf31c45ad9ac97eb68665bebbcc4e}{00104}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_source_code_line_aa8aaf31c45ad9ac97eb68665bebbcc4e}{SourceCodeLine::scanSourceCode}}()}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00105}00105\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00107}00107\ \ \ \ \ STOP\_CODE\_EXECUTION}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ no\ program\ given\ to\ the\ scanSourceCode\ go\ out.}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_psourceCode\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ERROR\_NO\_PROGRAM);}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00113}00113\ \ \ \ \ \mbox{\hyperlink{class_source_code_line_a41bcdc1567e4e1e3d13f4bbe470b75e7}{addNewLine}}(\mbox{\hyperlink{types_8h_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>prev);\ \ \textcolor{comment}{//Save\ the\ first\ line}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{types_8h_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NEW\_LINE)\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}();}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ found\ the\ new\ line\ ..\ add\ them\ to\ the\ list}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_source_code_line_a41bcdc1567e4e1e3d13f4bbe470b75e7}{addNewLine}}(\mbox{\hyperlink{types_8h_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>prev);\ \ \textcolor{comment}{//Save\ the\ line\ and\ continue\ scanning\ the\ script\ program}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}();}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00121}00121\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{types_8h_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_EOF);}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00122}00122\ \ \ \ \ \mbox{\hyperlink{types_8h_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}\ =\ m\_psourceCode;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00127}\mbox{\hyperlink{sourcecodeline_8cpp_a254d91dc287150a7784d8eb41bcb427e}{00127}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sourcecodeline_8cpp_a254d91dc287150a7784d8eb41bcb427e}{freepScriptIndex}}()\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(\mbox{\hyperlink{ringbuffer_8cpp_aacbda8306ee4d4042eab9e17f2ddc4e1}{DebugSerialFIFO}}.\mbox{\hyperlink{class_ring_buffer_a49830e55b87fd4e51580d614e7626a0d}{checkEmpty}}()))\ \{}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ rtos::ThisThread::sleep\_for(chrono::milliseconds(10));}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00130}00130\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00131}00131\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{tokens_8cpp_ad0b082132de824ea70435a33e8fb634a}{pScriptIndex}};}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00132}00132\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ad0b082132de824ea70435a33e8fb634a}{pScriptIndex}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{sourcecodeline_8cpp_source_l00133}00133\ \}}
+
+\end{DoxyCode}

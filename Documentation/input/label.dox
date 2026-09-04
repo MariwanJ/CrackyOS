@@ -1,0 +1,16 @@
+/*!
+*\page label Label
+*
+* This is not an instruction. It explains how to define labels which could be used by GOTO instruction<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> :mylable:  </B>
+* <span style='color:blue'><em><B> <br>
+*Example:
+*</B> </em> </span><br>
+*   goto exitPoint;	  						&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem goto exit</span> <br>
+*   print "not executed instruction\n";<br>
+*		....<br>
+* 	:exitPoint:    						    &nbsp;&nbsp;&nbsp;  <span style='color:green'> rem Label definition</span><br>
+*	print "I am going out!!\n";		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send to serial "I am going out!!"</span> <br>
+*
+*/

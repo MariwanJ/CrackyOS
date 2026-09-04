@@ -1,0 +1,21 @@
+/*!
+
+*\page ticker Ticker
+*
+* This instruction toggles a GPIO pin repeatedly at a specified rate.<BR>
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+
+*<B> ticker GPIO_NAME , TimeInterval inUsec, Start/STOP =1/0,</B><BR>
+* - <b>GPIO_NAME:</b> Any digital GPIO
+* - <b>TimeInterval:</b> Time required to activate the toggle function. It could be a variable or a number
+* - <b>Start/Stop:</b> A Boolean value. 1 starts the counter, and 0 stops the counter.
+*\tticker PA_4 10000  1;\t\t&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem PA_4 will toggle every 10 milliseconds </span><br>
+*	ticker PA_4,  1000, 1;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem PA_4 will toggle every 10 milliseconds </span><br>
+* OR:<br>
+*	ticker PA_4 10000  1;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem PA_4 will toggle each 10 millisecond </span><br>
+* OR:<br>
+*   interval=1000;<br>
+*	ticker PA_4, interval, 1;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem PA_4 will toggle each 1 millisecond </span><br>
+*
+*/

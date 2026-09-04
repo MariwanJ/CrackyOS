@@ -1,0 +1,15 @@
+/*!
+
+*\page format Format SD disk
+*
+* This instruction formats the SD card.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> format;  </B><br>
+*
+*<span style='color:blue'><em><H4> Warning: </H4></em></span>
+* This instruction cannot be stopped or reversed.
+*
+* <span style='color:green'><strong>Note:</strong></span><br>
+* An SD-card module must be connected to the Nucleo board through SPI, with an SD card inserted before using this instruction.
+*/

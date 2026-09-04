@@ -1,0 +1,12 @@
+/*!
+
+*\page copy Copy (Copy a file)
+*
+* This instruction is used to copy a file. You cannot use it inside script program.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+* *  <span style='color:blue'>copy <source_FN> <destination_FN></span>
+*
+* <span style='color:green'><strong>Note:</strong></span><br>
+* An SD-card module must be connected to the Nucleo board through SPI, with an SD card inserted. The card must be mounted before using this instruction.
+*/

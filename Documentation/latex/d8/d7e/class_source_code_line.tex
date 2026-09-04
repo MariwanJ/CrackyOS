@@ -1,0 +1,152 @@
+\doxysection{Source\+Code\+Line Class Reference}
+\hypertarget{class_source_code_line}{}\label{class_source_code_line}\index{SourceCodeLine@{SourceCodeLine}}
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_source_code_line_a87b80d1e7964f34d0b875e0c30a4f433}{Source\+Code\+Line}} ()
+\item 
+\mbox{\hyperlink{class_source_code_line_a822ce50f9f06b71e90394cfbead98b19}{Source\+Code\+Line}} (\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}p\+Source\+Code\+Text)
+\item 
+\mbox{\hyperlink{class_source_code_line_ae1746a5c1211525eeb72cd3a81205c0c}{\texorpdfstring{$\sim$}{\string~}\+Source\+Code\+Line}} ()
+\item 
+list\+Obj \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_source_code_line_a7f31f21aec36493c2b1a553b0f556ab8}{find\+Pointer}} (\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}p\+Current)
+\item 
+void \mbox{\hyperlink{class_source_code_line_aa8aaf31c45ad9ac97eb68665bebbcc4e}{scan\+Source\+Code}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_source_code_line_a41bcdc1567e4e1e3d13f4bbe470b75e7}{add\+New\+Line}} (\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}p\+Position)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class Sour\+Code\+Line definitions 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00562}{562}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_source_code_line_a87b80d1e7964f34d0b875e0c30a4f433}\label{class_source_code_line_a87b80d1e7964f34d0b875e0c30a4f433} 
+\index{SourceCodeLine@{SourceCodeLine}!SourceCodeLine@{SourceCodeLine}}
+\index{SourceCodeLine@{SourceCodeLine}!SourceCodeLine@{SourceCodeLine}}
+\doxysubsubsection{\texorpdfstring{SourceCodeLine()}{SourceCodeLine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Source\+Code\+Line\+::\+Source\+Code\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Class \doxylink{class_source_code_line}{Source\+Code\+Line} Constructor 
+
+Definition at line \mbox{\hyperlink{sourcecodeline_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{sourcecodeline_8cpp_source}{sourcecodeline.\+cpp}}.
+
+\Hypertarget{class_source_code_line_a822ce50f9f06b71e90394cfbead98b19}\label{class_source_code_line_a822ce50f9f06b71e90394cfbead98b19} 
+\index{SourceCodeLine@{SourceCodeLine}!SourceCodeLine@{SourceCodeLine}}
+\index{SourceCodeLine@{SourceCodeLine}!SourceCodeLine@{SourceCodeLine}}
+\doxysubsubsection{\texorpdfstring{SourceCodeLine()}{SourceCodeLine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Source\+Code\+Line\+::\+Source\+Code\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}}]{p\+Source\+Code\+Text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Class \doxylink{class_source_code_line}{Source\+Code\+Line} Constructor 
+\begin{DoxyParams}{Parameters}
+{\em p\+Source\+Code\+Text} & \+: Linkedlistpointer to the script program loaded from sdcard. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sourcecodeline_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{sourcecodeline_8cpp_source}{sourcecodeline.\+cpp}}.
+
+\Hypertarget{class_source_code_line_ae1746a5c1211525eeb72cd3a81205c0c}\label{class_source_code_line_ae1746a5c1211525eeb72cd3a81205c0c} 
+\index{SourceCodeLine@{SourceCodeLine}!````~SourceCodeLine@{\texorpdfstring{$\sim$}{\string~}SourceCodeLine}}
+\index{````~SourceCodeLine@{\texorpdfstring{$\sim$}{\string~}SourceCodeLine}!SourceCodeLine@{SourceCodeLine}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SourceCodeLine()}{\string~SourceCodeLine()}}
+{\footnotesize\ttfamily Source\+Code\+Line\+::\texorpdfstring{$\sim$}{\string~}\+Source\+Code\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Class \doxylink{class_source_code_line}{Source\+Code\+Line} destructor 
+
+Definition at line \mbox{\hyperlink{sourcecodeline_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{sourcecodeline_8cpp_source}{sourcecodeline.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_source_code_line_a41bcdc1567e4e1e3d13f4bbe470b75e7}\label{class_source_code_line_a41bcdc1567e4e1e3d13f4bbe470b75e7} 
+\index{SourceCodeLine@{SourceCodeLine}!addNewLine@{addNewLine}}
+\index{addNewLine@{addNewLine}!SourceCodeLine@{SourceCodeLine}}
+\doxysubsubsection{\texorpdfstring{addNewLine()}{addNewLine()}}
+{\footnotesize\ttfamily void Source\+Code\+Line\+::add\+New\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}}]{p\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This function adds a new item to the listedlink. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Position} & a new pointer to instruction or argument that will be saved in the \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sourcecodeline_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{sourcecodeline_8cpp_source}{sourcecodeline.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{sourcecodeline_8cpp_source_l00104}{scan\+Source\+Code()}}.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{class_source_code_line_a7f31f21aec36493c2b1a553b0f556ab8}\label{class_source_code_line_a7f31f21aec36493c2b1a553b0f556ab8} 
+\index{SourceCodeLine@{SourceCodeLine}!findPointer@{findPointer}}
+\index{findPointer@{findPointer}!SourceCodeLine@{SourceCodeLine}}
+\doxysubsubsection{\texorpdfstring{findPointer()}{findPointer()}}
+{\footnotesize\ttfamily list\+Obj \texorpdfstring{$\ast$}{*} Source\+Code\+Line\+::find\+Pointer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}}]{p\+Current }\end{DoxyParamCaption})}
+
+This function will return a pointer to the list element. You can use it to get line number of the active instruction 
+\begin{DoxyParams}{Parameters}
+{\em p\+Current} & \+: A pointer to a instruction or arguments that we need to find the linenumber \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sourcecodeline_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{sourcecodeline_8cpp_source}{sourcecodeline.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00785}{current\+\_\+token\+\_\+word}}.
+
+
+
+Referenced by \mbox{\hyperlink{error_8cpp_source_l00136}{DEBUG\+\_\+\+Print()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{class_source_code_line_aa8aaf31c45ad9ac97eb68665bebbcc4e}\label{class_source_code_line_aa8aaf31c45ad9ac97eb68665bebbcc4e} 
+\index{SourceCodeLine@{SourceCodeLine}!scanSourceCode@{scanSourceCode}}
+\index{scanSourceCode@{scanSourceCode}!SourceCodeLine@{SourceCodeLine}}
+\doxysubsubsection{\texorpdfstring{scanSourceCode()}{scanSourceCode()}}
+{\footnotesize\ttfamily void Source\+Code\+Line\+::scan\+Source\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function create linenumbers associated with each instruction line. Use it in the begining to create the listed link 
+
+Definition at line \mbox{\hyperlink{sourcecodeline_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{sourcecodeline_8cpp_source}{sourcecodeline.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{sourcecodeline_8cpp_source_l00051}{add\+New\+Line()}}, \mbox{\hyperlink{tokens_8h_source_l00347}{check\+\_\+and\+\_\+get\+\_\+next\+\_\+token()}}, \mbox{\hyperlink{types_8h_source_l00785}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cracky\+OS/src/\mbox{\hyperlink{types_8h}{types.\+h}}\item 
+Cracky\+OS/src/\mbox{\hyperlink{sourcecodeline_8cpp}{sourcecodeline.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,30 @@
+/*!
+
+*\page for For loop
+
+*
+* A for loop is a repetition control structure that allows you to efficiently write a loop that needs to execute a specific number of times. Only two nested for loops are allowed  <BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> for(init, condition, increment/decrement)</B><BR>
+* - <b>init:</b> You must provide a variable for the loop and initialize it; for example, myvar=0.
+* - <b>condition:</b> The condition could be one of the following:
+*		- comparison between the first variable and a value.
+*		- comparison between the first variable and another variable.
+*	    - comparison symbols allowed (<,>,<=, >=, !=, ==).
+*
+*\image html forloop.png "For loop"
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*Ex1:\n
+*&nbsp;	for(i=0,i<20,i++) {print i;};		&nbsp;&nbsp;&nbsp;  <span style='color:green'>  rem  print to the terminal i-values  </span><br>
+*EX2:\n
+* &nbsp;	for(i=100,i>0,i--) {print i;};		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem print to the terminal i-values </span> <br>
+*EX3:\n
+*&nbsp;	myVar=20;\n
+* &nbsp;  for(i=100,i>myVar,i--) {print i;};		&nbsp;&nbsp;&nbsp;  <span style='color:green'>   rem  print to the terminal i-values <br> </span>\n
+*
+*<b>Note:</b>
+*- You must use Curly Brackets '{...}' after for-loop statement.
+*- More than two nested for loops are not allowed. However, you can combine a while loop with a for loop to achieve the required iterations.
+*- You must initialize the variable used inside the for loop instruction. Missing that will cause run-error.
+*- Comma is used inside for instruction, not semicolon as for C/C++
+*/

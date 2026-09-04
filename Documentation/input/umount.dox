@@ -1,0 +1,14 @@
+/*!
+
+*\page umount Umount (unmount an SD card)
+*
+* This instruction is used to unmount an SD card.
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+* <span style='color:blue'>umount </span><br>
+*  or<br>
+* <span style='color:blue'>unmount </span>
+*
+* <span style='color:green'><strong>Note:</strong></span><br>
+* An SD-card module must be connected to the Nucleo board through SPI, with an SD card inserted and mounted before using this instruction.
+*/

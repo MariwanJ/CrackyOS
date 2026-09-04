@@ -1,0 +1,245 @@
+\doxysection{nucleo\+\_\+l476rg\+\_\+hw.\+cpp}
+\hypertarget{nucleo__l476rg__hw_8cpp_source}{}\label{nucleo__l476rg__hw_8cpp_source}\index{CrackyOS/src/l476rg/nucleo\_l476rg\_hw.cpp@{CrackyOS/src/l476rg/nucleo\_l476rg\_hw.cpp}}
+\mbox{\hyperlink{nucleo__l476rg__hw_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#if\ TARGET\_NUCLEO\_L476RG}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nucleo__l476rg__hw_8h}{l476rg/nucleo\_l476rg\_hw.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00036}00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{types_8h_aeec68b47085e17e77ae20a487d8734ed}{add\_Reserved\_GPIO}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00038}00038\ \ \ \ \ STOP\_CODE\_EXECUTION}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GlobalGPIO\_REG\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ GlobalGPIO\_REG\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_register_g_p_i_o}{RegisterGPIO}}();}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GlobalGPIO\_REG\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GLOBAL\_GPIO);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);\ \textcolor{comment}{//Exit\ the\ program.}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//*\ Be\ aware\ when\ you\ add\ any\ GPIO,\ you\ should\ use\ the\ TOKEN\_XXXX\ where\ xxxx\ is\ the\ pinname,\ not\ just\ the\ pinname\ */}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//Serial\ PC}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00049}00049\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PA\_2,\ FTOKEN\_SERIAL\_TX);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00050}00050\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PA\_3,\ FTOKEN\_SERIAL\_RX);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ \ PC\_1,\ PC\_0}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00052}00052\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PC\_1,\ FTOKEN\_SERIAL\_TX);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00053}00053\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PC\_0,\ FTOKEN\_SERIAL\_RX);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//Master\ SPI\ used\ for\ SD\ and\ all\ other\ SPI\ devices.}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00056}00056\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PA\_7,\ FTOKEN\_SPI\_MOSI);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00057}00057\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PA\_6,\ FTOKEN\_SPI\_MISO);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00058}00058\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PA\_5,\ FTOKEN\_SPI\_CLK);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00059}00059\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PB\_6,\ FTOKEN\_SPI\_CS);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//I2C}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00061}00061\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PB\_8,\ FTOKEN\_I2C\_CLK);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00062}00062\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(TOKEN\_PB\_9,\ FTOKEN\_I2C\_SDA);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//CAN\ \ CAN\_1\_RD,\ CAN\_1\_TD}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00064}00064\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(PA\_11,\ FTOKEN\_CAN\_RD);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00065}00065\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(PA\_12,\ FTOKEN\_CAN\_TD);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//\ ENCODER}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00067}00067\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(LINE0,\ FTOKEN\_DIGITAL\_IN\_OUT);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00068}00068\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(LINE1,\ FTOKEN\_DIGITAL\_IN\_OUT);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00069}00069\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(LINE2,\ FTOKEN\_DIGITAL\_IN\_OUT);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00070}00070\ \ \ \ \ GlobalGPIO\_REG-\/>\mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(LINE3,\ FTOKEN\_DIGITAL\_IN\_OUT);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00078}00078\ PinName\ \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrievePinNameFromTOKEN\_NAME}}(\textcolor{keywordtype}{int}\ inputENUM)\ \{}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{interactive_8cpp_a1264a22868c936b388b7dfbc68e1f5f2}{StopExecution}}\ ==\ 1)\ \textcolor{keywordflow}{return}\ NC;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{switch}\ (inputENUM)\ \{}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_0:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_0;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_1:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_1;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_2:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_2;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_3:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_3;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_4:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_4;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_5:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_5;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_6:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_6;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_7:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_7;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_8:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_8;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_9:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_9;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_10:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_10;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_11:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_11;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_12:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_12;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_13:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_13;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_14:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_14;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PA\_15:\ \ \ \ \textcolor{keywordflow}{return}\ PA\_15;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_0:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_0;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_1:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_1;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_2:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_2;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_3:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_3;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_4:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_4;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00105}00105\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_5:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_5;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00106}00106\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_6:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_6;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_7:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_7;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_8:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_8;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_9:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_9;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_10:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_10;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_11:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_11;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_12:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_12;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_13:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_13;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_14:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_14;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PB\_15:\ \ \ \ \textcolor{keywordflow}{return}\ PB\_15;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_0:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_0;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_1:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_1;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_2:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_2;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_3:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_3;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_4:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_4;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_5:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_5;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_6:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_6;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_7:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_7;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_8:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_8;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_9:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_9;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_10:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_10;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_11:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_11;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_12:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_12;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_13:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_13;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00131}00131\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_14:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_14;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00132}00132\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PC\_15:\ \ \ \ \textcolor{keywordflow}{return}\ PC\_15;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PD\_2:\ \ \ \ \textcolor{keywordflow}{return}\ PD\_2;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PH\_0:\ \ \ \ \textcolor{keywordflow}{return}\ PH\_0;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00137}00137\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_PH\_1:\ \ \ \ \textcolor{keywordflow}{return}\ PH\_1;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00138}00138\ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_NC:\ \ \ \ \textcolor{keywordflow}{return}\ NC;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00139}00139\ \ \ \ \ \textcolor{keywordflow}{default}:\ \{\mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_SYNTAX\_ERROR\_TOKEN\_NOT\_FOUND);\ \}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00141}00141\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{return}\ NC;}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00143}00143\ \}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00153}00153\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtoken__exchanger}{token\_exchanger}}\ \mbox{\hyperlink{types_8h_a253f99174b66672c79873bcbe7f600cf}{token\_exchange\_list}}[]\ \{}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00154}00154\ \ \ \ \ \textcolor{comment}{//\ \ inst\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enum\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hash}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00155}00155\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}abs"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_ABS,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 709362235\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00156}00156\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}acos"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_ACOS,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1006755615\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00157}00157\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aget"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_AGET,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2462537784\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00158}00158\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}and"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_AND,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 254395046\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00159}00159\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aput"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_APUT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3265553669\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00160}00160\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}asin"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_ASIN,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4272848550\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00161}00161\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}atan"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_ATAN,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 108579519\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00162}00162\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}baud\_rate"{}},\ \ \ \ \ \ \ \ \ TOKEN\_BAUD\_RATE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 621844436\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00163}00163\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}begin"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_LEFT\_CURLY\_BRACKET,\ \ \ \ \ \ \ \ \ \ 1748273790\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00164}00164\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}call"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_CALL,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3018949801\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00165}00165\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}can\_get"{}},\ \ \ \ \ \ \ \ \ \ \ TOKEN\_CAN\_GET,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1466093946\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00166}00166\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}can\_send"{}},\ \ \ \ \ \ \ \ \ \ TOKEN\_CAN\_SEND,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3456323476\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00167}00167\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clear"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_CLEAR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1550717474\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00168}00168\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cls"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_CLEAR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 59780555\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00169}00169\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cos"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_COS,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4220379804\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00170}00170\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}create\_reg"{}},\ \ \ \ \ \ \ \ TOKEN\_CREATE\_REG,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2523731252\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00171}00171\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}debug\_port"{}},\ \ \ \ \ \ \ \ TOKEN\_DEBUG\_PORT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 166882598\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00172}00172\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}delay"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_DELAY,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1322381784\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00173}00173\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}delete"{}},\ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_DELETE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1740784714\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00174}00174\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}disable\_debug"{}},\ \ \ \ \ TOKEN\_DISABLE\_DEBUG,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1026410291\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00175}00175\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}else"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_ELSE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3183434736\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00176}00176\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}enable\_debug"{}},\ \ \ \ \ \ TOKEN\_ENABLE\_DEBUG,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1568674666\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00177}00177\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}end"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_RIGHT\_CURLY\_BRACKET,\ \ \ \ \ \ \ \ \ 1787721130\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00178}00178\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}exit"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_EXIT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3454868101\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00179}00179\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}for"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_FOR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2901640080\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00180}00180\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}function"{}},\ \ \ \ \ \ \ \ \ \ TOKEN\_FUNCTION,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2664841801\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00181}00181\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}get"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_GET,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1410115415\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00182}00182\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}goto"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_GOTO,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4121104358\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00183}00183\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}i2c\_get"{}},\ \ \ \ \ \ \ \ \ \ \ TOKEN\_I2C\_GET,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3187762496\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00184}00184\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}i2c\_scl"{}},\ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_8,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1006780394\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00185}00185\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}i2c\_sda"{}},\ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_9,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 821387942\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00186}00186\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}i2c\_send"{}},\ \ \ \ \ \ \ \ \ \ TOKEN\_I2C\_SEND,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2552757210\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00187}00187\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}if"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_IF,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 959999494\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00188}00188\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}interruptin"{}},\ \ \ \ \ \ \ TOKEN\_INTERRUPTIN,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1814824783\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00189}00189\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}invert"{}},\ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_INVERT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 829202337\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00190}00190\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}led1"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1666181409\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00191}00191\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}led2"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1615848552\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00192}00192\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}led3"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1632626171\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00193}00193\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}led4"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1716514266\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00194}00194\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ln"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_LN,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1127334399\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00195}00195\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}log"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_LOG,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1062293841\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00196}00196\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}mod"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_MOD,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3751703171\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00197}00197\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}msec"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_MSEC,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 51408301\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00198}00198\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}nc"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_NC,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1446403350\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00199}00199\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}or"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_OR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1563699588\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00200}00200\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_0"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3324132589\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00201}00201\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_1"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3307354970\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00202}00202\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_2"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3290577351\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00203}00203\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_3"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3273799732\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00204}00204\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_4"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3257022113\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00205}00205\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_5"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3240244494\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00206}00206\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_6"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3223466875\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00207}00207\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_7"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3206689256\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00208}00208\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_8"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_8,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3189911637\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00209}00209\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_9"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_9,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3173134018\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00210}00210\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_10"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_10,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3202582494\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00211}00211\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_11"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_11,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3219360113\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00212}00212\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_12"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_12,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3169027256\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00213}00213\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_13"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_13,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3185804875\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00214}00214\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_14"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_14,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3269692970\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00215}00215\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pa\_15"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_15,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3286470589\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00216}00216\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_0"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1237143384\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00217}00217\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_1"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1253921003\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00218}00218\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_2"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1270698622\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00219}00219\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_3"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1287476241\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00220}00220\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_4"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1304253860\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00221}00221\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_5"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1321031479\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00222}00222\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_6"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1337809098\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00223}00223\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_7"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1354586717\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00224}00224\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_8"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_8,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1102922432\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00225}00225\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_9"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_9,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1119700051\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00226}00226\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_10"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_10,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2198227137\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00227}00227\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_11"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_11,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2181449518\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00228}00228\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_12"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_12,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2164671899\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00229}00229\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_13"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_13,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2147894280\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00230}00230\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_14"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_14,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2265337613\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00231}00231\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pb\_15"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_15,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2248559994\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00232}00232\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_0"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3476355587\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00233}00233\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_1"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3459577968\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00234}00234\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_2"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3509910825\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00235}00235\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_3"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3493133206\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00236}00236\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_4"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3543466063\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00237}00237\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_5"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3526688444\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00238}00238\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_6"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3577021301\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00239}00239\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_7"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3560243682\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00240}00240\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_8"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_8,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3610576539\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00241}00241\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_9"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_9,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3593798920\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00242}00242\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_10"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_10,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3714239680\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00243}00243\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_11"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_11,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3731017299\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00244}00244\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_12"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_12,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3747794918\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00245}00245\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_13"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_13,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3764572537\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00246}00246\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_14"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_14,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3781350156\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00247}00247\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc\_15"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PC\_15,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3798127775\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00248}00248\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pd\_0"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PD\_0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4094573774\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00249}00249\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pd\_1"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PD\_1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4111351393\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00250}00250\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pd\_2"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PD\_2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4061018536\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00251}00251\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ph\_0"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PH\_0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1240185146\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00252}00252\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ph\_1"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PH\_1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1256962765\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00253}00253\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}put"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PUT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1769118190\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00254}00254\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pwm"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_GEN\_PWM,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1315828287\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00255}00255\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pwm\_out"{}},\ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 776577380\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00256}00256\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}quit"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_EXIT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1200064310\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00257}00257\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rem"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_REM,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1240764167\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00258}00258\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}return"{}},\ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_RETURN,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2246981567\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00259}00259\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}round"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_ROUND,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1326178875\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00260}00260\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sec"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_SEC,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3139892658\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00261}00261\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}serial\_rx"{}},\ \ \ \ \ \ \ \ \ TOKEN\_PA\_3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 459559496\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00262}00262\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}serial\_tx"{}},\ \ \ \ \ \ \ \ \ TOKEN\_PA\_2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 527655710\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00263}00263\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}print"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PRINT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 372738696\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00264}00264\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sin"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_SIN,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3761252941\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00265}00265\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sizeof"{}},\ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_SIZE\_OF\_VAR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1860254461\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00266}00266\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}spi\_cs"{}},\ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PB\_6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2820037140\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00267}00267\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}spi\_miso"{}},\ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2880368186\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00268}00268\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}spi\_module"{}},\ \ \ \ \ \ \ \ TOKEN\_SPI\_MODULE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1106696674\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00269}00269\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}spi\_mosi"{}},\ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 928801494\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00270}00270\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}spi\_sck"{}},\ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1289356717\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00271}00271\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}spi\_send"{}},\ \ \ \ \ \ \ \ \ \ TOKEN\_SPI\_SEND,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3637117612\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00272}00272\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}spi\_single"{}},\ \ \ \ \ \ \ \ TOKEN\_SPI\_SINGLE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 536422558\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00273}00273\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sqrt"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_SQRT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2112764879\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00274}00274\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tan"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_TAN,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2633446552\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00275}00275\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ticker"{}},\ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_TICKER,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1595386483\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00276}00276\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}usbrx"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4175791683\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00277}00277\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}usbtx"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_PA\_2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 82553173\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00278}00278\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}usec"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_USEC,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1903720885\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00279}00279\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}user\_button"{}},\ \ \ \ \ \ \ TOKEN\_PC\_13,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3141615303\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00280}00280\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}while"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_WHILE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 231090382\ \},}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00281}00281\ \ \ \ \ \{\ NULL,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TOKEN\_BAD,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \}}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00282}00282\ \};}
+\DoxyCodeLine{\Hypertarget{nucleo__l476rg__hw_8cpp_source_l00283}00283\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

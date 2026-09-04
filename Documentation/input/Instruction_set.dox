@@ -1,0 +1,50 @@
+/*!
+
+* \page 05_instruction_set Instruction set
+*
+*
+*	-	\subpage	aget
+*	-	\subpage	aput
+*   -   \subpage    arithmetic_operations
+*	-	\subpage	baud_rate
+*	-	\subpage	can_get
+*	-	\subpage	can_send
+*	-	\subpage	cat
+*	-	\subpage	clear
+*	-	\subpage	cls
+*	-	\subpage	copy
+*	-	\subpage	create_reg
+*	-	\subpage	del
+*	-	\subpage	delay
+*	-	\subpage	dir
+*	-	\subpage	disable_debug
+*	-	\subpage	enable_debug
+*	-	\subpage	exit
+*	-	\subpage	for
+*	-	\subpage	format
+*	-	\subpage	function
+*	-	\subpage	pwm
+*	-	\subpage	get
+*	-	\subpage	goto
+*	-	\subpage	help
+*	-	\subpage	i2c_get
+*	-	\subpage	i2c_send
+*	-	\subpage	if
+*	-	\subpage	interruptin
+*	-	\subpage	label
+*	-	\subpage	mount
+*	-	\subpage	move
+*	-	\subpage	put
+*	-	\subpage	rem
+*	-	\subpage	rename
+*	-	\subpage	reset
+*	-	\subpage	send_script
+*	-	\subpage	serial_get
+*	-	\subpage	print
+*	-	\subpage	spi_send
+*	-	\subpage	ticker
+*	-	\subpage	umount
+*	-	\subpage	variable
+*	-	\subpage	while
+*/
+

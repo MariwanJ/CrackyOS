@@ -1,0 +1,256 @@
+\doxysection{while\+\_\+loop.\+cpp}
+\hypertarget{while__loop_8cpp_source}{}\label{while__loop_8cpp_source}\index{CrackyOS/src/while\_loop.cpp@{CrackyOS/src/while\_loop.cpp}}
+\mbox{\hyperlink{while__loop_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hardware__used_8h}{hardware\_used.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arithmetic_8h}{arithmetic.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00039}\mbox{\hyperlink{common_8h_a3170fe95b2a409c2446aa09ef7f3c855}{00039}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{while__loop_8cpp_a3170fe95b2a409c2446aa09ef7f3c855}{token\_while\_loop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00041}00041\ \ \ \ \ STOP\_CODE\_EXECUTION\_MINUS}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ bufNewTemp\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}++;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ while-\/statement\ found.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{for__loop_8cpp_a6188105921723260dbcbf61d9b6a7448}{nestedForWhileloop}}\ =\ \mbox{\hyperlink{for__loop_8cpp_a6188105921723260dbcbf61d9b6a7448}{nestedForWhileloop}}\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ \ \ DEBUG\_MESSAGE("{}ERROR\ \%i\(\backslash\)n"{},DBG\_MSG\_SYNTAX\_ERROR\_ONLY\_2\_NESTED\_LOOP\_ALLOWED);}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_WHILE);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ >\ SCRIPT\_MAX\_NESTED\_FOR\_WHILE\_LOOP)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ don't\ allow\ more\ than\ 2\ while-\/loop}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}SYNTAX\ ERROR,\ ONLY\ 2\ Nested\ while-\/LOOP\ is\ allowed\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00053}00053\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varIterationPosition\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.position\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//1)\ \ Start\ first\ part\ of\ the\ for\ instruction}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_LEFT\_PARENTHESIS)}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_LEFT\_PARENTHESIS);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_LEFT\_PARENTHESIS);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NUMBER)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Here\ we\ have\ a\ While(1)\ ..\ infinite\ loop.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].enumLogicalOperation\ =\ TOKEN\_EQUAL\_EQUAL;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.value\ =\ (int)\mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ whileExtract[nestedWhileloop\ -\/\ 1].varIteration\ =\ new\ (int);}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ if\ (whileExtract[nestedWhileloop\ -\/\ 1].varIteration\ ==\ NULL)\ \{}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ DEBUG\_MESSAGE("{}ERROR\ \%i\(\backslash\)n"{},DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_WHILEEXTRACT);}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ quitScriptProgram(1);}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00072}00072\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varIteration\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.value\ !=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ support\ only\ the\ format\ while(1)\ ..nothing\ else\ ..\ all\ other\ values\ will\ generate\ errors}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_WHILE);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.value\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.variable\ =\ NULL;\ \textcolor{comment}{//\ No\ variable\ ..\ Only\ number}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ WE\ should\ get\ now\ the\ variable\ name.\ we\ have\ while(variable\ ..etc)}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_VARIABLE)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ varPosition\ =\ \mbox{\hyperlink{tokens_8cpp_af255f12c1be461e65dbaf4363419b7ef}{TestSystem\_get\_variable}}(NULL);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_VARIABLE);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (varPosition\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varIterationPosition\ =\ varPosition;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_INT)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varIteration\ =\ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_FLOAT\_INSIDE\_LOOP);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_USED\_INSIDE\_WHILE);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//2)\ \ Find\ the\ logical\ operation\ now}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}})\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_EQUAL\_EQUAL:}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_LESSTHAN:}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_LESSTHANEQUAL:}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_GREATERTHAN:}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_GREATERTHANEQUAL:}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOKEN\_NOTEQUAL:}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].enumLogicalOperation\ =\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}};}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_NOT\_SUPPORTED);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(\mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].enumLogicalOperation);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ \ need\ to\ get\ the\ value\ or\ the\ variable\ after\ the\ symbols.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{comment}{//TODO:\ We\ don't\ support\ arithmetic\ operation\ inside\ the\ while\ instruction\ to\ be\ implemented\ later.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_VARIABLE)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bufNewTemp\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ bufNewTemp;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Free\ the\ old\ buffer\ to\ use\ it\ again}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bufNewTemp\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ varPosition\ =\ \mbox{\hyperlink{tokens_8cpp_af255f12c1be461e65dbaf4363419b7ef}{TestSystem\_get\_variable}}(NULL);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_VARIABLE);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (varPosition\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].tag\ ==\ T\_INT)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.variable\ =\ \mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[varPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.position\ =\ varPosition;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_WRONG);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_USED\_INSIDE\_WHILE);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_NUMBER\ ||\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_MINUS)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//give\ support\ to\ negative\ numbers.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_MINUS)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_MINUS);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.value\ =\ -\/1\ *\ (int)\mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.value\ =\ (int)\mbox{\hyperlink{tokens_8h_a62d46303da06b9c0cf38bcd764b5dfe9}{convert\_text\_to\_number}}();}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.variable\ =\ NULL;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ variable\ ..\ Only\ number}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.position\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_NUMBER);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00164}00164\ \ \ \ \ \}\ \textcolor{comment}{//\ END\ searching\ for\ first\ part\ of\ while\ ..\ we\ have\ 'while(....),\ we\ need\ the\ block\ of\ code\ \{...\}}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00165}00165\ \textcolor{comment}{//3\ Search\ for\ code\ block}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_RIGHT\_PARENTHESIS)}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_RIGHT\_PARENTHESIS);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00168}00168\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_PARENTHESIS\_MISSING);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00171}00171\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00172}00172\ \ \ \ \ \textcolor{keywordflow}{while}\ (END\_OF\_LINE)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Skip\ new\ lines}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}();}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00175}00175\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00177}00177\ \ \ \ \ \textcolor{comment}{//Start\ extracting\ the\ block-\/code/start-\/end}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00178}00178\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_LEFT\_CURLY\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_LEFT\_CURLY\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00180}00180\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00181}00181\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_LEFT\_CURLY\_BRACKET\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00184}00184\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00186}00186\ \ \ \ \ \textcolor{comment}{/*\ We\ collected\ the\ While(....)\ line\ ,\ find\ the\ block\ of\ the\ code\ we\ need\ to\ run\ now}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00187}00187\ \textcolor{comment}{\ \ \ \ \ We\ should\ find\ the\ first\ '\{'}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00188}00188\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00189}00189\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].p\_StartWhileLoop\ =\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>prev;\ \textcolor{comment}{//Save\ location\ of\ the\ first\ line\ after\ the\ for-\/loop\ start\ instruction.\ This\ will\ be\ used\ to\ re-\/run\ the\ code}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_RIGHT\_CURLY\_BRACKET\ \&\&\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_EOF)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_LEFT\_CURLY\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//We\ have\ a\ nested\ \{\}\ ,\ second\ left\ '\{'\ found}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_RIGHT\_CURLY\_BRACKET\ \&\&\ \mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_EOF)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}();}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_RIGHT\_CURLY\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//It\ will\ fail\ if\ this\ search\ the\ code\ and\ cannot\ find\ the\ right\ \}}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_CURLY\_BRACKET\_MISSING);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}();\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ continue\ searching\ to\ the\ last\ instruction.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00205}00205\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00206}00206\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ !=\ TOKEN\_RIGHT\_CURLY\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_CURLY\_BRACKET\_MISSING);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00209}00209\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00211}00211\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00212}00212\ \textcolor{comment}{\ \ \ \ \ We\ are\ ready\ to\ run\ the\ block\ of\ instructions.\ We\ know\ which\ code\ is\ the\ start\ of\ the\ while\ loop}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00213}00213\ \textcolor{comment}{\ \ \ \ \ and\ we\ know\ also\ the\ last\ for\ statement.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00214}00214\ \textcolor{comment}{\ \ \ \ \ TODO:\ The\ script\ program\ support\ only\ two\ while-\/loop.\ Make\ it\ more\ general.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00215}00215\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00216}00216\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}\ =\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>prev;\ \ \ \ \textcolor{comment}{//Return\ back\ to\ the\ enum\ value.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00217}00217\ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].p\_EndWhileLoop\ =\ \mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>prev-\/>prev;\ \textcolor{comment}{//We\ remove\ the\ curly\ bracket}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00219}00219\ \ \ \ \ \textcolor{keywordflow}{if}\ (bufNewTemp\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]bufNewTemp;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00221}00221\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00223}00223\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00224}00224\ \textcolor{comment}{\ \ \ \ \ We\ have\ everything,\ start\ to\ run\ the\ while\ loop.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00225}00225\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00227}00227\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ leftValue\ =\ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varIteration;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varIterationPosition\ >=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ leftPosition\ =\ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varIterationPosition;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[leftPosition].tag\ !=\ T\_INT)}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ leftValue\ =\ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[leftPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rightValue\ =\ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.value;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.position\ >=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rightPosition\ =\ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].varLogicalRelation.position;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[rightPosition].tag\ !=\ T\_INT)}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ rightValue\ =\ *\mbox{\hyperlink{tokens_8cpp_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}}[rightPosition].\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}}.pi;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{arithmetic_8cpp_a604eb5227832ec1cb7b6173f7c38af31}{GetLogicalOperationAnswer}}(\mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].enumLogicalOperation,\ leftValue,\ rightValue))}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ token\_jump\_to(\mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].p\_StartWhileLoop);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{common_8cpp_ac9c2a0eacced9c9088d3afdfe993b74c}{Execute\_Instructions}}(\mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].p\_EndWhileLoop)\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00247}00247\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00248}00248\ \ \ \ \ \textcolor{comment}{//\ DEBUG\_MESSAGE("{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/WHILE\ LOOP\ END-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{},nestedWhileloop);}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00249}00249\ \ \ \ \ \ \textcolor{comment}{//This\ is\ necessary\ if\ the\ while\ doesn't\ run\ at\ all.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00250}00250\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}\ <\ \mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].p\_EndWhileLoop)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ token\_jump\_to(\mbox{\hyperlink{tokens_8cpp_a249f136f70134f067e0e0c51fe11b826}{whileExtract}}[\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ -\/\ 1].p\_EndWhileLoop);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00252}00252\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00254}00254\ \ \ \ \ \textcolor{keywordflow}{while}\ (END\_OF\_LINE)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Skip\ new\ lines}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8h_a89627a6b7254066064ec272e728e64a2}{check\_and\_get\_next\_token}}();}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00257}00257\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00259}00259\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{tokens_8cpp_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}}\ ==\ TOKEN\_RIGHT\_CURLY\_BRACKET)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_ab40143d7faf47b5409f7f926dc91766e}{process\_token}}(TOKEN\_RIGHT\_CURLY\_BRACKET);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00261}00261\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00262}00262\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_CURLY\_BRACKET\_MISSING);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00265}00265\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00266}00266\ \ \ \ \ token\_jump\_to(\mbox{\hyperlink{tokens_8cpp_a2c43494521169115ff99916aa23e0f0b}{p\_prog}}-\/>prev);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00267}00267\ \ \ \ \ \mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00268}00268\ \ \ \ \ \mbox{\hyperlink{for__loop_8cpp_a6188105921723260dbcbf61d9b6a7448}{nestedForWhileloop}}-\/-\/;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ we\ don't\ have\ a\ while-\/for\ loop}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00270}00270\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ >=\ 1\ ||\ \mbox{\hyperlink{for__loop_8cpp_a6188105921723260dbcbf61d9b6a7448}{nestedForWhileloop}}\ >=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ had\ nested\ while-\/loop.\ Don't\ return\ the\ the\ main\ loop.\ Return\ to\ the\ while\ loop\ calling\ this\ while\ loop.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Simply,\ we\ have\ to\ let\ this\ while\ loop\ acts\ like\ other\ function.\ They\ return\ the\ results\ only\ ..\ they\ don't\ jump\ to\ other\ functions.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_NESTED\_WHILE\_LOOP);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00275}00275\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00276}00276\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{for__loop_8cpp_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}INFO\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_WHILE\_LOOP\_END);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \ \ \textcolor{comment}{//Execute\_Instructions(NULL);\ //RUN\ Rest\ the\ code\ as\ normal.}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00279}00279\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00280}00280\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_ERROR\_NESTEDFORLOOP\_NESTEDWHILELOOP\_NOT\_ZERO);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00283}00283\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00284}00284\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{while__loop_8cpp_source_l00285}00285\ \}}
+
+\end{DoxyCode}

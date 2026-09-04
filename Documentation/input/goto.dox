@@ -1,0 +1,20 @@
+/*!
+
+*\page goto Goto
+*
+* A goto statement provides an unconditional jump from the 'goto' to a labeled statement or start of a script program. It must be in the same function<BR>
+* Goto might be a better choice than while loop or for loop since there are less calculations in the script engine. This can increase speed and performance of the script program.
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> goto LABEL </B>
+*Note:
+*		Label: must be defined for goto statment works. If you jump to an undefined label, script program execution will fails. 
+* <span style='color:blue'><em><B> <br>
+Example:
+</B> </em> </span><br>
+*   goto exitPoint;	  						&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem goto exit </span><br>
+*   print "Unexecuted instruction\n";<br>
+*		....<br>
+* 	:exitPoint:    						    &nbsp;&nbsp;&nbsp;  <span style='color:green'> rem Label definition </span><br>
+*	print "I am going out!!\n";		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send to serial "I am going out!!" </span><br>
+*
+*/

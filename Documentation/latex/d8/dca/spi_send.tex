@@ -1,0 +1,126 @@
+\doxysection{SPI Send}
+\hypertarget{spi_send}{}\label{spi_send}\index{SPI Send@{SPI Send}}
+SPI protocol communication instruction. This instruction sends data or an array to an SPI device and gets a response, which is saved in the provided variable.~\newline
+ SPI protocol supports multiple slaves. To make this function work properly, make sure that the devices support a tri-\/state configuration when they are disabled.~\newline
+ No more than one device should be on the bus at the same time.~\newline
+ If you need to send several bytes (more than 16bit) to the device you target without changing the chip select signal, put the bytes you have (it doesn\textquotesingle{}t matter how many) in an array and make the communication 8bits. This will allow the spi\+\_\+send command to send the bytes one by one using only one chip select cycling (high-\/low-\/ high). This is applicable ONLY when you have a numerical array. But, Text array will be treated differently, and data will be sent byte by byte with chip select cycling per each byte.
+
+{\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ spi\+\_\+send }} DEVICE\+\_\+\+ID, Wait\+For\+Reply(returned bytes), SPI\+\_\+\+DATA (could be an array using a variable), DATASIZE/\+TYPE =8/12/16, FREQ, SPI\+\_\+\+MOD =0/1/2/3 Default=0 , VARIABLE\+\_\+\+NAME, DELAY BETWEEN PACKETS(\+Optional)~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/DEVICE\_ID:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI\ address/Device\ ID\ -\/\ Decoder\ from\ 1\ to\ 15.\ 0\ is\ reserved\ \textcolor{keywordflow}{for}\ SD-\/Card}
+\DoxyCodeLine{-\/waitForReply:\ \ \ \ \ \ \ \ \ \ \ \ \ \ Do\ the\ slave\ reply\ back\ any\ value?}
+\DoxyCodeLine{-\/SpiData:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Data\ to\ be\ sent\ to\ the\ slave.\ (could\ be\ an\ array\ \textcolor{keyword}{using\ }a\ variable)}
+\DoxyCodeLine{-\/spiDataSize\ \ DataSize:\ \ \ \ \ Data\ size\ or\ type.\ DATASIZE/TYPE\ =8/12/16}
+\DoxyCodeLine{-\/spi\_frequency:\ \ \ \ \ \ \ \ \ \ \ \ \ SPI\ channel\ frequency.\ Typical\ =1000000}
+\DoxyCodeLine{-\/spi\_mode:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI\ Mode:\ SPI\_MOD\ =0/1/2/3\ Default=0}
+\DoxyCodeLine{-\/Variable\_Name:\ \ \ \ \ \ \ \ \ \ \ \ \ Variable\ will\ be\ used\ to\ save\ the\ reply.}
+\DoxyCodeLine{-\/Delay:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Delay\ necessary\ between\ packets\ (Optional)}
+
+\end{DoxyCode}
+ {\itshape {\bfseries{ Example\+:}}} ~\newline
+ MESSAGE=\"{}\+ABCDEFGHIJKLMNOPQRSTUVXYZ\"{}~\newline
+  REM DEVICE\+\_\+\+ID, Wait\+For\+Reply, SPI\+\_\+\+DATA, DATASIZE/\+TYPE =8/12/16, FREQ, SPI\+\_\+\+MOD =0/1/2/3 Default=0 , VARIABLE\+\_\+\+NAME, DELAY between packets(optional)~\newline
+ spi\+\_\+send 1,26,MESSAGE,8,5000000,0,myvar,10000;~\newline
+
+
+{\itshape {\bfseries{ Complex Example\+:}}} ~\newline
+ Let say that we need to write and read from an external Flash memory for ex. (AT25512\+N-\/\+SH). The following code is using mbed and C++. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mbed.h"{}}}
+\DoxyCodeLine{SPI\ device(SPI\_MOSI,\ SPI\_MISO,\ SPI\_SCK);}
+\DoxyCodeLine{}
+\DoxyCodeLine{DigitalOut\ CS(SPI\_CS);}
+\DoxyCodeLine{}
+\DoxyCodeLine{Serial\ pc(USBTX,\ USBRX);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ pc.printf(\textcolor{stringliteral}{"{}MEM\ Write\ Started\(\backslash\)n"{}});}
+\DoxyCodeLine{\ \ \ device.format(8,\ 0);}
+\DoxyCodeLine{\ \ \ device.frequency(1000000);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ v;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0x200;\ i<0x0210;i++)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CS=1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CS=0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ wait\_ms(1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ device.write(0x01);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ device.write(0x00);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CS=1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CS=0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ device.write(0x6);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CS=1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CS=0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ device.write(0x02);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ v=slave.write((i\&0xff00)>>8);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ v=slave.write(i\&0xff);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ device.write((0xDA));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CS=1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pc.printf(\textcolor{stringliteral}{"{}Address=\ \%x\ \%x\(\backslash\)n"{}},((i\&0xff00)>>8),\ (i\&0xff));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ pc.printf(\textcolor{stringliteral}{"{}MEM\ Read\ Started\(\backslash\)n"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ CS=1;}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0x200;\ i<0x210;i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ wait\_ms(1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CS=0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ device.write(0x03);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ device.write((i\&0xff00)>>8);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ device.write(i\&0xff);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ v=slave.write(0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CS=1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pc.printf(\textcolor{stringliteral}{"{}Results\ for\ i=\%i\ :\ \%x\(\backslash\)n"{}},i,v);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ Now the equivalent script code is as follow \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{enable\_debug}
+\DoxyCodeLine{function\ write(adres)\{}
+\DoxyCodeLine{\ \ \ \ REM\ send\ write\ enable.}
+\DoxyCodeLine{\ \ \ \ spi\_send\ 1,0,0x0100,0x16,1000000,0,Reply,0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ REM\ send\ enable\ write}
+\DoxyCodeLine{\ \ \ \ spi\_send\ 1,0,0x06,0x8,1000000,0,Reply,0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ REM\ send\ data}
+\DoxyCodeLine{\ \ \ \ spi\_send\ 1,0,adres,0x8,1000000,0,Reply,0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ read(av\ )\{}
+\DoxyCodeLine{\ \ \ \ REM\ Read\ request}
+\DoxyCodeLine{\ \ \ \ Address[]=\{0x03,0,0,0\};}
+\DoxyCodeLine{\ \ \ \ Address[1]=av}
+\DoxyCodeLine{\ \ \ \ spi\_send\ 1,1,Address,0x8,1000000,0,Reply,0}
+\DoxyCodeLine{\ \ \ \ print\ Reply}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{for(i=0x200,\ i<0x210,\ i++)\{}
+\DoxyCodeLine{\ writeAdr[]=\{0x02,0,0,0xDA\}}
+\DoxyCodeLine{\ writeAdr[1]=(i\&0xff00);}
+\DoxyCodeLine{\ writeAdr[1]=writeAdr[1]>>8;}
+\DoxyCodeLine{\ writeAdr[1]=(i\&0x00ff);;}
+\DoxyCodeLine{\ call\ write(writeAdr)}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{while(1)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ for(i=0x200,\ i<0x210,\ i++)\{}
+\DoxyCodeLine{\ \ print\ "{}i="{}}
+\DoxyCodeLine{\ \ print\ i}
+\DoxyCodeLine{\ \ call\ read(i)}
+\DoxyCodeLine{\ \ print\ "{}\(\backslash\)n"{}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

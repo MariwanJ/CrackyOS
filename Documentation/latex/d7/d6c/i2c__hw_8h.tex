@@ -1,0 +1,83 @@
+\doxysection{Cracky\+OS/src/i2c\+\_\+hw.h File Reference}
+\hypertarget{i2c__hw_8h}{}\label{i2c__hw_8h}\index{CrackyOS/src/i2c\_hw.h@{CrackyOS/src/i2c\_hw.h}}
+
+
+This file contains I2C instructions definitions.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+{\ttfamily \#include \"{}types.\+h\"{}}\newline
+Include dependency graph for i2c\+\_\+hw.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_i2_c___communication}{I2\+C\+\_\+\+Communication}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{i2ctype}} 
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i2_c___communication}{I2\+C\+\_\+\+Communication}} \mbox{\hyperlink{i2c__hw_8h_a39d44fa6686d270ac1f463a2886b4e19}{i2c}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains I2C instructions definitions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{i2c__hw_8h_source}{i2c\+\_\+hw.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}\label{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6} 
+\index{i2c\_hw.h@{i2c\_hw.h}!i2ctype@{i2ctype}}
+\index{i2ctype@{i2ctype}!i2c\_hw.h@{i2c\_hw.h}}
+\doxysubsubsection{\texorpdfstring{i2ctype}{i2ctype}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{i2ctype}}}
+
+Be aware of the reserved addresses as follow \+:
+
+Reserved address index 8-\/bit byte Description 7-\/bit address R/W value
+
+MSB(4-\/bit) LSB(3-\/bit) 1-\/bit 1 0000 000 0 General call 2 0000 000 1 Start byte 3 0000 001 X CBUS address 4 0000 010 X Reserved for different bus format 5 0000 011 X Reserved for future purpose 6 0000 1XX X HS-\/mode master code 7 1111 1XX 1 Device ID 8 1111 0XX X 10-\/bit slave addressing
+
+Non-\/reserved addresses in 7-\/bit address space MSB (4-\/bit) Typical usage 0001 Digital receivers, SMBus 0010 TV video line decoders, IPMB 0011 AV codecs 0100 Video encoders, GPIO expanders 0101 ACCESS bus, PMBus 0110 VESA DDC, PMBus 0111 Display controller 1000 TV signal processing, audio processing, SMBus 1001 AV switching, ADCs and DACs, IPMB, SMBus 1010 Storage memory, real-\/time clock 1011 AV processors 1100 PLLs and tuners, modulators and demodulators, SMBus 1101 AV processors and decoders, audio power amplifiers, SMBus 1110 AV colour space converters ENUM definition of I2C type used by the script interpreter 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8h_source_l00067}{67}} of file \mbox{\hyperlink{i2c__hw_8h_source}{i2c\+\_\+hw.\+h}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{i2c__hw_8h_a39d44fa6686d270ac1f463a2886b4e19}\label{i2c__hw_8h_a39d44fa6686d270ac1f463a2886b4e19} 
+\index{i2c\_hw.h@{i2c\_hw.h}!i2c@{i2c}}
+\index{i2c@{i2c}!i2c\_hw.h@{i2c\_hw.h}}
+\doxysubsubsection{\texorpdfstring{i2c}{i2c}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i2_c___communication}{I2\+C\+\_\+\+Communication}} i2c\hspace{0.3cm}{\ttfamily [extern]}}
+
+Global variable keeps the I2C OBJECT. 

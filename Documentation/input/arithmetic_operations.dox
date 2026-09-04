@@ -1,0 +1,39 @@
+/*!
+
+*\page arithmetic_operations Arithmetic Operations
+*
+* This Interpreter supports the following arithmetic operations:<BR>
+* Note: The system uses degrees. Radians are not supported.
+<table>
+<tr><td>Addition:&nbsp;</td> <td>&nbsp;+&nbsp;</td></tr>
+<tr><td>Subtraction:&nbsp;</td> <td>&nbsp;-&nbsp;</td></tr>
+<tr><td>Multiplication:&nbsp;</td> <td>&nbsp;*&nbsp;</td></tr>
+<tr><td>Division:&nbsp;</td> <td>&nbsp;-&nbsp;</td></tr>
+<tr><td>To the power:&nbsp;</td> <td>&nbsp;^&nbsp;</td></tr>
+<tr><td>Logical AND:&nbsp;</td> <td>&nbsp;and&nbsp;</td></tr>
+<tr><td>Logical OR:&nbsp;</td> <td>&nbsp;or&nbsp;</td></tr>
+<tr><td>Logical INVERT:&nbsp;</td> <td>&nbsp;invert&nbsp;</td></tr>
+<tr><td>Sinusoidal:&nbsp;</td> <td>&nbsp;sin(x)&nbsp;</td></tr>
+<tr><td>cosinusoidal:&nbsp;</td> <td>&nbsp;cos(x)&nbsp;</td></tr>
+<tr><td>Tangent:&nbsp;</td> <td>&nbsp;tan(x)&nbsp;</td></tr>
+<tr><td>Arcsinusoidal:&nbsp;</td> <td>&nbsp;asin(x)&nbsp;</td></tr>
+<tr><td>Arccosinusoidal:&nbsp;</td> <td>&nbsp;acos(x)&nbsp;</td></tr>
+<tr><td>Arctangent:&nbsp;</td> <td>&nbsp;atan(x)&nbsp;</td></tr>
+<tr><td>Logarithm:&nbsp;</td> <td>&nbsp;log(x)&nbsp;</td></tr>
+<tr><td>Natural logarithm:&nbsp;</td> <td>&nbsp;ln(x)&nbsp;</td></tr>
+<tr><td>Absolute value:&nbsp;</td> <td>&nbsp;abs(x)&nbsp;</td></tr>
+<tr><td>Exponential function:&nbsp;</td> <td>&nbsp;ex(x)&nbsp;</td></tr>
+<tr><td>Square root:&nbsp;</td> <td>&nbsp;sqrt(x)&nbsp;</td></tr>
+</table>
+
+*<span style='color:blue'><em><B> <br>
+Example:
+</B> </em> </span><br>
+*   cls;	  						&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem clear the terminal</span><br>
+*	print "Hello World\n";	&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send to the terminal 'Hello World\n'</span>
+* 	x=sin(1);
+*   y=log(20);
+*   g=round(22.23);
+*   print x,y,g;
+*
+*/

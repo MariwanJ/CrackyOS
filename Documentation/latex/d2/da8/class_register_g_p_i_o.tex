@@ -1,0 +1,228 @@
+\doxysection{Register\+GPIO Class Reference}
+\hypertarget{class_register_g_p_i_o}{}\label{class_register_g_p_i_o}\index{RegisterGPIO@{RegisterGPIO}}
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_register_g_p_i_o_aa588a51d7fdcd4bcf7a1bd9b5b98d9ae}{Register\+GPIO}} ()
+\item 
+\mbox{\hyperlink{class_register_g_p_i_o_ae54bf60d781da8f3c924e7fea3b87eb3}{\texorpdfstring{$\sim$}{\string~}\+Register\+GPIO}} ()
+\item 
+int \mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}} (int enum\+Name, int function)
+\item 
+Re\+Node \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_register_g_p_i_o_a8a32e8bef9992506712b0718cd775143}{find}} (int enum\+Name)
+\item 
+void \mbox{\hyperlink{class_register_g_p_i_o_aeb34c07a2c1ad466f5abbc39af802e86}{remove}} (Re\+Node \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}t)
+\item 
+int \mbox{\hyperlink{class_register_g_p_i_o_a2b282ff39276df1ebcd8b6974d1cafbb}{gpio\+Free\+Mem}} (int enum\+Name, int function)
+\item 
+void \mbox{\hyperlink{class_register_g_p_i_o_a12b9520dda8d29adae3205ef680f7611}{go\+To\+First\+Item}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Re\+Node \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_register_g_p_i_o_a9e847b1fefc9783a641524964e1f11cb}{\+\_\+p\+Node\+Item}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \doxylink{class_register_g_p_i_o}{Register\+GPIO} Uses Re\+Node class to save functionality and GPIO name 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00512}{512}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_register_g_p_i_o_aa588a51d7fdcd4bcf7a1bd9b5b98d9ae}\label{class_register_g_p_i_o_aa588a51d7fdcd4bcf7a1bd9b5b98d9ae} 
+\index{RegisterGPIO@{RegisterGPIO}!RegisterGPIO@{RegisterGPIO}}
+\index{RegisterGPIO@{RegisterGPIO}!RegisterGPIO@{RegisterGPIO}}
+\doxysubsubsection{\texorpdfstring{RegisterGPIO()}{RegisterGPIO()}}
+{\footnotesize\ttfamily Register\+GPIO\+::\+Register\+GPIO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Class \doxylink{class_register_g_p_i_o}{Register\+GPIO} constructor 
+
+Definition at line \mbox{\hyperlink{types_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{types_8cpp_source}{types.\+cpp}}.
+
+\Hypertarget{class_register_g_p_i_o_ae54bf60d781da8f3c924e7fea3b87eb3}\label{class_register_g_p_i_o_ae54bf60d781da8f3c924e7fea3b87eb3} 
+\index{RegisterGPIO@{RegisterGPIO}!````~RegisterGPIO@{\texorpdfstring{$\sim$}{\string~}RegisterGPIO}}
+\index{````~RegisterGPIO@{\texorpdfstring{$\sim$}{\string~}RegisterGPIO}!RegisterGPIO@{RegisterGPIO}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RegisterGPIO()}{\string~RegisterGPIO()}}
+{\footnotesize\ttfamily Register\+GPIO\+::\texorpdfstring{$\sim$}{\string~}\+Register\+GPIO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Class \doxylink{class_register_g_p_i_o}{Register\+GPIO} destructor 
+
+Definition at line \mbox{\hyperlink{types_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{types_8cpp_source}{types.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00526}{\+\_\+p\+Node\+Item}}, and \mbox{\hyperlink{types_8cpp_source_l00269}{go\+To\+First\+Item()}}.
+
+Here is the call graph for this function\+:
+% FIG 0
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}\label{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd} 
+\index{RegisterGPIO@{RegisterGPIO}!add@{add}}
+\index{add@{add}!RegisterGPIO@{RegisterGPIO}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily int Register\+GPIO\+::add (\begin{DoxyParamCaption}\item[{int}]{enum\+Name,  }\item[{int}]{function }\end{DoxyParamCaption})}
+
+add new GPIO to the linked list. 
+\begin{DoxyParams}{Parameters}
+{\em enum\+Name} & GPIO Name in enum representation \\
+\hline
+{\em function} & GPIO\textquotesingle{}s functionality look at the enum (FTOKEN\+\_\+\+PWM, ..etc)\\
+\hline
+\end{DoxyParams}
+Add a new item to the list of GPIO return 1 if added return 0 if not added 
+
+Definition at line \mbox{\hyperlink{types_8cpp_source_l00281}{281}} of file \mbox{\hyperlink{types_8cpp_source}{types.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00526}{\+\_\+p\+Node\+Item}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{types_8cpp_source_l00269}{go\+To\+First\+Item()}}, \mbox{\hyperlink{types_8cpp_source_l00063}{gpio\+Free\+Mem()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00184}{add\+GPIOpin\+\_\+\+DIGITAL()}}, \mbox{\hyperlink{digital_8cpp_source_l00039}{reg\+::reg()}}, \mbox{\hyperlink{analog_8cpp_source_l00146}{token\+\_\+aget()}}, \mbox{\hyperlink{analog_8cpp_source_l00036}{token\+\_\+aput()}}, \mbox{\hyperlink{analog_8cpp_source_l00300}{token\+\_\+gen\+\_\+pwm()}}, and \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{class_register_g_p_i_o_a8a32e8bef9992506712b0718cd775143}\label{class_register_g_p_i_o_a8a32e8bef9992506712b0718cd775143} 
+\index{RegisterGPIO@{RegisterGPIO}!find@{find}}
+\index{find@{find}!RegisterGPIO@{RegisterGPIO}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily Re\+Node \texorpdfstring{$\ast$}{*} Register\+GPIO\+::find (\begin{DoxyParamCaption}\item[{int}]{enum\+Name }\end{DoxyParamCaption})}
+
+Find a GPIO in the linked list and return a pointer to the item. 
+\begin{DoxyParams}{Parameters}
+{\em enum\+Name} & Name of the GPIO to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the found item or NULL 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{types_8cpp_source_l00328}{328}} of file \mbox{\hyperlink{types_8cpp_source}{types.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00526}{\+\_\+p\+Node\+Item}}, and \mbox{\hyperlink{types_8cpp_source_l00269}{go\+To\+First\+Item()}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00160}{delete\+Reg()}}, \mbox{\hyperlink{types_8cpp_source_l00063}{gpio\+Free\+Mem()}}, and \mbox{\hyperlink{digital_8cpp_source_l00039}{reg\+::reg()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{class_register_g_p_i_o_a12b9520dda8d29adae3205ef680f7611}\label{class_register_g_p_i_o_a12b9520dda8d29adae3205ef680f7611} 
+\index{RegisterGPIO@{RegisterGPIO}!goToFirstItem@{goToFirstItem}}
+\index{goToFirstItem@{goToFirstItem}!RegisterGPIO@{RegisterGPIO}}
+\doxysubsubsection{\texorpdfstring{goToFirstItem()}{goToFirstItem()}}
+{\footnotesize\ttfamily void Register\+GPIO\+::go\+To\+First\+Item (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Point back to the first item in the linked list. 
+
+Definition at line \mbox{\hyperlink{types_8cpp_source_l00269}{269}} of file \mbox{\hyperlink{types_8cpp_source}{types.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00526}{\+\_\+p\+Node\+Item}}.
+
+
+
+Referenced by \mbox{\hyperlink{types_8cpp_source_l00281}{add()}}, \mbox{\hyperlink{types_8cpp_source_l00328}{find()}}, and \mbox{\hyperlink{types_8cpp_source_l00043}{\texorpdfstring{$\sim$}{\string~}\+Register\+GPIO()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{class_register_g_p_i_o_a2b282ff39276df1ebcd8b6974d1cafbb}\label{class_register_g_p_i_o_a2b282ff39276df1ebcd8b6974d1cafbb} 
+\index{RegisterGPIO@{RegisterGPIO}!gpioFreeMem@{gpioFreeMem}}
+\index{gpioFreeMem@{gpioFreeMem}!RegisterGPIO@{RegisterGPIO}}
+\doxysubsubsection{\texorpdfstring{gpioFreeMem()}{gpioFreeMem()}}
+{\footnotesize\ttfamily int Register\+GPIO\+::gpio\+Free\+Mem (\begin{DoxyParamCaption}\item[{int}]{enum\+Name,  }\item[{int}]{function }\end{DoxyParamCaption})}
+
+This function will free up the memory for the GPIO used before if it dosen\textquotesingle{}t have the same functionality. SERIAL, SPI MASTER and REG is not allowed Return 1 if removed Return 0 if not removed .. It has the same functionality Return -\/1 if not found.
+
+This function will free up the memory for the GPIO used before if it doesn\textquotesingle{}t have the same functionality. SERIAL, SPI MASTER and REG is not allowed Return 1 if removed Return 0 if not removed .. It has the same functionality Return -\/1 if not found. Remove the item if the functionality changes. otherwise return 0
+
+WE DON\textquotesingle{}T ALLOW SERIAL PINS TO BE REASSIGNED .. THIS IS A BAD CODE
+
+WE DON\textquotesingle{}T ALLOW SERIAL PINS TO BE REASSIGNED .. THIS IS A BAD CODE
+
+WE DON\textquotesingle{}T ALLOW REG PINS TO BE REASSIGNED .. THIS IS A BAD CODE
+
+Be aware that you cannot only remove the RD or the TD ..You have to free both. Programmer should be careful when they reassign the code.
+
+Definition at line \mbox{\hyperlink{types_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{types_8cpp_source}{types.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{types_8cpp_source_l00328}{find()}}, \mbox{\hyperlink{digital_8cpp_source_l00307}{find\+GPIOpin()}}, \mbox{\hyperlink{tokens_8cpp_source_l00040}{g\+Can\+Variable}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00043}{PWM\+\_\+\+Var}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{types_8cpp_source_l00354}{remove()}}, and \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}.
+
+
+
+Referenced by \mbox{\hyperlink{types_8cpp_source_l00281}{add()}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{class_register_g_p_i_o_aeb34c07a2c1ad466f5abbc39af802e86}\label{class_register_g_p_i_o_aeb34c07a2c1ad466f5abbc39af802e86} 
+\index{RegisterGPIO@{RegisterGPIO}!remove@{remove}}
+\index{remove@{remove}!RegisterGPIO@{RegisterGPIO}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily void Register\+GPIO\+::remove (\begin{DoxyParamCaption}\item[{Re\+Node \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+Remove a GPIO from the linked list 
+\begin{DoxyParams}{Parameters}
+{\em t} & A node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{types_8cpp_source_l00354}{354}} of file \mbox{\hyperlink{types_8cpp_source}{types.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00526}{\+\_\+p\+Node\+Item}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00160}{delete\+Reg()}}, \mbox{\hyperlink{types_8cpp_source_l00063}{gpio\+Free\+Mem()}}, and \mbox{\hyperlink{digital_8cpp_source_l00039}{reg\+::reg()}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_register_g_p_i_o_a9e847b1fefc9783a641524964e1f11cb}\label{class_register_g_p_i_o_a9e847b1fefc9783a641524964e1f11cb} 
+\index{RegisterGPIO@{RegisterGPIO}!\_pNodeItem@{\_pNodeItem}}
+\index{\_pNodeItem@{\_pNodeItem}!RegisterGPIO@{RegisterGPIO}}
+\doxysubsubsection{\texorpdfstring{\_pNodeItem}{\_pNodeItem}}
+{\footnotesize\ttfamily Re\+Node\texorpdfstring{$\ast$}{*} Register\+GPIO\+::\+\_\+p\+Node\+Item}
+
+Node object 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00526}{526}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{types_8cpp_source_l00281}{add()}}, \mbox{\hyperlink{types_8cpp_source_l00328}{find()}}, \mbox{\hyperlink{types_8cpp_source_l00269}{go\+To\+First\+Item()}}, \mbox{\hyperlink{types_8cpp_source_l00354}{remove()}}, and \mbox{\hyperlink{types_8cpp_source_l00043}{\texorpdfstring{$\sim$}{\string~}\+Register\+GPIO()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cracky\+OS/src/\mbox{\hyperlink{types_8h}{types.\+h}}\item 
+Cracky\+OS/src/types.\+cpp\end{DoxyCompactItemize}

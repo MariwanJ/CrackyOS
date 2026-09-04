@@ -1,0 +1,27 @@
+/*!
+
+* \page 02_supported_Systems Supported Systems
+*
+* Any ARM Cortex-M3/M4 processor that is mbed-os enabled could run this system with modifications to some files.
+*<H3> Note:</H3>
+* Some additional requirements must be taken into consideration as follows:
+* - Flash memory size: This is necessary because the compiled binary requires a specific amount of flash memory.
+* - RAM size: 		  This is essential to take in the account because the script program will be loaded to the memory. The size of the script program is exactly what you must have plus some more RAM for the system to run.
+*
+* <H2> Known working hardware:</H2>
+*   - NUCLEO-L476RG
+*   - NUCLEO-F207ZG
+*   - NUCLEO-L4R5ZI
+*   - NUCLEO-F767ZI
+*
+*<H2> Adding support for new hardware</H2>
+*To support a new hardware platform, create or modify the hardware definition files for the corresponding Nucleo board:
+*<ul>
+*  <li><code>nucleo_l476rg_hw.cpp</code> and <code>nucleo_l476rg_hw.h</code></li>
+*  <li><code>nucleo_f207zg_hw.cpp</code> and <code>nucleo_f207zg_hw.h</code></li>
+*  <li><code>nucleo_f767zi_hw.cpp</code> and <code>nucleo_f767zi_hw.h</code></li>
+*  <li><code>nucleo_l4r5zi_hw.cpp</code> and <code>nucleo_l4r5zi_hw.h</code></li>
+*</ul>
+*
+* These files contain definitions specific to each hardware and system. For example, GPIO names and SPI, I2C, and PWM channels vary from device to device.
+*/

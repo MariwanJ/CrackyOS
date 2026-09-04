@@ -1,0 +1,48 @@
+\doxysection{tokenizetofile.\+h}
+\hypertarget{tokenizetofile_8h_source}{}\label{tokenizetofile_8h_source}\index{CrackyOS/src/tokenizetofile.h@{CrackyOS/src/tokenizetofile.h}}
+\mbox{\hyperlink{tokenizetofile_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00027}00027\ \textcolor{preprocessor}{\#ifndef\ TOKINIZETOFILE\_H}}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ TOKINIZETOFILE\_H}}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hardware__used_8h}{hardware\_used.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00035}\mbox{\hyperlink{tokenizetofile_8h_a706068f562dd5c64a8b7bbd4b2298dd1}{00035}}\ \textcolor{preprocessor}{\#define\ MAX\_LINE\_SIZE\ 1024}}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00039}\mbox{\hyperlink{tokenizetofile_8h_a060a34fe8229a960f4250e93b346144d}{00039}}\ \textcolor{preprocessor}{\#define\ MAX\_TOKEN\_SIZE\ 256}}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00044}\mbox{\hyperlink{tokenizetofile_8h_a774a906ceb2672aee07483be36134011}{00044}}\ \textcolor{preprocessor}{\#define\ MAX\_INT\_SIZE\ 14}}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00050}00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokenizetofile_8h_a223b611e556f247af4037f2da83ae382}{addNewItemToLinkedList}}();}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00057}\mbox{\hyperlink{class_tokenize_to_file}{00057}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tokenize_to_file}{TokenizeToFile}}\ \{}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00058}00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00066}00066\ \ \ \mbox{\hyperlink{class_tokenize_to_file}{TokenizeToFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *inpuFileName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *outputFileName);}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00070}00070\ \ \ \mbox{\hyperlink{class_tokenize_to_file_a9b12069ba4f609ff28d2e7d5675e188d}{\string~TokenizeToFile}}();}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00078}00078\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tokenize_to_file_a6904ce4e2c0920ec3e4aa4a35d24e9c0}{run}}();}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00084}00084\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tokenize_to_file_a150d67d9114e0329e0709cc1fe4a6d17}{runInteractive}}(\textcolor{keywordtype}{char}\ *inputCommand);}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00089}00089\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tokenize_to_file_aeb45f517ed92e6497c59a79c834595a0}{checkNumber}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00094}00094\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tokenize_to_file_a6e0c0e0aa8fee7eda1ec60f017b5b957}{checkSingelChar}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00100}00100\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tokenize_to_file_af863ffaf4f4558f4a12ca675afb03441}{checkString}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00105}00105\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tokenize_to_file_a259b4bacdc34b7b1455fd0aac4da8855}{checkInstruction}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00110}00110\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tokenize_to_file_a8b49c86bc60d24c7692259dbd8f55d35}{checkVariable}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00112}00112\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00116}00116\ \ \ \textcolor{keywordtype}{int}\ saveLine();}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00121}00121\ \ \ \textcolor{keywordtype}{int}\ readLine();}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00126}00126\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00127}00127\ \ \ \ \ \ \ *m\_p\_prog;\ \textcolor{comment}{//\ Don't\ mix\ with\ the\ global\ p\_prog..\ This\ is\ a\ local\ variable}}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00132}00132\ \textcolor{comment}{}\ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *m\_p\_prog\_next;}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00136}00136\ \ \ FILE\ *testProg;}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00140}00140\ \ \ FILE\ *testProgW;}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00144}00144\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *inpuFileName;}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00148}00148\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *outputFileName;}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00149}00149\ \};}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00155}00155\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokenizetofile_8h_ad56fedd65da20cb5cb6c112a62e1481f}{countlines}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00162}00162\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tokenizetofile_8h_aaf4bd95078f66090aa460d7b9cfacb1f}{readTolinkedList}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ lines);}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00166}00166\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tokenizetofile_8h_ad920367658f41912f4a583563baf71b3}{free\_scriptProg}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{tokenizetofile_8h_source_l00168}00168\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

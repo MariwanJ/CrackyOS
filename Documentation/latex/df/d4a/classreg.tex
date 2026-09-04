@@ -1,0 +1,197 @@
+\doxysection{reg Class Reference}
+\hypertarget{classreg}{}\label{classreg}\index{reg@{reg}}
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classreg_aeab0b2b65446e6a0b330e7dc91ddc552}{reg}} (char \texorpdfstring{$\ast$}{*}name, int conf, int \texorpdfstring{$\ast$}{*}enum\+Names)
+\item 
+\mbox{\hyperlink{classreg_a3e855f6f0a74098afb1c9684cd54c43e}{\texorpdfstring{$\sim$}{\string~}reg}} ()
+\item 
+void \mbox{\hyperlink{classreg_aae5062a0dcb6eb09267fdd3b2c00aa7a}{operator=}} (const \mbox{\hyperlink{classreg}{reg}} \&)=delete
+\item 
+void \mbox{\hyperlink{classreg_a81a086cdf4286e25b62cb654c3ae0320}{config\+Bus}} (unsigned char type)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classreg_a2330ff16a471e96bc06584ec24132420}{enum\+\_\+r\+\_\+bit}} \mbox{[}16\mbox{]}
+\item 
+Bus\+In\+Out \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classreg_a76c231b3470edc8c7c47670e51b0e631}{bus}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classreg_a09f1202c237f5fb18cf1df0121ea42ff}{\+\_\+hashname}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classreg_a00903606a73a22804a1f0991e7ff6a8b}{\+\_\+name}}
+\item 
+unsigned char \mbox{\hyperlink{classreg_a33d915469d795f16044b7b7eee325349}{\+\_\+config}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bus Reg class Definition 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00201}{201}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classreg_aeab0b2b65446e6a0b330e7dc91ddc552}\label{classreg_aeab0b2b65446e6a0b330e7dc91ddc552} 
+\index{reg@{reg}!reg@{reg}}
+\index{reg@{reg}!reg@{reg}}
+\doxysubsubsection{\texorpdfstring{reg()}{reg()}}
+{\footnotesize\ttfamily reg\+::reg (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{int}]{conf,  }\item[{int \texorpdfstring{$\ast$}{*}}]{enum\+Names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Class reg constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & A string represent the register/bus name \\
+\hline
+{\em enum\+Names} & GPIO pin names .. An array of enum numbers. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00248}{\+\_\+config}}, \mbox{\hyperlink{types_8h_source_l00238}{\+\_\+hashname}}, \mbox{\hyperlink{types_8h_source_l00244}{\+\_\+name}}, \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{types_8h_source_l00229}{bus}}, \mbox{\hyperlink{tokens_8h_source_l00262}{Calculate\+Hash\+Of\+String()}}, \mbox{\hyperlink{digital_8cpp_source_l00093}{config\+Bus()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{types_8h_source_l00223}{enum\+\_\+r\+\_\+bit}}, \mbox{\hyperlink{types_8cpp_source_l00328}{Register\+GPIO\+::find()}}, \mbox{\hyperlink{types_8cpp_source_l00030}{Global\+GPIO\+\_\+\+REG}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{types_8cpp_source_l00354}{Register\+GPIO\+::remove()}}, and \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}.
+
+Here is the call graph for this function\+:
+% FIG 0
+\Hypertarget{classreg_a3e855f6f0a74098afb1c9684cd54c43e}\label{classreg_a3e855f6f0a74098afb1c9684cd54c43e} 
+\index{reg@{reg}!````~reg@{\texorpdfstring{$\sim$}{\string~}reg}}
+\index{````~reg@{\texorpdfstring{$\sim$}{\string~}reg}!reg@{reg}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}reg()}{\string~reg()}}
+{\footnotesize\ttfamily reg\+::\texorpdfstring{$\sim$}{\string~}reg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Class reg destructor
+
+reg class destructor 
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00244}{\+\_\+name}}, and \mbox{\hyperlink{types_8h_source_l00229}{bus}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classreg_a81a086cdf4286e25b62cb654c3ae0320}\label{classreg_a81a086cdf4286e25b62cb654c3ae0320} 
+\index{reg@{reg}!configBus@{configBus}}
+\index{configBus@{configBus}!reg@{reg}}
+\doxysubsubsection{\texorpdfstring{configBus()}{configBus()}}
+{\footnotesize\ttfamily void reg\+::config\+Bus (\begin{DoxyParamCaption}\item[{unsigned char}]{type }\end{DoxyParamCaption})}
+
+save configuration type and apply the configuration to the bus 
+\begin{DoxyParams}{Parameters}
+{\em type} & \+: Configure the bus as In or Out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{digital_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{digital_8cpp_source}{digital.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00248}{\+\_\+config}}, and \mbox{\hyperlink{types_8h_source_l00229}{bus}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00584}{create\+New\+Bus()}}, \mbox{\hyperlink{digital_8cpp_source_l00039}{reg()}}, and \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{classreg_aae5062a0dcb6eb09267fdd3b2c00aa7a}\label{classreg_aae5062a0dcb6eb09267fdd3b2c00aa7a} 
+\index{reg@{reg}!operator=@{operator=}}
+\index{operator=@{operator=}!reg@{reg}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void reg\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classreg}{reg}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Class reg Copy operator 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classreg_a33d915469d795f16044b7b7eee325349}\label{classreg_a33d915469d795f16044b7b7eee325349} 
+\index{reg@{reg}!\_config@{\_config}}
+\index{\_config@{\_config}!reg@{reg}}
+\doxysubsubsection{\texorpdfstring{\_config}{\_config}}
+{\footnotesize\ttfamily unsigned char reg\+::\+\_\+config\hspace{0.3cm}{\ttfamily [protected]}}
+
+Defines the bus type 0=In , 1 =Out 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00248}{248}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00093}{config\+Bus()}}, and \mbox{\hyperlink{digital_8cpp_source_l00039}{reg()}}.
+
+\Hypertarget{classreg_a09f1202c237f5fb18cf1df0121ea42ff}\label{classreg_a09f1202c237f5fb18cf1df0121ea42ff} 
+\index{reg@{reg}!\_hashname@{\_hashname}}
+\index{\_hashname@{\_hashname}!reg@{reg}}
+\doxysubsubsection{\texorpdfstring{\_hashname}{\_hashname}}
+{\footnotesize\ttfamily uint32\+\_\+t reg\+::\+\_\+hashname}
+
+Hash number of the bus name. 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00238}{238}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00117}{find\+Reg()}}, and \mbox{\hyperlink{digital_8cpp_source_l00039}{reg()}}.
+
+\Hypertarget{classreg_a00903606a73a22804a1f0991e7ff6a8b}\label{classreg_a00903606a73a22804a1f0991e7ff6a8b} 
+\index{reg@{reg}!\_name@{\_name}}
+\index{\_name@{\_name}!reg@{reg}}
+\doxysubsubsection{\texorpdfstring{\_name}{\_name}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} reg\+::\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+Bus name 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00244}{244}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00039}{reg()}}, and \mbox{\hyperlink{digital_8cpp_source_l00104}{\texorpdfstring{$\sim$}{\string~}reg()}}.
+
+\Hypertarget{classreg_a76c231b3470edc8c7c47670e51b0e631}\label{classreg_a76c231b3470edc8c7c47670e51b0e631} 
+\index{reg@{reg}!bus@{bus}}
+\index{bus@{bus}!reg@{reg}}
+\doxysubsubsection{\texorpdfstring{bus}{bus}}
+{\footnotesize\ttfamily Bus\+In\+Out\texorpdfstring{$\ast$}{*} reg\+::bus}
+
+Pointer keeps the created object. MEM should be cleared as it is dynamically created. 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00229}{229}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00093}{config\+Bus()}}, \mbox{\hyperlink{digital_8cpp_source_l00039}{reg()}}, \mbox{\hyperlink{digital_8cpp_source_l00415}{token\+\_\+get()}}, \mbox{\hyperlink{digital_8cpp_source_l00345}{token\+\_\+put()}}, and \mbox{\hyperlink{digital_8cpp_source_l00104}{\texorpdfstring{$\sim$}{\string~}reg()}}.
+
+\Hypertarget{classreg_a2330ff16a471e96bc06584ec24132420}\label{classreg_a2330ff16a471e96bc06584ec24132420} 
+\index{reg@{reg}!enum\_r\_bit@{enum\_r\_bit}}
+\index{enum\_r\_bit@{enum\_r\_bit}!reg@{reg}}
+\doxysubsubsection{\texorpdfstring{enum\_r\_bit}{enum\_r\_bit}}
+{\footnotesize\ttfamily int reg\+::enum\+\_\+r\+\_\+bit\mbox{[}16\mbox{]}}
+
+variable keeps the bus names in enum numbers. 
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00223}{223}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{digital_8cpp_source_l00160}{delete\+Reg()}}, and \mbox{\hyperlink{digital_8cpp_source_l00039}{reg()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cracky\+OS/src/\mbox{\hyperlink{types_8h}{types.\+h}}\item 
+Cracky\+OS/src/\mbox{\hyperlink{digital_8cpp}{digital.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,117 @@
+\doxysection{Cracky\+OS/src/analog.cpp File Reference}
+\hypertarget{analog_8cpp}{}\label{analog_8cpp}\index{CrackyOS/src/analog.cpp@{CrackyOS/src/analog.cpp}}
+
+
+This file contains Analog IO instructions and definitions.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+{\ttfamily \#include \"{}types.\+h\"{}}\newline
+Include dependency graph for analog.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{analog_8cpp_a0708564bb7ad1230a3a3b64fba397249}{token\+\_\+aput}} ()
+\item 
+int \mbox{\hyperlink{analog_8cpp_a7500e22caa23c7872ee1c983c5834ee4}{token\+\_\+aget}} ()
+\item 
+int \mbox{\hyperlink{analog_8cpp_abe72ebed44ce7f6ead16c362e323806e}{token\+\_\+gen\+\_\+pwm}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains Analog IO instructions and definitions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{analog_8cpp_source}{analog.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{analog_8cpp_a7500e22caa23c7872ee1c983c5834ee4}\label{analog_8cpp_a7500e22caa23c7872ee1c983c5834ee4} 
+\index{analog.cpp@{analog.cpp}!token\_aget@{token\_aget}}
+\index{token\_aget@{token\_aget}!analog.cpp@{analog.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_aget()}{token\_aget()}}
+{\footnotesize\ttfamily int token\+\_\+aget (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get digital input data. You must provide the instruction a variable name Syntax of the instruction is like bellow\+: aget GPIO\+\_\+pin\+\_\+name, variable Variable is float and is a percentage of the real value. Multiply with VCC to get the correct voltage
+
+Note\+: Only one pin name should be used. No support for register. 
+
+Definition at line \mbox{\hyperlink{analog_8cpp_source_l00146}{146}} of file \mbox{\hyperlink{analog_8cpp_source}{analog.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{tokens_8cpp_source_l00896}{add\+New\+Script\+Variable()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00307}{find\+GPIOpin()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8h_source_l00070}{Test\+System\+\_\+get\+\_\+empty\+\_\+variable\+\_\+pos()}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{analog_8cpp_a0708564bb7ad1230a3a3b64fba397249}\label{analog_8cpp_a0708564bb7ad1230a3a3b64fba397249} 
+\index{analog.cpp@{analog.cpp}!token\_aput@{token\_aput}}
+\index{token\_aput@{token\_aput}!analog.cpp@{analog.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_aput()}{token\_aput()}}
+{\footnotesize\ttfamily int token\+\_\+aput (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Put analog voltage/value to the GPIO. Syntax of the instruction is like follow\+: aput GPIO\+\_\+pin\+\_\+name , variable Variable or aput GPIO\+\_\+pin\+\_\+name, value Number (number is between 0 to 0x\+FFFF) 
+
+Definition at line \mbox{\hyperlink{analog_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{analog_8cpp_source}{analog.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{digital_8cpp_source_l00307}{find\+GPIOpin()}}, \mbox{\hyperlink{digital_8cpp_source_l00032}{global\+GPIOvariable}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}, and \mbox{\hyperlink{types_8h_source_l00314}{Global\+GPclass\+::tag}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{analog_8cpp_abe72ebed44ce7f6ead16c362e323806e}\label{analog_8cpp_abe72ebed44ce7f6ead16c362e323806e} 
+\index{analog.cpp@{analog.cpp}!token\_gen\_pwm@{token\_gen\_pwm}}
+\index{token\_gen\_pwm@{token\_gen\_pwm}!analog.cpp@{analog.cpp}}
+\doxysubsubsection{\texorpdfstring{token\_gen\_pwm()}{token\_gen\_pwm()}}
+{\footnotesize\ttfamily int token\+\_\+gen\+\_\+pwm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Generate PWM signal instruction Syntax\+: pwm Pin\+Name, period, pulswidth Note\+: period and pulswidth are in sec and should be float numbers. 
+
+Definition at line \mbox{\hyperlink{analog_8cpp_source_l00300}{300}} of file \mbox{\hyperlink{analog_8cpp_source}{analog.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8cpp_source_l00281}{Register\+GPIO\+::add()}}, \mbox{\hyperlink{tokens_8h_source_l00305}{convert\+\_\+text\+\_\+to\+\_\+number()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00043}{PWM\+\_\+\+Var}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{common_8h_a3b7b6ee75f3a3805c27a3eda78fbd312}{retrieve\+Pin\+Name\+From\+TOKEN\+\_\+\+NAME()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00565}{Retrieve\+Value\+In\+Global\+Variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6

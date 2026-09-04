@@ -1,0 +1,124 @@
+\doxysection{main.\+cpp}
+\hypertarget{main_8cpp_source}{}\label{main_8cpp_source}\index{CrackyOS/src/main.cpp@{CrackyOS/src/main.cpp}}
+\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hardware__used_8h}{hardware\_used.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}mbed\_mem\_trace.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}\mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{00032}}\ \mbox{\hyperlink{struct_serial_communication}{SerialCommunication}}\ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}\mbox{\hyperlink{main_8cpp_aac3addc26331e1e62b86b2966d3a9549}{00034}}\ FATFileSystem\ fs(\textcolor{stringliteral}{"{}sd"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ osThreadId\_t\ \ mainThreadID;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \textcolor{keywordtype}{void}\ print\_memory\_info()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ allocate\ enough\ room\ for\ every\ thread's\ stack\ statistics}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ osThreadGetCount();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041\ \ \ \ \ mbed\_stats\_stack\_t\ *stats\ =\ (mbed\_stats\_stack\_t*)\ malloc(cnt\ *\ \textcolor{keyword}{sizeof}(mbed\_stats\_stack\_t));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043\ \ \ \ \ cnt\ =\ mbed\_stats\_stack\_get\_each(stats,\ cnt);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ cnt;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Thread:\ 0x\%lX,\ Stack\ size:\ \%lu\ /\ \%lu\(\backslash\)r\(\backslash\)n"{}},\ stats[i].thread\_id,\ stats[i].max\_size,\ stats[i].reserved\_size);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ \ \ \ \ free(stats);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ Grab\ the\ heap\ statistics}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050\ \ \ \ \ mbed\_stats\_heap\_t\ heap\_stats;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051\ \ \ \ \ mbed\_stats\_heap\_get(\&heap\_stats);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Heap\ size:\ \%lu\ /\ \%lu\ bytes\(\backslash\)r\(\backslash\)n"{}},\ heap\_stats.current\_size,\ heap\_stats.reserved\_size);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}\mbox{\hyperlink{main_8cpp_a3b16c18fe2ee672b8df06da1da2e0dc7}{00055}}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{main_8cpp_a3b16c18fe2ee672b8df06da1da2e0dc7}{BreakPressed}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066\ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067\ \textcolor{comment}{\ void\ printfAllhash()\ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ static\ const\ token\_exchanger*\ p\_instruction\_set\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ for\ (p\_instruction\_set\ =\ token\_exchange\_list;\ p\_instruction\_set-\/>token\_word\ !=\ NULL;\ p\_instruction\_set++)\ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ unsigned\ long\ valuem\ =\ CalculateHashOfString(p\_instruction\_set-\/>token\_word,\ strlen(p\_instruction\_set-\/>token\_word));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ std::string\ st\ =\ p\_instruction\_set-\/>token\_word;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ char\ buf[255];\ memset(buf,\ 0,\ 255);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ snprintf(buf,\ 255,\ "{}\%s\ \ =\ \%lu\(\backslash\)n"{},\ st.c\_str(),\ valuem);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ globalSerialCOMvar.Serial\_pc-\/>write(buf,\ strlen(buf));}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076\ \textcolor{comment}{\ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}\mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00080}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00082}00082\ \ \ \ \ mainThreadID\ =\ rtos::ThisThread::get\_id();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Debug\_pc\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classspecial_serial}{specialSerial}}(SERIAL\_TX,\ SERIAL\_RX\textcolor{comment}{/*,\ NULL*/},\ \mbox{\hyperlink{interactive_8cpp_a784e73e1ce3f90fbcbb0a78d72a053ff}{baud\_rate}});\ \ \textcolor{comment}{//SERIAL\ 2}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{DEBUG\_MESSAGE}}(\textcolor{stringliteral}{"{}ERROR\ \%i\(\backslash\)n"{}},\ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SERIAL\_BUFF);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00089}00089\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//Used\ only\ when\ you\ need\ to\ update\ the\ hash\ numbers.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00091}00091\ \ \ \textcolor{comment}{//\ \ printfAllhash();}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00093}00093\ \ \ \ \ \mbox{\hyperlink{common_8cpp_ab40060493d659e1b0840dda12904ffd9}{createDebugPC}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ Configure\ the\ serial\ USB\ port\ for\ communications}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//\ globalSerialCOMvar.Serial\_pc-\/>baud(baud\_rate);}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{serialmessage_8cpp_ad4fe6900869724f5f94d448ae9c415be}{clearAndHome}}();\ \textcolor{comment}{//Clear\ terminal\ screens}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00100}00100\ \ \ \ \ \mbox{\hyperlink{error_8cpp_a012bd18cb574eb0a37a6ec07096e0293}{enable\_disableDebugThread}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00101}00101\ \ \ \ \ select\_spi\_channel(CHANNEL0);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}00102\ \ \ \ \ Master\_SPI\_cs\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{sdcard_8cpp_ac74d96a3b7642f5ae61f379f921cf837}{CurrentDirectory}}\ =\ \textcolor{stringliteral}{"{}/sd"{}};\ \textcolor{comment}{//Will\ be\ used\ in\ file/directory\ activities}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}00105\ \ \ \ \textcolor{comment}{//\ Read\ configuration\ file.\ Check\ if\ we\ have\ other\ definition\ than\ the\ defaults.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106\ \ \ \ \ \textcolor{keywordtype}{int}\ sdFailed=1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00107}00107\ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}{InterActiveMode}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{common_8h_af0f08ac2ee0061f2201dd1c82f9925d3}{sd}}.init()==BD\_ERROR\_OK)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ checkScriptfile\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ fs.mount(\&\mbox{\hyperlink{common_8h_af0f08ac2ee0061f2201dd1c82f9925d3}{sd}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ checkScriptfile\ =\ \mbox{\hyperlink{interactive_8cpp_a7661ba76cbaa3908193ac55fd2f73330}{readConfigFile}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkScriptfile\ ==\ -\/10\ ||\ checkScriptfile\ ==\ -\/20)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}{InterActiveMode}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>attach(NULL);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ sdFailed\ =\ \mbox{\hyperlink{interactive_8cpp_ab288090df6e0f2b1a5bfe5624605a35b}{writeConfigToFile}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sdFailed=0;\ \textcolor{comment}{//SD\ works}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}{InterActiveMode}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ sdFailed\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{if}(sdFailed==0)\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}{InterActiveMode}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa9bb36d06c53d2cca0a3aa36d7834e2e}{InitializeDefaultScriptFileName}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>attach(\&\mbox{\hyperlink{serialmessage_8cpp_aabdc388a948fd2d4510b28704eed4351}{ChangeInterActiveModeStatus}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00130}00130\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00132}00132\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ mbed\_stats\_heap\_t\ heap\_stats;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ mbed\_stats\_heap\_get(\&heap\_stats);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Run\ the\ script\ file.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}{InterActiveMode}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{interactive_8cpp_a8a58225c954b51e80936a44a3434bc60}{RunScriptFile}}()\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}{InterActiveMode}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Not\ disabling\ the\ interrupt\ will\ cause\ the\ system\ to\ hangs/freeze}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}}.Serial\_pc-\/>attach(NULL);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ have\ interactive\ mode\ and\ will\ continue\ in\ this\ mode}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ We\ have\ to\ make\ sure\ that\ there\ is\ a\ file\ name\ in\ bot\ .dat\ och\ .dad\ file.*/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tokens_8cpp_aa9bb36d06c53d2cca0a3aa36d7834e2e}{InitializeDefaultScriptFileName}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ We\ can\ now\ reset\ this\ variable.\ When\ error\ happens\ in\ the\ normal\ run,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00149}00149\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ this\ will\ reset\ that\ and\ we\ can\ run\ interactive\ code\ again.*/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a1264a22868c936b388b7dfbc68e1f5f2}{StopExecution}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a3b16c18fe2ee672b8df06da1da2e0dc7}{BreakPressed}}\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ SERIAL\_MESSAGE(\textcolor{stringliteral}{"{}\string^C\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a3b16c18fe2ee672b8df06da1da2e0dc7}{BreakPressed}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{interactive_8cpp_a8f318f40726f8afedfaf996b7e0f7137}{interactive\_mode}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00156}00156\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00157}00157\ \}}
+
+\end{DoxyCode}

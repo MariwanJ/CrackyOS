@@ -1,0 +1,19 @@
+\doxysection{Aget(Analog Get)}
+\hypertarget{aget}{}\label{aget}\index{Aget(Analog Get)@{Aget(Analog Get)}}
+This instruction converts the voltage found on the analog input pin. The value is saved in the given variable.~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ aget GPIO\+\_\+\+NAME, VARIABLE\+\_\+\+NAME}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{GPIO\+\_\+\+NAME\+:}} Make sure that you choose a GPIO that supports analog input. Otherwise, the system will exit and stop executing the code. Since this is specific to the board or CPU used, it is not possible to specify here which pins or GPIOs you should use. Please read the manual for your board.~\newline
+
+\item {\bfseries{VARIABLE\+\_\+\+NAME\+:}} The instruction requires a variable to save the data. The results will be saved in that variable and it is float number.
+\item {\bfseries{VARIABLE\+\_\+\+NAME\+:}} The instruction requires a variable to save the data. The result is saved in that variable as a floating-\/point value.
+\item {\bfseries{NOTE\+:}} The value in the variable is a percentage of the real value read by the microcontroller. The value should be multiplied by VCC to get the real voltage. VCC must be stable and free of ripples.
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ aget PA\+\_\+4, myvalue; ~~~  rem read the value from PA\+\_\+4 ~\newline
+ print myvalue; ~~~  rem send the value to terminal  ~\newline
+ 

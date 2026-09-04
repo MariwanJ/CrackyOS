@@ -1,0 +1,21 @@
+\doxysection{Put (Digital Out)}
+\hypertarget{put}{}\label{put}\index{Put (Digital Out)@{Put (Digital Out)}}
+Send data to a digital pin or a digital bus. The internal definition of these GPIO is Digital\+In\+Out and configured as output.~\newline
+ Before using a bus you need to create it using create\+\_\+reg instruction. {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ put GPIO\+\_\+\+NAME/\+BUS\+\_\+name, VARIABLE\+\_\+\+NAME/\+NUMBER}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{GPIO\+\_\+\+NAME\+:}} Any digital GPIO
+\item {\bfseries{BUS\+\_\+name\+:}} A combination of multiple digital GPIOs, from 2 to 16 pins. You can combine any GPIO in the bus, but you must create it using the create\+\_\+reg instruction before using this name.
+\item {\bfseries{VARIABLE\+\_\+\+NAME\+:}} variable name that keeps the data
+\item {\bfseries{NUMBER\+:}} An integer number.
+\end{DoxyItemize}
+
+{\itshape {\bfseries{ Example\+:}} } ~\newline
+ myvalue=0xff;~\newline
+ put PA\+\_\+4, myvalue; ~~~  rem read the value from PA\+\_\+4 ~\newline
+ Or\+:~\newline
+ create\+\_\+reg myreg , PA\+\_\+3,PA\+\_\+2,PA\+\_\+10\+\_\+\+PB3; ~~~  rem create register ~\newline
+ put myreg, myvalue; ~~~  rem read the Register  ~\newline
+ 

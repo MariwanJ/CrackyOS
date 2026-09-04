@@ -1,0 +1,31 @@
+/*!
+* \page 01_requirements Requirements
+*
+*To be able to use the system there are some requirements as follow:
+*To use the system, the following requirements must be met:
+*
+* -  Hardware :
+*		-  ARM CORTEX 4 and above hardware - mbed enabled.
+*		-  Sufficient amount of Flash memory and RAM memory
+*		-  SD Card and SD Card reader
+*		-  Power supply 3.3V (Optional if you use USB to power up the system)
+*		-  Decoder chip (16 channels) CD74HC4067: Used to connect multiple SPI devices to the same SPI port - CS signal
+* -   Software:
+*		-  Eclipse or VSCode
+*		-  MBED-OS CE: This will be cloned automatically as sub-module. When you clone, clone with --recursive
+*
+*
+*<BR>
+\section eclipse Eclipse Installation and configuration:
+* -  Download Oxygen Eclipse IDE for C/C++ Developers
+* -  Install ARM GNU toolchain
+* -  Install Graphviz
+* -  GNU Make & Ninja
+* -  GIT
+*
+* -  Via Eclipse install the following:
+*		- OpenOCD
+*		- Doxygen
+*		- Eclox
+*
+*/

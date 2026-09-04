@@ -1,0 +1,150 @@
+\doxysection{Cracky\+OS/src/cat.h File Reference}
+\hypertarget{cat_8h}{}\label{cat_8h}\index{CrackyOS/src/cat.h@{CrackyOS/src/cat.h}}
+
+
+This file contains definitions of file operations (create, cat,..etc.  
+
+
+{\ttfamily \#include \"{}sdcard.\+h\"{}}\newline
+{\ttfamily \#include \"{}tokens.\+h\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for cat.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{cat_8h_a0d20b69b0ad703df78459e1033d5c1d4}{print\+Help}} ()
+\item 
+void \mbox{\hyperlink{cat_8h_a6a73e5cbd6c70dce45c032dfaeb39b04}{To\+Lower}} (char \texorpdfstring{$\ast$}{*}me)
+\item 
+void \mbox{\hyperlink{cat_8h_a542ba0fa3236557aa927edd0ab12610f}{printfile}} (const char \texorpdfstring{$\ast$}{*}fname)
+\item 
+void \mbox{\hyperlink{cat_8h_a9c0bac7fbc3d212e10cdce93e3e93d0e}{Do\+\_\+\+Cat}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains definitions of file operations (create, cat,..etc. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{cat_8h_source}{cat.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{cat_8h_a9c0bac7fbc3d212e10cdce93e3e93d0e}\label{cat_8h_a9c0bac7fbc3d212e10cdce93e3e93d0e} 
+\index{cat.h@{cat.h}!Do\_Cat@{Do\_Cat}}
+\index{Do\_Cat@{Do\_Cat}!cat.h@{cat.h}}
+\doxysubsubsection{\texorpdfstring{Do\_Cat()}{Do\_Cat()}}
+{\footnotesize\ttfamily void Do\+\_\+\+Cat (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+CAT command implementation\textquotesingle{} 
+\begin{DoxyParams}{Parameters}
+{\em argc} & int value .. describes how many arguments are there \\
+\hline
+{\em argv} & two dimensional array contains the command, arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{cat_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{cat_8cpp_source}{cat.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, \mbox{\hyperlink{sdcard_8cpp_source_l00039}{default\+Dir\+Included()}}, \mbox{\hyperlink{cat_8cpp_source_l00060}{printfile()}}, \mbox{\hyperlink{cat_8cpp_source_l00032}{print\+Help()}}, and \mbox{\hyperlink{cat_8cpp_source_l00047}{To\+Lower()}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00565}{do\+Cat()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{cat_8h_a542ba0fa3236557aa927edd0ab12610f}\label{cat_8h_a542ba0fa3236557aa927edd0ab12610f} 
+\index{cat.h@{cat.h}!printfile@{printfile}}
+\index{printfile@{printfile}!cat.h@{cat.h}}
+\doxysubsubsection{\texorpdfstring{printfile()}{printfile()}}
+{\footnotesize\ttfamily void printfile (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{fname }\end{DoxyParamCaption})}
+
+Write the content of a file to terminal. 
+\begin{DoxyParams}{Parameters}
+{\em fname} & file name which should be printed on the terminal. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{cat_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{cat_8cpp_source}{cat.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00054}{Change\+Terminal\+Color()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, and \mbox{\hyperlink{sdcard_8cpp_source_l00039}{default\+Dir\+Included()}}.
+
+
+
+Referenced by \mbox{\hyperlink{cat_8cpp_source_l00098}{Do\+\_\+\+Cat()}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{cat_8h_a0d20b69b0ad703df78459e1033d5c1d4}\label{cat_8h_a0d20b69b0ad703df78459e1033d5c1d4} 
+\index{cat.h@{cat.h}!printHelp@{printHelp}}
+\index{printHelp@{printHelp}!cat.h@{cat.h}}
+\doxysubsubsection{\texorpdfstring{printHelp()}{printHelp()}}
+{\footnotesize\ttfamily void print\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Print Help message 
+
+Definition at line \mbox{\hyperlink{cat_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{cat_8cpp_source}{cat.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{cat_8cpp_source_l00098}{Do\+\_\+\+Cat()}}.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{cat_8h_a6a73e5cbd6c70dce45c032dfaeb39b04}\label{cat_8h_a6a73e5cbd6c70dce45c032dfaeb39b04} 
+\index{cat.h@{cat.h}!ToLower@{ToLower}}
+\index{ToLower@{ToLower}!cat.h@{cat.h}}
+\doxysubsubsection{\texorpdfstring{ToLower()}{ToLower()}}
+{\footnotesize\ttfamily void To\+Lower (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{me }\end{DoxyParamCaption})}
+
+Convert a string to lower case. 
+\begin{DoxyParams}{Parameters}
+{\em me} & a pointer to a string that should be converted to lower case. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{cat_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{cat_8cpp_source}{cat.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{cat_8cpp_source_l00098}{Do\+\_\+\+Cat()}}.
+
+Here is the caller graph for this function\+:
+% FIG 7

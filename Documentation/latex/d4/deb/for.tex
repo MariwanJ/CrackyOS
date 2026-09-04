@@ -1,0 +1,33 @@
+\doxysection{For loop}
+\hypertarget{for}{}\label{for}\index{For loop@{For loop}}
+A for loop is a repetition control structure that allows you to efficiently write a loop that needs to execute a specific number of times. Only two nested for loops are allowed ~\newline
+ {\itshape \doxyparagraph*{Syntax\+: }}
+
+{\itshape } {\bfseries{ for(init, condition, increment/decrement)}}~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries{init\+:}} You must provide a variable for the loop and initialize it; for example, myvar=0.
+\item {\bfseries{condition\+:}} The condition could be one of the following\+:
+\begin{DoxyItemize}
+\item comparison between the first variable and a value.
+\item comparison between the first variable and another variable.
+\item comparison symbols allowed (\texorpdfstring{$<$}{<},\texorpdfstring{$>$}{>},\texorpdfstring{$<$}{<}=, \texorpdfstring{$>$}{>}=, !=, ==).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+ {\itshape {\bfseries{ Example\+:}} } ~\newline
+ Ex1\+:~\newline
+~ for(i=0,i\texorpdfstring{$<$}{<}20,i++) \{print i;\}; ~~~  rem print to the terminal i-\/values ~\newline
+ EX2\+:~\newline
+ ~ for(i=100,i\texorpdfstring{$>$}{>}0,i--) \{print i;\}; ~~~  rem print to the terminal i-\/values  ~\newline
+ EX3\+:~\newline
+~ my\+Var=20;~\newline
+ ~ for(i=100,i\texorpdfstring{$>$}{>}my\+Var,i--) \{print i;\}; ~~~  rem print to the terminal i-\/values ~\newline
+ ~\newline
+ {\bfseries{Note\+:}}
+\begin{DoxyItemize}
+\item You must use Curly Brackets \textquotesingle{}\{...\}\textquotesingle{} after for-\/loop statement.
+\item More than two nested for loops are not allowed. However, you can combine a while loop with a for loop to achieve the required iterations.
+\item You must initialize the variable used inside the for loop instruction. Missing that will cause run-\/error.
+\item Comma is used inside for instruction, not semicolon as for C/\+C++ 
+\end{DoxyItemize}

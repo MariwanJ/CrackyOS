@@ -1,0 +1,346 @@
+\doxysection{Cracky\+OS/src/arithmetic.cpp File Reference}
+\hypertarget{arithmetic_8cpp}{}\label{arithmetic_8cpp}\index{CrackyOS/src/arithmetic.cpp@{CrackyOS/src/arithmetic.cpp}}
+
+
+This file contains the arithmetic operations functions and methods used by the interpreter.  
+
+
+{\ttfamily \#include \"{}arithmetic.\+h\"{}}\newline
+{\ttfamily \#include \"{}variable.\+h\"{}}\newline
+Include dependency graph for arithmetic.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{arithmetic_8cpp_ad8364de772f879f81711919cdc29f468}{Calculat\+Special\+Function}} (int function\+Type, float Inner\+Value)
+\item 
+unsigned char \mbox{\hyperlink{arithmetic_8cpp_a604eb5227832ec1cb7b6173f7c38af31}{Get\+Logical\+Operation\+Answer}} (int enum\+Operation, int Oldvalue, int Comparision\+Value)
+\item 
+void \mbox{\hyperlink{arithmetic_8cpp_a01ccf031e8e617c84af8dffd19a11d29}{Calculate\+Logical\+Operation}} (int \&val1, int val2, int operation)
+\item 
+float \mbox{\hyperlink{arithmetic_8cpp_a09451cb972b20407e2a593c3c9db9258}{Calculate\+Power}} (float x, float y)
+\item 
+unsigned char \mbox{\hyperlink{arithmetic_8cpp_ae8dd326281cfc16b06344a47c4b8b471}{Checkfor\+Logical\+Arithmetic\+Operations}} (int m\+\_\+\+Tokenword)
+\item 
+float \mbox{\hyperlink{arithmetic_8cpp_a08699e9e66bc6c64fe54cead08e81a96}{divide\+\_\+multiply}} (void)
+\item 
+float \mbox{\hyperlink{arithmetic_8cpp_aa23a715bb76af1d778767003b90a5ec1}{get\+\_\+next\+\_\+number\+\_\+or\+\_\+variable\+\_\+value}} (void)
+\item 
+float \mbox{\hyperlink{arithmetic_8cpp_a8a77cf16f026e2d095359140361d66ca}{arithmetic\+\_\+expression}} (\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}p\+\_\+start, \mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}p\+\_\+end)
+\item 
+float \mbox{\hyperlink{arithmetic_8cpp_a450c1aa3eaf02a14d4f600c023ee0809}{Calculate\+Right\+Sideof\+Variable\+Equation}} (void)
+\item 
+unsigned char \mbox{\hyperlink{arithmetic_8cpp_a5ee7b5ae2799b4e36fffb0404c0a3157}{Check\+If\+The\+Right\+Side\+Is\+Var\+Of\+Array\+String}} (void)
+\item 
+void \mbox{\hyperlink{arithmetic_8cpp_a091f57ad6fbc0bdd3492013aeff6e4ec}{Calculate\+Right\+Sideof\+Variable\+Equation\+\_\+\+TEXT}} (int var\+Position)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the arithmetic operations functions and methods used by the interpreter. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{arithmetic_8cpp_a8a77cf16f026e2d095359140361d66ca}\label{arithmetic_8cpp_a8a77cf16f026e2d095359140361d66ca} 
+\index{arithmetic.cpp@{arithmetic.cpp}!arithmetic\_expression@{arithmetic\_expression}}
+\index{arithmetic\_expression@{arithmetic\_expression}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{arithmetic\_expression()}{arithmetic\_expression()}}
+{\footnotesize\ttfamily float arithmetic\+\_\+expression (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}}]{p\+\_\+start,  }\item[{\mbox{\hyperlink{structnode}{instr\+\_\+linked\+List}} \texorpdfstring{$\ast$}{*}}]{p\+\_\+end }\end{DoxyParamCaption})}
+
+This function evaluates any arithmetic expression 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+start} & a pointer to the BEGIN place of the expression in the script program \\
+\hline
+{\em p\+\_\+end} & a pointer to the END place of the expression in the script program \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the result of the expression executed 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00448}{448}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{divide\+\_\+multiply()}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00492}{Calculate\+Right\+Sideof\+Variable\+Equation()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{arithmetic_8cpp_a01ccf031e8e617c84af8dffd19a11d29}\label{arithmetic_8cpp_a01ccf031e8e617c84af8dffd19a11d29} 
+\index{arithmetic.cpp@{arithmetic.cpp}!CalculateLogicalOperation@{CalculateLogicalOperation}}
+\index{CalculateLogicalOperation@{CalculateLogicalOperation}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{CalculateLogicalOperation()}{CalculateLogicalOperation()}}
+{\footnotesize\ttfamily void Calculate\+Logical\+Operation (\begin{DoxyParamCaption}\item[{int \&}]{val1,  }\item[{int}]{val2,  }\item[{int}]{operation }\end{DoxyParamCaption})}
+
+This function will be used to do logical operation on two values (OR, AND, NOT, INVERT) 
+\begin{DoxyParams}{Parameters}
+{\em val1} & Value to be compared \\
+\hline
+{\em val2} & Value will be compared to \\
+\hline
+{\em operation} & Digital operation supported (OR, AND, NOT, INVERT, SHIFT LEFT \& SHIFT RIGHT) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00150}{150}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{divide\+\_\+multiply()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{arithmetic_8cpp_a09451cb972b20407e2a593c3c9db9258}\label{arithmetic_8cpp_a09451cb972b20407e2a593c3c9db9258} 
+\index{arithmetic.cpp@{arithmetic.cpp}!CalculatePower@{CalculatePower}}
+\index{CalculatePower@{CalculatePower}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{CalculatePower()}{CalculatePower()}}
+{\footnotesize\ttfamily float Calculate\+Power (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+Raise to power. This function will calculate x raised to the power y 
+\begin{DoxyParams}{Parameters}
+{\em x} & The base \\
+\hline
+{\em y} & The exponent \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00187}{187}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{divide\+\_\+multiply()}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{arithmetic_8cpp_a450c1aa3eaf02a14d4f600c023ee0809}\label{arithmetic_8cpp_a450c1aa3eaf02a14d4f600c023ee0809} 
+\index{arithmetic.cpp@{arithmetic.cpp}!CalculateRightSideofVariableEquation@{CalculateRightSideofVariableEquation}}
+\index{CalculateRightSideofVariableEquation@{CalculateRightSideofVariableEquation}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{CalculateRightSideofVariableEquation()}{CalculateRightSideofVariableEquation()}}
+{\footnotesize\ttfamily float Calculate\+Right\+Sideof\+Variable\+Equation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function find out BEGIN/\+END positions of the arithmetic operation inside the script program. The function is used by the interpreter. \begin{DoxyReturn}{Returns}
+the result of the arithmetic operations done in the right side of the equal sign. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00492}{492}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{arithmetic_8cpp_source_l00448}{arithmetic\+\_\+expression()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, and \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+\Hypertarget{arithmetic_8cpp_a091f57ad6fbc0bdd3492013aeff6e4ec}\label{arithmetic_8cpp_a091f57ad6fbc0bdd3492013aeff6e4ec} 
+\index{arithmetic.cpp@{arithmetic.cpp}!CalculateRightSideofVariableEquation\_TEXT@{CalculateRightSideofVariableEquation\_TEXT}}
+\index{CalculateRightSideofVariableEquation\_TEXT@{CalculateRightSideofVariableEquation\_TEXT}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{CalculateRightSideofVariableEquation\_TEXT()}{CalculateRightSideofVariableEquation\_TEXT()}}
+{\footnotesize\ttfamily void Calculate\+Right\+Sideof\+Variable\+Equation\+\_\+\+TEXT (\begin{DoxyParamCaption}\item[{int}]{var\+Position }\end{DoxyParamCaption})}
+
+This function will make all string operation needed after the equal sign, Warning\+: Mixing string and numeric operation is not allowed 
+\begin{DoxyParams}{Parameters}
+{\em var\+Position} & INT value which is the position of the global script variable \\
+\hline
+\end{DoxyParams}
+When you have a plus, you have either addition of two variable, or addition of variable with a new string.
+
+We have 3 extra char .. \mbox{[}0\mbox{]}, \mbox{[}strlen\mbox{]}, \mbox{[}strlen-\/1\mbox{]}
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00536}{536}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00721}{Retrieve\+End\+Of\+Instruction()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+Here is the call graph for this function\+:
+% FIG 7
+\Hypertarget{arithmetic_8cpp_ad8364de772f879f81711919cdc29f468}\label{arithmetic_8cpp_ad8364de772f879f81711919cdc29f468} 
+\index{arithmetic.cpp@{arithmetic.cpp}!CalculatSpecialFunction@{CalculatSpecialFunction}}
+\index{CalculatSpecialFunction@{CalculatSpecialFunction}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{CalculatSpecialFunction()}{CalculatSpecialFunction()}}
+{\footnotesize\ttfamily float Calculat\+Special\+Function (\begin{DoxyParamCaption}\item[{int}]{function\+Type,  }\item[{float}]{Inner\+Value }\end{DoxyParamCaption})}
+
+This function will be used to calculate different arithmetic equations. Use this function when you need to calculate (sin, cos, tan, ..etc) 
+\begin{DoxyParams}{Parameters}
+{\em function\+Type} & INT value represent the enum of the function \\
+\hline
+{\em Inner\+Value} & A float value represent the degree value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{arithmetic_8cpp_source_l00039}{Calculat\+Special\+Function()}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00039}{Calculat\+Special\+Function()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{divide\+\_\+multiply()}}, and \mbox{\hyperlink{arithmetic_8cpp_source_l00410}{get\+\_\+next\+\_\+number\+\_\+or\+\_\+variable\+\_\+value()}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{arithmetic_8cpp_ae8dd326281cfc16b06344a47c4b8b471}\label{arithmetic_8cpp_ae8dd326281cfc16b06344a47c4b8b471} 
+\index{arithmetic.cpp@{arithmetic.cpp}!CheckforLogicalArithmeticOperations@{CheckforLogicalArithmeticOperations}}
+\index{CheckforLogicalArithmeticOperations@{CheckforLogicalArithmeticOperations}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckforLogicalArithmeticOperations()}{CheckforLogicalArithmeticOperations()}}
+{\footnotesize\ttfamily unsigned char Checkfor\+Logical\+Arithmetic\+Operations (\begin{DoxyParamCaption}\item[{int}]{m\+\_\+\+Tokenword }\end{DoxyParamCaption})}
+
+This function will determine if we have an logical arethmatic operation 
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+\+Tokenword} & current token word \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+results .. if we have any of them the result will be 1 
+\end{DoxyReturn}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00206}{206}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{divide\+\_\+multiply()}}.
+
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{arithmetic_8cpp_a5ee7b5ae2799b4e36fffb0404c0a3157}\label{arithmetic_8cpp_a5ee7b5ae2799b4e36fffb0404c0a3157} 
+\index{arithmetic.cpp@{arithmetic.cpp}!CheckIfTheRightSideIsVarOfArrayString@{CheckIfTheRightSideIsVarOfArrayString}}
+\index{CheckIfTheRightSideIsVarOfArrayString@{CheckIfTheRightSideIsVarOfArrayString}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckIfTheRightSideIsVarOfArrayString()}{CheckIfTheRightSideIsVarOfArrayString()}}
+{\footnotesize\ttfamily unsigned char Check\+If\+The\+Right\+Side\+Is\+Var\+Of\+Array\+String (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Determine if the right side of the array is string. 
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00518}{518}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, and \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}.
+
+Here is the call graph for this function\+:
+% FIG 11
+\Hypertarget{arithmetic_8cpp_a08699e9e66bc6c64fe54cead08e81a96}\label{arithmetic_8cpp_a08699e9e66bc6c64fe54cead08e81a96} 
+\index{arithmetic.cpp@{arithmetic.cpp}!divide\_multiply@{divide\_multiply}}
+\index{divide\_multiply@{divide\_multiply}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{divide\_multiply()}{divide\_multiply()}}
+{\footnotesize\ttfamily float divide\+\_\+multiply (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+A function to calculate division or multiplication in the script program. Only PLUS/\+MINUS/\+MULTIPLICATION/\+DIVISION and some logical operation are Implemented. \begin{DoxyReturn}{Returns}
+answer for the division or multiplication section of the script program 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{247}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{arithmetic_8cpp_source_l00150}{Calculate\+Logical\+Operation()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00187}{Calculate\+Power()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00039}{Calculat\+Special\+Function()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00206}{Checkfor\+Logical\+Arithmetic\+Operations()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00410}{get\+\_\+next\+\_\+number\+\_\+or\+\_\+variable\+\_\+value()}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00110}{Get\+Logical\+Operation\+Answer()}}, \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, and \mbox{\hyperlink{tokens_8cpp_source_l00448}{Test\+System\+\_\+get\+\_\+variable()}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00448}{arithmetic\+\_\+expression()}}.
+
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\Hypertarget{arithmetic_8cpp_aa23a715bb76af1d778767003b90a5ec1}\label{arithmetic_8cpp_aa23a715bb76af1d778767003b90a5ec1} 
+\index{arithmetic.cpp@{arithmetic.cpp}!get\_next\_number\_or\_variable\_value@{get\_next\_number\_or\_variable\_value}}
+\index{get\_next\_number\_or\_variable\_value@{get\_next\_number\_or\_variable\_value}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_next\_number\_or\_variable\_value()}{get\_next\_number\_or\_variable\_value()}}
+{\footnotesize\ttfamily float get\+\_\+next\+\_\+number\+\_\+or\+\_\+variable\+\_\+value (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A function that returns the next found variable/value inside the script. This function is used by the interpreter for calculating arithmetic expression \begin{DoxyReturn}{Returns}
+next number/variable inside the script program 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00410}{410}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{arithmetic_8cpp_source_l00039}{Calculat\+Special\+Function()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{arithmetic_8cpp_source_l00410}{get\+\_\+next\+\_\+number\+\_\+or\+\_\+variable\+\_\+value()}}, and \mbox{\hyperlink{tokens_8cpp_source_l00852}{process\+\_\+token()}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{divide\+\_\+multiply()}}, and \mbox{\hyperlink{arithmetic_8cpp_source_l00410}{get\+\_\+next\+\_\+number\+\_\+or\+\_\+variable\+\_\+value()}}.
+
+Here is the call graph for this function\+:
+% FIG 14
+Here is the caller graph for this function\+:
+% FIG 15
+\Hypertarget{arithmetic_8cpp_a604eb5227832ec1cb7b6173f7c38af31}\label{arithmetic_8cpp_a604eb5227832ec1cb7b6173f7c38af31} 
+\index{arithmetic.cpp@{arithmetic.cpp}!GetLogicalOperationAnswer@{GetLogicalOperationAnswer}}
+\index{GetLogicalOperationAnswer@{GetLogicalOperationAnswer}!arithmetic.cpp@{arithmetic.cpp}}
+\doxysubsubsection{\texorpdfstring{GetLogicalOperationAnswer()}{GetLogicalOperationAnswer()}}
+{\footnotesize\ttfamily unsigned char Get\+Logical\+Operation\+Answer (\begin{DoxyParamCaption}\item[{int}]{enum\+Operation,  }\item[{int}]{Oldvalue,  }\item[{int}]{Comparision\+Value }\end{DoxyParamCaption})}
+
+This function will be used to do a comparison between two values and an operation. Use this function when you need to compare two values (grater, less, equal ..etc). 
+\begin{DoxyParams}{Parameters}
+{\em Oldvalue} & Value to be compared \\
+\hline
+{\em Comparison\+Value} & Value will be compared to \\
+\hline
+{\em enum\+Operation} & comparison type ( \texorpdfstring{$>$}{>}, \texorpdfstring{$<$}{<}, =\texorpdfstring{$<$}{<}, =\texorpdfstring{$>$}{>}, !=, ==) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{arithmetic_8cpp_source_l00110}{110}} of file \mbox{\hyperlink{arithmetic_8cpp_source}{arithmetic.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{arithmetic_8cpp_source_l00247}{divide\+\_\+multiply()}}, \mbox{\hyperlink{for__loop_8cpp_source_l00043}{token\+\_\+for\+\_\+loop()}}, \mbox{\hyperlink{if__else_8cpp_source_l00033}{token\+\_\+if()}}, and \mbox{\hyperlink{while__loop_8cpp_source_l00039}{token\+\_\+while\+\_\+loop()}}.
+
+Here is the call graph for this function\+:
+% FIG 16
+Here is the caller graph for this function\+:
+% FIG 17

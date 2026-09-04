@@ -1,0 +1,229 @@
+\doxysection{I2\+C\+\_\+\+Communication Class Reference}
+\hypertarget{class_i2_c___communication}{}\label{class_i2_c___communication}\index{I2C\_Communication@{I2C\_Communication}}
+
+
+{\ttfamily \#include $<$i2c\+\_\+hw.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i2_c___communication_acdbb8ef87ab733ec271f51a00259f354}{I2\+C\+\_\+\+Communication}} (Pin\+Name SDA, Pin\+Name SCL, \mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{i2ctype}} Slave)
+\item 
+\mbox{\hyperlink{class_i2_c___communication_ac0a63162e96d41cc25dda2982b06e786}{\texorpdfstring{$\sim$}{\string~}\+I2\+C\+\_\+\+Communication}} ()
+\item 
+int \mbox{\hyperlink{class_i2_c___communication_ae24f4aeafe29892f5cd0c9e6255dfccb}{init}} (void)
+\item 
+void \mbox{\hyperlink{class_i2_c___communication_a197fa790d6835ca6df36d4fd75347134}{address}} (int address)
+\item 
+void \mbox{\hyperlink{class_i2_c___communication_a9c9364ea7bb30d0cc824e4d65f435428}{type}} (\mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{i2ctype}} typ)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+I2\+CSlave \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i2_c___communication_af6f61ac10601ff96507cb93512c399c8}{m\+\_\+i2c\+Slave}}
+\item 
+I2C \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i2_c___communication_a7380066c05dbb1b59137e0b40eae99ce}{m\+\_\+i2c\+Master}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i2_c___communication_adea5ac48638ea99707aad7d60b1fe755}{m\+\_\+send\+Data}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i2_c___communication_ac158196a3b255c4786dbef6f47ed79c0}{m\+\_\+recieve\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_i2_c___communication}{I2\+C\+\_\+\+Communication} class
+
+I2C class implementation 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8h_source_l00074}{74}} of file \mbox{\hyperlink{i2c__hw_8h_source}{i2c\+\_\+hw.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_i2_c___communication_acdbb8ef87ab733ec271f51a00259f354}\label{class_i2_c___communication_acdbb8ef87ab733ec271f51a00259f354} 
+\index{I2C\_Communication@{I2C\_Communication}!I2C\_Communication@{I2C\_Communication}}
+\index{I2C\_Communication@{I2C\_Communication}!I2C\_Communication@{I2C\_Communication}}
+\doxysubsubsection{\texorpdfstring{I2C\_Communication()}{I2C\_Communication()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Communication\+::\+I2\+C\+\_\+\+Communication (\begin{DoxyParamCaption}\item[{Pin\+Name}]{SDA,  }\item[{Pin\+Name}]{SCL,  }\item[{\mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{i2ctype}}}]{vtype = {\ttfamily I2CUDEFINED} }\end{DoxyParamCaption})}
+
+Class \doxylink{class_i2_c___communication}{I2\+C\+\_\+\+Communication} constructor 
+\begin{DoxyParams}{Parameters}
+{\em SDA} & \+: Pinname of SDA \\
+\hline
+{\em SCL} & \+: Pinname of SCL \\
+\hline
+{\em i2ctype} & \+: ENUM communication type (0=I2\+CSLAVE , 1= I2\+CMASTER, 2= I2\+CUDEFINED\\
+\hline
+\end{DoxyParams}
+I2C Communication constructor 
+\begin{DoxyParams}{Parameters}
+{\em SDA} & \+: Pinname of SDA \\
+\hline
+{\em SCL} & \+: Pinname of SCL \\
+\hline
+{\em i2ctype} & \+: ENUM communication type (0=I2\+CSLAVE , 1= I2\+CMASTER, 2= I2\+CUDEFINED \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{i2c__hw_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{i2c__hw_8h_source_l00117}{m\+\_\+i2c\+Master}}, \mbox{\hyperlink{i2c__hw_8h_source_l00111}{m\+\_\+i2c\+Slave}}, \mbox{\hyperlink{i2c__hw_8h_source_l00126}{m\+\_\+recieve\+Data}}, and \mbox{\hyperlink{i2c__hw_8h_source_l00122}{m\+\_\+send\+Data}}.
+
+\Hypertarget{class_i2_c___communication_ac0a63162e96d41cc25dda2982b06e786}\label{class_i2_c___communication_ac0a63162e96d41cc25dda2982b06e786} 
+\index{I2C\_Communication@{I2C\_Communication}!````~I2C\_Communication@{\texorpdfstring{$\sim$}{\string~}I2C\_Communication}}
+\index{````~I2C\_Communication@{\texorpdfstring{$\sim$}{\string~}I2C\_Communication}!I2C\_Communication@{I2C\_Communication}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}I2C\_Communication()}{\string~I2C\_Communication()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Communication\+::\texorpdfstring{$\sim$}{\string~}\+I2\+C\+\_\+\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Class \doxylink{class_i2_c___communication}{I2\+C\+\_\+\+Communication} Destructor
+
+Class Destructor 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i2_c___communication_a197fa790d6835ca6df36d4fd75347134}\label{class_i2_c___communication_a197fa790d6835ca6df36d4fd75347134} 
+\index{I2C\_Communication@{I2C\_Communication}!address@{address}}
+\index{address@{address}!I2C\_Communication@{I2C\_Communication}}
+\doxysubsubsection{\texorpdfstring{address()}{address()}}
+{\footnotesize\ttfamily void I2\+C\+\_\+\+Communication\+::address (\begin{DoxyParamCaption}\item[{int}]{add }\end{DoxyParamCaption})}
+
+Register the address 
+\begin{DoxyParams}{Parameters}
+{\em int} & address of the I2C\\
+\hline
+\end{DoxyParams}
+This funciton is used to put the address of the slave device 
+\begin{DoxyParams}{Parameters}
+{\em add} & \+: Adress of the target device \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{i2c__hw_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{i2c__hw_8h_source_l00111}{m\+\_\+i2c\+Slave}}.
+
+
+
+Referenced by \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, and \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\Hypertarget{class_i2_c___communication_ae24f4aeafe29892f5cd0c9e6255dfccb}\label{class_i2_c___communication_ae24f4aeafe29892f5cd0c9e6255dfccb} 
+\index{I2C\_Communication@{I2C\_Communication}!init@{init}}
+\index{init@{init}!I2C\_Communication@{I2C\_Communication}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily int I2\+C\+\_\+\+Communication\+::init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialization function.
+
+I2C Class initializer. 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{i2c__hw_8h_source_l00117}{m\+\_\+i2c\+Master}}, and \mbox{\hyperlink{i2c__hw_8h_source_l00111}{m\+\_\+i2c\+Slave}}.
+
+
+
+Referenced by \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, and \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{class_i2_c___communication_a9c9364ea7bb30d0cc824e4d65f435428}\label{class_i2_c___communication_a9c9364ea7bb30d0cc824e4d65f435428} 
+\index{I2C\_Communication@{I2C\_Communication}!type@{type}}
+\index{type@{type}!I2C\_Communication@{I2C\_Communication}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily void I2\+C\+\_\+\+Communication\+::type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__hw_8h_ad33df7a8391c2523340786d1810262a6}{i2ctype}}}]{typ }\end{DoxyParamCaption})}
+
+Change type of I2C 
+\begin{DoxyParams}{Parameters}
+{\em type} & I3\+CTYPE enum value.\\
+\hline
+\end{DoxyParams}
+0=I2\+CSLAVE , 1= I2\+CMASTER 2= I2\+CUDEFINED
+
+I2C communications type 0=I2\+CSLAVE , 1= I2\+CMASTER 2= I2\+CUDEFINED 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{i2c__hw_8cpp_source}{i2c\+\_\+hw.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, and \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_i2_c___communication_a7380066c05dbb1b59137e0b40eae99ce}\label{class_i2_c___communication_a7380066c05dbb1b59137e0b40eae99ce} 
+\index{I2C\_Communication@{I2C\_Communication}!m\_i2cMaster@{m\_i2cMaster}}
+\index{m\_i2cMaster@{m\_i2cMaster}!I2C\_Communication@{I2C\_Communication}}
+\doxysubsubsection{\texorpdfstring{m\_i2cMaster}{m\_i2cMaster}}
+{\footnotesize\ttfamily I2C\texorpdfstring{$\ast$}{*} I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Master}
+
+Pointer to the I2C Object as master 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8h_source_l00117}{117}} of file \mbox{\hyperlink{i2c__hw_8h_source}{i2c\+\_\+hw.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{i2c__hw_8cpp_source_l00039}{I2\+C\+\_\+\+Communication()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00077}{init()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, and \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}.
+
+\Hypertarget{class_i2_c___communication_af6f61ac10601ff96507cb93512c399c8}\label{class_i2_c___communication_af6f61ac10601ff96507cb93512c399c8} 
+\index{I2C\_Communication@{I2C\_Communication}!m\_i2cSlave@{m\_i2cSlave}}
+\index{m\_i2cSlave@{m\_i2cSlave}!I2C\_Communication@{I2C\_Communication}}
+\doxysubsubsection{\texorpdfstring{m\_i2cSlave}{m\_i2cSlave}}
+{\footnotesize\ttfamily I2\+CSlave\texorpdfstring{$\ast$}{*} I2\+C\+\_\+\+Communication\+::m\+\_\+i2c\+Slave}
+
+Pointer to the I2C Object as slave 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8h_source_l00111}{111}} of file \mbox{\hyperlink{i2c__hw_8h_source}{i2c\+\_\+hw.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{i2c__hw_8cpp_source_l00058}{address()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00039}{I2\+C\+\_\+\+Communication()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00077}{init()}}, \mbox{\hyperlink{i2c__hw_8cpp_source_l00268}{token\+\_\+i2c\+\_\+get()}}, and \mbox{\hyperlink{i2c__hw_8cpp_source_l00129}{token\+\_\+i2c\+\_\+send()}}.
+
+\Hypertarget{class_i2_c___communication_ac158196a3b255c4786dbef6f47ed79c0}\label{class_i2_c___communication_ac158196a3b255c4786dbef6f47ed79c0} 
+\index{I2C\_Communication@{I2C\_Communication}!m\_recieveData@{m\_recieveData}}
+\index{m\_recieveData@{m\_recieveData}!I2C\_Communication@{I2C\_Communication}}
+\doxysubsubsection{\texorpdfstring{m\_recieveData}{m\_recieveData}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} I2\+C\+\_\+\+Communication\+::m\+\_\+recieve\+Data}
+
+Pointer to an array points to the values to be received 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8h_source_l00126}{126}} of file \mbox{\hyperlink{i2c__hw_8h_source}{i2c\+\_\+hw.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{i2c__hw_8cpp_source_l00039}{I2\+C\+\_\+\+Communication()}}.
+
+\Hypertarget{class_i2_c___communication_adea5ac48638ea99707aad7d60b1fe755}\label{class_i2_c___communication_adea5ac48638ea99707aad7d60b1fe755} 
+\index{I2C\_Communication@{I2C\_Communication}!m\_sendData@{m\_sendData}}
+\index{m\_sendData@{m\_sendData}!I2C\_Communication@{I2C\_Communication}}
+\doxysubsubsection{\texorpdfstring{m\_sendData}{m\_sendData}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} I2\+C\+\_\+\+Communication\+::m\+\_\+send\+Data}
+
+Pointer to an array points to the values to be send 
+
+Definition at line \mbox{\hyperlink{i2c__hw_8h_source_l00122}{122}} of file \mbox{\hyperlink{i2c__hw_8h_source}{i2c\+\_\+hw.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{i2c__hw_8cpp_source_l00039}{I2\+C\+\_\+\+Communication()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cracky\+OS/src/\mbox{\hyperlink{i2c__hw_8h}{i2c\+\_\+hw.\+h}}\item 
+Cracky\+OS/src/\mbox{\hyperlink{i2c__hw_8cpp}{i2c\+\_\+hw.\+cpp}}\end{DoxyCompactItemize}

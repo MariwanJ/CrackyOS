@@ -1,0 +1,15 @@
+\chapter{Coding style}
+\hypertarget{03_coding_format}{}\label{03_coding_format}\index{Coding style@{Coding style}}
+The script program is easy and simple.
+\begin{DoxyItemize}
+\item The script program is not case-\/sensitive\+: the system converts the script code to lowercase as soon as you run it. The only text that is not converted to lowercase is text inside quotation marks.
+\item All variables are global. But variables inside a function is local. You cannot reach variables inside a function. Functions cannot reach global variables either. You need to send it as an argument.
+\item GPIO definitions are global.
+\item No need to specify a variable type. String, Int or float are the three supported types. When the variable initializes, the system determines if the variable is a string, int or float. Reassigning variable changes the variables nature to the new type~\newline
+ ~\newline
+If you use the same variable name with another type initializer, the system converts the type according to the new type, whether you change a variable from text to a number or vice versa.~\newline
+ Maximum allowed variables are 32 (defined in \doxylink{tokens_8h}{tokens.\+h}). Space has no effect between words. ~\newline
+New line, semicolon, carriage return or NULL terminator determines the end of an instruction line. You can write several instructions inside one line separated by semicolon. For example\+: ~\newline
+ put PA\+\_\+4, 0; ~ ~delay 4,msec; ~~ put PA\+\_\+4,1;~\newline
+ A space separates an instruction from its arguments. For example\+: arg1,arg2. No space is required between arguments. A comma separates different operands or arguments. Commas should also be used in a for loop, not semicolons. 
+\end{DoxyItemize}

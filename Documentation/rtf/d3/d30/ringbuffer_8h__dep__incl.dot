@@ -1,0 +1,16 @@
+digraph "CrackyOS/src/ringbuffer.h"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="CrackyOS/src/ringbuffer.h",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Ring buffer implementation (FIFO)"];
+  Node1 -> Node2 [id="edge9_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="CrackyOS/src/common.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dc/d54/common_8h.html",tooltip="This file contains some functions and definitions. and important variables that are used by the inter..."];
+  Node2 -> Node3 [id="edge10_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="CrackyOS/src/common.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d9/df9/common_8cpp.html",tooltip="This file contains some functions and definitions. and important variables that are used by the inter..."];
+  Node1 -> Node4 [id="edge11_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="CrackyOS/src/error.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dd/db1/error_8cpp.html",tooltip="This file contains the debug print function. It send debug messages to the terminal."];
+  Node1 -> Node5 [id="edge12_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="CrackyOS/src/ringbuffer.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/d06/ringbuffer_8cpp.html",tooltip="Ring buffer implementation (FIFO)"];
+}

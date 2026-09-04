@@ -1,0 +1,257 @@
+\doxysection{Function Generator}
+\hypertarget{function_gen}{}\label{function_gen}\index{Function Generator@{Function Generator}}
+\doxysubsection*{Function Generator examples\+:}
+
+\doxysubsubsection*{1) A Square wave\+:}
+
+~\newline
+ \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+~rem~enable\+\_\+debug~;~~\newline
+ function~function\+Generator()\{~\newline
+ ~~~~for(i=0,~i\texorpdfstring{$<$}{<}5,i++)~\{~\newline
+ ~~~~~~~~x=0;~\newline
+ ~~~~~~~~y=1;~\newline
+ ~~~~~~~~put~PA\+\_\+4,x;~\newline
+ ~~~~~~~~delay~100,msec~\newline
+ ~~~~~~~~put~PA\+\_\+4,y;~\newline
+ ~~~~~~~~delay~500,msec~\newline
+ ~~~~~~~~for(j=0,j\texorpdfstring{$<$}{<}20,j++)~\{~~\newline
+ ~~~~~~~~~~~~put~PA\+\_\+4,x;~\newline
+ ~~~~~~~~~~~~delay~50,msec~\newline
+ ~~~~~~~~~~~~put~PA\+\_\+4,y;~\newline
+ ~~~~~~~~~~~~delay~50,msec~\newline
+ ~~~~~~~~~\}~\newline
+ ~~~~\}~\newline
+ \} ~\newline
+while(1)~\newline
+ \{~\newline
+ ~~~~call~function\+Generator();~\newline
+
+
+\}~\newline
+ &\\\cline{1-2}
+\end{longtabu}
+\doxysubsubsection*{2) A Sine Wave\+:}
+
+~\newline
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+~rem~enable\+\_\+debug~;~~\newline
+ function~function\+Generator()\{~\newline
+ ~~~~for(i=0,~i\texorpdfstring{$<$}{<}360,i++)~\{~\newline
+ ~~~~~~~~sample=0.\+5\texorpdfstring{$\ast$}{*}(32767.\+5\texorpdfstring{$\ast$}{*}(cos(i))+32767.\+5)~\newline
+ ~~~~~~~~aput PA\+\_\+4,sample~\newline
+ ~~~~\}~\newline
+
+
+\}
+
+~Rem -- start of the main program-- ~\newline
+while(1)\{~\newline
+ ~~~~call~function\+Generator();~\newline
+ \}~\newline
+  &\\\cline{1-2}
+\end{longtabu}
+
+
+\doxysubsubsection*{3) A Diamond}
+
+~\newline
+ \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+~rem~enable\+\_\+debug~;~~\newline
+ function~function\+Generator()\{~\newline
+ ~~~~for(i=0,~i\texorpdfstring{$<$}{<}360,i++)~\{~\newline
+ ~~~~~~~~j1=round(32676.\+5-\/(90.\+75\texorpdfstring{$\ast$}{*}i))~\newline
+ ~~~~~~~~j2=round(32676.\+5+(90.\+75\texorpdfstring{$\ast$}{*}i))~\newline
+ ~~~~~~~~aput PA\+\_\+4,j1~\newline
+ ~~~~~~~~delay 20,usec~\newline
+ ~~~~~~~~aput PA\+\_\+4,j2~\newline
+
+
+~~\}
+
+~~~~for(i=360,i\texorpdfstring{$>$}{>}=0,i-\/ -\/)~\{~\newline
+ ~~~~~~~~j1=round(32676.\+5-\/(90.\+75\texorpdfstring{$\ast$}{*}i))~\newline
+ ~~~~~~~~j2=round(32676.\+5+(90.\+75\texorpdfstring{$\ast$}{*}i))~\newline
+ ~~~~~~~~aput PA\+\_\+4,j1~\newline
+ ~~~~~~~~delay 20,usec~\newline
+ ~~~~~~~~aput PA\+\_\+4,j2~\newline
+ ~~~\}~\newline
+ \}~\newline
+
+
+Rem -- start of the main program--~\newline
+ while(1)~\{~\newline
+ call function\+Generator();~\newline
+ \}~\newline
+ &\\\cline{1-2}
+\end{longtabu}
+
+
+\doxysubsubsection*{4) A Fish}
+
+~\newline
+ \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+
+
+{\bfseries{Rem}} enable\+\_\+debug;~\newline
+{\bfseries{function }}function\+Generator()\{~\newline
+~~ {\bfseries{for}}(i=0,i\texorpdfstring{$<$}{<}50,i++)\{~\newline
+~~~~ x=49150-\/i\texorpdfstring{$\ast$}{*}380;~\newline
+~~~~ {\bfseries{aput }}PA\+\_\+4,x;~\newline
+~~~~ {\bfseries{delay}} 10, usec;~\newline
+~~ ~ x=i\texorpdfstring{$\ast$}{*}380;~\newline
+~ ~ {\bfseries{aput}} PA\+\_\+4,x;~\newline
+~ \}
+
+
+
+~ {\bfseries{for}}(i=0,i\texorpdfstring{$<$}{<}180,i++)\{~\newline
+~~~ x=32767+sin(i)\texorpdfstring{$\ast$}{*}15000;~\newline
+~~~ {\bfseries{aput }}PA\+\_\+4,x;~\newline
+~~~ {\bfseries{delay }}10, usec;~\newline
+~ ~ x={\bfseries{sin}}(i-\/180)\texorpdfstring{$\ast$}{*}15000+16383;~\newline
+~ ~ {\bfseries{aput}} PA\+\_\+4,x;~\newline
+~\}~\newline
+~{\bfseries{for}}(i=0,i\texorpdfstring{$<$}{<}180,i++)\{~\newline
+~~~ x=380+x-\/i~\newline
+~ ~ {\bfseries{aput}} PA\+\_\+4,x;~\newline
+~ \}~\newline
+ ~\newline
+~ {\bfseries{delay }}10,msec;~\newline
+\}
+
+
+
+~\newline
+{\bfseries{Rem}} -- start of the main program--~\newline
+{\bfseries{while}}(1)\{~\newline
+ {\bfseries{call }}function\+Generator();~\newline
+ \}
+
+
+
+~
+
+&\\\cline{1-2}
+\end{longtabu}
+
+
+\doxysubsubsection*{5) Semicircle}
+
+~\newline
+ \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+
+
+{\bfseries{Rem}} enable\+\_\+debug;
+
+
+
+{\bfseries{function }}function\+Generator(){\bfseries{\{}}~\newline
+~ for(i=0,i\texorpdfstring{$<$}{<}180,i++){\bfseries{\{}}~\newline
+~~ x=16383.\+5+sin(i)\texorpdfstring{$\ast$}{*}32767;~\newline
+~~ aput PA\+\_\+4,x;~\newline
+~~ delay 10, usec;~\newline
+~~ x=16383.\+5;~\newline
+~~ aput PA\+\_\+4,x;~\newline
+~{\bfseries{\}}}
+
+
+
+~for(i=180,i\texorpdfstring{$<$}{<}360,i++){\bfseries{\{}}~\newline
+~ x=16383.\+5-\/sin(i)\texorpdfstring{$\ast$}{*}32767;~\newline
+~ aput PA\+\_\+4,x;~\newline
+~ delay 10, usec;~\newline
+~ x=16383.\+5;~\newline
+~ aput PA\+\_\+4,x;~\newline
+~{\bfseries{ \}}}~\newline
+{\bfseries{\}}}
+
+
+
+Rem -- start of the main program--~\newline
+while(1){\bfseries{\{}}~\newline
+call function\+Generator();~\newline
+{\bfseries{\}}}
+
+
+
+~
+
+
+
+~
+
+
+
+{\bfseries{Rem}} -- start of the main program--~\newline
+{\bfseries{while}}(1){\bfseries{\{}}~\newline
+ {\bfseries{call }}function\+Generator();~\newline
+ {\bfseries{\}}}
+
+
+
+~
+
+&  \\\cline{1-2}
+\end{longtabu}
+
+
+\doxysubsubsection*{6) Sine Wave Ellipse}
+
+~\newline
+ \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+
+
+{\bfseries{Rem}} enable\+\_\+debug;
+
+
+
+{\bfseries{function }}function\+Generator(){\bfseries{\{}}~~~
+
+
+
+~for(i=0,i\texorpdfstring{$<$}{<}180,i++){\bfseries{\{}}~\newline
+~~ x=32767+sin(i)\texorpdfstring{$\ast$}{*}182\texorpdfstring{$\ast$}{*}i;~\newline
+~~ aput PA\+\_\+4,x;~\newline
+~~ x=32767-\/sin(i)\texorpdfstring{$\ast$}{*}182\texorpdfstring{$\ast$}{*}i;~\newline
+~~ aput PA\+\_\+4,x;~\newline
+~{\bfseries{\}}}~\newline
+~ for(i=0,i\texorpdfstring{$<$}{<}3,i++)~\newline
+~{\bfseries{\{}}~\newline
+~~~ aput PA\+\_\+4,x;~\newline
+ {\bfseries{~\}}}~\newline
+ {\bfseries{\}}}
+
+
+
+~
+
+
+
+{\bfseries{Rem}} -- start of the main program--
+
+
+
+{\bfseries{while}}(1)\{~\newline
+{\bfseries{call }}function\+Generator();~\newline
+ \}~
+
+&  \\\cline{1-2}
+\end{longtabu}
+
+
+~

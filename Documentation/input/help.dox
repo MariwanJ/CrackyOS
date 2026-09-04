@@ -1,0 +1,10 @@
+/*!
+
+*\page help Help
+*
+* This instruction is used to display help info  on the terminal emulator (Tera Term)
+*
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+* <span style='color:blue'>help </span><br>
+*
+*/

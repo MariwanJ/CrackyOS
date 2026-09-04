@@ -1,0 +1,15 @@
+digraph "do_copy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="do_copy",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge7_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="defaultDirIncluded",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$db/d99/sdcard_8cpp.html#a80ddd5e08e3b6b2fc1f0d4771bfbcf66",tooltip=" "];
+  Node1 -> Node3 [id="edge8_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="file_copy",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$db/d99/sdcard_8cpp.html#a1e7be35960f39c6158a75f250cda1851",tooltip=" "];
+  Node1 -> Node4 [id="edge9_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="removeSpace",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$db/d99/sdcard_8cpp.html#a3c8708097b56a779f961bd0efccbf8ab",tooltip=" "];
+}

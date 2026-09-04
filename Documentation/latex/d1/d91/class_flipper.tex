@@ -1,0 +1,185 @@
+\doxysection{Flipper Class Reference}
+\hypertarget{class_flipper}{}\label{class_flipper}\index{Flipper@{Flipper}}
+
+
+{\ttfamily \#include $<$ticker\+\_\+hw.\+h$>$}
+
+
+
+Collaboration diagram for Flipper\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_flipper_aa9fb9819472705780ce0dc70cda225e7}{Flipper}} (int m\+\_\+en)
+\item 
+\mbox{\hyperlink{class_flipper_ae498ab519584627d366565705b5655e3}{\texorpdfstring{$\sim$}{\string~}\+Flipper}} ()
+\item 
+\mbox{\hyperlink{class_flipper_afd6416c5626df4035780c70cf107188a}{Flipper}} (const \mbox{\hyperlink{class_flipper}{Flipper}} \&)=delete
+\item 
+\mbox{\hyperlink{class_flipper}{Flipper}} \mbox{\hyperlink{class_flipper_a3c86a63c5dfddb5f3f1156236998c505}{operator=}} (const \mbox{\hyperlink{class_flipper}{Flipper}} \&)=delete
+\item 
+void \mbox{\hyperlink{class_flipper_a1d8b7e258a2444af14dfb6d771af0abf}{Toggle}} ()
+\item 
+int \mbox{\hyperlink{class_flipper_ac9056cfa1b3884cd6d972113016da614}{enum\+PINNAME}} (void)
+\item 
+void \mbox{\hyperlink{class_flipper_acc1916de697da9c3862e6f74f54d26fe}{\+\_\+\+\_\+attach}} ()
+\item 
+void \mbox{\hyperlink{class_flipper_aa23204405febca6b3aba891a8c93f932}{\+\_\+\+\_\+detach}} ()
+\item 
+void \mbox{\hyperlink{class_flipper_ae9e6f8e2286300f8f5a86a7c995d1464}{set\+Interval}} (uint32\+\_\+t g)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ticker \mbox{\hyperlink{class_flipper_aa4e65caa9ae353e1b6215b34e529e817}{mticker}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_flipper}{Flipper} class declaration 
+
+Definition at line \mbox{\hyperlink{ticker__hw_8h_source_l00042}{42}} of file \mbox{\hyperlink{ticker__hw_8h_source}{ticker\+\_\+hw.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_flipper_aa9fb9819472705780ce0dc70cda225e7}\label{class_flipper_aa9fb9819472705780ce0dc70cda225e7} 
+\index{Flipper@{Flipper}!Flipper@{Flipper}}
+\index{Flipper@{Flipper}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{Flipper()}{Flipper()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Flipper\+::\+Flipper (\begin{DoxyParamCaption}\item[{int}]{m\+\_\+en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Class \doxylink{class_flipper}{Flipper} constructor 
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+en} & enum value for the GPIO pin \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ticker__hw_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{ticker__hw_8cpp_source}{ticker\+\_\+hw.\+cpp}}.
+
+\Hypertarget{class_flipper_ae498ab519584627d366565705b5655e3}\label{class_flipper_ae498ab519584627d366565705b5655e3} 
+\index{Flipper@{Flipper}!````~Flipper@{\texorpdfstring{$\sim$}{\string~}Flipper}}
+\index{````~Flipper@{\texorpdfstring{$\sim$}{\string~}Flipper}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Flipper()}{\string~Flipper()}}
+{\footnotesize\ttfamily Flipper\+::\texorpdfstring{$\sim$}{\string~}\+Flipper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Class \doxylink{class_flipper}{Flipper} destructor 
+
+Definition at line \mbox{\hyperlink{ticker__hw_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{ticker__hw_8cpp_source}{ticker\+\_\+hw.\+cpp}}.
+
+\Hypertarget{class_flipper_afd6416c5626df4035780c70cf107188a}\label{class_flipper_afd6416c5626df4035780c70cf107188a} 
+\index{Flipper@{Flipper}!Flipper@{Flipper}}
+\index{Flipper@{Flipper}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{Flipper()}{Flipper()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Flipper\+::\+Flipper (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_flipper}{Flipper}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Class \doxylink{class_flipper}{Flipper} copy constructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_flipper_acc1916de697da9c3862e6f74f54d26fe}\label{class_flipper_acc1916de697da9c3862e6f74f54d26fe} 
+\index{Flipper@{Flipper}!\_\_attach@{\_\_attach}}
+\index{\_\_attach@{\_\_attach}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{\_\_attach()}{\_\_attach()}}
+{\footnotesize\ttfamily void Flipper\+::\+\_\+\+\_\+attach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will attach the toggle function to the ticker object. 
+
+Definition at line \mbox{\hyperlink{ticker__hw_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{ticker__hw_8cpp_source}{ticker\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{ticker__hw_8h_source_l00076}{mticker}}, and \mbox{\hyperlink{ticker__hw_8cpp_source_l00075}{Toggle()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\Hypertarget{class_flipper_aa23204405febca6b3aba891a8c93f932}\label{class_flipper_aa23204405febca6b3aba891a8c93f932} 
+\index{Flipper@{Flipper}!\_\_detach@{\_\_detach}}
+\index{\_\_detach@{\_\_detach}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{\_\_detach()}{\_\_detach()}}
+{\footnotesize\ttfamily void Flipper\+::\+\_\+\+\_\+detach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will detach the toggle function to the ticker object.
+
+This will not stop the timer. It stops only the interrupt. 
+
+Definition at line \mbox{\hyperlink{ticker__hw_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{ticker__hw_8cpp_source}{ticker\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{ticker__hw_8h_source_l00076}{mticker}}.
+
+\Hypertarget{class_flipper_ac9056cfa1b3884cd6d972113016da614}\label{class_flipper_ac9056cfa1b3884cd6d972113016da614} 
+\index{Flipper@{Flipper}!enumPINNAME@{enumPINNAME}}
+\index{enumPINNAME@{enumPINNAME}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{enumPINNAME()}{enumPINNAME()}}
+{\footnotesize\ttfamily int Flipper\+::enum\+PINNAME (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will retrieve the pin\+Name as an enum value. \begin{DoxyReturn}{Returns}
+enum name of the GPIO 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{ticker__hw_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{ticker__hw_8cpp_source}{ticker\+\_\+hw.\+cpp}}.
+
+\Hypertarget{class_flipper_a3c86a63c5dfddb5f3f1156236998c505}\label{class_flipper_a3c86a63c5dfddb5f3f1156236998c505} 
+\index{Flipper@{Flipper}!operator=@{operator=}}
+\index{operator=@{operator=}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_flipper}{Flipper}} Flipper\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_flipper}{Flipper}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Class \doxylink{class_flipper}{Flipper} operator = \Hypertarget{class_flipper_ae9e6f8e2286300f8f5a86a7c995d1464}\label{class_flipper_ae9e6f8e2286300f8f5a86a7c995d1464} 
+\index{Flipper@{Flipper}!setInterval@{setInterval}}
+\index{setInterval@{setInterval}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{setInterval()}{setInterval()}}
+{\footnotesize\ttfamily void Flipper\+::set\+Interval (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{g }\end{DoxyParamCaption})}
+
+This function will determine the time Interval needed to the ticker lunch the interrupt. 
+\begin{DoxyParams}{Parameters}
+{\em g} & \+: Interval value in microseconds (float value) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ticker__hw_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{ticker__hw_8cpp_source}{ticker\+\_\+hw.\+cpp}}.
+
+\Hypertarget{class_flipper_a1d8b7e258a2444af14dfb6d771af0abf}\label{class_flipper_a1d8b7e258a2444af14dfb6d771af0abf} 
+\index{Flipper@{Flipper}!Toggle@{Toggle}}
+\index{Toggle@{Toggle}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{Toggle()}{Toggle()}}
+{\footnotesize\ttfamily void Flipper\+::\+Toggle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will toggle the GPIO 
+
+Definition at line \mbox{\hyperlink{ticker__hw_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{ticker__hw_8cpp_source}{ticker\+\_\+hw.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{ticker__hw_8cpp_source_l00085}{\+\_\+\+\_\+attach()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_flipper_aa4e65caa9ae353e1b6215b34e529e817}\label{class_flipper_aa4e65caa9ae353e1b6215b34e529e817} 
+\index{Flipper@{Flipper}!mticker@{mticker}}
+\index{mticker@{mticker}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{mticker}{mticker}}
+{\footnotesize\ttfamily Ticker Flipper\+::mticker}
+
+Internal ticker object. 
+
+Definition at line \mbox{\hyperlink{ticker__hw_8h_source_l00076}{76}} of file \mbox{\hyperlink{ticker__hw_8h_source}{ticker\+\_\+hw.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{ticker__hw_8cpp_source_l00085}{\+\_\+\+\_\+attach()}}, and \mbox{\hyperlink{ticker__hw_8cpp_source_l00091}{\+\_\+\+\_\+detach()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cracky\+OS/src/ticker\+\_\+hw.\+h\item 
+Cracky\+OS/src/ticker\+\_\+hw.\+cpp\end{DoxyCompactItemize}

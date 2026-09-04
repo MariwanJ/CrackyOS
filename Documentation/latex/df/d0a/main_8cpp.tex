@@ -1,0 +1,107 @@
+\doxysection{Cracky\+OS/src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{CrackyOS/src/main.cpp@{CrackyOS/src/main.cpp}}
+
+
+This file contains Main function used by the interpreter.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+{\ttfamily \#include \"{}mbed\+\_\+mem\+\_\+trace.\+h\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+FATFile\+System \mbox{\hyperlink{main_8cpp_aac3addc26331e1e62b86b2966d3a9549}{fs}} (\"{}sd\"{})
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_serial_communication}{Serial\+Communication}} \mbox{\hyperlink{main_8cpp_a52034984a727e992935573752b2f4f54}{global\+Serial\+COMvar}}
+\item 
+unsigned char \mbox{\hyperlink{main_8cpp_a3b16c18fe2ee672b8df06da1da2e0dc7}{Break\+Pressed}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains Main function used by the interpreter. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_aac3addc26331e1e62b86b2966d3a9549}\label{main_8cpp_aac3addc26331e1e62b86b2966d3a9549} 
+\index{main.cpp@{main.cpp}!fs@{fs}}
+\index{fs@{fs}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{fs()}{fs()}}
+{\footnotesize\ttfamily FATFile\+System fs (\begin{DoxyParamCaption}\item[{\"{}sd\"{}}]{ }\end{DoxyParamCaption})}
+
+Fat filesystem definition used to open/read/write files on the SD card \Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+MAIN function Use this function to calculate the hash values. Warning\+: Different architecture could give different results. update the hash values whenever you change the architecture. Start the thread, if debug enabled by default, that take care of debug communications.
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{interactive_8cpp_source_l00046}{baud\+\_\+rate}}, \mbox{\hyperlink{main_8cpp_source_l00055}{Break\+Pressed}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{Change\+Inter\+Active\+Mode\+Status()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}, \mbox{\hyperlink{common_8cpp_source_l00282}{create\+Debug\+PC()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{error_8cpp_source_l00049}{enable\+\_\+disable\+Debug\+Thread()}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{tokens_8cpp_source_l00362}{Initialize\+Default\+Script\+File\+Name()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{interactive_8cpp_source_l00051}{Inter\+Active\+Mode}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{interactive_8cpp_source_l00128}{read\+Config\+File()}}, \mbox{\hyperlink{interactive_8cpp_source_l00260}{Run\+Script\+File()}}, \mbox{\hyperlink{common_8h_af0f08ac2ee0061f2201dd1c82f9925d3}{sd}}, \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}, and \mbox{\hyperlink{interactive_8cpp_source_l00063}{write\+Config\+To\+File()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_a3b16c18fe2ee672b8df06da1da2e0dc7}\label{main_8cpp_a3b16c18fe2ee672b8df06da1da2e0dc7} 
+\index{main.cpp@{main.cpp}!BreakPressed@{BreakPressed}}
+\index{BreakPressed@{BreakPressed}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{BreakPressed}{BreakPressed}}
+{\footnotesize\ttfamily unsigned char Break\+Pressed = 0}
+
+Break pressed variable 
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{Change\+Inter\+Active\+Mode\+Status()}}, and \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}.
+
+\Hypertarget{main_8cpp_a52034984a727e992935573752b2f4f54}\label{main_8cpp_a52034984a727e992935573752b2f4f54} 
+\index{main.cpp@{main.cpp}!globalSerialCOMvar@{globalSerialCOMvar}}
+\index{globalSerialCOMvar@{globalSerialCOMvar}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{globalSerialCOMvar}{globalSerialCOMvar}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_serial_communication}{Serial\+Communication}} global\+Serial\+COMvar}
+
+Serial class definition used by the system. 
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{Change\+Inter\+Active\+Mode\+Status()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00168}{clear\+And\+Home\+DEBUG()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00156}{clear\+And\+Home\+Serial()}}, \mbox{\hyperlink{common_8cpp_source_l00282}{create\+Debug\+PC()}}, \mbox{\hyperlink{error_8cpp_source_l00109}{debug\+Thread\+Function()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00455}{do\+\_\+format()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{common_8cpp_source_l00056}{Execute\+\_\+\+Instructions()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00188}{GET\+\_\+\+SERIAL\+\_\+\+TEXT()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00236}{get\+Script\+Program\+File()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00121}{Get\+String\+From\+Serial()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00084}{SERIAL\+\_\+\+Print()}}, \mbox{\hyperlink{common_8cpp_source_l00040}{STOP\+\_\+\+PROFILE\+\_\+\+SHOW\+\_\+\+RESULT()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00310}{token\+\_\+baud\+\_\+rate()}}, and \mbox{\hyperlink{common_8cpp_source_l00491}{token\+\_\+exit()}}.
+

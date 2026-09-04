@@ -1,0 +1,14 @@
+/*!
+
+*\page serial_get SERIAL GET
+*
+* It reads a string from the terminal. After you press Enter, this instruction returns the string.<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> serial_get VARIABLE_NAME</B><BR>
+* - <b>VARIABLE_NAME:</b> You must provide the instruction with a variable name. 
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+*	serial_get myText;			&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem read a string from terminal </span><br>
+* 	print myText;	        &nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send the value to terminal  </span><br>
+*
+*/

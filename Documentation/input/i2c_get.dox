@@ -1,0 +1,18 @@
+/*!
+
+*\page i2c_get	I2C Get
+*
+* This instruction reads data from an I2C device (master or slave). The instruction uses the standard I2C_SCL and I2C_SDA definitions.<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> i2c_get MASTER/SLAVE, address, VARIABLE_receive_data, lengthOfData;</B><BR>
+* - <b>MASTER/SLAVE:</b> &nbsp;&nbsp;&nbsp;0= Master , 1=Slave
+* - <b>ADDRESS:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Address of the MASTER/SLAVE<br>
+* - <b>VARIABLE_NAME:</b> You must provide the instruction a variable name. The results will be saved in that variable (might be an array of char). 
+* - <b>lengthOfData:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Length of the message or data<br>
+*
+* <span style='color:blue'><em><B> Example:</B> </em> </span><br>
+* myvalue ={245,133};
+* i2c_send 1, 1222, myvalue,2;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem read from the slave 2 bytes</span><br>
+*
+*
+*/

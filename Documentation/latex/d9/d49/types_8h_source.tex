@@ -1,0 +1,768 @@
+\doxysection{types.\+h}
+\hypertarget{types_8h_source}{}\label{types_8h_source}\index{CrackyOS/src/types.h@{CrackyOS/src/types.h}}
+\mbox{\hyperlink{types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00028}00028\ \textcolor{preprocessor}{\#ifndef\ TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00029}00029\ \textcolor{preprocessor}{\#define\ TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <mbed.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00033}00033\ \textcolor{preprocessor}{\#ifndef\ NULL}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ NULL\ 0}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00035}00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ DEBUG\_MESSAGE(...)\ DEBUG\_Print(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00044}00044\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00045}\mbox{\hyperlink{types_8h_aed691840fce0de5a081b5e84e4ebb64a}{00045}}\ \textcolor{preprocessor}{\#define\ DEBUG\_MESSAGE(...)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00046}00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00048}00048\ \textcolor{preprocessor}{\#define\ MAX\_HASH\_STRING\_LENGTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00049}00049\ \textcolor{preprocessor}{\ \ 20\ }\textcolor{comment}{//\ Be\ careful\ this\ could\ cause\ problem\ that\ is\ difficult\ to\ debug.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00050}00050\ \ \ \ \ \ \textcolor{comment}{//\ 2020-\/05-\/14}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00053}00053\ \textcolor{comment}{}\textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_abb33710040c1d3401e8a0996b3b5d0fa}{SERIAL\_Print}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format,\ ...);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00055}00055\ \textcolor{comment}{/*\ We\ implement\ this\ "{}stop"{}\ to\ all\ function\ to\ avoid\ running\ any\ code}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00056}00056\ \textcolor{comment}{\ *\ \ after\ error\ and\ return\ back\ to\ main.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00057}00057\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00058}00058\ \textcolor{comment}{\ *\ \ \ \ \ \ Stop\ running\ if\ we\ have\ error}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00059}00059\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00061}00061\ \textcolor{preprocessor}{\#define\ SERIAL\_MESSAGE(...)\ SERIAL\_Print(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00063}00063\ \textcolor{preprocessor}{\#define\ STOP\_CODE\_EXECUTION\_MINUS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00064}00064\ \textcolor{preprocessor}{\ \ if\ (StopExecution\ ==\ 1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00065}00065\ \textcolor{preprocessor}{\ \ \ \ return\ -\/1;}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00066}00066\ \textcolor{preprocessor}{\#define\ STOP\_CODE\_EXECUTION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00067}00067\ \textcolor{preprocessor}{\ \ if\ (StopExecution\ ==\ 1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ return;}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00069}00069\ \textcolor{preprocessor}{\#define\ STOP\_CODE\_EXECUTION\_NULL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00070}00070\ \textcolor{preprocessor}{\ \ if\ (StopExecution\ ==\ 1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00071}00071\ \textcolor{preprocessor}{\ \ \ \ return\ 0;}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00073}00073\ \textcolor{preprocessor}{\#define\ USED\_VARIABLE\ unsigned\ char}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00074}00074\ \textcolor{preprocessor}{\#define\ SCRIPT\_MAX\_VARIABLE\_NUMBERS\ 32}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00075}00075\ \textcolor{preprocessor}{\#define\ SCRIPT\_MAX\_NESTED\_FOR\_WHILE\_LOOP\ 10\ }\textcolor{comment}{//\ TODO\ :\ How\ many\ is\ OK??}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00077}00077\ \textcolor{preprocessor}{\#define\ DUMMY\_SPI\_DUMMY\ 0XAA\ }\textcolor{comment}{//\ Do\ we\ need\ these??\ 2018-\/07-\/27}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00078}00078\ \textcolor{preprocessor}{\#define\ DUMMY\_SPI\_ACK\ 0X33\ \ \ }\textcolor{comment}{//\ Do\ we\ need\ these??\ 2018-\/07-\/27}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00081}\mbox{\hyperlink{types_8h_a9acd36e94faa46b98f872ba240b1f488}{00081}}\ \textcolor{preprocessor}{\#define\ MAX\_READ\_BUFF\_I2C\ 256}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00083}00083\ \textcolor{preprocessor}{\#define\ MAX\_ALLOWED\_MESSAGELENGTH\ 2\ *\ 1024\ }\textcolor{comment}{//\ 2Kbytes}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00086}\mbox{\hyperlink{types_8h_a3aae84eb985737e11247f04d4d5278f1}{00086}}\ \textcolor{preprocessor}{\#define\ checkBitInVariable(var,\ pos)\ ((var\ \&\ (1\ <<\ pos))\ ==\ (1\ <<\ pos))}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00091}\mbox{\hyperlink{classspecial_serial}{00091}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspecial_serial}{specialSerial}}\ :\ \textcolor{keyword}{public}\ UnbufferedSerial\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00092}00092\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00099}00099\ \ \ \mbox{\hyperlink{classspecial_serial}{specialSerial}}(PinName\ tx,\ PinName\ rx,\ \textcolor{keywordtype}{int}\ baud);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00104}00104\ \ \ PinName\ \mbox{\hyperlink{classspecial_serial_a970d8dd630f8099114a201696c83bd43}{retrieveRX}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00109}00109\ \ \ PinName\ \mbox{\hyperlink{classspecial_serial_aa46767f137cf4eabee57b95dbe4d1fcc}{retrieveTX}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00111}00111\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00116}00116\ \ \ PinName\ RX;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00121}00121\ \ \ PinName\ TX;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00122}00122\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00127}\mbox{\hyperlink{struct_serial_communication}{00127}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00128}00128\ \ \ \mbox{\hyperlink{classspecial_serial}{specialSerial}}\ *Debug\_pc;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00129}00129\ \ \ \mbox{\hyperlink{classspecial_serial}{specialSerial}}\ *Serial\_pc;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00130}00130\ \}\ \mbox{\hyperlink{struct_serial_communication}{SerialCommunication}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00136}00136\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_serial_communication}{SerialCommunication}}\ \mbox{\hyperlink{types_8h_a52034984a727e992935573752b2f4f54}{globalSerialCOMvar}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00138}00138\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }ftick\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00139}00139\ \ \ Ticker\ *mTicker;\ \ \textcolor{comment}{//\ Ticker\ object}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00140}00140\ \ \ \textcolor{keywordtype}{int}\ interValInMs;\ \textcolor{comment}{//\ Interval\ in\ millisecond.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00141}00141\ \ \ \textcolor{keywordtype}{void}\ *pToFun(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00142}00142\ \}\ tickerVar;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00144}00144\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }retFArr\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00145}00145\ \ \ \textcolor{keywordtype}{float}\ *arrayToReturn;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00146}00146\ \ \ \textcolor{keywordtype}{int}\ arraySize;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00147}00147\ \}\ returnedArray;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00148}00148\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00149}00149\ \ \ PwmOut\ *pwm;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00150}00150\ \ \ \textcolor{keywordtype}{int}\ enum\_pinname;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00151}00151\ \}\ specialPwmOut;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00153}00153\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00154}00154\ \ \ specialPwmOut\ pwm1;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00155}00155\ \ \ specialPwmOut\ pwm2;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00156}00156\ \ \ specialPwmOut\ pwm3;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00157}00157\ \ \ specialPwmOut\ pwm4;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00158}00158\ \}\ pwmpinname;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00160}00160\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ T\_NULL,\ T\_FLOAT,\ T\_INT,\ T\_STRING\ \}\ VarType;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00161}00161\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00162}00162\ \ \ \textcolor{keywordtype}{int}\ *pi;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Array\ of\ values}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00163}00163\ \ \ \textcolor{keywordtype}{float}\ *pf;\ \ \ \ \ \ \textcolor{comment}{//\ Array\ of\ values}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00164}00164\ \ \ \textcolor{keywordtype}{char}\ *txtvalue;\ \textcolor{comment}{//\ Array\ of\ char}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00165}00165\ \}\ objType;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00172}\mbox{\hyperlink{structnode}{00172}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00173}00173\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *next;\ \ \textcolor{comment}{//\ Next\ item\ in\ the\ list}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00174}00174\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *prev;\ \ \textcolor{comment}{//\ Previous\ item\ in\ the\ list}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00175}00175\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index;\ \textcolor{comment}{//\ Position\ of\ the\ item\ in\ the\ list..\ An\ unsigned\ int.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00176}00176\ \ \ \textcolor{keywordtype}{char}\ *txtString;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00177}\mbox{\hyperlink{types_8h_a7c02633e18d6aa5f58539b75f08753d9}{00177}}\ \}\ \mbox{\hyperlink{types_8h_a7c02633e18d6aa5f58539b75f08753d9}{node\_t}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00179}00179\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structnode}{node\_t}}\ \mbox{\hyperlink{structnode}{instr\_linkedList}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00182}\mbox{\hyperlink{structf_list}{00182}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structf_list}{fList}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00183}00183\ \ \ \mbox{\hyperlink{structf_list}{fList}}\ *prev;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00184}00184\ \ \ \mbox{\hyperlink{structf_list}{fList}}\ *next;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00185}00185\ \ \ \textcolor{keywordtype}{char}\ *name;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00186}00186\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00187}00187\ \ \ \ \ \ \ *start;\ \textcolor{comment}{//\ Should\ point\ to\ the\ first\ char\ of\ the\ arg1\ or\ the\ '\{'\ symbol}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00188}00188\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *end;\ \textcolor{comment}{//\ Do\ we\ need\ this????}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00189}\mbox{\hyperlink{types_8h_a9631d36733baf631fcdc0c90db308db3}{00189}}\ \}\ \mbox{\hyperlink{types_8h_a9631d36733baf631fcdc0c90db308db3}{GlobalfunList}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00191}00191\ \textcolor{comment}{//\ Dynamically\ created\ table\ that\ keeps\ pointer\ to\ each\ line\ in\ the\ source\ code}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00192}00192\ \textcolor{comment}{//\ for\ indexing}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00193}00193\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }tlistObj\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00194}00194\ \ \ tlistObj\ *prev;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00195}00195\ \ \ tlistObj\ *next;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00196}00196\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *pLineStart;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00197}00197\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ lineNo;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00198}00198\ \}\ listObj;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00201}\mbox{\hyperlink{classreg}{00201}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classreg}{reg}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00202}00202\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00208}00208\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classreg}{reg}}(\textcolor{keywordtype}{char}\ *name,\ \textcolor{keywordtype}{int}\ conf,\ \textcolor{keywordtype}{int}\ *enumNames);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00210}00210\ \ \ \mbox{\hyperlink{classreg}{reg}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classreg}{reg}}\ \&cpyreg)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00214}00214\ \ \ \mbox{\hyperlink{classreg_a3e855f6f0a74098afb1c9684cd54c43e}{\string~reg}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00218}\mbox{\hyperlink{classreg_aae5062a0dcb6eb09267fdd3b2c00aa7a}{00218}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classreg_aae5062a0dcb6eb09267fdd3b2c00aa7a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classreg}{reg}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00223}\mbox{\hyperlink{classreg_a2330ff16a471e96bc06584ec24132420}{00223}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classreg_a2330ff16a471e96bc06584ec24132420}{enum\_r\_bit}}[16];\ \textcolor{comment}{//\ Keep\ enum\ names\ of\ the\ pins}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00229}\mbox{\hyperlink{classreg_a76c231b3470edc8c7c47670e51b0e631}{00229}}\ \ \ BusInOut\ *\mbox{\hyperlink{classreg_a76c231b3470edc8c7c47670e51b0e631}{bus}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00234}00234\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classreg_a81a086cdf4286e25b62cb654c3ae0320}{configBus}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ type);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00238}\mbox{\hyperlink{classreg_a09f1202c237f5fb18cf1df0121ea42ff}{00238}}\ \ \ uint32\_t\ \mbox{\hyperlink{classreg_a09f1202c237f5fb18cf1df0121ea42ff}{\_hashname}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00240}00240\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00244}\mbox{\hyperlink{classreg_a00903606a73a22804a1f0991e7ff6a8b}{00244}}\ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classreg_a00903606a73a22804a1f0991e7ff6a8b}{\_name}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00248}\mbox{\hyperlink{classreg_a33d915469d795f16044b7b7eee325349}{00248}}\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classreg_a33d915469d795f16044b7b7eee325349}{\_config}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00249}00249\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00252}\mbox{\hyperlink{uniongeneral_pin}{00252}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00253}00253\ \ \ DigitalInOut\ *InOutPin;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00254}00254\ \ \ InterruptIn\ *interrupt\_in;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00255}00255\ \ \ AnalogIn\ *aInPin;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00256}00256\ \ \ AnalogOut\ *aOutPin;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00257}00257\ \}\ \mbox{\hyperlink{uniongeneral_pin}{generalPin}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00258}00258\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00259}00259\ \ \ \textcolor{keywordtype}{int}\ pinNameEnum;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00260}00260\ \ \ \mbox{\hyperlink{uniongeneral_pin}{generalPin}}\ genInOut;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00261}00261\ \}\ pinGPIO;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00263}\mbox{\hyperlink{union__global_g_p_i_o}{00263}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00264}00264\ \ \ pinGPIO\ *OnePinGPIO;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00265}00265\ \ \ \mbox{\hyperlink{classreg}{reg}}\ *busGpio;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00266}00266\ \}\ \mbox{\hyperlink{union__global_g_p_i_o}{\_globalGPIO}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00269}\mbox{\hyperlink{structlblscript}{00269}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00270}00270\ \ \ \textcolor{keywordtype}{char}\ *name;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00271}00271\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *start;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00272}00272\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *end;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00273}00273\ \}\ \mbox{\hyperlink{structlblscript}{lblscript}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00275}\mbox{\hyperlink{structp_lab}{00275}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structp_lab}{pLab}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00276}00276\ \ \ \mbox{\hyperlink{structp_lab}{pLab}}\ *next;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00277}00277\ \ \ \mbox{\hyperlink{structp_lab}{pLab}}\ *prev;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00278}00278\ \ \ \mbox{\hyperlink{structlblscript}{lblscript}}\ label;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00279}\mbox{\hyperlink{types_8h_acf2d48b3cbb8c052c2a959ea0e54b92b}{00279}}\ \}\ \mbox{\hyperlink{types_8h_acf2d48b3cbb8c052c2a959ea0e54b92b}{glLBL}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00284}\mbox{\hyperlink{structcan}{00284}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00285}00285\ \ \ \textcolor{keywordtype}{int}\ CANTD;\ \textcolor{comment}{//\ Enum\ name}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00286}00286\ \ \ \textcolor{keywordtype}{int}\ CANRD;\ \textcolor{comment}{//\ Enum\ name}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00287}00287\ \}\ \mbox{\hyperlink{structcan}{can}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00289}00289\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }canme\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00290}00290\ \ \ canme\ *prev;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00291}00291\ \ \ canme\ *next;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00292}00292\ \ \ \mbox{\hyperlink{structcan}{can}}\ current;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00293}00293\ \ \ CAN\ *\_CanDevice;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00294}00294\ \}\ canType;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00300}\mbox{\hyperlink{class_global_g_pclass}{00300}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_global_g_pclass}{GlobalGPclass}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00301}00301\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00305}00305\ \ \ \mbox{\hyperlink{class_global_g_pclass_a45a181010e7089bb9e94acea01bef691}{GlobalGPclass}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00310}00310\ \ \ \mbox{\hyperlink{class_global_g_pclass_aa5d9c08635fbd1c8a21f317bceaf1291}{\string~GlobalGPclass}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00314}\mbox{\hyperlink{class_global_g_pclass_ad9b4d4e744400cc4c98b0ace648d2347}{00314}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_global_g_pclass_ad9b4d4e744400cc4c98b0ace648d2347}{tag}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00315}00315\ \ \ \mbox{\hyperlink{union__global_g_p_i_o}{\_globalGPIO}}\ gpio;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00316}00316\ \ \ \mbox{\hyperlink{structf_list}{GlobalfunList}}\ *fun;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00317}00317\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ instr\_linkedList\ *funStart;\ \ //This\ will\ keep\ a\ pointer\ to\ a}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00318}00318\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ function\ which\ will\ be\ called\ when\ interrupt\ happen.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00319}00319\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ instr\_linkedList\ *funEnd;\ \ //This\ will\ keep\ a\ pointer\ to\ a\ function}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00320}00320\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ which\ will\ be\ called\ when\ interrupt\ happen.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00321}00321\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00322}00322\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00325}\mbox{\hyperlink{struct_gnode}{00325}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_gnode}{Gnode}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00326}00326\ \ \ \mbox{\hyperlink{class_global_g_pclass}{GlobalGPclass}}\ scripPin;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00327}00327\ \ \ \mbox{\hyperlink{struct_gnode}{Gnode}}\ *next;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00328}00328\ \ \ \mbox{\hyperlink{struct_gnode}{Gnode}}\ *prev;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00329}\mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{00329}}\ \}\ \mbox{\hyperlink{types_8h_aba4657c053edecd7ff72dea7557567e5}{GlobalGP}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00332}\mbox{\hyperlink{structtb}{00332}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtb}{tb}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00333}00333\ \ \ \textcolor{keywordtype}{int}\ *variable;\ \textcolor{comment}{//\ pointer\ to\ the\ global\ variable}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00334}00334\ \ \ \textcolor{keywordtype}{int}\ value;\ \ \ \ \ \textcolor{comment}{//\ variable\ used\ to\ save\ the\ value}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00335}00335\ \ \ \textcolor{keywordtype}{int}\ position;\ \ \textcolor{comment}{//\ global\ variable\ position,\ used\ to\ refresh\ the\ value\ safely}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00336}\mbox{\hyperlink{types_8h_aa1883f6f74bee06d841332a0fce77cc3}{00336}}\ \}\ \mbox{\hyperlink{types_8h_aa1883f6f74bee06d841332a0fce77cc3}{while\_variable\_obj}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00340}\mbox{\hyperlink{structtoken__for__object}{00340}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00341}00341\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00342}00342\ \ \ \ \ \ \ *p\_StartForLoop;\ \textcolor{comment}{//\ Pointer\ for\ the\ first\ line\ after\ for\ instruction}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00343}00343\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00344}00344\ \ \ \ \ \ \ *p\_EndForLoop;\ \textcolor{comment}{//\ Pointer\ for\ last\ line\ after\ for\ block\ of\ instructions}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00345}00345\ \ \ \textcolor{keywordtype}{int}\ varIteration1;\ \textcolor{comment}{//\ Keeps\ the\ position\ of\ the\ first\ variable\ (\ i.e.\ (for\ (}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ here}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00347}00347\ \ \ \textcolor{keywordtype}{int}\ varIteration2;\ \textcolor{comment}{//\ Keeps\ the\ position\ of\ the\ second\ variable\ (\ i.e.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (for(i=here,...}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00349}00349\ \ \ \textcolor{keywordtype}{int}\ varIteration3;\ \textcolor{comment}{//\ Keeps\ the\ position\ of\ the\ third\ variable\ (\ i.e.\ (for}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (i=0;\ i<here\ ...}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00351}00351\ \ \ \textcolor{comment}{//\ \ \ \ int\ varIteration4;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ Keeps\ the}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00352}00352\ \ \ \textcolor{comment}{//\ \ \ \ position\ of\ the\ third\ variable\ (\ i.e.\ (for\ (i=0;\ i10,\ here...}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00353}00353\ \ \ \textcolor{keywordtype}{int}\ enumLogicalOperation;\ \textcolor{comment}{//\ Keeps\ the\ logical\ operation\ inside\ the\ for-\/loop}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ instruction}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00355}00355\ \ \ \textcolor{keywordtype}{int}\ var3;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Keeps\ the\ value\ of\ the\ comparison}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00356}00356\ \ \ \textcolor{keywordtype}{int}\ var4;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Keeps\ the\ +1\ or\ -\/1\ value\ for\ the\ iteration}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00357}00357\ \}\ \mbox{\hyperlink{structtoken__for__object}{token\_for\_object}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00360}\mbox{\hyperlink{structtoken__while__object}{00360}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00361}00361\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00362}00362\ \ \ \ \ \ \ *p\_StartWhileLoop;\ \textcolor{comment}{//\ Pointer\ for\ the\ first\ line\ after\ for\ instruction}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00363}00363\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00364}00364\ \ \ \ \ \ \ *p\_EndWhileLoop;\ \textcolor{comment}{//\ Pointer\ for\ last\ line\ after\ for\ block\ of\ instructions}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00365}00365\ \ \ \textcolor{keywordtype}{int}\ varIteration;\ \textcolor{comment}{//\ Iteration\ \ variable,\ the\ variable\ used\ inside\ the\ while.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (for.ex\ while\ (j<k)\ ..\ here\ j\ is\ this\ variable.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00367}00367\ \ \ \textcolor{keywordtype}{int}\ varIterationPosition;\ \textcolor{comment}{//\ Global\ position\ of\ the\ left-\/hand\ variable.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00368}00368\ \ \ \mbox{\hyperlink{structtb}{while\_variable\_obj}}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00369}00369\ \ \ \ \ \ \ varLogicalRelation;\ \textcolor{comment}{//\ After\ the\ logical\ symbol,\ this\ variable\ will\ be}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ there\ or\ a\ number.\ (for.ex\ while\ (j<k)\ ..\ here\ K\ is}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ variable}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00372}00372\ \ \ \textcolor{keywordtype}{int}\ enumLogicalOperation;\ \textcolor{comment}{//\ Keep\ the\ logical\ operation\ inside\ the\ for-\/loop}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ instruction}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00374}00374\ \}\ \mbox{\hyperlink{structtoken__while__object}{token\_while\_object}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00375}00375\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00377}\mbox{\hyperlink{structtoken__exchanger}{00377}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00378}00378\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *token\_word;\ \textcolor{comment}{//\ text\ (string)\ corresponding\ the}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ commands/instruction\ set\ token}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00380}00380\ \ \ \textcolor{keywordtype}{int}\ token\_enum;\ \textcolor{comment}{//\ STANDARD\ WORDS\ USED\ IN\ THE\ SCRIPTING\ PROGRAM\ (look\ at\ the}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ enum\ in\ tokens.h)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00382}00382\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ hash;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00383}00383\ \}\ \mbox{\hyperlink{structtoken__exchanger}{token\_exchanger}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00386}\mbox{\hyperlink{structif_instruction}{00386}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00387}00387\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *pIfEnd;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00388}00388\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *pElseEnd;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00389}00389\ \ \ \textcolor{keywordtype}{float}\ value1;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00390}00390\ \ \ \textcolor{keywordtype}{float}\ value2;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00391}00391\ \ \ \textcolor{keywordtype}{int}\ operation;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00392}00392\ \}\ \mbox{\hyperlink{structif_instruction}{ifInstruction}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00397}\mbox{\hyperlink{structint_st}{00397}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structint_st}{intSt}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00398}00398\ \ \ \textcolor{keywordtype}{int}\ enumPinName;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00399}00399\ \ \ \mbox{\hyperlink{structf_list}{GlobalfunList}}\ *function;\ \textcolor{comment}{//\ pointer\ to\ the\ function\ inside\ the\ global\ function}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ list\ (functionList\ variable)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00401}00401\ \ \ \mbox{\hyperlink{structint_st}{intSt}}\ *prev;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Should\ point\ to\ the\ first\ line\ of\ block\ of\ code}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00402}00402\ \ \ \mbox{\hyperlink{structint_st}{intSt}}\ *next;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ End\ line\ of\ block\ of\ code.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00403}\mbox{\hyperlink{types_8h_adbaf93df9858a6c872732740bd27e21c}{00403}}\ \}\ \mbox{\hyperlink{types_8h_adbaf93df9858a6c872732740bd27e21c}{gINTstruct}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00408}00408\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structf_list}{GlobalfunList}}\ *\mbox{\hyperlink{types_8h_a8d775f02eee59f08287f0faa9ad3612d}{functionList}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00413}00413\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *\mbox{\hyperlink{types_8h_ab3a251d9612b63a8f2cf1809c04e67d5}{scriptProg}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00414}00414\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00422}00422\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00423}00423\ \ \ FTOKEN\_PWM\ =\ 100,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00424}00424\ \ \ FTOKEN\_REG,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00425}00425\ \ \ FTOKEN\_DIGITAL\_IN\_OUT,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00426}00426\ \ \ FTOKEN\_SERIAL\_TX,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00427}00427\ \ \ FTOKEN\_SERIAL\_RX,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00428}00428\ \ \ FTOKEN\_CAN\_TD,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00429}00429\ \ \ FTOKEN\_CAN\_RD,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00430}00430\ \ \ FTOKEN\_I2C\_CLK,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00431}00431\ \ \ FTOKEN\_I2C\_SDA,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00432}00432\ \ \ FTOKEN\_SPI\_MOSI,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00433}00433\ \ \ FTOKEN\_SPI\_MISO,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00434}00434\ \ \ FTOKEN\_SPI\_CLK,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00435}00435\ \ \ FTOKEN\_SPI\_CS,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00436}00436\ \ \ FTOKEN\_TICKER,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00437}00437\ \ \ FTOKEN\_INTERRUPT\_IN,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00438}00438\ \ \ FTOKEN\_NC}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00439}00439\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00445}00445\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00446}00446\ \ \ GPIO\_PIN\_IN\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00447}00447\ \ \ GPIO\_PIN\_OUT,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00448}00448\ \ \ GPIO\_IN\_ANALOG,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00449}00449\ \ \ GPIO\_OUT\_ANALOG,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00450}00450\ \ \ GPIO\_BUS\_IN,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00451}00451\ \ \ GPIO\_BUS\_OUT,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00452}00452\ \ \ GPIO\_TICKER,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00453}00453\ \ \ GPIO\_INTERRUPTIN,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00454}00454\ \ \ GPIO\_NC}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00455}00455\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00457}00457\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00458}00458\ \textcolor{comment}{******************************************************************************************}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00459}00459\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00460}00460\ \textcolor{comment}{\ \ \ \ \ \ \ \ Things\ to\ be\ checked}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00461}00461\ \textcolor{comment}{\ \ \ \ \ \ \ \ 1-\/PWM}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00462}00462\ \textcolor{comment}{\ \ \ \ \ \ \ \ 2-\/Reg}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00463}00463\ \textcolor{comment}{\ \ \ \ \ \ \ \ 3-\/Digital\ IN}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00464}00464\ \textcolor{comment}{\ \ \ \ \ \ \ \ 4-\/Digitl\ OUT}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00465}00465\ \textcolor{comment}{\ \ \ \ \ \ \ \ 5-\/Analog\ IN}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00466}00466\ \textcolor{comment}{\ \ \ \ \ \ \ \ 6-\/Analog\ OUT}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00467}00467\ \textcolor{comment}{\ \ \ \ \ \ \ \ 7-\/Serial}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00468}00468\ \textcolor{comment}{\ \ \ \ \ \ \ \ 8-\/CAN}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00469}00469\ \textcolor{comment}{\ \ \ \ \ \ \ \ 9-\/I2C}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00470}00470\ \textcolor{comment}{\ \ \ \ \ \ \ \ 10-\/SPI}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00471}00471\ \textcolor{comment}{\ \ \ \ \ \ \ \ 11-\/Ticker}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00472}00472\ \textcolor{comment}{\ \ \ \ \ \ \ \ 12-\/InterruptIn}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00473}00473\ \textcolor{comment}{\ \ \ \ \ \ \ \ 13-\/}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00474}00474\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00475}00475\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00476}00476\ \textcolor{keyword}{class\ }ReNode\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00477}00477\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00481}00481\ \ \ ReNode();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00485}00485\ \ \ \string~ReNode();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00486}00486\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00490}00490\ \ \ \textcolor{keywordtype}{int}\ \_enumName;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00495}00495\ \ \ \textcolor{keywordtype}{int}\ \_Functionality;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00496}00496\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00500}00500\ \ \ ReNode\ *prev;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00501}00501\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00505}00505\ \ \ ReNode\ *next;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00506}00506\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00507}00507\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00512}\mbox{\hyperlink{class_register_g_p_i_o}{00512}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_register_g_p_i_o}{RegisterGPIO}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00513}00513\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00517}00517\ \ \ \mbox{\hyperlink{class_register_g_p_i_o_aa588a51d7fdcd4bcf7a1bd9b5b98d9ae}{RegisterGPIO}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00521}00521\ \ \ \mbox{\hyperlink{class_register_g_p_i_o_ae54bf60d781da8f3c924e7fea3b87eb3}{\string~RegisterGPIO}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00522}00522\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00526}\mbox{\hyperlink{class_register_g_p_i_o_a9e847b1fefc9783a641524964e1f11cb}{00526}}\ \ \ ReNode\ *\mbox{\hyperlink{class_register_g_p_i_o_a9e847b1fefc9783a641524964e1f11cb}{\_pNodeItem}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00533}00533\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_register_g_p_i_o_a230802c01338cafd97fbd45643975cbd}{add}}(\textcolor{keywordtype}{int}\ enumName,\ \textcolor{keywordtype}{int}\ function);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00539}00539\ \ \ ReNode\ *\mbox{\hyperlink{class_register_g_p_i_o_a8a32e8bef9992506712b0718cd775143}{find}}(\textcolor{keywordtype}{int}\ enumName);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00544}00544\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_register_g_p_i_o_aeb34c07a2c1ad466f5abbc39af802e86}{remove}}(ReNode\ **t);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00552}00552\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_register_g_p_i_o_a2b282ff39276df1ebcd8b6974d1cafbb}{gpioFreeMem}}(\textcolor{keywordtype}{int}\ enumName,\ \textcolor{keywordtype}{int}\ function);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00556}00556\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_register_g_p_i_o_a12b9520dda8d29adae3205ef680f7611}{goToFirstItem}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00557}00557\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00558}00558\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00562}\mbox{\hyperlink{class_source_code_line}{00562}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_source_code_line}{SourceCodeLine}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00563}00563\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00567}00567\ \ \ \mbox{\hyperlink{class_source_code_line_a87b80d1e7964f34d0b875e0c30a4f433}{SourceCodeLine}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00573}00573\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_source_code_line_a87b80d1e7964f34d0b875e0c30a4f433}{SourceCodeLine}}(\mbox{\hyperlink{structnode}{instr\_linkedList}}\ *pSourceCodeText);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00574}00574\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00578}00578\ \ \ \mbox{\hyperlink{class_source_code_line_ae1746a5c1211525eeb72cd3a81205c0c}{\string~SourceCodeLine}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00585}00585\ \ \ listObj\ *\mbox{\hyperlink{class_source_code_line_a7f31f21aec36493c2b1a553b0f556ab8}{findPointer}}(\mbox{\hyperlink{structnode}{instr\_linkedList}}\ *pCurrent);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00591}00591\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_source_code_line_aa8aaf31c45ad9ac97eb68665bebbcc4e}{scanSourceCode}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00593}00593\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00599}00599\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_source_code_line_a41bcdc1567e4e1e3d13f4bbe470b75e7}{addNewLine}}(\mbox{\hyperlink{structnode}{instr\_linkedList}}\ *pPosition);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00600}00600\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00601}00601\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00605}00605\ \ \ listObj\ *m\_TableOfPointer;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00609}00609\ \ \ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *m\_psourceCode;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00610}00610\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00615}00615\ \ \ listObj\ *mfirst;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00616}00616\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00621}\mbox{\hyperlink{types_8h_aeec68b47085e17e77ae20a487d8734ed}{00621}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{types_8h_aeec68b47085e17e77ae20a487d8734ed}{add\_Reserved\_GPIO}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00622}00622\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00624}00624\ \mbox{\hyperlink{struct_gnode}{GlobalGP}}\ *\mbox{\hyperlink{types_8h_a349943060b234fbeb8be44cb5136abd1}{findReg}}(\textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00625}00625\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00627}00627\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_a50a5163181efe63433118675a8555c3c}{deleteReg}}(\textcolor{keywordtype}{char}\ *name);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00628}00628\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00630}00630\ \mbox{\hyperlink{struct_gnode}{GlobalGP}}\ *\mbox{\hyperlink{types_8h_ab7f21e4f05daa71811aedf2816a84d45}{addGPIOpin\_DIGITAL}}(\textcolor{keywordtype}{int}\ enumPinName,\ \textcolor{keywordtype}{int}\ type);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00631}00631\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00633}00633\ \mbox{\hyperlink{struct_gnode}{GlobalGP}}\ *\mbox{\hyperlink{types_8h_ad39ebaade21a6f4db5e19e5716ed42ad}{findGPIOpin}}(\textcolor{keywordtype}{int}\ enumPinName);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00634}00634\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00640}00640\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{types_8h_a57c7b87e5d1d07f5d4b0b30725ccd190}{free\_scriptGPIOVariable}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00641}00641\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00643}00643\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{types_8h_a4f04aec7d1ae31fae282c6ab3ca8ba43}{freeOneGPIOVariable}}(\mbox{\hyperlink{struct_gnode}{GlobalGP}}\ **target);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00644}00644\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00646}\mbox{\hyperlink{types_8h_a491e38d34153431468da7ff53af396d5}{00646}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{types_8h_a491e38d34153431468da7ff53af396d5}{free\_scriptGPIOVariableByGlobalName}}(\mbox{\hyperlink{struct_gnode}{GlobalGP}}\ *GPIOname);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00647}00647\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00649}00649\ \mbox{\hyperlink{struct_gnode}{GlobalGP}}\ *\mbox{\hyperlink{types_8h_ab7f21e4f05daa71811aedf2816a84d45}{addGPIOpin\_DIGITAL}}(\textcolor{keywordtype}{int}\ enumPinName,\ \textcolor{keywordtype}{int}\ type);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00652}\mbox{\hyperlink{class_global_variables}{00652}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_global_variables}{GlobalVariables}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00653}00653\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00657}00657\ \ \ \mbox{\hyperlink{class_global_variables_a4631d1ecf5fe11e440926a3464028eb0}{GlobalVariables}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00658}00658\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00662}00662\ \ \ \mbox{\hyperlink{class_global_variables_ae39d8e11c0dcc06db7bfde5d8772aae2}{\string~GlobalVariables}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00666}\mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{00666}}\ \ \ VarType\ \mbox{\hyperlink{class_global_variables_ac71231911c3de2a375137dd1714d0f72}{tag}};\ \textcolor{comment}{//\ Variable\ type}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00667}00667\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00671}\mbox{\hyperlink{class_global_variables_a04f8411ee3ab29ba6ac5305395ee56cc}{00671}}\ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{class_global_variables_a04f8411ee3ab29ba6ac5305395ee56cc}{varname}};\ \textcolor{comment}{//\ Variable\ Name}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00675}\mbox{\hyperlink{class_global_variables_ab735fd15de850df04cbf9760273681d7}{00675}}\ \textcolor{comment}{}\ \ uint32\_t\ \mbox{\hyperlink{class_global_variables_ab735fd15de850df04cbf9760273681d7}{hashVarnme}};\ \textcolor{comment}{//\ Variable\ name\ in\ hash\ presentatin.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00679}\mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{00679}}\ \textcolor{comment}{}\ \ objType\ \mbox{\hyperlink{class_global_variables_a8813079566d471eade04857127fb0efd}{Value}};\ \textcolor{comment}{//\ Value}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00683}\mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{00683}}\ \textcolor{comment}{}\ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_global_variables_aa25e8afbb092fc01ee530ca1bdc88d05}{sizeOfArray}};\ \textcolor{comment}{//\ Size\ of\ the\ array\ (if\ any)}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00684}00684\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00688}00688\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_global_variables_a9d4382759c2ef9e1af1c92ac472fdc1c}{removePI}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00689}00689\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00693}00693\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_global_variables_a63d26fdb5e57e3738d188f84e0008386}{removePF}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00694}00694\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00698}00698\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_global_variables_ad8a25251e7be10049ff770603e55c559}{removeTXTString}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00699}00699\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00704}00704\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_global_variables_a871e02350be91447b7d348c7e3cf49d5}{removeVarname}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00705}00705\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00706}00706\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00709}00709\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_a784e73e1ce3f90fbcbb0a78d72a053ff}{baud\_rate}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00710}00710\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00711}00711\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00712}00712\ \textcolor{keyword}{extern}\ osThreadId\_t\ mainThreadID;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00714}00714\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structp_lab}{glLBL}}\ *\mbox{\hyperlink{types_8h_a0906d67f54bb356f59fc5d943629f36e}{globallabelVar}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00715}00715\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00718}00718\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{types_8h_a9d7572d1be3e2bb5a1a33ebbaba7ecd7}{InterActiveMode}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00719}00719\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00722}00722\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{types_8h_a1264a22868c936b388b7dfbc68e1f5f2}{StopExecution}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00723}00723\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00728}00728\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_register_g_p_i_o}{RegisterGPIO}}\ *\mbox{\hyperlink{types_8h_ae8c5905f4927771929c8f3fb190097d4}{GlobalGPIO\_REG}};\ \textcolor{comment}{//\ This\ will\ be\ used\ to\ keep\ track\ of\ all}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00729}00729\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ GPIO's\ functionality}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00730}00730\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00734}00734\ \textcolor{keyword}{extern}\ canType\ *\mbox{\hyperlink{types_8h_ad578dea13813f4d69f4581871f556471}{gCanVariable}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00735}00735\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00739}00739\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_gnode}{GlobalGP}}\ *\mbox{\hyperlink{types_8h_a791df047b65c1e1411cd45f30d379bd5}{globalGPIOvariable}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00740}00740\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00741}00741\ \textcolor{comment}{/*Variable\ will\ be\ used\ as\ temp.\ holder\ of\ the\ executable\ function\ ..\ at\ the}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00742}00742\ \textcolor{comment}{\ *\ time\ interrupt\ happens.\ This\ variable\ is\ always\ =\ NULL\ if\ not\ an\ interruptin}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00743}00743\ \textcolor{comment}{\ *\ happens.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00744}00744\ \textcolor{comment}{\ *\ */}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00745}00745\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structf_list}{GlobalfunList}}\ *\mbox{\hyperlink{types_8h_afbd3f4a3f13eee2fbf79fa1dbe3bc982}{varGlobActiveInterruptFunc}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00746}00746\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00750}00750\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structint_st}{gINTstruct}}\ *\mbox{\hyperlink{types_8h_aa5738903337c15a6bbabd3b716123cf1}{GlobLinkedListInterruptIn}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00751}00751\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00753}\mbox{\hyperlink{types_8h_a0906d67f54bb356f59fc5d943629f36e}{00753}}\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structp_lab}{glLBL}}\ *\mbox{\hyperlink{types_8h_a0906d67f54bb356f59fc5d943629f36e}{globallabelVar}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00754}00754\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00756}00756\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtoken__exchanger}{token\_exchanger}}\ \mbox{\hyperlink{types_8h_a253f99174b66672c79873bcbe7f600cf}{token\_exchange\_list}}[];}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00757}00757\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00761}00761\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structtoken__for__object}{token\_for\_object}}\ *\mbox{\hyperlink{types_8h_adbbe354d2931d9e0ad6284a5b3980f83}{forExtract}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00762}00762\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00766}00766\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structtoken__while__object}{token\_while\_object}}\ *\mbox{\hyperlink{types_8h_a249f136f70134f067e0e0c51fe11b826}{whileExtract}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00767}00767\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00769}00769\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{types_8h_a04b3f79813699beb3e044ed41a539d0e}{nestedForloop}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00771}00771\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{types_8h_a2e9ded229ef478189216e4a344148515}{nestedWhileloop}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00773}00773\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{types_8h_a6188105921723260dbcbf61d9b6a7448}{nestedForWhileloop}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00774}00774\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00779}00779\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_global_variables}{GlobalVariables}}\ *\mbox{\hyperlink{types_8h_a6dcaa51917cc18c0e7e9e6f7a731c775}{script\_variables}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00780}00780\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00782}00782\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structnode}{instr\_linkedList}}\ *\mbox{\hyperlink{types_8h_a2c43494521169115ff99916aa23e0f0b}{p\_prog}},\ *p\_prog\_next;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00783}00783\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00785}\mbox{\hyperlink{types_8h_ae566b5d01eeaf4e6ae75ffd8a490a5af}{00785}}\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_ae566b5d01eeaf4e6ae75ffd8a490a5af}{current\_token\_word}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00786}00786\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00788}00788\ \textcolor{keyword}{extern}\ FILE\ *\mbox{\hyperlink{types_8h_a751e58737c673f4b8c279d6d8797f59a}{testProgw}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00790}00790\ \textcolor{keyword}{extern}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_source_code_line}{SourceCodeLine}}\ *\mbox{\hyperlink{types_8h_affb9d86ed17119b3d6be80140046582e}{pScriptIndex}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00791}00791\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00794}00794\ \textcolor{keyword}{extern}\ pwmpinname\ \mbox{\hyperlink{types_8h_a647ef9cfeef4ab82dacbb7337766c868}{PWM\_Var}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00795}00795\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00797}00797\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_a648a5d5b2dffeac6d0fba4367091cd16}{DEBUG\_Print}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format,\ ...);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00802}00802\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{types_8h_ac0cefbc29fdb43e11229615eaf88641e}{DEBUG\_MESSAGE\_ENABLE}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00803}00803\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00807}00807\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{types_8h_a3b16c18fe2ee672b8df06da1da2e0dc7}{BreakPressed}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00808}00808\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00810}00810\ \textcolor{keyword}{extern}\ Thread\ *\mbox{\hyperlink{types_8h_ad611ff781865966fc327795487f9b461}{debugThread}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00811}00811\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00812}00812\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_a012bd18cb574eb0a37a6ec07096e0293}{enable\_disableDebugThread}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00813}00813\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00814}00814\ \textcolor{comment}{/*\ This\ function\ will\ remove\ the\ extra\ '\(\backslash\)'\ from\ the\ following\ commands\ that}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00815}00815\ \textcolor{comment}{found\ in\ the\ script\ program\ sent\ to\ the\ system.\ Without\ that,\ they\ will\ they}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00816}00816\ \textcolor{comment}{will\ be\ shown\ as\ they\ are\ and\ the\ commands\ they\ represent\ will\ not\ be\ executed}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00817}00817\ \textcolor{comment}{by\ printf.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00818}00818\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)'\ \ single\ quote}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00819}00819\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)"{}\ \ double\ quote}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00820}00820\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)?\ \ question\ mark}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00821}00821\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)\(\backslash\)\ \ backslash}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00822}00822\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)a\ \ audible\ bell}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00823}00823\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)b\ \ backspace}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00824}00824\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)f\ \ form\ feed\ -\/}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00825}00825\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)n\ \ line\ feed\ -\/}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00826}00826\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)r\ \ carriage\ return}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00827}00827\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)t\ \ horizontal\ tab}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00828}00828\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \(\backslash\)v\ \ vertical\ tab}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00829}00829\ \textcolor{comment}{*@param\ \ InputString\ :\ message\ should\ be\ fixed}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00830}00830\ \textcolor{comment}{*@return\ corrected\ string.}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00831}00831\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00832}00832\ \textcolor{keywordtype}{char}\ *correctString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *InputString);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00835}00835\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{types_8h_a18ed02bde39a3c863993796df520fd54}{debugThreadFunction}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00840}00840\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_af7af0baad604517b1c5c468aac188378}{createDebugPC}}();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00841}00841\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00847}00847\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_a6011ef5d36cdb28cfe97ad3ea8e085ca}{quitScriptProgram}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ exitType);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00848}00848\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00854}\mbox{\hyperlink{types_8h_aadf03d754c2969429585c5c8828f3c64}{00854}}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{types_8h_aadf03d754c2969429585c5c8828f3c64}{DebugInfo}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00855}00855\ \ \ DBG\_MSG\_AGET\_END\ =\ 1010,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00856}00856\ \ \ DBG\_MSG\_AGET\_START\ =\ 1020,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00857}00857\ \ \ DBG\_MSG\_APUT\_END\ =\ 1030,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00858}00858\ \ \ DBG\_MSG\_APUT\_START\ =\ 1040,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00859}00859\ \ \ DBG\_MSG\_ARITHMETIC\_EXP\_EXECUTED\ =\ 1050,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00860}00860\ \ \ DBG\_MSG\_ARRAY\_ITEM\_NOT\_FOUND\ =\ 1060,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00861}00861\ \ \ DBG\_MSG\_ARRAY\_VAR\_NOT\_FOUND\ =\ 1070,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00862}00862\ \ \ DBG\_MSG\_BAD\_SCRIPT\_END\_DIRECTLY\ =\ 1080,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00863}00863\ \ \ DBG\_MSG\_BAD\_VARIABLE\_NAME\ =\ 1090,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00864}00864\ \ \ DBG\_MSG\_BAUD\_RATE\_COMMAND\_EXECUTED\ =\ 1100,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00865}00865\ \ \ DBG\_MSG\_BAUD\_RATE\_END\ =\ 1110,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00866}00866\ \ \ DBG\_MSG\_BAUD\_RATE\_START\ =\ 1120,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00867}00867\ \ \ DBG\_MSG\_CALCULATE\_RIGHT\_SUIDE\_OF\_EQUATION\ =\ 1130,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00868}00868\ \ \ DBG\_MSG\_CALL\_END\ =\ 1140,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00869}00869\ \ \ DBG\_MSG\_CALL\_START\ =\ 1150,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00870}00870\ \ \ DBG\_MSG\_CANNOT\_OPEN\_FILE\ =\ 1160,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00871}00871\ \ \ DBG\_MSG\_CAN\_GET\_END\ =\ 1170,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00872}00872\ \ \ DBG\_MSG\_CAN\_GET\_START\ =\ 1180,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00873}00873\ \ \ DBG\_MSG\_CAN\_SEND\_END\ =\ 1190,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00874}00874\ \ \ DBG\_MSG\_CAN\_SEND\_START\ =\ 1200,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00875}00875\ \ \ DBG\_MSG\_CLEAR\_END\ =\ 1210,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00876}00876\ \ \ DBG\_MSG\_CLEAR\_START\ =\ 1220,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00877}00877\ \ \ DBG\_MSG\_COMMA\_NOT\_FOUND\ =\ 1230,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00878}00878\ \ \ DBG\_MSG\_COMPARISON\_LOGIC\_OPERATION\_STARTED\ =\ 1240,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00879}00879\ \ \ DBG\_MSG\_CREATE\_REG\_END\ =\ 1250,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00880}00880\ \ \ DBG\_MSG\_CREATE\_REG\_START\ =\ 1260,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00881}00881\ \ \ DBG\_MSG\_DAD\_FILE\_CORRUPTED\ =\ 1270,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00882}00882\ \ \ DBG\_MSG\_DATA\_VARIABLE\_ARGUMENT\_NOT\_FOUND\ =\ 1280,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00883}00883\ \ \ DBG\_MSG\_DELAY\_START\ =\ 1290,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00884}00884\ \ \ DBG\_MSG\_DELAY\_END\ =\ 1300,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00885}00885\ \ \ DBG\_MSG\_DOUBLE\_OR\_SYMBOL\_REQUIRED\ =\ 1310,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00886}00886\ \ \ DBG\_MSG\_END\_OF\_PROG\ =\ 1320,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00887}00887\ \ \ DBG\_MSG\_END\_OF\_SCRIPT\_LINE\ =\ 1330,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00888}00888\ \ \ DBG\_MSG\_END\_OF\_WHILE\_LOOP\ =\ 1340,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00889}00889\ \ \ DBG\_MSG\_BUS\_ALREADY\_DEFINED\ =\ 1350,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00890}00890\ \ \ DBG\_MSG\_ERROR\_CANNOT\_CREATE\_FILE\ =\ 1360,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00891}00891\ \ \ DBG\_MSG\_ERROR\_CANNOT\_OPEN\_DAD\_FILE\ =\ 1370,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00892}00892\ \ \ DBG\_MSG\_ERROR\_FATAL\_MISMATCHING\_TOKENWORD\ =\ 1380,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00893}00893\ \ \ DBG\_MSG\_ERROR\_FATAL\_WE\_SHOULDNT\_BE\_HERE0\ =\ 1390,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00894}00894\ \ \ DBG\_MSG\_ERROR\_FATAL\_WE\_SHOULDNT\_BE\_HERE1\ =\ 1391,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00895}00895\ \ \ DBG\_MSG\_ERROR\_FATAL\_WE\_SHOULDNT\_BE\_HERE2\ =\ 1392,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00896}00896\ \ \ DBG\_MSG\_ERROR\_FATAL\_WE\_SHOULDNT\_BE\_HERE3\ =\ 1393,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00897}00897\ \ \ DBG\_MSG\_ERROR\_INVALID\_ARRAY\_INDEX\ =\ 1400,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00898}00898\ \ \ DBG\_MSG\_ERROR\_ITEM\_NOT\_FOUND\ =\ 1410,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00899}00899\ \ \ DBG\_MSG\_ERROR\_MAX\_STRINGLENGTH\ =\ 1420,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00900}00900\ \ \ DBG\_MSG\_ERROR\_NESTEDFORLOOP\_NESTEDWHILELOOP\_NOT\_ZERO\ =\ 1430,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00901}00901\ \ \ DBG\_MSG\_ERROR\_NO\_PROGRAM\ =\ 1440,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00902}00902\ \ \ DBG\_MSG\_ERROR\_OVERFLOW\ =\ 1450,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00903}00903\ \ \ DBG\_MSG\_ERROR\_READ\_ERROR\ =\ 1460,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00904}00904\ \ \ DBG\_MSG\_ERROR\_SCRIPT\_VARIABLE\_OVERFLOW\ =\ 1470,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00905}00905\ \ \ DBG\_MSG\_ERROR\_VAR\_OVERFLOW\ =\ 1480,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00906}00906\ \ \ DBG\_MSG\_FOR\_LOOP\_END\ =\ 1490,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00907}00907\ \ \ DBG\_MSG\_FOR\_LOOP\_START\ =\ 1500,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00908}00908\ \ \ DBG\_MSG\_FUNCTION\_END\ =\ 1510,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00909}00909\ \ \ DBG\_MSG\_FUNCTION\_START\ =\ 1520,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00910}00910\ \ \ DBG\_MSG\_GET\_INST\_END\ =\ 1530,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00911}00911\ \ \ DBG\_MSG\_GET\_INST\_START\ =\ 1540,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00912}00912\ \ \ DBG\_MSG\_GOTO\_END\ =\ 1550,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00913}00913\ \ \ DBG\_MSG\_GOTO\_START\ =\ 1560,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00914}00914\ \ \ DBG\_MSG\_I2C\_GET\_END\ =\ 1570,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00915}00915\ \ \ DBG\_MSG\_I2C\_GET\_START\ =\ 1580,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00916}00916\ \ \ DBG\_MSG\_I2C\_SEND\_END\ =\ 1590,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00917}00917\ \ \ DBG\_MSG\_I2C\_SEND\_START\ =\ 1600,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00918}00918\ \ \ DBG\_MSG\_IF\_END\ =\ 1610,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00919}00919\ \ \ DBG\_MSG\_IF\_START\ =\ 1620,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00920}00920\ \ \ DBG\_MSG\_INSTRUCTION\_EXECUTION\_FINISHED\ =\ 1630,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00921}00921\ \ \ DBG\_MSG\_LABEL\_END\ =\ 1640,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00922}00922\ \ \ DBG\_MSG\_LISTED\_LINK\_NOT\_FOUND\ =\ 1650,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00923}00923\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\ =\ 1660,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00924}00924\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_BUFIFSTATMENT\ =\ 1670,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00925}00925\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_CALCULATE\_LEFTSIDE\ =\ 1680,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00926}00926\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_CALCULATE\_RIGHTSIDEOFVAREQUATION\ =\ 1690,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00927}00927\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_CAN\_SEND\ =\ 1700,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00928}00928\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_CAN\_GET\ =\ 1710,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00929}00929\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_CONCAT\_FUNCTION\ =\ 1720,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00930}00930\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_FOREXTRACT\ =\ 1730,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00931}00931\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_FORTEMPBUF\ =\ 1740,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00932}00932\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_FOR\_LOOP\ =\ 1750,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00933}00933\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_FUNCTIONLIST\ =\ 1760,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00934}00934\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_FUNCTION\_CALL\ =\ 1770,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00935}00935\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_FUNCTION\_NAME\ =\ 1780,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00936}00936\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GAP\_SCAN\ =\ 1790,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00937}00937\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GENINOUT\_AOUTPIN\ =\ 1800,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00938}00938\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GET\_INST\ =\ 1810,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00939}00939\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GET\_SERIAL\ =\ 1820,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00940}00940\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GLOBAL\_GPIO\ =\ 1830,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00941}00941\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GLOBAL\_VAR\ =\ 1840,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00942}00942\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GPIO\_BUS\ =\ 1850,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00943}00943\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GPIO\_INOUT\ =\ 1860,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00944}00944\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_GPIO\_PIN\ =\ 1870,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00945}00945\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_I2CSLAVE\ =\ 1880,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00946}00946\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_I2CVAR\ =\ 1890,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00947}00947\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_I2C\_GET\ =\ 1900,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00948}00948\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_PWM\_VAR\ =\ 1910,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00949}00949\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_READTOLINKEDLIST\ =\ 1920,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00950}00950\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_RINGBUF\ =\ 1930,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00951}00951\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SCRIPT\_VAR\ =\ 1940,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00952}00952\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SERIAL\_BUFF\ =\ 1950,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00953}00953\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SERIAL\_GET\ =\ 1960,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00954}00954\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SERIAL\_SEND\ =\ 1970,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00955}00955\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_SPIVAR\ =\ 1980,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00956}00956\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_TABLEOFPOINTER\ =\ 1990,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00957}00957\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_TOKENIZER\ =\ 2000,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00958}00958\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_VAR\ =\ 2010,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00959}00959\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_VAR\_BUF\ =\ 2020,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00960}00960\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_WHILEEXTRACT\ =\ 2030,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00961}00961\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_WHILE\_LOOP\ =\ 2040,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00962}00962\ \ \ DBG\_MSG\_NEEDS\_EQUAL\_SIGN\ =\ 2050,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00963}00963\ \ \ DBG\_MSG\_NESTED\_FOR\_LOOP\ =\ 2060,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00964}00964\ \ \ DBG\_MSG\_NESTED\_WHILE\_LOOP\ =\ 2070,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00965}00965\ \ \ DBG\_MSG\_NOT\_END\_OF\_PROG\ =\ 2080,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00966}00966\ \ \ DBG\_MSG\_NO\_EMPTY\_GLOBAL\_VAR\_FOUND\ =\ 2090,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00967}00967\ \ \ DBG\_MSG\_NULL\_POINTER\_SEND\_TO\_READSDCARD\ =\ 2100,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00968}00968\ \ \ DBG\_MSG\_OBJECT\_ALLOCATION\_ERROR\_BUS\ =\ 2110,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00969}00969\ \ \ DBG\_MSG\_OBJECT\_ALLOCATION\_ERROR\_CAN\ =\ 2120,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00970}00970\ \ \ DBG\_MSG\_PUT\_END\ =\ 2130,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00971}00971\ \ \ DBG\_MSG\_PUT\_START\ =\ 2140,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00972}00972\ \ \ DBG\_MSG\_P\_PROG\_WAS\_NULL\ =\ 2150,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00973}00973\ \ \ DBG\_MSG\_REACHED\_INSTRU\_EXECUTIUON\ =\ 2160,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00974}00974\ \ \ DBG\_MSG\_REG\_PUT\ =\ 2170,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00975}00975\ \ \ DBG\_MSG\_REM\_END\ =\ 2180,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00976}00976\ \ \ DBG\_MSG\_REM\_START\ =\ 2190,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00977}00977\ \ \ DBG\_MSG\_RETURN\_AFTER\_FOR\_LOOP\_EXEC\ =\ 2200,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00978}00978\ \ \ DBG\_MSG\_RUN\_SCRIPT\_PROG\ =\ 2210,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00979}00979\ \ \ DBG\_MSG\_SERIAL\_GET\_END\ =\ 2220,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00980}00980\ \ \ DBG\_MSG\_PRINT\_END\ =\ 2230,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00981}00981\ \ \ DBG\_MSG\_SPI\_SEND\_END\ =\ 2240,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00982}00982\ \ \ DBG\_MSG\_SPI\_SEND\_START\ =\ 2250,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00983}00983\ \ \ DBG\_MSG\_START\_SCRIPT\ =\ 2260,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00984}00984\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARGUMENT\_APUT\ =\ 2270,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00985}00985\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARGUMENT\_VAR\_NOT\_FOUND\ =\ 2280,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00986}00986\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARGUMENT\_VAR\_NOT\_FOUND\_AGET\ =\ 2290,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00987}00987\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARGUMENT\_VAR\_NOT\_FOUND\_CANWRITE\ =\ 2300,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00988}00988\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND0\ =\ 2310,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00989}00989\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND1\ =\ 2311,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00990}00990\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND2\ =\ 2312,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00991}00991\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND3\ =\ 2313,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00992}00992\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND4\ =\ 2314,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00993}00993\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND5\ =\ 2315,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00994}00994\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND6\ =\ 2316,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00995}00995\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_ITEM\_NOT\_FOUND7\ =\ 2317,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00996}00996\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00997}00997\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ARRAY\_USED\_INITIALIZE\_FOR\_LOOP\ =\ 2320,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00998}00998\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_BAUDRATE\_NUMBER\_NOT\_FOUND\ =\ 2330,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00999}00999\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_BUS\_DOES\_NOT\_SUPPORT\_ANALOG\_GET\ =\ 2340,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01000}01000\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_BUS\_DOES\_NOT\_SUPPORT\_ANALOG\_OUT\ =\ 2350,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01001}01001\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_BUS\_NOT\_FOUND\ =\ 2360,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01002}01002\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_CANTD\_WRONG\ =\ 2370,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01003}01003\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_CANRD\_WRONG\ =\ 2380,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01004}01004\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_CAN\_ADDRESS\_NOT\_FOUND\ =\ 2390,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01005}01005\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_DATASIZE\_NOT\_FOUND\ =\ 2400,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01006}01006\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_DBOULEQUATIOAN\_REQUIRED\ =\ 2410,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01007}01007\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_DEFINE\_ADD\_ALLOWED\_STRING\_VAR\ =\ 2420,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01008}01008\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_DELAY\_NOT\_DEFINED\ =\ 2430,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01009}01009\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_DELAY\_VALUE\_NOT\_FOUND\ =\ 2440,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01010}01010\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ELEMENT\_NOT\_FOUND\ =\ 2450,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01011}01011\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_EQUAL\_NOT\_FOUND\ =\ 2460,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01012}01012\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_BAD\_INSTRUCTION\_EQUAL\_NOT\_FOUND\ =\ 2470,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01013}01013\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_FLOAT\_INSIDE\_LOOP\ =\ 2480,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01014}01014\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_FLOAT\_USED\_AS\_INDEX\_FOR\_ARRAY\ =\ 2490,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01015}01015\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_FOR\_LOOP\_COMPARISION\_BETWEEN\_UNAVAILABLE\_VAR\ =\ 2500,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01016}01016\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_FOR\_LOOP\_INITIALIZE\ =\ 2510,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01017}01017\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_FOR\_LOOP\_THIRDPART\_MISSING\ =\ 2520,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01018}01018\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_FOR\_LOOP\_VARIABLE\_NOT\_FOUND\ =\ 2530,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01019}01019\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_FUNCTION\_DEF\ =\ 2540,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01020}01020\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_FUNCTION\_NAME\_NOT\_FOUND\ =\ 2550,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01021}01021\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_GOTO\_WRONG\ =\ 2560,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01022}01022\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_GPIO\_NOT\_FOUND\ =\ 2570,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01023}01023\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_I2C\_ADDRESS\_NOT\_FOUND\ =\ 2580,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01024}01024\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_I2C\_DATALENGTH\_GRATERTHAN\_ARRAY\ =\ 2590,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01025}01025\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_I2C\_DATALENGTH\_NOT\_FOUND\ =\ 2600,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01026}01026\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_I2C\_VAR\_NOT\_FOUND\ =\ 2610,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01027}01027\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_IF\ =\ 2620,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01028}01028\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_IF\_UNKNOWN\ =\ 2630,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01029}01029\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_INDEX\_INSIDE\_ARRAY\_WRONG\ =\ 2640,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01030}01030\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_INIT\_VAR\_FOR\_LOOP\_NOT\_FOUND\ =\ 2650,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01031}01031\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_INIT\_VAR\_NOT\_FOUND\ =\ 2660,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01032}01032\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_INT\_OR\_FLOAT\_NOT\_FOUND\ =\ 2670,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01033}01033\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_LABEL\_NOT\_FOUND\ =\ 2680,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01034}01034\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_LEFT\_CURLY\_BRACKET\_NOT\_FOUND\ =\ 2690,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01035}01035\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_LEFT\_PARENTHESIS\ =\ 2700,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01036}01036\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_LEFT\_PARENTHESIS\_MISSING\ =\ 2710,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01037}01037\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_LOGICAL\_OPERATION\_FOR\_LOOP\ =\ 2720,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01038}01038\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_NOT\_INT\_NUMBER\_INC\ =\ 2730,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01039}01039\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_NOT\_SUPPORTED\ =\ 2740,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01040}01040\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_NO\_COMMA\_FOR\_LOOP\ =\ 2750,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01041}01041\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_NO\_EQUAL\_SIGN\ =\ 2760,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01042}01042\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_NO\_LCURLY\_FOUND\ =\ 2770,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01043}01043\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ONLY\_2\_NESTED\_LOOP\_ALLOWED\ =\ 2780,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01044}01044\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_ONLY\_4\_PWM\_ALLOWED\ =\ 2790,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01045}01045\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_PUT\_REG\ =\ 2800,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01046}01046\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_PWM\_PERIOD\_NOT\_FOUND\ =\ 2810,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01047}01047\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_PWM\_PINNAME\_WRONG\ =\ 2820,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01048}01048\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_PWM\_PULSWIDTH\_NOT\_FOUND\ =\ 2830,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01049}01049\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_QUOTATION\_MISSING\ =\ 2840,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01050}01050\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_REG\_PIN\_CANNOT\_REASIGNS\ =\ 2850,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01051}01051\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_CURLY\_BRACKET\_MISSING\ =\ 2860,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01052}01052\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_CURLY\_BRACKET\_NOT\_FOUND\ =\ 2870,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01053}01053\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_PARENTHESIS\_MISSING\ =\ 2880,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01054}01054\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_SIDE\_OF\_VAR\_EQUATION\ =\ 2890,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01055}01055\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_SQUARE\_BRACKET\ =\ 2900,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01056}01056\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_RIGHT\_SQUARE\_BRACKET\_MISSING\ =\ 2910,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01057}01057\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SCRIPT\_PROG\_EMPTY\ =\ 2920,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01058}01058\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SERIAL\_PIN\_CANNOT\_REASIGNS\ =\ 2930,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01059}01059\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SERIAL\_SPI\_CANNOT\_REASIGNS\ =\ 2940,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01060}01060\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SPI\_12BIT\_STRING\_NOT\_SUPPORTED\ =\ 2950,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01061}01061\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SPI\_ADDRESS\_NOT\_FOUND\ =\ 2960,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01062}01062\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SPI\_DATA\_NOT\_FOUND\ =\ 2970,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01063}01063\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SPI\_DATA\_VAR\_NOT\_FOUND\ =\ 2980,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01064}01064\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SPI\_FLOAT\_NOT\_SUPPOIRTED\ =\ 2990,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01065}01065\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SPI\_FREQ\_NOT\_FOUND\ =\ 3000,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01066}01066\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SPI\_MASTER\_OR\_SLAVE\_NOT\_FOUND\ =\ 3010,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01067}01067\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SPI\_MODE\_NOT\_FOUND\ =\ 3020,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01068}01068\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_STRING\_ARRAY\_NOT\_NUMBER\ =\ 3030,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01069}01069\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_TOKEN\_NOT\_FOUND\_IN\_RETRIVE\_PIN\_NAME\ =\ 3040,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01070}01070\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_TOKEN\_SIZE\_IS\_BIG\ =\ 3050,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01071}01071\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_USE\_ANOTHER\_VARIABLE\ =\ 3060,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01072}01072\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_FOUND\ =\ 3070,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01073}01073\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_FOUND\_DELAY\ =\ 3080,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01074}01074\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_FOUND\_GET\ =\ 3090,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01075}01075\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_FOUND\_IF\ =\ 3100,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01076}01076\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_FOUND\_SERIAL\_GET\ =\ 3110,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01077}01077\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_INITIALIZED\ =\ 3120,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01078}01078\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_NUMBER\ =\ 3130,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01079}01079\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_NOT\_USED\_INSIDE\_WHILE\ =\ 3140,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01080}01080\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_VAR\_WRONG\ =\ 3150,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01081}01081\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_WHILE\ =\ 3160,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01082}01082\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_WRONG\_GPIO\ =\ 3170,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01083}01083\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_WRONG\_GPIO\_CAN\ =\ 3180,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01084}01084\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_WRONG\_VAR\ =\ 3190,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01085}01085\ \ \ DBG\_MSG\_SYNTAX\_LEFT\_PARENTHESIS\_NOT\_FOUND\ =\ 3200,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01086}01086\ \ \ DBG\_MSG\_SYNTAX\_TOKEN\_RIGHT\_CURLY\_BRACKET\_NOTFOUND\ =\ 3210,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01087}01087\ \ \ DBG\_MSG\_SYNTAX\_VAR\_MISSING\_I2C\ =\ 3220,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01088}01088\ \ \ DBG\_MSG\_TO\_LOWER\_END\ =\ 3230,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01089}01089\ \ \ DBG\_MSG\_TO\_LOWER\_START\ =\ 3240,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01090}01090\ \ \ DBG\_MSG\_TO\_UPPER\_END\ =\ 3250,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01091}01091\ \ \ DBG\_MSG\_TO\_UPPER\_START\ =\ 3260,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01092}01092\ \ \ DBG\_MSG\_VARIABLE\_END\ =\ 3270,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01093}01093\ \ \ DBG\_MSG\_VARIABLE\_NOT\_FOUND\ =\ 3280,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01094}01094\ \ \ DBG\_MSG\_VARIABLE\_START\ =\ 3290,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01095}01095\ \ \ DBG\_MSG\_WARNING\_ONLY\_ONE\_ITEM\_FOUND\ =\ 3300,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01096}01096\ \ \ DBG\_MSG\_WARNING\_SPI\_DELAY\_NOT\_DEFINED\ =\ 3310,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01097}01097\ \ \ DBG\_MSG\_WHILE\_LOOP\_END\ =\ 3320,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01098}01098\ \ \ DBG\_MSG\_WHILE\_LOOP\_START\ =\ 3330,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01099}01099\ \ \ DBG\_SYNTAX\_ERROR\_BUS\_NOT\_FOUND\ =\ 3340,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01100}01100\ \ \ DBG\_SYNTAX\_ERROR\_SPI\_ADDRESS\_NOT\_FOUND\ =\ 3350,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01101}01101\ \ \ DBG\_SYNTAX\_ERROR\_TOKEN\_NOT\_FOUND\ =\ 3360,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01102}01102\ \ \ DBG\_MSG\_DELETE\_START\ =\ 3370,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01103}01103\ \ \ DBG\_MSG\_DELETE\_END\ =\ 3380,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01104}01104\ \ \ DBG\_MSG\_REG\_CLASS\ =\ 3390,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01105}01105\ \ \ DBG\_MSG\_TICKER\_END\ =\ 3400,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01106}01106\ \ \ DBG\_MSG\_INPUT\_INTERRUPT\_END\ =\ 3410,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01107}01107\ \ \ DBG\_MSG\_FAILED\_TO\_OPEN\_DIR\ =\ 3420,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01108}01108\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_TICKER\ =\ 3430,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01109}01109\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_ERROR\_TICKER\_DIGITALOUT\ =\ 3440,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01110}01110\ \ \ DBG\_MSG\_MEM\_ALLOCATION\_FLIPPER\ =\ 3450,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01111}01111\ \ \ DBG\_MSG\_TICKER\_STATUS\ =\ 3460,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01112}01112\ \ \ DBG\_MSG\_TICKER\_PINNAME\ =\ 3470,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01113}01113\ \ \ DBG\_MSG\_TICKER\_INTERVAL\ =\ 3480,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01114}01114\ \ \ DBG\_MSG\_TICKER\_START\_STOP\ =\ 3490,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01115}01115\ \ \ DBG\_MSG\_TICKER\_OBJECT\_DELETION\_NOT\_FOUND\ =\ 3500,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01116}01116\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_TICKER\ =\ 3510,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01117}01117\ \ \ DBG\_MSG\_ERROR\_HASH\_NAME\ =\ 3520,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01118}01118\ \ \ DBG\_MSG\_INTERRUPT\_IN\_PINNAME\_WRONG\ =\ 3530,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01119}01119\ \ \ DBG\_MSG\_INTERRUPT\_IN\_FUNCTION\_MISSING\ =\ 3540,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01120}01120\ \ \ DBG\_MSG\_INTERRUPT\_IN\_GPIO\_NOTFOUND\ =\ 3550,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01121}01121\ \ \ DBG\_MSG\_INTERRUPT\_MEM\_ALLOCATION\_FAILED\ =\ 3560,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01122}01122\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_SIZE\_OF\_VAR\ =\ 3570,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01123}01123\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_PRINT0\ =\ 3580,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01124}01124\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_PRINT1\ =\ 3581,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01125}01125\ \ \ DBG\_MSG\_SYNTAX\_ERROR\_PRINT2\ =\ 3582,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01126}01126\ \ \ DBG\_MSG\_PRINT\_SYNTAX\_NOT\_SUPPORTED\ =\ 3583}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01127}01127\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01128}01128\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l01129}01129\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

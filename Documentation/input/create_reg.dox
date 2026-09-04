@@ -1,0 +1,23 @@
+/*!
+
+*\page create_reg Create a Register (GPIO)
+*
+* This instruction creates a bus or register for input/output GPIOs. You can combine between 2 and 16 GPIOs. The internal definition is a bus, and it is bidirectional. You can change it from an input to an output port without problems.<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<BR><B> create_reg REG_NAME, GPIO1,GPIO2,....GPIO16 </B><BR>
+* - <b>REG_NAME:</b> Any name you choose for the register.
+* - <b>GPIO1,GPIO2,....GPIO16:</b> Any digital input or output GPIO.
+*
+*<span style='color:blue'><em><B>
+Note:
+</B> </em> </span><br>
+*You cannot create a register for an analog GPIO. This instruction works only for digital GPIOs. The register name is saved globally. Changing the direction of the port (input or output) is supported.
+* <span style='color:blue'><em><B> <br>
+Example:
+</B> </em> </span><br>
+*   create_reg rg, PB_0, PB_7, pb_14; REM LED1,2,3
+*   myvalue=0b111;	  		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem Initialize myvalue with 0b111; </span><br>
+*	put rg,  myvalue;		&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send the value to all three LEDs; </span>
+*
+*
+*/

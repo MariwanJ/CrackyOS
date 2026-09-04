@@ -1,0 +1,375 @@
+\doxysection{Cracky\+OS/src/serialmessage.h File Reference}
+\hypertarget{serialmessage_8h}{}\label{serialmessage_8h}\index{CrackyOS/src/serialmessage.h@{CrackyOS/src/serialmessage.h}}
+
+
+Serial communication interface.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+{\ttfamily \#include \"{}interactive.\+h\"{}}\newline
+Include dependency graph for serialmessage.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{serialmessage_8h_a79d0fd68dab19a786ec2c9c90bd690c1}{INTER\+\_\+\+ACTIVE\+\_\+\+MODE\+\_\+\+MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+THE\+\_\+\+STRING}}~2 \texorpdfstring{$\ast$}{*} 1024
+\item 
+\#define \mbox{\hyperlink{serialmessage_8h_afd57be3278b9d583a49086da2572609b}{FONT\+\_\+\+BLACK\+\_\+\+CODE}}~\"{}\mbox{[}30m\"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum 
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{serialmessage_8h_aabdc388a948fd2d4510b28704eed4351}{Change\+Inter\+Active\+Mode\+Status}} ()
+\item 
+void \mbox{\hyperlink{serialmessage_8h_ad4fe6900869724f5f94d448ae9c415be}{clear\+And\+Home}} ()
+\item 
+void \mbox{\hyperlink{serialmessage_8h_ae0000cf6f87dca81e79f42882c69e058}{clear\+And\+Home\+Serial}} ()
+\item 
+void \mbox{\hyperlink{serialmessage_8h_af7a75650db2927eac4ec11f1a4adf1a5}{clear\+And\+Home\+DEBUG}} ()
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{serialmessage_8h_acd5bfd0bce081cb3ee6d5d9f45dfd18e}{GET\+\_\+\+SERIAL\+\_\+\+TEXT}} (void)
+\item 
+void \mbox{\hyperlink{serialmessage_8h_afbaba4deee6542e01b6eed52fcaac82d}{get\+Script\+Program\+File}} ()
+\item 
+void \mbox{\hyperlink{serialmessage_8h_a70ab3af6324ea9a7628db026dc6d8b1d}{RUN\+\_\+\+MENU}} (void)
+\item 
+void \mbox{\hyperlink{serialmessage_8h_a402ea961bfc2ffeee61e3a7c330b1559}{print\+\_\+help}} (void)
+\item 
+void \mbox{\hyperlink{serialmessage_8h_a3d772b95d3bbe01c30f97786e026b67c}{Get\+String\+From\+Serial}} (char \texorpdfstring{$\ast$}{*}string\+Buf)
+\item 
+void \mbox{\hyperlink{serialmessage_8h_a4e0e944e6165eb29b0c700d60469793d}{Serial\+Thread\+Function}} (void)
+\item 
+void \mbox{\hyperlink{serialmessage_8h_a22315ec07b5eeb91e5e9de0408136902}{do\+\_\+\+Folder\+Operations}} (void)
+\item 
+void \mbox{\hyperlink{serialmessage_8h_af10e9c1e26fd1cb27fdcc61ecf304092}{Change\+Terminal\+Color}} (int color)
+\item 
+int \mbox{\hyperlink{serialmessage_8h_a8f318f40726f8afedfaf996b7e0f7137}{interactive\+\_\+mode}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Serial communication interface. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{serialmessage_8h_source}{serialmessage.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{serialmessage_8h_afd57be3278b9d583a49086da2572609b}\label{serialmessage_8h_afd57be3278b9d583a49086da2572609b} 
+\index{serialmessage.h@{serialmessage.h}!FONT\_BLACK\_CODE@{FONT\_BLACK\_CODE}}
+\index{FONT\_BLACK\_CODE@{FONT\_BLACK\_CODE}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{FONT\_BLACK\_CODE}{FONT\_BLACK\_CODE}}
+{\footnotesize\ttfamily \#define FONT\+\_\+\+BLACK\+\_\+\+CODE~\"{}\mbox{[}30m\"{}}
+
+Font Color code for terminal 
+
+Definition at line \mbox{\hyperlink{serialmessage_8h_source_l00037}{37}} of file \mbox{\hyperlink{serialmessage_8h_source}{serialmessage.\+h}}.
+
+\Hypertarget{serialmessage_8h_a79d0fd68dab19a786ec2c9c90bd690c1}\label{serialmessage_8h_a79d0fd68dab19a786ec2c9c90bd690c1} 
+\index{serialmessage.h@{serialmessage.h}!INTER\_ACTIVE\_MODE\_MAX\_LENGTH\_OF\_THE\_STRING@{INTER\_ACTIVE\_MODE\_MAX\_LENGTH\_OF\_THE\_STRING}}
+\index{INTER\_ACTIVE\_MODE\_MAX\_LENGTH\_OF\_THE\_STRING@{INTER\_ACTIVE\_MODE\_MAX\_LENGTH\_OF\_THE\_STRING}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{INTER\_ACTIVE\_MODE\_MAX\_LENGTH\_OF\_THE\_STRING}{INTER\_ACTIVE\_MODE\_MAX\_LENGTH\_OF\_THE\_STRING}}
+{\footnotesize\ttfamily \#define INTER\+\_\+\+ACTIVE\+\_\+\+MODE\+\_\+\+MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+THE\+\_\+\+STRING~2 \texorpdfstring{$\ast$}{*} 1024}
+
+Max size of the ring buffer used by debug printf function 
+
+Definition at line \mbox{\hyperlink{serialmessage_8h_source_l00034}{34}} of file \mbox{\hyperlink{serialmessage_8h_source}{serialmessage.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{serialmessage_8h_adf764cbdea00d65edcd07bb9953ad2b7}\label{serialmessage_8h_adf764cbdea00d65edcd07bb9953ad2b7} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+This enum is used to give color to the text printed on the terminal. 
+
+Definition at line \mbox{\hyperlink{serialmessage_8h_source_l00060}{60}} of file \mbox{\hyperlink{serialmessage_8h_source}{serialmessage.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{serialmessage_8h_aabdc388a948fd2d4510b28704eed4351}\label{serialmessage_8h_aabdc388a948fd2d4510b28704eed4351} 
+\index{serialmessage.h@{serialmessage.h}!ChangeInterActiveModeStatus@{ChangeInterActiveModeStatus}}
+\index{ChangeInterActiveModeStatus@{ChangeInterActiveModeStatus}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{ChangeInterActiveModeStatus()}{ChangeInterActiveModeStatus()}}
+{\footnotesize\ttfamily void Change\+Inter\+Active\+Mode\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Thread that take care of serial interrupt to show the Menu on terminal YOU MUST KEEP IT SHORT .. NO SD-\/\+Card activity allowed here. 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{581}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00055}{Break\+Pressed}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, and \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, and \mbox{\hyperlink{common_8cpp_source_l00491}{token\+\_\+exit()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{serialmessage_8h_af10e9c1e26fd1cb27fdcc61ecf304092}\label{serialmessage_8h_af10e9c1e26fd1cb27fdcc61ecf304092} 
+\index{serialmessage.h@{serialmessage.h}!ChangeTerminalColor@{ChangeTerminalColor}}
+\index{ChangeTerminalColor@{ChangeTerminalColor}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{ChangeTerminalColor()}{ChangeTerminalColor()}}
+{\footnotesize\ttfamily void Change\+Terminal\+Color (\begin{DoxyParamCaption}\item[{int}]{\+\_\+color }\end{DoxyParamCaption})}
+
+give color to text on terminal
+
+Change text color or background of the terminal 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+color} & background or foreground color FONT\+\_\+\+BLACK\+\_\+\+CODE FONT\+\_\+\+RED\+\_\+\+CODE) FONT\+\_\+\+GREEN\+\_\+\+CODE FONT\+\_\+\+YELLOW\+\_\+\+CODE FONT\+\_\+\+BLUE\+\_\+\+CODE FONT\+\_\+\+MAGENTA\+\_\+\+CODE FONT\+\_\+\+CYNA\+\_\+\+CODE) FONT\+\_\+\+WHITE\+\_\+\+CODE FONT\+\_\+\+DEFAULT\+\_\+\+CODE\\
+\hline
+\end{DoxyParams}
+BKG\+\_\+\+BLACK\+\_\+\+CODE BKG\+\_\+\+RED\+\_\+\+CODE BKG\+\_\+\+GREEN\+\_\+\+CODE BKG\+\_\+\+YELLOW\+\_\+\+CODE BKG\+\_\+\+BLUE\+\_\+\+CODE BKG\+\_\+\+MAGENTA\+\_\+\+CODE BKG\+\_\+\+CYNA\+\_\+\+CODE BKG\+\_\+\+WHITE\+\_\+\+CODE BKG\+\_\+\+DEFAULT\+\_\+\+CODE 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8h_source_l00037}{FONT\+\_\+\+BLACK\+\_\+\+CODE}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00217}{do\+\_\+\+Listdir()}}, \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}, and \mbox{\hyperlink{cat_8cpp_source_l00060}{printfile()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{serialmessage_8h_ad4fe6900869724f5f94d448ae9c415be}\label{serialmessage_8h_ad4fe6900869724f5f94d448ae9c415be} 
+\index{serialmessage.h@{serialmessage.h}!clearAndHome@{clearAndHome}}
+\index{clearAndHome@{clearAndHome}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{clearAndHome()}{clearAndHome()}}
+{\footnotesize\ttfamily void clear\+And\+Home (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+clear ALL screen of the terminal
+
+Clear and go home for both terminals. 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{179}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00168}{clear\+And\+Home\+DEBUG()}}, and \mbox{\hyperlink{serialmessage_8cpp_source_l00156}{clear\+And\+Home\+Serial()}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00195}{del\+All\+Files\+\_\+\+SDCard()}}, \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00275}{print\+\_\+help()}}, and \mbox{\hyperlink{common_8cpp_source_l00292}{token\+\_\+serial\+\_\+screen\+\_\+clear()}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{serialmessage_8h_af7a75650db2927eac4ec11f1a4adf1a5}\label{serialmessage_8h_af7a75650db2927eac4ec11f1a4adf1a5} 
+\index{serialmessage.h@{serialmessage.h}!clearAndHomeDEBUG@{clearAndHomeDEBUG}}
+\index{clearAndHomeDEBUG@{clearAndHomeDEBUG}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{clearAndHomeDEBUG()}{clearAndHomeDEBUG()}}
+{\footnotesize\ttfamily void clear\+And\+Home\+DEBUG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+clear screen of the DEBUG-\/terminal
+
+Clean up the screen and go back to home debug com port 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00168}{168}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{serialmessage_8h_ae0000cf6f87dca81e79f42882c69e058}\label{serialmessage_8h_ae0000cf6f87dca81e79f42882c69e058} 
+\index{serialmessage.h@{serialmessage.h}!clearAndHomeSerial@{clearAndHomeSerial}}
+\index{clearAndHomeSerial@{clearAndHomeSerial}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{clearAndHomeSerial()}{clearAndHomeSerial()}}
+{\footnotesize\ttfamily void clear\+And\+Home\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+clear screen of the Serial-\/terminal
+
+Clean up the screen and go back to home serial com port 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{serialmessage_8h_a22315ec07b5eeb91e5e9de0408136902}\label{serialmessage_8h_a22315ec07b5eeb91e5e9de0408136902} 
+\index{serialmessage.h@{serialmessage.h}!do\_FolderOperations@{do\_FolderOperations}}
+\index{do\_FolderOperations@{do\_FolderOperations}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{do\_FolderOperations()}{do\_FolderOperations()}}
+{\footnotesize\ttfamily void do\+\_\+\+Folder\+Operations (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Folder operation \Hypertarget{serialmessage_8h_acd5bfd0bce081cb3ee6d5d9f45dfd18e}\label{serialmessage_8h_acd5bfd0bce081cb3ee6d5d9f45dfd18e} 
+\index{serialmessage.h@{serialmessage.h}!GET\_SERIAL\_TEXT@{GET\_SERIAL\_TEXT}}
+\index{GET\_SERIAL\_TEXT@{GET\_SERIAL\_TEXT}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{GET\_SERIAL\_TEXT()}{GET\_SERIAL\_TEXT()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} GET\+\_\+\+SERIAL\+\_\+\+TEXT (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get a text from the serial terminal (not debug)
+
+Get a string from the terminal \begin{DoxyReturn}{Returns}
+the string got from the user. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, and \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{serialmessage_8cpp_source_l00519}{token\+\_\+serial\+\_\+get()}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{serialmessage_8h_afbaba4deee6542e01b6eed52fcaac82d}\label{serialmessage_8h_afbaba4deee6542e01b6eed52fcaac82d} 
+\index{serialmessage.h@{serialmessage.h}!getScriptProgramFile@{getScriptProgramFile}}
+\index{getScriptProgramFile@{getScriptProgramFile}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{getScriptProgramFile()}{getScriptProgramFile()}}
+{\footnotesize\ttfamily void get\+Script\+Program\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Recieve the script program using serial terminal
+
+This function will take care of getting a script program from terminal and save it to the SD-\/\+Disk\texorpdfstring{$<$}{<} 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00236}{236}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{sdcard_8cpp_source_l00075}{initialize\+\_\+prog\+File()}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{serialmessage_8cpp_source_l00030}{test\+Progw}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{serialmessage_8h_a3d772b95d3bbe01c30f97786e026b67c}\label{serialmessage_8h_a3d772b95d3bbe01c30f97786e026b67c} 
+\index{serialmessage.h@{serialmessage.h}!GetStringFromSerial@{GetStringFromSerial}}
+\index{GetStringFromSerial@{GetStringFromSerial}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{GetStringFromSerial()}{GetStringFromSerial()}}
+{\footnotesize\ttfamily void Get\+String\+From\+Serial (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{string\+Buf }\end{DoxyParamCaption})}
+
+Get text of size \mbox{[}MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+THE\+\_\+\+STRING\mbox{]} from the serial
+
+Get a line of instructions or string form terminal. send a buffer buf\mbox{[}INTER\+\_\+\+ACTIVE\+\_\+\+MODE\+\_\+\+MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+THE\+\_\+\+STRING\mbox{]} to this function 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00121}{121}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, and \mbox{\hyperlink{serialmessage_8h_source_l00034}{INTER\+\_\+\+ACTIVE\+\_\+\+MODE\+\_\+\+MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+THE\+\_\+\+STRING}}.
+
+
+
+Referenced by \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 12
+\Hypertarget{serialmessage_8h_a8f318f40726f8afedfaf996b7e0f7137}\label{serialmessage_8h_a8f318f40726f8afedfaf996b7e0f7137} 
+\index{serialmessage.h@{serialmessage.h}!interactive\_mode@{interactive\_mode}}
+\index{interactive\_mode@{interactive\_mode}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{interactive\_mode()}{interactive\_mode()}}
+{\footnotesize\ttfamily int interactive\+\_\+mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will allow the user to interactively send instruction to the system
+
+This function will activate the interactive mode User can use this mode when there is no script program running. Different activities can be performed plus running instructions. As long as the instructions runs, values will be remained in memory. But if you reset the system .. values will be delete. User can start a program from here. Please read the manual for further info. \begin{DoxyReturn}{Returns}
+-\/1 if failed, \texorpdfstring{$>$}{>}=0 if OK 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{interactive_8cpp_source_l00277}{277}} of file \mbox{\hyperlink{interactive_8cpp_source}{interactive.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokens_8cpp_source_l00147}{change\+\_\+program\+\_\+to\+\_\+lower\+\_\+case()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00581}{Change\+Inter\+Active\+Mode\+Status()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00054}{Change\+Terminal\+Color()}}, \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00156}{clear\+And\+Home\+Serial()}}, \mbox{\hyperlink{tokens_8cpp_source_l00036}{current\+\_\+token\+\_\+word}}, \mbox{\hyperlink{sdcard_8cpp_source_l00033}{Current\+Directory}}, \mbox{\hyperlink{sdcard_8cpp_source_l00255}{do\+\_\+cd()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00318}{do\+\_\+copy()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00348}{do\+\_\+delete()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00455}{do\+\_\+format()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00683}{do\+\_\+\+Instruction\+Set()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00217}{do\+\_\+\+Listdir()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00415}{do\+\_\+mkdir()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00290}{do\+\_\+mount()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00431}{do\+\_\+move()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00532}{do\+\_\+rename()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00283}{do\+\_\+reset()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00470}{do\+\_\+run()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00305}{do\+\_\+umount()}}, \mbox{\hyperlink{sdcard_8cpp_source_l00565}{do\+Cat()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00587}{free\+\_\+script\+Prog()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00236}{get\+Script\+Program\+File()}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00121}{Get\+String\+From\+Serial()}}, \mbox{\hyperlink{main_8cpp_source_l00032}{global\+Serial\+COMvar}}, \mbox{\hyperlink{serialmessage_8h_source_l00034}{INTER\+\_\+\+ACTIVE\+\_\+\+MODE\+\_\+\+MAX\+\_\+\+LENGTH\+\_\+\+OF\+\_\+\+THE\+\_\+\+STRING}}, \mbox{\hyperlink{for__loop_8cpp_source_l00031}{nested\+Forloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00035}{nested\+For\+Whileloop}}, \mbox{\hyperlink{for__loop_8cpp_source_l00033}{nested\+Whileloop}}, \mbox{\hyperlink{serialmessage_8cpp_source_l00275}{print\+\_\+help()}}, \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{Tokenize\+To\+File\+::run\+Interactive()}}, \mbox{\hyperlink{interactive_8cpp_source_l00036}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME}}, \mbox{\hyperlink{interactive_8cpp_source_l00042}{SCRIPT\+\_\+\+PROG\+\_\+\+NAME\+\_\+\+DAD}}, \mbox{\hyperlink{common_8cpp_source_l00301}{script\+System\+\_\+script\+\_\+run()}}, \mbox{\hyperlink{interactive_8cpp_source_l00052}{Stop\+Execution}}, and \mbox{\hyperlink{tokens_8cpp_source_l00324}{token\+\_\+initialize\+Inter\+Active()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00080}{main()}}.
+
+Here is the call graph for this function\+:
+% FIG 13
+Here is the caller graph for this function\+:
+% FIG 14
+\Hypertarget{serialmessage_8h_a402ea961bfc2ffeee61e3a7c330b1559}\label{serialmessage_8h_a402ea961bfc2ffeee61e3a7c330b1559} 
+\index{serialmessage.h@{serialmessage.h}!print\_help@{print\_help}}
+\index{print\_help@{print\_help}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{print\_help()}{print\_help()}}
+{\footnotesize\ttfamily void print\+\_\+help (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Draw/write the interface menu-\/ Serial terminal
+
+The function will print a help message to the terminal. 
+
+Definition at line \mbox{\hyperlink{serialmessage_8cpp_source_l00275}{275}} of file \mbox{\hyperlink{serialmessage_8cpp_source}{serialmessage.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{serialmessage_8cpp_source_l00179}{clear\+And\+Home()}}.
+
+
+
+Referenced by \mbox{\hyperlink{sdcard_8cpp_source_l00195}{del\+All\+Files\+\_\+\+SDCard()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16
+\Hypertarget{serialmessage_8h_a70ab3af6324ea9a7628db026dc6d8b1d}\label{serialmessage_8h_a70ab3af6324ea9a7628db026dc6d8b1d} 
+\index{serialmessage.h@{serialmessage.h}!RUN\_MENU@{RUN\_MENU}}
+\index{RUN\_MENU@{RUN\_MENU}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{RUN\_MENU()}{RUN\_MENU()}}
+{\footnotesize\ttfamily void RUN\+\_\+\+MENU (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+User interface -\/ Serial terminal \Hypertarget{serialmessage_8h_a4e0e944e6165eb29b0c700d60469793d}\label{serialmessage_8h_a4e0e944e6165eb29b0c700d60469793d} 
+\index{serialmessage.h@{serialmessage.h}!SerialThreadFunction@{SerialThreadFunction}}
+\index{SerialThreadFunction@{SerialThreadFunction}!serialmessage.h@{serialmessage.h}}
+\doxysubsubsection{\texorpdfstring{SerialThreadFunction()}{SerialThreadFunction()}}
+{\footnotesize\ttfamily void Serial\+Thread\+Function (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Thread to run the Menu 

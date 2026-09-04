@@ -1,0 +1,17 @@
+/*!
+
+*\page cls CLS the Screen
+*
+* This instruction clears both terminal screens (debug and serial terminals).<BR>
+*<span style='color:blue'><em><H4> Syntax: </H4></em></span>
+*<B> cls;  </B>
+*<BR><B> or  </B>
+*<BR><B> clear;  </B><br>
+* <span style='color:blue'><em><B> <br>
+Example:
+</B> </em> </span><br>
+*   cls;	  						&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem clear the terminal</span><br>
+*	print "Hello World\n";	&nbsp;&nbsp;&nbsp;  <span style='color:green'> rem send to the terminal 'Hello World\\n'</span>
+*
+*
+*/

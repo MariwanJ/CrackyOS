@@ -1,0 +1,95 @@
+\doxysection{Cracky\+OS/src/spi\+\_\+hw.h File Reference}
+\hypertarget{spi__hw_8h}{}\label{spi__hw_8h}\index{CrackyOS/src/spi\_hw.h@{CrackyOS/src/spi\_hw.h}}
+
+
+This file contains SPI instructions.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+Include dependency graph for spi\+\_\+hw.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_decoder_g_p_i_oclass}{Decoder\+GPIOclass}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{spi__hw_8h_ad7c03f4176b7164745749a4e04860ee5}{SPIVar\+Type}} 
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{spi__hw_8h_a1b6101d14ed973a93f1a381b79f0c62e}{Send\+Receive\+SPI\+\_\+\+Device}} (unsigned char DEVICE\+\_\+\+ID, int number\+Of\+Bytes\+Will\+Be\+Returned, unsigned int send\+Data\+To\+Slave, int global\+Variable\+Data, int global\+Variable\+Results, spi\+Data\+Size Data\+Size, int spi\+\_\+frequency, int spi\+\_\+mode, int Delay\+Between\+Packets)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains SPI instructions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{spi__hw_8h_source}{spi\+\_\+hw.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{spi__hw_8h_ad7c03f4176b7164745749a4e04860ee5}\label{spi__hw_8h_ad7c03f4176b7164745749a4e04860ee5} 
+\index{spi\_hw.h@{spi\_hw.h}!SPIVarType@{SPIVarType}}
+\index{SPIVarType@{SPIVarType}!spi\_hw.h@{spi\_hw.h}}
+\doxysubsubsection{\texorpdfstring{SPIVarType}{SPIVarType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{spi__hw_8h_ad7c03f4176b7164745749a4e04860ee5}{SPIVar\+Type}}}
+
+Based on the device CD74\+HC4067, CS should be connected to pin no. 1 \doxysubsubsection*{WARNING! You should use pull up resistor for the CS pins }
+
+comm IN/\+OUT\texorpdfstring{$\vert$}{|}1 24\texorpdfstring{$\vert$}{|} VCC I7 \texorpdfstring{$\vert$}{|}2 23\texorpdfstring{$\vert$}{|} I8 I6 \texorpdfstring{$\vert$}{|}3 22\texorpdfstring{$\vert$}{|} I9 I5 \texorpdfstring{$\vert$}{|}4 21\texorpdfstring{$\vert$}{|} I10 I4 \texorpdfstring{$\vert$}{|}5 20\texorpdfstring{$\vert$}{|} I11 I3 \texorpdfstring{$\vert$}{|}6 19\texorpdfstring{$\vert$}{|} I12 I2 \texorpdfstring{$\vert$}{|}7 18\texorpdfstring{$\vert$}{|} I13 I1 \texorpdfstring{$\vert$}{|}8 17\texorpdfstring{$\vert$}{|} I14 I0 \texorpdfstring{$\vert$}{|}9 16\texorpdfstring{$\vert$}{|} I15 S0 \texorpdfstring{$\vert$}{|}10 15\texorpdfstring{$\vert$}{|} Invert\+\_\+\+Enable S1 \texorpdfstring{$\vert$}{|}11 14\texorpdfstring{$\vert$}{|} S2 \doxysubsubsection*{GND \texorpdfstring{$\vert$}{|}12 13\texorpdfstring{$\vert$}{|} S3 }
+
+CD74\+HC4067 
+
+Definition at line \mbox{\hyperlink{spi__hw_8h_source_l00066}{66}} of file \mbox{\hyperlink{spi__hw_8h_source}{spi\+\_\+hw.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{spi__hw_8h_a1b6101d14ed973a93f1a381b79f0c62e}\label{spi__hw_8h_a1b6101d14ed973a93f1a381b79f0c62e} 
+\index{spi\_hw.h@{spi\_hw.h}!SendReceiveSPI\_Device@{SendReceiveSPI\_Device}}
+\index{SendReceiveSPI\_Device@{SendReceiveSPI\_Device}!spi\_hw.h@{spi\_hw.h}}
+\doxysubsubsection{\texorpdfstring{SendReceiveSPI\_Device()}{SendReceiveSPI\_Device()}}
+{\footnotesize\ttfamily void Send\+Receive\+SPI\+\_\+\+Device (\begin{DoxyParamCaption}\item[{unsigned char}]{DEVICE\+\_\+\+ID,  }\item[{int}]{number\+Of\+Bytes\+Will\+Be\+Returned,  }\item[{unsigned int}]{send\+Data\+To\+Slave,  }\item[{int}]{global\+Variable\+Data,  }\item[{int}]{global\+Variable\+Results,  }\item[{spi\+Data\+Size}]{Data\+Size,  }\item[{int}]{spi\+\_\+frequency,  }\item[{int}]{spi\+\_\+mode,  }\item[{int}]{Delay\+Between\+Packets }\end{DoxyParamCaption})}
+
+SPI communication function.
+
+Definition at line \mbox{\hyperlink{spi__hw_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{spi__hw_8cpp_source}{spi\+\_\+hw.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, \mbox{\hyperlink{tokens_8cpp_source_l00055}{script\+\_\+variables}}, \mbox{\hyperlink{types_8h_source_l00683}{Global\+Variables\+::size\+Of\+Array}}, \mbox{\hyperlink{types_8h_source_l00666}{Global\+Variables\+::tag}}, and \mbox{\hyperlink{types_8h_source_l00679}{Global\+Variables\+::\+Value}}.
+
+
+
+Referenced by \mbox{\hyperlink{spi__hw_8cpp_source_l00282}{token\+\_\+spi\+\_\+send()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3

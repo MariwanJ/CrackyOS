@@ -1,0 +1,217 @@
+\doxysection{Cracky\+OS/src/tokenizetofile.h File Reference}
+\hypertarget{tokenizetofile_8h}{}\label{tokenizetofile_8h}\index{CrackyOS/src/tokenizetofile.h@{CrackyOS/src/tokenizetofile.h}}
+
+
+This file contains percompiling mechanizim functions definitions.  
+
+
+{\ttfamily \#include \"{}hardware\+\_\+used.\+h\"{}}\newline
+Include dependency graph for tokenizetofile.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_tokenize_to_file}{Tokenize\+To\+File}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tokenizetofile_8h_a706068f562dd5c64a8b7bbd4b2298dd1}{MAX\+\_\+\+LINE\+\_\+\+SIZE}}~1024
+\item 
+\#define \mbox{\hyperlink{tokenizetofile_8h_a060a34fe8229a960f4250e93b346144d}{MAX\+\_\+\+TOKEN\+\_\+\+SIZE}}~256
+\item 
+\#define \mbox{\hyperlink{tokenizetofile_8h_a774a906ceb2672aee07483be36134011}{MAX\+\_\+\+INT\+\_\+\+SIZE}}~14
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tokenizetofile_8h_a223b611e556f247af4037f2da83ae382}{add\+New\+Item\+To\+Linked\+List}} ()
+\item 
+unsigned int \mbox{\hyperlink{tokenizetofile_8h_ad56fedd65da20cb5cb6c112a62e1481f}{countlines}} (const char \texorpdfstring{$\ast$}{*}filename)
+\item 
+int \mbox{\hyperlink{tokenizetofile_8h_aaf4bd95078f66090aa460d7b9cfacb1f}{read\+Tolinked\+List}} (const char \texorpdfstring{$\ast$}{*}filename, unsigned int lines)
+\item 
+void \mbox{\hyperlink{tokenizetofile_8h_ad920367658f41912f4a583563baf71b3}{free\+\_\+script\+Prog}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains percompiling mechanizim functions definitions. 
+
+\begin{DoxyAuthor}{Author}
+Mariwan Jalal 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+Copyright (C) 2026 Mariwan Jalal
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/3.\+0-\/or-\/later
+
+Cracky\+OS is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Cracky\+OS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 
+
+Definition in file \mbox{\hyperlink{tokenizetofile_8h_source}{tokenizetofile.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{tokenizetofile_8h_a774a906ceb2672aee07483be36134011}\label{tokenizetofile_8h_a774a906ceb2672aee07483be36134011} 
+\index{tokenizetofile.h@{tokenizetofile.h}!MAX\_INT\_SIZE@{MAX\_INT\_SIZE}}
+\index{MAX\_INT\_SIZE@{MAX\_INT\_SIZE}!tokenizetofile.h@{tokenizetofile.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_INT\_SIZE}{MAX\_INT\_SIZE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+INT\+\_\+\+SIZE~14}
+
+Max INT size. This is used for a buffer to tokinize any decimal number you cannot have a number in text bigger than 14 bytes ..et 123.... 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8h_source_l00044}{44}} of file \mbox{\hyperlink{tokenizetofile_8h_source}{tokenizetofile.\+h}}.
+
+\Hypertarget{tokenizetofile_8h_a706068f562dd5c64a8b7bbd4b2298dd1}\label{tokenizetofile_8h_a706068f562dd5c64a8b7bbd4b2298dd1} 
+\index{tokenizetofile.h@{tokenizetofile.h}!MAX\_LINE\_SIZE@{MAX\_LINE\_SIZE}}
+\index{MAX\_LINE\_SIZE@{MAX\_LINE\_SIZE}!tokenizetofile.h@{tokenizetofile.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_LINE\_SIZE}{MAX\_LINE\_SIZE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+LINE\+\_\+\+SIZE~1024}
+
+Max line size inside the script program. 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8h_source_l00035}{35}} of file \mbox{\hyperlink{tokenizetofile_8h_source}{tokenizetofile.\+h}}.
+
+\Hypertarget{tokenizetofile_8h_a060a34fe8229a960f4250e93b346144d}\label{tokenizetofile_8h_a060a34fe8229a960f4250e93b346144d} 
+\index{tokenizetofile.h@{tokenizetofile.h}!MAX\_TOKEN\_SIZE@{MAX\_TOKEN\_SIZE}}
+\index{MAX\_TOKEN\_SIZE@{MAX\_TOKEN\_SIZE}!tokenizetofile.h@{tokenizetofile.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_TOKEN\_SIZE}{MAX\_TOKEN\_SIZE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+TOKEN\+\_\+\+SIZE~256}
+
+Max token size inside the script program. 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8h_source_l00039}{39}} of file \mbox{\hyperlink{tokenizetofile_8h_source}{tokenizetofile.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tokenizetofile_8h_a223b611e556f247af4037f2da83ae382}\label{tokenizetofile_8h_a223b611e556f247af4037f2da83ae382} 
+\index{tokenizetofile.h@{tokenizetofile.h}!addNewItemToLinkedList@{addNewItemToLinkedList}}
+\index{addNewItemToLinkedList@{addNewItemToLinkedList}!tokenizetofile.h@{tokenizetofile.h}}
+\doxysubsubsection{\texorpdfstring{addNewItemToLinkedList()}{addNewItemToLinkedList()}}
+{\footnotesize\ttfamily void add\+New\+Item\+To\+Linked\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+add new item to the script\+Prog linked list. It take care of adding and initializing the new item.
+
+add new item to the script\+Prog linked list 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00029}{script\+Prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokenizetofile_8cpp_source_l00509}{read\+Tolinked\+List()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00614}{Tokenize\+To\+File\+::run\+Interactive()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{tokenizetofile_8h_ad56fedd65da20cb5cb6c112a62e1481f}\label{tokenizetofile_8h_ad56fedd65da20cb5cb6c112a62e1481f} 
+\index{tokenizetofile.h@{tokenizetofile.h}!countlines@{countlines}}
+\index{countlines@{countlines}!tokenizetofile.h@{tokenizetofile.h}}
+\doxysubsubsection{\texorpdfstring{countlines()}{countlines()}}
+{\footnotesize\ttfamily unsigned int countlines (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+A function that counts the no. of lines in a file. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & pointer to a string (filename)\\
+\hline
+\end{DoxyParams}
+This function will count the number of lines available for the given filename 
+\begin{DoxyParams}{Parameters}
+{\em filename} & A filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int value represent the total line numbers. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00563}{563}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{tokenizetofile_8h_ad920367658f41912f4a583563baf71b3}\label{tokenizetofile_8h_ad920367658f41912f4a583563baf71b3} 
+\index{tokenizetofile.h@{tokenizetofile.h}!free\_scriptProg@{free\_scriptProg}}
+\index{free\_scriptProg@{free\_scriptProg}!tokenizetofile.h@{tokenizetofile.h}}
+\doxysubsubsection{\texorpdfstring{free\_scriptProg()}{free\_scriptProg()}}
+{\footnotesize\ttfamily void free\+\_\+script\+Prog (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function will erase the linked list from the memory and free up the RAM
+
+Remove the linked list items from memory 
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00587}{587}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokenizetofile_8cpp_source_l00029}{script\+Prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00835}{Clean\+Up\+Mem\+To\+Original()}}, and \mbox{\hyperlink{interactive_8cpp_source_l00277}{interactive\+\_\+mode()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{tokenizetofile_8h_aaf4bd95078f66090aa460d7b9cfacb1f}\label{tokenizetofile_8h_aaf4bd95078f66090aa460d7b9cfacb1f} 
+\index{tokenizetofile.h@{tokenizetofile.h}!readTolinkedList@{readTolinkedList}}
+\index{readTolinkedList@{readTolinkedList}!tokenizetofile.h@{tokenizetofile.h}}
+\doxysubsubsection{\texorpdfstring{readTolinkedList()}{readTolinkedList()}}
+{\footnotesize\ttfamily int read\+Tolinked\+List (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{unsigned int}]{lines }\end{DoxyParamCaption})}
+
+A function that load a .dad file (analyzed token script program) to the memory of the system 
+\begin{DoxyParams}{Parameters}
+{\em filename} & file name \\
+\hline
+{\em lines} & number of lines\\
+\hline
+\end{DoxyParams}
+Load from the file the linked list which contains the code
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A file name to load the tokinized instructions. \\
+\hline
+{\em lines} & Number of lines to load. \\
+\hline
+\end{DoxyParams}
+We should avoid having ~\newline
+ in all token words and strings we save in memory. We should have it in the .dad file but, not in the memory. 2020-\/03-\/05
+
+Definition at line \mbox{\hyperlink{tokenizetofile_8cpp_source_l00509}{509}} of file \mbox{\hyperlink{tokenizetofile_8cpp_source}{tokenizetofile.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{tokenizetofile_8cpp_source_l00034}{add\+New\+Item\+To\+Linked\+List()}}, \mbox{\hyperlink{types_8h_source_l00045}{DEBUG\+\_\+\+MESSAGE}}, \mbox{\hyperlink{tokenizetofile_8h_source_l00039}{MAX\+\_\+\+TOKEN\+\_\+\+SIZE}}, \mbox{\hyperlink{tokens_8cpp_source_l00033}{p\+\_\+prog}}, \mbox{\hyperlink{tokens_8cpp_source_l00498}{quit\+Script\+Program()}}, and \mbox{\hyperlink{tokenizetofile_8cpp_source_l00029}{script\+Prog}}.
+
+
+
+Referenced by \mbox{\hyperlink{tokens_8cpp_source_l00370}{token\+\_\+initialize()}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
